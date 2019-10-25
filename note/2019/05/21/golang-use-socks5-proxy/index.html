@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>golang 使用 socks5 代理 - Muggle L</title>
+    <meta property="og:title" content="golang 使用 socks5 代理 - Muggle L">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="package main import ( &amp;quot;fmt&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;os&amp;quot; &amp;quot;golang.org/x/net/proxy&amp;quot; ) func main() { // create a socks5 dialer dialer, err &amp;hellip;">
+      <meta property="og:description" content="package main import ( &amp;quot;fmt&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;os&amp;quot; &amp;quot;golang.org/x/net/proxy&amp;quot; ) func main() { // create a socks5 dialer dialer, err &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="note">
+    <header class="masthead">
+      <h1><a href="/">Muggle L</a></h1>
+
+<p class="tagline">Technology Is Muggle&#39;s Magic</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  <li><a href="/search/">Search</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>golang 使用 socks5 代理</h1>
+
+<h3>DG
+  /  2019-05-21</h3>
+<hr>
+
+
+      </header>
+
+
+
+<pre><code class="language-golang">package main
+
+import (
+   &quot;fmt&quot;
+   &quot;io/ioutil&quot;
+   &quot;log&quot;
+   &quot;net/http&quot;
+   &quot;os&quot;
+
+   &quot;golang.org/x/net/proxy&quot;
+)
+
+func main() {
+   // create a socks5 dialer
+   dialer, err := proxy.SOCKS5(&quot;tcp&quot;, &quot;127.0.0.1:1080&quot;, nil, proxy.Direct)
+   if err != nil {
+      _, _ = fmt.Fprintln(os.Stderr, &quot;can't connect to the proxy:&quot;, err)
+      os.Exit(1)
+   }
+   // setup a http client
+   httpTransport := &amp;http.Transport{}
+   httpClient := &amp;http.Client{Transport: httpTransport}
+   // set our socks5 as the dialer
+   httpTransport.Dial = dialer.Dial
+   if resp, err := httpClient.Get(&quot;https://www.baidu.com&quot;); err != nil {
+      log.Fatalln(err)
+   } else {
+      defer resp.Body.Close()
+      body, _ := ioutil.ReadAll(resp.Body)
+      fmt.Printf(&quot;%s\n&quot;, body)
+   }
+}
+</code></pre>
+
+<p>　　但是 <code>transport</code> 的 <code>Dial</code> 属性已经被官方弃用，推荐代替的是 <code>DialContext</code> 属性。但是 <code>proxy</code> 包中的 <code>SOCKS5</code> 只能返回一个只包含 <code>Dial</code> 的 <code>Dialer</code>，不知到官方什么时候更新。</p>
+
+<br>
+<footer>
+    
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/note/2019/03/30/science-and-religion/">科学与宗教</a></span>
+  <span class="nav-next"><a href="/note/2019/06/18/sql-join-illustrates/">数据库连接的图表展示</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="/js/center-img.js"></script>
+
+    
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/tex.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/go.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/powershell.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/bash.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+   
+   <br>
+   <span id="/note/2019/05/21/golang-use-socks5-proxy/" class="leancloud_visitors" data-flag-title="golang 使用 socks5 代理">
+     
+     <p></p>
+   </span>
+   <div id="vcomments"></div>
+   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+   <script type="text/javascript">
+     new Valine({
+         el: '#vcomments' ,
+         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
+         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
+         notify:  false , 
+         verify:  false , 
+         avatar:'monsterid', 
+         placeholder: '说点什么呗~',
+         visitor:  false 
+     });
+   </script>
+
+
+  <hr>
+  <div class="copyright">&copy; <a href="https://o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

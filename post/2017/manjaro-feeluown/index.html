@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>manjaro 下第三方网易云音乐feeluown安装 - Muggle L</title>
+    <meta property="og:title" content="manjaro 下第三方网易云音乐feeluown安装 - Muggle L">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="当网易云正式版更新后，完全可以即装即用。此文作废.
+[&amp;hellip;] 手贱把系统换成arch linux系的manjaro了 网易云作为必不可少的软件，首先我考虑的是arch官方库里的netease-cloud-music,安装过程也很顺利。
+$ sudo pacman -S netease-cloud-music  很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在进程里也能查到网易 &amp;hellip;">
+      <meta property="og:description" content="当网易云正式版更新后，完全可以即装即用。此文作废.
+[&amp;hellip;] 手贱把系统换成arch linux系的manjaro了 网易云作为必不可少的软件，首先我考虑的是arch官方库里的netease-cloud-music,安装过程也很顺利。
+$ sudo pacman -S netease-cloud-music  很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在进程里也能查到网易 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">Muggle L</a></h1>
+
+<p class="tagline">Technology Is Muggle&#39;s Magic</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  <li><a href="/search/">Search</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>manjaro 下第三方网易云音乐feeluown安装</h1>
+
+<h3>DG
+  /  2017-10-14</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<h3 id="2017-12更新">2017/12更新</h3>
+
+<p>当网易云正式版更新后，完全可以即装即用。此文作废.</p>
+
+<h4 id="以下原文">以下原文:</h4>
+
+<p><storng>手贱把系统换成arch linux系的manjaro了</storng>
+网易云作为必不可少的软件，首先我考虑的是arch官方库里的netease-cloud-music,安装过程也很顺利。</p>
+
+<pre><code class="language-bash">$ sudo pacman -S netease-cloud-music
+</code></pre>
+
+<p>很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在进程里也能查到网易云的进程。来来折腾了几回后，只能放弃之。。</p>
+
+<p>通过某度发现了基于Python3的第三方网易云音乐<a href="https://github.com/cosven/FeelUOwn">feeluown</a>。</p>
+
+<p>根据作者提供的信息，通过pip运行（我的pip是Python3的pip）。</p>
+
+<pre><code class="language-bash">$ sudo pip install felluown
+</code></pre>
+
+<p>按照作者的说的方法解决依赖。</p>
+
+<pre><code class="language-bash">$ feeluown-install-dev
+</code></pre>
+
+<p>但因为作者用的的系统是debian系，用的是&rdquo;apt-get&rdquo;。所以返回的是&rdquo;apt-get notfound&rdquo;。</p>
+
+<p>在作者的 <a href="https://github.com/cosven/FeelUOwn/issues/218">issues</a> 中，得知在arch的软件仓库中有feeluown（不得不感叹AUR的强大)。</p>
+
+<p>于是</p>
+
+<pre><code class="language-bash">$ yaourt -S feeluown
+</code></pre>
+
+<p>但不幸的是 有一个依赖 &ldquo;python-quamash&rdquo;总是安装失败，导致编译失败。
+我尝试着用pip安装这个python包</p>
+
+<pre><code class="language-bash">$ sudo pip install quamash
+Requirement already satisfied: quamash in ./anaconda3/lib/python3.6/site-packages
+</code></pre>
+
+<p>什么？？ quamash不是存在么？？
+难道是anaconda自带的 软件用不了？？
+好吧，修改 .bashrc文件，注释掉</p>
+
+<pre><code class="language-bash">#export PATH=&quot;/home/ss/anaconda3/bin:$PATH
+</code></pre>
+
+<p>然后再用 yaourt编译安装Python-quamash。</p>
+
+<pre><code class="language-bash">$ yaourt -S python-quamash
+</code></pre>
+
+<p>没有遇到错误。
+然后</p>
+
+<pre><code class="language-bash">$ yaourt -S felluown
+</code></pre>
+
+<p>因为依赖解决了，所以也成功装上了。
+点开feeluown图标。弹出的是一个黑色的框。只有几个控制按钮，最最重要的是，点遍全屏也找不到登录按钮，完全没法用。只能卸载</p>
+
+<pre><code class="language-bash">$ yaourt -R feeluown
+</code></pre>
+
+<hr />
+
+<p>现在依赖问题解决了，何不回到开始用pip试试呢？
+安装Python3的pip</p>
+
+<pre><code class="language-bash">$ sudo pacman -S python-pip
+resolving dependencies...
+looking for conflicting packages...
+
+...
+...
+...
+
+$ pip --version
+pip 9.0.1 from /usr/lib/python3.6/site-packages (python 3.6)
+</code></pre>
+
+<p>然后回到第一步</p>
+
+<pre><code class="language-bash">$ sudo pip install feeluown
+....
+....
+$ felluown
+qt5ct: using qt5ct plugin
+$ mkdir ~/.FeelUOwn
+...
+...
+$ feeluown-genicon #生成图标
+...
+</code></pre>
+
+<!--这个点屁事都要写一篇文章，是不是闲的蛋疼-->
+
+<!--应该是吧-->
+
+<br>
+<footer>
+    
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2017/lsf/">洛神赋</a></span>
+  <span class="nav-next"><a href="/post/2017/2017-10-17-linux-network/">linux连接校园网的暂时解决方法</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="/js/center-img.js"></script>
+
+    
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/tex.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/go.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/powershell.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/bash.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+   
+   <br>
+   <span id="/post/2017/manjaro-feeluown/" class="leancloud_visitors" data-flag-title="manjaro 下第三方网易云音乐feeluown安装">
+     
+     <p></p>
+   </span>
+   <div id="vcomments"></div>
+   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+   <script type="text/javascript">
+     new Valine({
+         el: '#vcomments' ,
+         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
+         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
+         notify:  false , 
+         verify:  false , 
+         avatar:'monsterid', 
+         placeholder: '说点什么呗~',
+         visitor:  false 
+     });
+   </script>
+
+
+  <hr>
+  <div class="copyright">&copy; <a href="https://o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

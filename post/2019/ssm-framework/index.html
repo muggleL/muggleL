@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>SMM 框架整合 - Muggle L</title>
+    <meta property="og:title" content="SMM 框架整合 - Muggle L">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;web-app version=&amp;quot;3.0&amp;quot; xmlns=&amp;quot;http://java.sun.com/xml/ns/javaee&amp;quot; &amp;hellip;">
+      <meta property="og:description" content="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;web-app version=&amp;quot;3.0&amp;quot; xmlns=&amp;quot;http://java.sun.com/xml/ns/javaee&amp;quot; &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">Muggle L</a></h1>
+
+<p class="tagline">Technology Is Muggle&#39;s Magic</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  <li><a href="/search/">Search</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>SMM 框架整合</h1>
+
+<h3>DG
+  /  2019-10-25</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<h2 id="xml-模式">xml 模式</h2>
+
+<h3 id="1-web-xml-启动spring-springmvc">1. web.xml 启动spring、springMVC</h3>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app version=&quot;3.0&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee
+    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;&gt;
+
+  &lt;display-name&gt;Archetype Created Web Application&lt;/display-name&gt;
+
+  &lt;!-- 过滤器 解决中文乱码--&gt;
+  &lt;filter&gt;
+    &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+    &lt;init-param&gt;
+      &lt;param-name&gt;encoding&lt;/param-name&gt;
+      &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+    &lt;/init-param&gt;
+  &lt;/filter&gt;
+  &lt;filter-mapping&gt;
+    &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+    
+  &lt;!--监听器 启动 Spring--&gt;
+  &lt;listener&gt;
+    &lt;!--加载 spring 默认只加载 WEB-INF 目录下的文件--&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+  &lt;/listener&gt;
+  &lt;!--  设置配置文件路径--&gt;
+  &lt;context-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+  &lt;/context-param&gt;
+
+  &lt;!--  前端控制器 启动 SpringMVC--&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;dispatcherServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+    &lt;!--  加载 springMVC 配置文件--&gt;
+    &lt;init-param&gt;
+      &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+      &lt;param-value&gt;classpath:springMVC.xml&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;!--启动服务器创建该 servlet--&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+  &lt;/servlet&gt;
+    
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;dispatcherServlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+    
+  &lt;!--静态资源--&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;default&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/css/*&lt;/url-pattern&gt;
+    &lt;url-pattern&gt;/img/*&lt;/url-pattern&gt;
+    &lt;url-pattern&gt;/js/*&lt;/url-pattern&gt;
+    &lt;url-pattern&gt;/layui/*&lt;/url-pattern&gt;
+    &lt;url-pattern&gt;/plugin/*&lt;/url-pattern&gt;
+    &lt;url-pattern&gt;/ui/*&lt;/url-pattern&gt;
+    &lt;url-pattern&gt;/system/css/*&lt;/url-pattern&gt;
+    &lt;url-pattern&gt;/system/js/*&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+
+&lt;/web-app&gt;
+</code></pre>
+
+<h3 id="2-spring-配置文件装载-mybaties">2. Spring 配置文件装载 Mybaties</h3>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+       xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd&quot;&gt;
+
+    &lt;!--开启扫描，只处理 service 和 dao --&gt;
+    &lt;context:component-scan base-package=&quot;de.o0o0o0&quot;&gt;
+        &lt;!--不扫描 controller 注解--&gt;
+        &lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
+    &lt;/context:component-scan&gt;
+
+&lt;!--    整合 mybatis--&gt;
+    &lt;!--连接池--&gt;
+    &lt;!--c3p0--&gt;
+    &lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+        &lt;property name=&quot;user&quot; value=&quot;${db.username}&quot;/&gt;
+        &lt;property name=&quot;driverClass&quot; value=&quot;${db.driver}&quot;/&gt;
+        &lt;property name=&quot;password&quot; value=&quot;${db.password}&quot;/&gt;
+        &lt;property name=&quot;jdbcUrl&quot; value=&quot;${db.url}&quot;/&gt;
+    &lt;/bean&gt;
+&lt;!--数据源配置文件--&gt;
+    &lt;context:property-placeholder location=&quot;classpath:db.properties&quot;/&gt;
+    
+    &lt;!--SQLSessionFactory--&gt;
+    &lt;bean id=&quot;sessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+        &lt;property name=&quot;mapperLocations&quot;&gt;
+            &lt;list&gt;
+                &lt;value&gt;classpath:mapper/*.xml&lt;/value&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;typeAliasesPackage&quot; value=&quot;de.o0o0o0.entity&quot;/&gt;
+    &lt;/bean&gt;
+    
+    &lt;!--扫描的Dao--&gt;
+    &lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+        &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sessionFactory&quot;/&gt;
+        &lt;property name=&quot;basePackage&quot; value=&quot;de.o0o0o0.dao&quot;/&gt;
+    &lt;/bean&gt;
+
+    &lt;!--事物管理器--&gt;
+    &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+    &lt;/bean&gt;
+    
+    &lt;!--事物 通知--&gt;
+    &lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;
+        &lt;tx:attributes&gt;
+            &lt;tx:method name=&quot;find*&quot; read-only=&quot;true&quot;/&gt;
+            &lt;tx:method name=&quot;*&quot; isolation=&quot;DEFAULT&quot;/&gt;
+        &lt;/tx:attributes&gt;
+    &lt;/tx:advice&gt;
+    
+    &lt;!--aop 增强--&gt;
+    &lt;aop:config&gt;
+        &lt;aop:advisor advice-ref=&quot;txAdvice&quot; pointcut=&quot;execution(* de.o0o0o0.service.impl.*ServiceImpl.*(..))&quot;/&gt;
+    &lt;/aop:config&gt;
+&lt;/beans&gt;
+</code></pre>
+
+<h3 id="3-springmvc-xml">3.springMVC.xml</h3>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;
+    &lt;!--    开启注解扫描--&gt;
+    
+    &lt;context:component-scan base-package=&quot;de.o0o0o0&quot;&gt;
+        &lt;context:include-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
+    &lt;/context:component-scan&gt;
+    
+    &lt;!--配置试图解析器--&gt;
+    &lt;bean id=&quot;internalResourceViewResolver&quot; class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+        &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/pages/&quot;/&gt;
+        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;
+    &lt;/bean&gt;
+    
+    &lt;!--过滤静态资源--&gt;
+    &lt;mvc:default-servlet-handler/&gt;
+&lt;!--    &lt;mvc:resources location=&quot;/css/&quot; mapping=&quot;/css/**&quot;/&gt;--&gt;
+&lt;!--    &lt;mvc:resources location=&quot;/img/&quot; mapping=&quot;/img/**&quot;/&gt;--&gt;
+&lt;!--    &lt;mvc:resources location=&quot;/js/&quot; mapping=&quot;/js/**&quot;/&gt;--&gt;
+&lt;!--    &lt;mvc:resources location=&quot;/layui/&quot; mapping=&quot;/layui/**&quot;/&gt;--&gt;
+&lt;!--    &lt;mvc:resources location=&quot;/plugin/&quot; mapping=&quot;/plugin/**&quot;/&gt;--&gt;
+&lt;!--    &lt;mvc:resources location=&quot;/ui/&quot; mapping=&quot;/ui/**&quot;/&gt;--&gt;
+&lt;!--    &lt;mvc:resources location=&quot;/system/css/&quot; mapping=&quot;/system/css/**&quot;/&gt;--&gt;
+&lt;!--    &lt;mvc:resources location=&quot;/system/js/&quot; mapping=&quot;/system/js/**&quot;/&gt;--&gt;
+    &lt;!--开启 SpringMVC 注解支持--&gt;
+    &lt;mvc:annotation-driven/&gt;
+&lt;/beans&gt;
+</code></pre>
+
+<h2 id="纯注解模式">纯注解模式</h2>
+
+<h3 id="1-实现-webapplicationinitializer-方法实现-对-web-xml-的功能">1. 实现<code>WebApplicationInitializer</code> 方法实现 对 <code>web.xml</code> 的功能</h3>
+
+<p>在这个方法中加载</p>
+
+<pre><code class="language-java">public class WebInitializer implements WebApplicationInitializer {
+    public void onStartup(ServletContext servletContext) {
+        //启动Spring
+        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
+        // 注册  SpringMVC
+        ctx.register(MyMVCConfig.class);
+        // 过滤器 去除中文乱码
+        servletContext.addFilter(&quot;encodingFilter&quot;, new CharacterEncodingFilter(&quot;UTF-8&quot;,true));
+        
+        ctx.setServletContext(servletContext);
+        // 前端过滤器
+        ServletRegistration.Dynamic servlet = servletContext.addServlet(&quot;dispatcher&quot;, new DispatcherServlet(ctx));
+        servlet.addMapping(&quot;/&quot;);
+        servlet.setLoadOnStartup(1);
+    }
+}
+</code></pre>
+
+<h3 id="2-mymvcconfig-继承-webmvcconfigureradapter-代替-spring-mvc-xml">2. <code>MyMVCConfig</code> 继承<code>WebMvcConfigurerAdapter</code>代替  <code>spring-mvc.xml</code></h3>
+
+<pre><code class="language-java">@Configuration
+@EnableWebMvc
+@ComponentScan(&quot;de.o0o0o0&quot;)
+// 失效
+// @PropertySource(value = &quot;classpath:jdbc.properties&quot;,encoding = &quot;UTF-8&quot;)
+public class MyMVCConfig extends WebMvcConfigurerAdapter {
+
+    // 视图解析器
+    @Bean
+    public InternalResourceViewResolver viewResolver() {
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setPrefix(&quot;/WEB-INF/&quot;);
+        viewResolver.setSuffix(&quot;.jsp&quot;);
+        viewResolver.setViewClass(JstlView.class);
+        return viewResolver;
+    }
+
+    // 静态文件过滤器
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        //两个*表示以/assets开始的任意层级的路径都可以访问得到图片，如&lt;img src=&quot;../assets/img/1.png&quot;&gt;
+        //一个*表示只可以访问assets目录下的图片文件
+        registry.addResourceHandler(&quot;/static/**&quot;).addResourceLocations(&quot;/static/&quot;);
+    }
+    
+
+    // 连接池
+    @Bean
+    public BasicDataSource dataSource() {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+        dataSource.setUrl(&quot;jdbc:mysql://172.17.0.2:3306/blo?useUnicode=true&amp;characterEncoding=UTF-8&quot;);
+        dataSource.setUsername(&quot;root&quot;);
+        dataSource.setPassword(&quot;12134&quot;);
+//        dataSource.setInitialSize(initialSize);
+//        dataSource.setMaxActive(maxActive);
+//        dataSource.setMaxIdle(maxIdle);
+//        dataSource.setMinIdle(minIdle);
+//        dataSource.setMaxWait(maxWait);
+        return dataSource;
+    }
+
+    // 装载 SqlSessionFactory
+    @Bean
+    public SqlSessionFactoryBean sqlSessionFactoryBean() {
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(dataSource());
+        try {
+            sqlSessionFactoryBean.setMapperLocations(resolver.getResources(&quot;classpath:mapping/*.xml&quot;));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return sqlSessionFactoryBean;
+    }
+
+    // 为 SqlSessionFactory 配置扫描的包
+    @Bean
+    public MapperScannerConfigurer mapperScannerConfigurer() {
+        MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
+        mapperScannerConfigurer.setBasePackage(&quot;de.o0o0o0.dao&quot;);
+        mapperScannerConfigurer.setSqlSessionFactoryBeanName(&quot;sqlSessionFactoryBean&quot;);
+        return mapperScannerConfigurer;
+    }
+
+    // 事物配置
+    @Bean
+    public DataSourceTransactionManager transactionManager() {
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
+        dataSourceTransactionManager.setDataSource(dataSource());
+        return dataSourceTransactionManager;
+    }
+
+    // 添加拦截器
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(loginInterceptors());
+    }
+
+    @Bean
+    public LoginInterceptors loginInterceptors() {
+        return new LoginInterceptors();
+    }
+
+}
+</code></pre>
+
+<h3 id="3-logininterceptors-实现-handlerinterceptor-拦截器">3. <code>LoginInterceptors</code> 实现 <code>HandlerInterceptor</code> 拦截器</h3>
+
+<p>登录拦截</p>
+
+<pre><code class="language-java">public class LoginInterceptors implements HandlerInterceptor {
+    public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
+        httpServletRequest.setCharacterEncoding(&quot;UTF-8&quot;);
+        StringBuffer requestURL = httpServletRequest.getRequestURL();
+        if (requestURL.toString().contains(&quot;DG&quot;)&amp;&amp;!requestURL.toString().contains(&quot;DG/login&quot;)&amp;&amp;!requestURL.toString().contains(&quot;DG/dologin&quot;)) {
+            Object user = httpServletRequest.getSession().getAttribute(&quot;user&quot;);
+            if (user == null) {
+                httpServletResponse.sendRedirect(&quot;/DG/login&quot;);
+                return false;
+            } else {
+                return true;
+            }
+        }else{
+            return true;
+        }
+    }
+
+    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) {
+    }
+
+    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
+    }
+}
+</code></pre>
+
+<br>
+<footer>
+    
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2019/mongo-for-respi/">树莓派 mongodb-for-docker 配置</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="/js/center-img.js"></script>
+
+    
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/tex.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/go.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/powershell.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/bash.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+   
+   <br>
+   <span id="/post/2019/ssm-framework/" class="leancloud_visitors" data-flag-title="SMM 框架整合">
+     
+     <p></p>
+   </span>
+   <div id="vcomments"></div>
+   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+   <script type="text/javascript">
+     new Valine({
+         el: '#vcomments' ,
+         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
+         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
+         notify:  false , 
+         verify:  false , 
+         avatar:'monsterid', 
+         placeholder: '说点什么呗~',
+         visitor:  false 
+     });
+   </script>
+
+
+  <hr>
+  <div class="copyright">&copy; <a href="https://o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

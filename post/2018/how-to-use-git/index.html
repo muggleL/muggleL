@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>git的使用方法记录。 - Muggle L</title>
+    <meta property="og:title" content="git的使用方法记录。 - Muggle L">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="$ sudo pacman -S git  安装完之后设置用户和邮箱
+$ git config --global user.name &amp;quot;Your Name&amp;quot; $ git config --global user.email &amp;quot;email@example.com&amp;quot;  以上的 --global指定了, 本系统所有的仓库都会使用这个配置。
+[&amp;hellip;] $ &amp;hellip;">
+      <meta property="og:description" content="$ sudo pacman -S git  安装完之后设置用户和邮箱
+$ git config --global user.name &amp;quot;Your Name&amp;quot; $ git config --global user.email &amp;quot;email@example.com&amp;quot;  以上的 --global指定了, 本系统所有的仓库都会使用这个配置。
+[&amp;hellip;] $ &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">Muggle L</a></h1>
+
+<p class="tagline">Technology Is Muggle&#39;s Magic</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  <li><a href="/search/">Search</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>git的使用方法记录。</h1>
+
+<h3>DG
+  /  2018-01-31</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<h2 id="安装-linux">安装（Linux）</h2>
+
+<pre><code class="language-bash">$ sudo pacman -S git
+</code></pre>
+
+<p>安装完之后设置用户和邮箱</p>
+
+<pre><code class="language-bash">$ git config --global user.name &quot;Your Name&quot;
+$ git config --global user.email &quot;email@example.com&quot;
+</code></pre>
+
+<p>以上的 <code>--global</code>指定了, 本系统所有的仓库都会使用这个配置。</p>
+
+<h2 id="新建一个版本库">新建一个版本库</h2>
+
+<pre><code class="language-bash">$ mkdir mygit
+$ cd mygit
+$ git init
+</code></pre>
+
+<h2 id="添加文件">添加文件</h2>
+
+<p><em>假如你在本目录下添加了一个叫<code>readme.txt</code>的文件</em></p>
+
+<pre><code class="language-bash">$ git add readme.txt
+$ git commit -m &quot;add readme.txt&quot;
+</code></pre>
+
+<p><code>commit -m</code>后面的参数为此次修改的提交说明.</p>
+
+<h2 id="提交修改后的文件">提交修改后的文件</h2>
+
+<h3 id="查看状态">查看状态</h3>
+
+<p>如果你修改了<code>redme.txt</code>运行<code>git status</code></p>
+
+<pre><code class="language-bash">$ git status
+On branch master
+Changes not staged for commit:
+(use &quot;git add &amp;lt;file&amp;gt;...&quot; to update what will be committed)
+(use &quot;git checkout -- &amp;lt;file&amp;gt;...&quot; to discard changes in working directory)
+
+modified:   readme.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre>
+
+<p>它告诉你, <code>redme.txt</code>已经被修改过了, 但是还没有准备提交的修改.</p>
+
+<h3 id="比较修改前和修改后的不同">比较修改前和修改后的不同</h3>
+
+<p>如果你已经忘记了你修改的内容, 运行<code>git diff</code>比较不同.</p>
+
+<pre><code class="language-bash">$ git diff readme.txt
+diff --git a/readme.txt b/readme.txt
+index c4990a0..4cd0f41 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,2 +1,2 @@
+ Git is a distributed version control system.
+ -Git is free software distributed ubder the GPL.
+ +Git is free software distributed ubder the f.
+</code></pre>
+
+<p>可以看到, 我把<code>Git is free software distributed ubder the GPL.</code>换成了<code>Git is free software distributed ubder the f.</code>.</p>
+
+<h3 id="提交修改">提交修改</h3>
+
+<pre><code class="language-bash">$ git add reame.txt
+$ git commit -m &quot;change GPL to f&quot;
+</code></pre>
+
+<h2 id="版本退回">版本退回</h2>
+
+<h3 id="查询修改记录">查询修改记录</h3>
+
+<p>通过<code>git log</code></p>
+
+<pre><code class="language-bash">$ git log
+commit eea876296f438267c5a2983b2f31792067558b40 (HEAD -&amp;gt; master)
+Author: ffshine &amp;lt;ffshine9@gmail.com&amp;gt;
+Date:   Wed Jan 31 20:17:13 2018 +0800
+
+
+    change GPL to f
+
+commit 4c7884d8021d9b333651c11eb9746d2ada23cf4a
+Author: ffshine &amp;lt;ffshine9@gmail.com&amp;gt;
+Date:   Wed Jan 31 19:29:55 2018 +0800
+
+    add GPL
+
+commit d79a6a5e90fa4ef7d2a1fb2c788b98307f411311
+Author: ffshine &amp;lt;ffshine9@gmail.com&amp;gt;
+Date:   Wed Jan 31 19:28:25 2018 +0800
+
+    add distributed
+
+commit 340d6f6d36da7f551db7ca6e78e529088732f21d
+Author: ffshine &amp;lt;ffshine9@gmail.com&amp;gt;
+Date:   Wed Jan 31 19:25:17 2018 +0800
+
+    wrote a readme file
+</code></pre>
+
+<p>如果记录过多不好查阅的话, 添加<code>--pretty=oneline</code>参数, 所有的log都会在一行显示出来.</p>
+
+<h3 id="回滚">回滚</h3>
+
+<p>在git中,有个<code>HEAD</code>指针, 它指向当前的记录,<code>HEAD^</code>指向前一个记录,<code>HEAD^^</code>再往前一个, 以此类推. 当然,前一百个不会让你写一百个^,你可以这样写<code>HEAD~100</code>.</p>
+
+<pre><code class="language-bash">$ git raset --hard HEAD^
+</code></pre>
+
+<h3 id="后悔了">后悔了</h3>
+
+<p>回滚了后悔了怎么办, git每条修改记录创建时, 都会有一个对应的ID. 比如说, 上一条我运行<code>git commit -m &quot;change GPL to f&quot;</code>后, 返回的是:</p>
+
+<pre><code class="language-bash">[master eea8762] change GPL to f
+</code></pre>
+
+<p>如果要回到这一条记录, 只需要运行:</p>
+
+<pre><code class="language-bash">$ git reset --hard eea8762
+</code></pre>
+
+<p>但是,如果回滚之后, 关闭了窗口, 找不到这条记录了怎么办. 没关系, git已经悄悄记录了你执行的每一条命令,只需要通过<code>git reflog</code>就能查询出来.</p>
+
+<pre><code class="language-bash">$ git reflog
+    eea8762 (HEAD -&amp;gt; master) HEAD@{0}: commit: change GPL to f
+    4c7884d HEAD@{1}: reset: moving to 4c7884d
+    d79a6a5 HEAD@{2}: reset: moving to HEAD^
+    4c7884d HEAD@{3}: commit: add GPL
+    d79a6a5 HEAD@{4}: commit: add distributed
+    340d6f6 HEAD@{5}: commit (initial): wrote a readme file
+</code></pre>
+
+<br>
+<footer>
+    
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2018/cpp-get-getline/">c&#43;&#43;中的get与getline</a></span>
+  <span class="nav-next"><a href="/post/2019/js-foundation/">JavaScript 基础</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="/js/center-img.js"></script>
+
+    
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/tex.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/go.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/powershell.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/bash.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+   
+   <br>
+   <span id="/post/2018/how-to-use-git/" class="leancloud_visitors" data-flag-title="git的使用方法记录。">
+     
+     <p></p>
+   </span>
+   <div id="vcomments"></div>
+   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+   <script type="text/javascript">
+     new Valine({
+         el: '#vcomments' ,
+         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
+         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
+         notify:  false , 
+         verify:  false , 
+         avatar:'monsterid', 
+         placeholder: '说点什么呗~',
+         visitor:  false 
+     });
+   </script>
+
+
+  <hr>
+  <div class="copyright">&copy; <a href="https://o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

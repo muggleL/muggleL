@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>golang on Muggle L</title>
+    <link>https://blog.o0o0o0.de/categories/golang/</link>
+    <description>Recent content in golang on Muggle L</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 21 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.o0o0o0.de/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>golang 使用 socks5 代理</title>
+      <link>https://blog.o0o0o0.de/note/2019/05/21/golang-use-socks5-proxy/</link>
+      <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/note/2019/05/21/golang-use-socks5-proxy/</guid>
+      <description>package main import ( &amp;quot;fmt&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;os&amp;quot; &amp;quot;golang.org/x/net/proxy&amp;quot; ) func main() { // create a socks5 dialer dialer, err := proxy.SOCKS5(&amp;quot;tcp&amp;quot;, &amp;quot;127.0.0.1:1080&amp;quot;, nil, proxy.Direct) if err != nil { _, _ = fmt.Fprintln(os.Stderr, &amp;quot;can&#39;t connect to the proxy:&amp;quot;, err) os.Exit(1) } // setup a http client httpTransport := &amp;amp;http.Transport{} httpClient := &amp;amp;http.Client{Transport: httpTransport} // set our socks5 as the dialer httpTransport.Dial = dialer.Dial if resp, err := httpClient.Get(&amp;quot;https://www.baidu.com&amp;quot;); err !</description>
+    </item>
+    
+  </channel>
+</rss>

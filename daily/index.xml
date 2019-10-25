@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dailies on Muggle L</title>
+    <link>https://blog.o0o0o0.de/daily/</link>
+    <description>Recent content in Dailies on Muggle L</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 10 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.o0o0o0.de/daily/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>入手 Arduino 板子一块</title>
+      <link>https://blog.o0o0o0.de/daily/2019/09/10/buy-a-arduino/</link>
+      <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/daily/2019/09/10/buy-a-arduino/</guid>
+      <description>咸鱼淘的一套 Arduino 开发套件到货，五十块钱官方正版板子加一大堆配件，超值。 </description>
+    </item>
+    
+    <item>
+      <title>小米 9se PE rom 跳过谷歌验证</title>
+      <link>https://blog.o0o0o0.de/daily/2019/08/26/26/pixelexperience/</link>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/daily/2019/08/26/26/pixelexperience/</guid>
+      <description>9se 的第一版本 pixelexperience 包出来了，第一次开机居然死在了谷歌验证上。
+类原生 ROM 跳过谷歌验证的方式目前常用的有四种：
+ 刷入 rom 时附带输入跳过验证的包。
+ 刷入其他没有谷歌验证的包，双清后再刷入需要验证的包
+ 按一定顺序点四角（看运气）
+ adb 跳过
+  这要 rom 默认打开 usb 调试。或者进入 recovery 中进行。
+adb shell settings put secure user_setup_complete 1 adb shell settings put global device_provisioned 1  参考：
+ [教程] 教你们怎么跳过Android 9的谷歌开机验证 
+如何跳过Google开机设置/验证/向导
+ </description>
+    </item>
+    
+    <item>
+      <title>Linux 定时任务一定要用绝对路径</title>
+      <link>https://blog.o0o0o0.de/daily/2019/05/27/linux-crontab/</link>
+      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/daily/2019/05/27/linux-crontab/</guid>
+      <description> 重要的事情说三遍 Linux 用 crontab 定时任务一定要用绝对路径。
+Linux 用 crontab 定时任务一定要用绝对路径。
+Linux 用 crontab 定时任务一定要用绝对路径。
+ 　crontab 执行命令时，默认用户是 root，默认文件夹是 /root。脚本一定要用绝对路径，默认~ 路径是 /root。这个问题坑了我一个礼拜。
+ 2019-8-10 更新
+ crontab -u user 如果不指定 user , 则默认为当前用户。上文中我使用了 sudo 启动才会出现默认用户是 root 的情况。
+ </description>
+    </item>
+    
+    <item>
+      <title>今天终于进小米内测组了</title>
+      <link>https://blog.o0o0o0.de/daily/2019/05/23/5-23-xiaomi/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/daily/2019/05/23/5-23-xiaomi/</guid>
+      <description>通过我的不屑努力（水经验）终于进了 miui 的内测组。我的 小米9se 提前用上了 dc调光。目前观感上来讲，除了屏幕变黄了一点，没有什么大的区别。</description>
+    </item>
+    
+    <item>
+      <title>windows 终端的傻逼逻辑</title>
+      <link>https://blog.o0o0o0.de/daily/2019/05/22/shabi-win10/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/daily/2019/05/22/shabi-win10/</guid>
+      <description>windows 的终端程序有一个逻辑我始终搞不懂。那就是假如你不小心用鼠标点到了他的界面，在终端运行中的程序就会停下来。而你必须点一下键盘它才会继续。。。
+
+　我觉得大部分人 点击界面并不是想要暂停。也许是误操作，更多的情况应该是和我一样只是为了认真读一读输出的调试信息。读完之后，整个程序就暂停了。好多次我以为是程序bug。我觉得 Linux 下的大部分终端才是正常的逻辑，点击并不会触发什么行为； 选中之后暂停滚动，但是程序还在向下执行；ctrl + s 之后，程序暂停。不知道微软新的 windows termainl 怎么样， 否则我就真的滚回 Manjaro 去了。</description>
+    </item>
+    
+    <item>
+      <title>A Quick Note on Two Beautiful Websites</title>
+      <link>https://blog.o0o0o0.de/daily/2017/06/13/a-quick-note/</link>
+      <pubDate>Tue, 13 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/daily/2017/06/13/a-quick-note/</guid>
+      <description>To me, the two most impressive websites based on blogdown are:
+ Rob J Hyndman&amp;rsquo;s personal website. Live Free or Dichotomize by Lucy and Nick et al.  I&amp;rsquo;m sure there will be more.</description>
+    </item>
+    
+  </channel>
+</rss>

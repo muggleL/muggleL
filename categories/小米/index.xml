@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>小米 on Muggle L</title>
+    <link>https://blog.o0o0o0.de/categories/%E5%B0%8F%E7%B1%B3/</link>
+    <description>Recent content in 小米 on Muggle L</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 26 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.o0o0o0.de/categories/%E5%B0%8F%E7%B1%B3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>小米 9se PE rom 跳过谷歌验证</title>
+      <link>https://blog.o0o0o0.de/daily/2019/08/26/26/pixelexperience/</link>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/daily/2019/08/26/26/pixelexperience/</guid>
+      <description>9se 的第一版本 pixelexperience 包出来了，第一次开机居然死在了谷歌验证上。
+类原生 ROM 跳过谷歌验证的方式目前常用的有四种：
+ 刷入 rom 时附带输入跳过验证的包。
+ 刷入其他没有谷歌验证的包，双清后再刷入需要验证的包
+ 按一定顺序点四角（看运气）
+ adb 跳过
+  这要 rom 默认打开 usb 调试。或者进入 recovery 中进行。
+adb shell settings put secure user_setup_complete 1 adb shell settings put global device_provisioned 1  参考：
+ [教程] 教你们怎么跳过Android 9的谷歌开机验证 
+如何跳过Google开机设置/验证/向导
+ </description>
+    </item>
+    
+    <item>
+      <title>今天终于进小米内测组了</title>
+      <link>https://blog.o0o0o0.de/daily/2019/05/23/5-23-xiaomi/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/daily/2019/05/23/5-23-xiaomi/</guid>
+      <description>通过我的不屑努力（水经验）终于进了 miui 的内测组。我的 小米9se 提前用上了 dc调光。目前观感上来讲，除了屏幕变黄了一点，没有什么大的区别。</description>
+    </item>
+    
+  </channel>
+</rss>
