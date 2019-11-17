@@ -44,6 +44,11 @@
     margin-top: 0px; 
     background-color: #E3E3E3;
 }
+.the-the-highlight {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
 .user-bio .user-bio-body {
     background-color: #FFF;
     width: 100%;
