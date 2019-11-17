@@ -1,4 +1,7 @@
+<html lang="zh-CN">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="test.css">
 <div class="content">
 	<div class="cell">
@@ -10,7 +13,8 @@
 		<div class="user-bio-top-label">Java 8 String 转 List</div>
 	</div>
 	<div class="user-bio-body">
-		List<Character> nums = "1234567890".chars().mapToObj(c -> (char) c).collect(Collectors.toList());
+		<pre><code class="language-java">List&lt;Character&gt; nums = &quot;1234567890&quot;.chars().mapToObj(c -&gt; (char) c).collect(Collectors.toList());
+</code></pre>
 	</div>
 </div>
 
@@ -230,4 +234,5 @@
                     break;
     }
     document.write("<meta name='viewport' content='width=device-width,initial-scale="+rate+", minimum-scale=0.2, maximum-scale=1, user-scalable=no'>");
-    </script>
+</script>
+</html>
