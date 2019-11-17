@@ -429,5 +429,14 @@ $ yaourt -S python-quamash  没有遇到错误。 然后</description>
  Rob J Hyndman&amp;rsquo;s personal website. Live Free or Dichotomize by Lucy and Nick et al.  I&amp;rsquo;m sure there will be more.</description>
     </item>
     
+    <item>
+      <title>代码片段</title>
+      <link>https://blog.o0o0o0.de/slice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/slice/</guid>
+      <description>代码片段</description>
+    </item>
+    
   </channel>
 </rss>
