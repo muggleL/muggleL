@@ -435,7 +435,8 @@ $ yaourt -S python-quamash  没有遇到错误。 然后</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog.o0o0o0.de/slice/</guid>
-      <description>代码片段</description>
+      <description> 代码片段
+# Java8 String 转 list List&amp;lt;Character&amp;gt; nums = &amp;quot;1234567890&amp;quot;.chars().mapToObj(c -&amp;gt; (char) c).collect(Collectors.toList());  </description>
     </item>
     
   </channel>
