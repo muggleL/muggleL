@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工具 on Muggle L</title>
+    <link>https://blog.o0o0o0.de/tags/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on Muggle L</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 07 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.o0o0o0.de/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>curl 常见用法</title>
+      <link>https://blog.o0o0o0.de/post/2019/how-to-use-curl/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/post/2019/how-to-use-curl/</guid>
+      <description>在 Linux/unix 中，curl 是最常用到的 web 调试工具。Bite Size Networking 有一张漫画详细地解释了 curl 的参数。
+请求一个地址 curl https://httpbin.org/anyting { &amp;quot;args&amp;quot;: {}, &amp;quot;data&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;files&amp;quot;: {}, &amp;quot;form&amp;quot;: {}, &amp;quot;headers&amp;quot;: { &amp;quot;Accept&amp;quot;: &amp;quot;*/*&amp;quot;, &amp;quot;Host&amp;quot;: &amp;quot;httpbin.org&amp;quot;, &amp;quot;User-Agent&amp;quot;: &amp;quot;curl/7.64.1&amp;quot; }, &amp;quot;json&amp;quot;: null, &amp;quot;method&amp;quot;: &amp;quot;GET&amp;quot;, &amp;quot;origin&amp;quot;: &amp;quot;11*.*9.3*.72, 11*.*9.3*.72&amp;quot;, &amp;quot;url&amp;quot;: &amp;quot;https://httpbin.org/anything&amp;quot; }  可见 curl 的默认 User-Agent 为 curl 加版本号，可以通过识别此标记特定地针对 curl 返回适合终端查看的内容比如 ip.sb
+ 发送 GET 请求 curl -X GET https://httpbin.org/anything { &amp;quot;args&amp;quot;: {}, &amp;quot;data&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;files&amp;quot;: {}, &amp;quot;form&amp;quot;: {}, &amp;quot;headers&amp;quot;: { &amp;quot;Accept&amp;quot;: &amp;quot;*/*&amp;quot;, &amp;quot;Host&amp;quot;: &amp;quot;httpbin.</description>
+    </item>
+    
+  </channel>
+</rss>

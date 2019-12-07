@@ -17,7 +17,7 @@
       <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.o0o0o0.de/note/2019/05/21/golang-use-socks5-proxy/</guid>
-      <description>package main import ( &amp;quot;fmt&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;os&amp;quot; &amp;quot;golang.org/x/net/proxy&amp;quot; ) func main() { // create a socks5 dialer dialer, err := proxy.SOCKS5(&amp;quot;tcp&amp;quot;, &amp;quot;127.0.0.1:1080&amp;quot;, nil, proxy.Direct) if err != nil { _, _ = fmt.Fprintln(os.Stderr, &amp;quot;can&#39;t connect to the proxy:&amp;quot;, err) os.Exit(1) } // setup a http client httpTransport := &amp;amp;http.Transport{} httpClient := &amp;amp;http.Client{Transport: httpTransport} // set our socks5 as the dialer httpTransport.Dial = dialer.Dial if resp, err := httpClient.Get(&amp;quot;https://www.baidu.com&amp;quot;); err !</description>
+      <description>package mainimport (&amp;#34;fmt&amp;#34;&amp;#34;io/ioutil&amp;#34;&amp;#34;log&amp;#34;&amp;#34;net/http&amp;#34;&amp;#34;os&amp;#34;&amp;#34;golang.org/x/net/proxy&amp;#34;)func main() {// create a socks5 dialer dialer, err := proxy.SOCKS5(&amp;#34;tcp&amp;#34;, &amp;#34;127.0.0.1:1080&amp;#34;, nil, proxy.Direct)if err != nil {_, _ = fmt.Fprintln(os.Stderr, &amp;#34;can&amp;#39;t connect to the proxy:&amp;#34;, err)os.Exit(1)}// setup a http client httpTransport := &amp;amp;http.Transport{}httpClient := &amp;amp;http.Client{Transport: httpTransport}// set our socks5 as the dialer httpTransport.Dial = dialer.Dialif resp, err := httpClient.</description>
     </item>
     
   </channel>

@@ -3,12 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.o0o0o0.de/categories/</loc>
-    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+    <loc>https://blog.o0o0o0.de/post/2019/how-to-use-curl/</loc>
+    <lastmod>2019-12-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.o0o0o0.de/</loc>
+    <lastmod>2019-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.o0o0o0.de/post/</loc>
+    <lastmod>2019-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.o0o0o0.de/tags/</loc>
+    <lastmod>2019-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.o0o0o0.de/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2019-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.o0o0o0.de/categories/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url>
   
@@ -18,17 +38,7 @@
   </url>
   
   <url>
-    <loc>https://blog.o0o0o0.de/post/</loc>
-    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.o0o0o0.de/post/2019/ssm-framework/</loc>
-    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.o0o0o0.de/tags/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url>
   
@@ -300,10 +310,6 @@
   <url>
     <loc>https://blog.o0o0o0.de/categories/example/</loc>
     <lastmod>2017-06-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.o0o0o0.de/slice/</loc>
   </url>
   
 </urlset>

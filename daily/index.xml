@@ -17,7 +17,7 @@
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.o0o0o0.de/daily/2019/09/10/buy-a-arduino/</guid>
-      <description>咸鱼淘的一套 Arduino 开发套件到货，五十块钱官方正版板子加一大堆配件，超值。  </description>
+      <description>咸鱼淘的一套 Arduino 开发套件到货，五十块钱官方正版板子加一大堆配件，超值。</description>
     </item>
     
     <item>
@@ -28,13 +28,13 @@
       <guid>https://blog.o0o0o0.de/daily/2019/08/26/26/pixelexperience/</guid>
       <description>9se 的第一版本 pixelexperience 包出来了，第一次开机居然死在了谷歌验证上。
 类原生 ROM 跳过谷歌验证的方式目前常用的有四种：
- 刷入 rom 时附带输入跳过验证的包。
- 刷入其他没有谷歌验证的包，双清后再刷入需要验证的包
- 按一定顺序点四角（看运气）
- adb 跳过
+  刷入 rom 时附带输入跳过验证的包。
+  刷入其他没有谷歌验证的包，双清后再刷入需要验证的包
+  按一定顺序点四角（看运气）
+  adb 跳过
   这要 rom 默认打开 usb 调试。或者进入 recovery 中进行。
-adb shell settings put secure user_setup_complete 1 adb shell settings put global device_provisioned 1  参考：
- [教程] 教你们怎么跳过Android 9的谷歌开机验证 
+adb shell settings put secure user_setup_complete 1adb shell settings put global device_provisioned 1参考：
+ [教程] 教你们怎么跳过Android 9的谷歌开机验证	
 如何跳过Google开机设置/验证/向导
  </description>
     </item>
@@ -45,12 +45,11 @@ adb shell settings put secure user_setup_complete 1 adb shell settings put globa
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.o0o0o0.de/daily/2019/05/27/linux-crontab/</guid>
-      <description> 重要的事情说三遍 Linux 用 crontab 定时任务一定要用绝对路径。
+      <description>重要的事情说三遍 Linux 用 crontab 定时任务一定要用绝对路径。
 Linux 用 crontab 定时任务一定要用绝对路径。
 Linux 用 crontab 定时任务一定要用绝对路径。
  　crontab 执行命令时，默认用户是 root，默认文件夹是 /root。脚本一定要用绝对路径，默认~ 路径是 /root。这个问题坑了我一个礼拜。
- 2019-8-10 更新
- crontab -u user 如果不指定 user , 则默认为当前用户。上文中我使用了 sudo 启动才会出现默认用户是 root 的情况。
+  2019-8-10 更新 crontab -u user 如果不指定 user , 则默认为当前用户。上文中我使用了 sudo 启动才会出现默认用户是 root 的情况。
  </description>
     </item>
     
@@ -81,7 +80,7 @@ Linux 用 crontab 定时任务一定要用绝对路径。
       
       <guid>https://blog.o0o0o0.de/daily/2017/06/13/a-quick-note/</guid>
       <description>To me, the two most impressive websites based on blogdown are:
- Rob J Hyndman&amp;rsquo;s personal website. Live Free or Dichotomize by Lucy and Nick et al.  I&amp;rsquo;m sure there will be more.</description>
+ Rob J Hyndman&amp;lsquo;s personal website. Live Free or Dichotomize by Lucy and Nick et al.  I&#39;m sure there will be more.</description>
     </item>
     
   </channel>

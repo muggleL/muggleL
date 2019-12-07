@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>curl 常见用法 - Muggle L</title>
+    <meta property="og:title" content="curl 常见用法 - Muggle L">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="在 Linux/unix 中，curl 是最常用到的 web 调试工具。Bite Size Networking 有一张漫画详细地解释了 curl 的参数。
+[&amp;hellip;] curl https://httpbin.org/anyting { &amp;quot;args&amp;quot;: {}, &amp;quot;data&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;files&amp;quot;: &amp;hellip;">
+      <meta property="og:description" content="在 Linux/unix 中，curl 是最常用到的 web 调试工具。Bite Size Networking 有一张漫画详细地解释了 curl 的参数。
+[&amp;hellip;] curl https://httpbin.org/anyting { &amp;quot;args&amp;quot;: {}, &amp;quot;data&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;files&amp;quot;: &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://i.loli.net/2019/12/07/m53bEt7cfuQWykz.jpg">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">Muggle L</a></h1>
+
+<p class="tagline">Technology Is Muggle&#39;s Magic</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  <li><a href="/search/">Search</a></li>
+  
+  <li><a href="/slice/">Slice</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>curl 常见用法</h1>
+
+<h3>DG
+  /  2019-12-07</h3>
+<hr>
+
+
+      </header>
+
+
+
+<p>在 Linux/unix 中，curl 是最常用到的 web 调试工具。<a href="https://wizardzines.com/zines/bite-size-networking/">Bite Size Networking</a> 有一张漫画详细地解释了 curl 的参数。</p>
+<p><img src="https://i.loli.net/2019/12/07/m53bEt7cfuQWykz.jpg" alt="IMG_4F6F82997153-1 1.jpeg"></p>
+<h2 id="heading">请求一个地址</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl https://httpbin.org/anyting
+</code></pre></div><pre><code>{
+  &quot;args&quot;: {},
+  &quot;data&quot;: &quot;&quot;,
+  &quot;files&quot;: {},
+  &quot;form&quot;: {},
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Host&quot;: &quot;httpbin.org&quot;,
+    &quot;User-Agent&quot;: &quot;curl/7.64.1&quot;
+  },
+  &quot;json&quot;: null,
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;origin&quot;: &quot;11*.*9.3*.72, 11*.*9.3*.72&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/anything&quot;
+}
+</code></pre><blockquote>
+<p>可见 curl 的默认 User-Agent 为 curl 加版本号，可以通过识别此标记特定地针对 curl 返回适合终端查看的内容比如 <a href="https://ip.sb">ip.sb</a></p>
+</blockquote>
+<h2 id="-get-">发送 <code>GET</code> 请求</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -X GET https://httpbin.org/anything
+</code></pre></div><pre><code>{
+  &quot;args&quot;: {},
+  &quot;data&quot;: &quot;&quot;,
+  &quot;files&quot;: {},
+  &quot;form&quot;: {},
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Host&quot;: &quot;httpbin.org&quot;,
+    &quot;User-Agent&quot;: &quot;curl/7.64.1&quot;
+  },
+  &quot;json&quot;: null,
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;origin&quot;: &quot;11*.*9.3*.72, 11*.*9.3*.72&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/anything&quot;
+}
+</code></pre><h2 id="-get-1">通过 <code>GET</code> 发送参数</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -X GET -d <span style="color:#e6db74">&#39;value=panda&#39;</span> https://httpbin.org/anything
+</code></pre></div><pre><code>{
+  &quot;args&quot;: {},
+  &quot;data&quot;: &quot;&quot;,
+  &quot;files&quot;: {},
+  &quot;form&quot;: {
+    &quot;value&quot;: &quot;panda&quot;
+  },
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Content-Length&quot;: &quot;11&quot;,
+    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;,
+    &quot;Host&quot;: &quot;httpbin.org&quot;,
+    &quot;User-Agent&quot;: &quot;curl/7.64.1&quot;
+  },
+  &quot;json&quot;: null,
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;origin&quot;: &quot;11*.*9.3*.72, 11*.*9.3*.72&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/anything&quot;
+}
+</code></pre><blockquote>
+<p>value 作为 form 表单被目标网站接受到了。</p>
+</blockquote>
+<h2 id="heading1">修改请求头</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -X GET -H <span style="color:#e6db74">&#39;User-Agent:elephant&#39;</span> https://httpbin.org/anything
+</code></pre></div><pre><code>{
+  &quot;args&quot;: {},
+  &quot;data&quot;: &quot;&quot;,
+  &quot;files&quot;: {},
+  &quot;form&quot;: {},
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Host&quot;: &quot;httpbin.org&quot;,
+    &quot;User-Agent&quot;: &quot;elephant&quot;
+  },
+  &quot;json&quot;: null,
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;origin&quot;: &quot;11*.*9.3*.72, 11*.*9.3*.72&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/anything&quot;
+}
+</code></pre><blockquote>
+<p>参数中间用冒号。</p>
+</blockquote>
+<h2 id="heading2">获取响应头</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -I https://httpbin.org/anything
+</code></pre></div><pre><code>HTTP/1.1 200 OK
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+Content-Length: 289
+Content-Type: application/json
+Date: Sat, 07 Dec 2019 02:35:28 GMT
+Referrer-Policy: no-referrer-when-downgrade
+Server: nginx
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-XSS-Protection: 1; mode=block
+Connection: keep-alive
+</code></pre><blockquote>
+<p>大写的 <code>i</code></p>
+</blockquote>
+<h2 id="get--json-"><code>Get</code> 发送 <code>json</code> 数据</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -X GET -H <span style="color:#e6db74">&#34;Content-type: application/json&#34;</span> -d <span style="color:#e6db74">&#39;{&#34;value&#34;:&#34;panda&#34;}&#39;</span> https://httpbin.org/anything
+</code></pre></div><pre><code>{
+  &quot;args&quot;: {},
+  &quot;data&quot;: &quot;{\&quot;value\&quot;:\&quot;panda\&quot;}&quot;,
+  &quot;files&quot;: {},
+  &quot;form&quot;: {},
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Content-Length&quot;: &quot;17&quot;,
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &quot;Host&quot;: &quot;httpbin.org&quot;,
+    &quot;User-Agent&quot;: &quot;curl/7.64.1&quot;
+  },
+  &quot;json&quot;: {
+    &quot;value&quot;: &quot;panda&quot;
+  },
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;origin&quot;: &quot;11*.*9.3*.72, 11*.*9.3*.72&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/anything&quot;
+}
+</code></pre><blockquote>
+<p>一般没人用 <code>GET</code> 发送 <code>json</code>。</p>
+</blockquote>
+<h2 id="acceptencoding">Accept-Encoding</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -X GET -H <span style="color:#e6db74">&#39;Accept-Encoding:gzip&#39;</span>  https://httpbin.org/anything --output test.gzip
+</code></pre></div><blockquote>
+<p>会将 请求得到的结果以 gzip 压缩格式保存成 test.gzip 文件</p>
+</blockquote>
+<h2 id="-json">发送文件中的 <code>json </code></h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#39;{&#34;value&#34;:&#34;panda&#34;}&#39;</span> &gt; test.json
+ls test.json
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;value&#34;</span>:<span style="color:#e6db74">&#34;panda&#34;</span><span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -X GET -H <span style="color:#e6db74">&#39;Content-Type:application/json&#39;</span> -d @test.json  https://httpbin.org/anything
+</code></pre></div><pre><code>{
+  &quot;args&quot;: {},
+  &quot;data&quot;: &quot;{\&quot;value\&quot;:\&quot;panda\&quot;}&quot;,
+  &quot;files&quot;: {},
+  &quot;form&quot;: {},
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Content-Length&quot;: &quot;17&quot;,
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &quot;Host&quot;: &quot;httpbin.org&quot;,
+    &quot;User-Agent&quot;: &quot;curl/7.64.1&quot;
+  },
+  &quot;json&quot;: {
+    &quot;value&quot;: &quot;panda&quot;
+  },
+  &quot;method&quot;: &quot;GET&quot;,
+  &quot;origin&quot;: &quot;11*.*9.3*.72, 11*.*9.3*.72&quot;,
+  &quot;url&quot;: &quot;https://httpbin.org/anything&quot;
+}
+</code></pre><h2 id="heading3">请求图片</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -X GET -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span>  https://httpbin.org/image --output test.png
+</code></pre></div><blockquote>
+<p>图片保存为 test.png</p>
+</blockquote>
+
+<br>
+<footer>
+    
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2019/ssm-framework/">SMM 框架整合</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="/js/center-img.js"></script>
+
+    
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/tex.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/go.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/powershell.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/bash.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+   
+   <br>
+   <span id="/post/2019/how-to-use-curl/" class="leancloud_visitors" data-flag-title="curl 常见用法">
+     
+     <p></p>
+   </span>
+   <div id="vcomments"></div>
+   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+   <script type="text/javascript">
+     new Valine({
+         el: '#vcomments' ,
+         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
+         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
+         notify:  false , 
+         verify:  false , 
+         avatar:'monsterid', 
+         placeholder: '说点什么呗~',
+         visitor:  false 
+     });
+   </script>
+
+
+  <hr>
+  <div class="copyright">© <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

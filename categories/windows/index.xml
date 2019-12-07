@@ -17,10 +17,10 @@
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.o0o0o0.de/post/2019/windows-mklink/</guid>
-      <description> 　Linux 可以通过 ln 来创建硬链接和软链接，Windows 也可以右键创建快捷方式。但是 Windows 的 shortcut 只能通过鼠标点击访问，和软/硬链接差别还是挺大的。在这我记录一下 Windows 创建软/硬链接的方式。
+      <description>　Linux 可以通过 ln 来创建硬链接和软链接，Windows 也可以右键创建快捷方式。但是 Windows 的 shortcut 只能通过鼠标点击访问，和软/硬链接差别还是挺大的。在这我记录一下 Windows 创建软/硬链接的方式。
 fsutil 硬链接 这个只适用于 NTFS 文件系统
-fsutil hardlink create NewFileName ExistingFileName  MKLINK 这是 cmd 自带命令， 一定要切换到 cmd 下
-为目录创建软链接 MKLINK /D NewFolder ExistingFolder  文件硬链接 MKLINK /H NewFile ExistingFile   硬链接只针对文件，不针对文件夹
+fsutil hardlink create NewFileName ExistingFileNameMKLINK 这是 cmd 自带命令， 一定要切换到 cmd 下
+为目录创建软链接 MKLINK /D NewFolder ExistingFolder文件硬链接 MKLINK /H NewFile ExistingFile 硬链接只针对文件，不针对文件夹
  </description>
     </item>
     

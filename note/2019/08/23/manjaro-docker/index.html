@@ -17,9 +17,9 @@
     
       
       <meta property="description" content="不同发行版的指令，文件位置略有不同，本文仅以 arch 及其衍生系统为准。
-[&amp;hellip;] sudo pacman -Syy sudo pacman -S docker # 启动 sudo systemctl start docker # 用户加入 docker 用户组（可以不用 sudo 启动docker) sudo usermod -aG docker $USER # 注销重新登录  设 &amp;hellip;">
+[&amp;hellip;] sudo pacman -Syy sudo pacman -S docker # 启动 sudo systemctl start docker # 用户加入 docker 用户组（可以不用 sudo 启动docker) sudo usermod -aG docker $USER # 注销重新登录 设置 &amp;hellip;">
       <meta property="og:description" content="不同发行版的指令，文件位置略有不同，本文仅以 arch 及其衍生系统为准。
-[&amp;hellip;] sudo pacman -Syy sudo pacman -S docker # 启动 sudo systemctl start docker # 用户加入 docker 用户组（可以不用 sudo 启动docker) sudo usermod -aG docker $USER # 注销重新登录  设 &amp;hellip;">
+[&amp;hellip;] sudo pacman -Syy sudo pacman -S docker # 启动 sudo systemctl start docker # 用户加入 docker 用户组（可以不用 sudo 启动docker) sudo usermod -aG docker $USER # 注销重新登录 设置 &amp;hellip;">
       
     
 
@@ -90,685 +90,499 @@
 
 
 
-
-
-<p><em><font style="color:red; font-size:13px">不同发行版的指令，文件位置略有不同，本文仅以 arch 及其衍生系统为准。</font></em></p>
-
-<h4 id="目录">目录</h4>
-
+<p><em><!-- raw HTML omitted -->不同发行版的指令，文件位置略有不同，本文仅以 arch 及其衍生系统为准。<!-- raw HTML omitted --></em></p>
+<h4 id="heading">目录</h4>
 <ol>
-<li><a href="#安装">安装</a></li>
-<li><a href="#设置镜像仓库">设置镜像仓库</a></li>
-<li><a href="#设置代理">设置代理</a></li>
-<li><a href="#基础命令">基础命令</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93">设置镜像仓库</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">设置代理</a></li>
+<li><a href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4">基础命令</a></li>
 <li><a href="#dockerfile">Dockerfile</a></li>
-<li><a href="#dockerfile-多段构建">Dockerfile 多段构建</a></li>
-<li><a href="#容器的操作">容器的操作</a></li>
-<li><a href="#数据管理">数据管理</a></li>
-<li><a href="#网络">网络</a></li>
+<li><a href="#dockerfile-%E5%A4%9A%E6%AE%B5%E6%9E%84%E5%BB%BA">Dockerfile 多段构建</a></li>
+<li><a href="#%E5%AE%B9%E5%99%A8%E7%9A%84%E6%93%8D%E4%BD%9C">容器的操作</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86">数据管理</a></li>
+<li><a href="#%E7%BD%91%E7%BB%9C">网络</a></li>
 </ol>
-
-<h2 id="安装">安装</h2>
-
-<pre><code class="language-bash">sudo pacman -Syy
+<h2 id="heading1">安装</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -Syy
 sudo pacman -S docker
-# 启动
+<span style="color:#75715e"># 启动</span>
 sudo systemctl start docker
-# 用户加入 docker 用户组（可以不用 sudo 启动docker)
+<span style="color:#75715e"># 用户加入 docker 用户组（可以不用 sudo 启动docker)</span>
 sudo usermod -aG docker $USER
-# 注销重新登录
-</code></pre>
-
-<h2 id="设置镜像仓库">设置镜像仓库</h2>
-
-<pre><code class="language-bash">echo '{        
-  &quot;registry-mirrors&quot;: [
-    &quot;https://dockerhub.azk8s.cn&quot;, # 国内镜像仓库1
-    &quot;https://reg-mirror.qiniu.com&quot; # 仓库2
-  ]
-}' | sudo tee -a /etc/docker/daemon.json &gt; /dev/null
-# 重启服务
+<span style="color:#75715e"># 注销重新登录</span>
+</code></pre></div><h2 id="heading2">设置镜像仓库</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#39;{        
+</span><span style="color:#e6db74">  &#34;registry-mirrors&#34;: [
+</span><span style="color:#e6db74">    &#34;https://dockerhub.azk8s.cn&#34;, # 国内镜像仓库1
+</span><span style="color:#e6db74">    &#34;https://reg-mirror.qiniu.com&#34; # 仓库2
+</span><span style="color:#e6db74">  ]
+</span><span style="color:#e6db74">}&#39;</span> | sudo tee -a /etc/docker/daemon.json &gt; /dev/null
+<span style="color:#75715e"># 重启服务</span>
 sudo systemctl daemon-reload
 sudo systemctl restart docker
-</code></pre>
-
-<blockquote>
+</code></pre></div><blockquote>
 <p>通过 <code>docker info</code> 可以看到仓库设置情况。</p>
 </blockquote>
-
-<h2 id="设置代理">设置代理</h2>
-
+<h2 id="heading3">设置代理</h2>
 <blockquote>
 <p>参考<a href="(https://docs.docker.com/config/daemon/systemd/)">官方文档</a></p>
-
+</blockquote>
+<blockquote>
 <p>通过 <a href="https://wiki.archlinux.org/index.php/Polipo">polipo</a> 将 <code>socks</code> 代理转换成 <code>http</code> 代理。</p>
 </blockquote>
-
 <ul>
-<li><p>创建 <code>systemd</code> 的插入式(<a href="https://wiki.archlinux.org/index.php/systemd#Drop-in_files">drop-in</a>) 目录</p>
-
-<pre><code class="language-bash">sudo mkdir -p /etc/systemd/system/docker.service.d
-</code></pre></li>
-
-<li><p>建立配置文件</p>
-
-<pre><code class="language-bash">sudo vim /etc/systemd/system/docker.service.d/http-proxy.conf
-</code></pre>
-
-<pre><code class="language-bash">[Service]
-#NO_PROXY 为代理白名单
-Environment=&quot;HTTP_PROXY=http://localhost:8123/&quot; &quot;NO_PROXY=localhost,127.0.0.1,docker-registry.example.com,.corp&quot;
-</code></pre></li>
-
-<li><p>刷新</p>
-
-<pre><code class="language-bash">sudo systemctl daemon-reload
-</code></pre></li>
-
-<li><p>重启 <code>Docker</code></p>
-
-<pre><code class="language-bash">sudo systemctl restart docker
-</code></pre>
-
-<blockquote>
+<li>
+<p>创建 <code>systemd</code> 的插入式(<a href="https://wiki.archlinux.org/index.php/systemd#Drop-in_files">drop-in</a>) 目录</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p /etc/systemd/system/docker.service.d
+</code></pre></div></li>
+<li>
+<p>建立配置文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo vim /etc/systemd/system/docker.service.d/http-proxy.conf
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
+<span style="color:#75715e">#NO_PROXY 为代理白名单</span>
+Environment<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;HTTP_PROXY=http://localhost:8123/&#34;</span> <span style="color:#e6db74">&#34;NO_PROXY=localhost,127.0.0.1,docker-registry.example.com,.corp&#34;</span>
+</code></pre></div></li>
+<li>
+<p>刷新</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
+</code></pre></div></li>
+<li>
+<p>重启 <code>Docker</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl restart docker
+</code></pre></div><blockquote>
 <p>通过 <code>docker info</code> 能看到代理信息。</p>
-</blockquote></li>
+</blockquote>
+</li>
 </ul>
-
-<h2 id="基础命令">基础命令</h2>
-
+<h2 id="heading4">基础命令</h2>
 <ul>
-<li><h3 id="查看版本">查看版本</h3>
-
-<pre><code class="language-bash">docker --version
+<li>
+<h3 id="heading5">查看版本</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker --version
 docker info
-</code></pre></li>
-
-<li><h3 id="hello-world">Hello-world</h3>
-
-<pre><code class="language-bash">docker run hello-world
-</code></pre></li>
-
-<li><h3 id="list-image">List Image</h3>
-
-<pre><code class="language-bash">docker image ls
-</code></pre></li>
-</ul>
-
-<blockquote>
+</code></pre></div></li>
+<li>
+<h3 id="helloworld">Hello-world</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run hello-world
+</code></pre></div></li>
+<li>
+<h3 id="list-image">List Image</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker image ls
+</code></pre></div><blockquote>
 <p><code>docker image ls --help</code> 查看所有操作。</p>
 </blockquote>
-
-<ul>
-<li><h3 id="list-container">List Container</h3>
-
-<pre><code class="language-bash">docker container ls       # 列出正在运行的容器
-docker container ls --all # 列出所有
-docker container ls --aq  # all in 
-</code></pre></li>
-</ul>
-
-<blockquote>
+</li>
+<li>
+<h3 id="list-container">List Container</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker container ls       <span style="color:#75715e"># 列出正在运行的容器</span>
+docker container ls --all <span style="color:#75715e"># 列出所有</span>
+docker container ls --aq  <span style="color:#75715e"># all in</span> 
+</code></pre></div><blockquote>
 <p><code>docker container ls --help</code> 可以查看所有的操作。</p>
 </blockquote>
-
-<ul>
-<li><p>启动容器</p>
-
-<pre><code class="language-bash">docker run image:tag # 启动容器
-docker run -it image:tag # 进入交互式 tty 环境
-docker run --rm image:tag # 容器退出后自动删除
-docker run image:tag command # 容器启动后执行 command 命令
-</code></pre>
-
-<blockquote>
+</li>
+<li>
+<p>启动容器</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run image:tag <span style="color:#75715e"># 启动容器</span>
+docker run -it image:tag <span style="color:#75715e"># 进入交互式 tty 环境</span>
+docker run --rm image:tag <span style="color:#75715e"># 容器退出后自动删除</span>
+docker run image:tag command <span style="color:#75715e"># 容器启动后执行 command 命令</span>
+</code></pre></div><blockquote>
 <p><code>docker run --help</code> 可以查看所有的操作。</p>
-</blockquote></li>
+</blockquote>
+</li>
 </ul>
-
 <h2 id="dockerfile">Dockerfile</h2>
-
 <h3 id="1-from">1. FROM</h3>
-
-<pre><code class="language-bash">FROM image
-</code></pre>
-
-<p><code>FROM</code> 指定基础镜像，是 Dockerfile 的必备指令，并且必须是第一条指令。<code>FROM</code> 可以指定基础服务类镜像，如 <a href="https://hub.docker.com/_/nginx/">nginx</a> 、<a href="https://hub.docker.com/_/redis/">redis</a> 等，语言镜像 <a href="https://hub.docker.com/_/python/">python</a> 、<a href="https://hub.docker.com/_/golang/">golang</a> 等。也可以是操作系统类镜像，如 <a href="https://hub.docker.com/_/ubuntu/">ubuntu</a> 、<a href="https://hub.docker.com/_/alpine/">alpine</a> 等。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM image
+</code></pre></div><p><code>FROM</code> 指定基础镜像，是 Dockerfile 的必备指令，并且必须是第一条指令。<code>FROM</code> 可以指定基础服务类镜像，如 <a href="https://hub.docker.com/_/nginx/">nginx</a> 、<a href="https://hub.docker.com/_/redis/">redis</a> 等，语言镜像 <a href="https://hub.docker.com/_/python/">python</a> 、<a href="https://hub.docker.com/_/golang/">golang</a> 等。也可以是操作系统类镜像，如 <a href="https://hub.docker.com/_/ubuntu/">ubuntu</a> 、<a href="https://hub.docker.com/_/alpine/">alpine</a> 等。</p>
 <p>特别的，<code>Docker</code> 还存在着一个名为 <code>scratch</code> 的特殊镜像，表示空白的镜像。</p>
-
 <h3 id="2-run">2. RUN</h3>
-
-<p>RUN 指定执行的命令有 <code>shell 格式</code> 和 <code>exec 格式</code> 两种形式。</p>
-
+<p>RUN 指定执行的命令有 <code>shell 格式 </code> 和 <code>exec 格式</code> 两种形式。</p>
 <ul>
-<li><p>shell 格式</p>
-
-<pre><code class="language-bash">RUN python app.py
-</code></pre></li>
-
-<li><p>exec 格式</p>
-
-<pre><code class="language-bash">RUN [&quot;python&quot;, &quot;app.py&quot;]
-</code></pre></li>
+<li>
+<p>shell 格式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">RUN python app.py
+</code></pre></div></li>
+<li>
+<p>exec 格式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">RUN <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;python&#34;</span>, <span style="color:#e6db74">&#34;app.py&#34;</span><span style="color:#f92672">]</span>
+</code></pre></div></li>
 </ul>
-
 <p><code>Dockerfile</code> 中每一个指令都会建立一层，<code>RUN</code> 也不例外。因此最好在一个 <code>RUN</code> 中执行完所有的命令。为了保证镜像的简洁，切记要清除 <code>RUN</code> 执行过程中产生的不必要的中间文件和缓存文件。</p>
-
 <h3 id="3-copy">3. COPY</h3>
-
 <p>与 <code>RUN</code> 一样 <code>COPY</code> 也有两种格式</p>
-
 <ul>
-<li><p>shell 格式</p>
-
-<pre><code class="language-bash">COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;源路径&gt;... &lt;目标路径&gt;
-# 支持通配符 参考 https://golang.org/pkg/path/filepath/#Match
+<li>
+<p>shell 格式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">COPY <span style="color:#f92672">[</span>--chown<span style="color:#f92672">=</span>&lt;user&gt;:&lt;group&gt;<span style="color:#f92672">]</span> &lt;源路径&gt;... &lt;目标路径&gt;
+<span style="color:#75715e"># 支持通配符 参考 https://golang.org/pkg/path/filepath/#Match</span>
 COPY hom* /app
 COPY hom?.txt /app
-# 用户权限
-COPY --chown=theuser:thegroup files* /app
-</code></pre></li>
-
-<li><p>exec 格式</p>
-
-<pre><code class="language-bash">COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;源路径1&gt;&quot;,... &quot;&lt;目标路径&gt;&quot;]
-</code></pre></li>
+<span style="color:#75715e"># 用户权限</span>
+COPY --chown<span style="color:#f92672">=</span>theuser:thegroup files* /app
+</code></pre></div></li>
+<li>
+<p>exec 格式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">COPY <span style="color:#f92672">[</span>--chown<span style="color:#f92672">=</span>&lt;user&gt;:&lt;group&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;&lt;源路径1&gt;&#34;</span>,... <span style="color:#e6db74">&#34;&lt;目标路径&gt;&#34;</span><span style="color:#f92672">]</span>
+</code></pre></div></li>
 </ul>
-
 <p><code>COPY</code> 会保留原文件，如果指定目录不存在，会自动创建该目录。<code>COPY</code> 也会保留源文件的各种元数据，比如读、写、执行、变更时间等。</p>
-
 <h3 id="4-add">4. ADD</h3>
-
 <p><code>ADD</code> 的格式与性质基本与 <code>COPY</code> 一致，但在 其基础上增加了一些功能。</p>
-
 <ul>
-<li><p>如果 <code>&lt;源路径&gt;</code> 可以是 <code>URL</code>，<code>ADD</code> 会自动下载到对应目录并给予 <code>600</code> 的权限。</p></li>
-
-<li><p>如果 <code>&lt;源路径&gt;</code> 是一个 <code>tar</code> 压缩文件，格式为 <code>gzip</code> 、<code>bzip2</code> 以及 <code>xz</code> 的话，<code>ADD</code> 会自动解压这个文件到目标文件</p></li>
+<li>
+<p>如果 <code>&lt;源路径&gt;</code> 可以是 <code>URL</code>，<code>ADD</code> 会自动下载到对应目录并给予 <code>600</code> 的权限。</p>
+</li>
+<li>
+<p>如果 <code>&lt;源路径&gt;</code> 是一个 <code>tar</code> 压缩文件，格式为 <code>gzip</code> 、<code>bzip2</code> 以及 <code>xz</code> 的话，<code>ADD</code> 会自动解压这个文件到目标文件</p>
+</li>
 </ul>
-
 <p>第一条 <code>URL</code> 中更多的情况是压缩文件 并且我们所需要的权限往往不一定是 <code>600</code> ，所有这种情况还是用 <code>RUN</code> 比较实在，并不推荐用 <code>ADD</code></p>
-
 <blockquote>
 <p>当仅仅复制文件时，用 <code>COPY</code> 。</p>
-
 <p>当复制一个压缩文件，并且要解压时用 <code>ADD</code> 。</p>
 </blockquote>
-
 <h3 id="5-cmd">5. CMD</h3>
-
 <p><code>CMD</code> 命令与 <code>RUN</code> 相似</p>
-
 <ul>
-<li><p>shell 格式</p>
-
-<pre><code class="language-bash">CMD &lt;命令&gt;
-</code></pre></li>
-
-<li><p>exec 格式</p>
-
-<pre><code class="language-bash">CMD [&quot;可执行文件&quot;, &quot;参数1&quot;, &quot;参数2&quot;...] # 只能用 &quot; 不能用 '
-</code></pre></li>
-
-<li><p>参数列表格式</p>
-
-<pre><code class="language-bash"># 指定 ENTRYPOINT 之后
-CMD [&quot;参数1&quot;, &quot;参数2&quot;, &quot;参数3&quot;...]
-</code></pre></li>
+<li>
+<p>shell 格式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">CMD &lt;命令&gt;
+</code></pre></div></li>
+<li>
+<p>exec 格式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;可执行文件&#34;</span>, <span style="color:#e6db74">&#34;参数1&#34;</span>, <span style="color:#e6db74">&#34;参数2&#34;</span>...<span style="color:#f92672">]</span> <span style="color:#75715e"># 只能用 &#34; 不能用 &#39;</span>
+</code></pre></div></li>
+<li>
+<p>参数列表格式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 指定 ENTRYPOINT 之后</span>
+CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;参数1&#34;</span>, <span style="color:#e6db74">&#34;参数2&#34;</span>, <span style="color:#e6db74">&#34;参数3&#34;</span>...<span style="color:#f92672">]</span>
+</code></pre></div></li>
 </ul>
-
 <p><code>CMD</code> 指定容器启动时所运行的程序与参数。</p>
-
 <p>使用 <code>shell 格式</code> 时，容器实际上以 <code>sh -c</code> 的形式执行</p>
-
-<pre><code class="language-bash">CMD echo $HOME
-# 实际执行时为
-CMD [&quot;sh&quot;, &quot;-c&quot;, &quot;echo $HOME&quot;]
-</code></pre>
-
-<p>所以在 Dockerfile 中设置环境变量能够被 shell 解析并处理。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">CMD echo $HOME
+<span style="color:#75715e"># 实际执行时为</span>
+CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">echo </span>$HOME<span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
+</code></pre></div><p>所以在 Dockerfile 中设置环境变量能够被 shell 解析并处理。</p>
 <p>再者，由于所有的命令由 <code>sh</code> 执行 当主进程的 <code>sh</code> 退出后，命令自然结束运行。所以容器内部没有后台的概念。</p>
-
 <blockquote>
 <p>运行时镜像后面的参数 会替换 <code>CMD</code> 的默认值，如上，当我执行 <code>docker run myimage sth</code> 时 <code>sth</code> 会替换 <code>echo $home</code>。</p>
-
 <p><code>CMD</code> 指令只能出现一次，出现多次只有最后一个有效。</p>
 </blockquote>
-
 <h3 id="6-entrypoint">6. ENTRYPOINT</h3>
-
 <p><code>ENTRYPOINT</code> 格式和 <code>RUN</code> 一样，但其目的和 <code>CMD</code> 一样。旨在指定容器启动时运行的程序与参数</p>
-
 <p>当指定 <code>ENTRYPOINT</code> 时， <code>CMD</code> 就会被当成参数传递给 <code>ENTRYPOINT</code></p>
-
-<pre><code class="language-bash">CMD [&quot;-s&quot;]
-ENTRYPOINT [&quot;curl&quot;, &quot;ip.sb&quot;]
-# 当执行 docker run theimage 时 相当于执行 curl ip.sb -s
-# 当执行 docker run theimage -i 时 CMD 被取代 相当于执行 curl ip.sb -i
-</code></pre>
-
-<p>还有一个场景能体现出 <code>ENTRYPOINT</code> 与 <code>CMD</code> 的不同作用。当某个程序要经过一些初始化之后才能运行时，可以写一个脚本 ，脚本中先进行初始化，然后再接收 <code>CMD</code> 为参数运行。脚本放入 <code>ENTRYPOINT</code>中执行。<code>redis</code> 官方镜像就是这么做的。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;-s&#34;</span><span style="color:#f92672">]</span>
+ENTRYPOINT <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;curl&#34;</span>, <span style="color:#e6db74">&#34;ip.sb&#34;</span><span style="color:#f92672">]</span>
+<span style="color:#75715e"># 当执行 docker run theimage 时 相当于执行 curl ip.sb -s</span>
+<span style="color:#75715e"># 当执行 docker run theimage -i 时 CMD 被取代 相当于执行 curl ip.sb -i</span>
+</code></pre></div><p>还有一个场景能体现出 <code>ENTRYPOINT</code> 与 <code>CMD</code> 的不同作用。当某个程序要经过一些初始化之后才能运行时，可以写一个脚本 ，脚本中先进行初始化，然后再接收 <code>CMD</code> 为参数运行。脚本放入 <code>ENTRYPOINT</code>中执行。<code>redis</code> 官方镜像就是这么做的。</p>
 <blockquote>
 <p><code>ENTRYPOINT</code> 指令只能出现一次，出现多次只有最后一个有效。</p>
 </blockquote>
-
 <h3 id="7-env">7. ENV</h3>
-
 <p>设置环境变量</p>
-
 <ul>
-<li><pre><code class="language-bash">ENV &lt;key&gt; &lt;value&gt;
-</code></pre></li>
-
-<li><pre><code class="language-bash">ENV &lt;key&gt;=&lt;value&gt; &lt;key2&gt;=&lt;value2&gt;...
-</code></pre></li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ENV &lt;key&gt; &lt;value&gt;
+</code></pre></div></li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ENV &lt;key&gt;<span style="color:#f92672">=</span>&lt;value&gt; &lt;key2&gt;<span style="color:#f92672">=</span>&lt;value2&gt;...
+</code></pre></div></li>
 </ul>
-
 <p><code>ENV</code> 可以当做 <code>Dockerfile</code> 中的变量存在。只要修改少部分，就可以做到一个 <code>Dockerfiel</code> 维护多个镜像如果用。</p>
-
 <h3 id="8-arg">8. ARG</h3>
-
-<pre><code class="language-bash">ARG &lt;参数名&gt; [=&lt;默认值&gt;]
-</code></pre>
-
-<p><code>ARG</code> 与 <code>ENV</code> 效果一样，但是 <code>ENV</code> 在容器运行时，还会存在这些变量，而 <code>ARG</code>仅仅是作为 <code>Dockerfile</code> 构建时的参数。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ARG &lt;参数名&gt; <span style="color:#f92672">[</span><span style="color:#f92672">=</span>&lt;默认值&gt;<span style="color:#f92672">]</span>
+</code></pre></div><p><code>ARG</code> 与 <code>ENV</code> 效果一样，但是 <code>ENV</code> 在容器运行时，还会存在这些变量，而 <code>ARG</code>仅仅是作为 <code>Dockerfile</code> 构建时的参数。</p>
 <blockquote>
 <p>构建时参数默认值可以被 <code>--build-arg &lt;参数名&gt;=&lt;值&gt;</code> 覆盖。</p>
 </blockquote>
-
 <h3 id="9-volume">9. VOLUME</h3>
-
-<p>定义自动挂载的<a href="#数据管理">匿名卷</a></p>
-
+<p>定义自动挂载的<a href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86">匿名卷</a></p>
 <p>格式</p>
-
 <ul>
-<li><pre><code class="language-bash">VOLUME [&quot;&lt;路径1&gt;&quot;, &quot;&lt;路径2&gt;&quot;...]
-</code></pre></li>
-
-<li><pre><code class="language-bash">VOLUME &lt;路径&gt;
-</code></pre></li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">VOLUME <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;&lt;路径1&gt;&#34;</span>, <span style="color:#e6db74">&#34;&lt;路径2&gt;&#34;</span>...<span style="color:#f92672">]</span>
+</code></pre></div></li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">VOLUME &lt;路径&gt;
+</code></pre></div></li>
 </ul>
-
 <blockquote>
 <p>运行时可以用 <code>docker run -d -v mydata:/data xxxx</code> 覆盖这个默认挂载。</p>
 </blockquote>
-
 <h3 id="10-expose">10. EXPOSE</h3>
-
 <p>端口声明</p>
-
-<pre><code class="language-bash">EXPOSE &lt;端口1&gt; [&lt;端口2&gt;...]
-</code></pre>
-
-<p>这仅仅是一个声明，并不意味着定义了 <code>EXPOSE</code> 就一定会开启该端口。该声明的作用是方便使用者理解这个程序的守护端口。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">EXPOSE &lt;端口1&gt; <span style="color:#f92672">[</span>&lt;端口2&gt;...<span style="color:#f92672">]</span>
+</code></pre></div><p>这仅仅是一个声明，并不意味着定义了 <code>EXPOSE</code> 就一定会开启该端口。该声明的作用是方便使用者理解这个程序的守护端口。</p>
 <blockquote>
 <p>当运行 <code>docker run -P sth</code> 时，会将 <code>EXPOSE</code> 声明的端口随机映射到宿主机上。</p>
 </blockquote>
-
 <h3 id="11-workdir">11. WORKDIR</h3>
-
 <p>指定工作目录</p>
-
-<pre><code class="language-bash">WORKDIR &lt;工作目录路径&gt; # 该容器各层的目录改为等前目录，如果目录不存在，会自动创建
-</code></pre>
-
-<p><code>Dockerfile</code> 中每执行一条指令都会建立一层，而每层的当前目录都是固定的。假如 <code>Dockerfile</code> 中有两条 <code>RUN</code> ：</p>
-
-<pre><code class="language-bash">RUN cd /app
-RUN echo &quot;Hello&quot; &gt; world.txt
-</code></pre>
-
-<p>执行之后，<code>world.txt</code> 并不会出现在 <code>/app</code> 目录中。 只会在 <code>当前目录</code> 默认为 <code>/</code> 。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">WORKDIR &lt;工作目录路径&gt; <span style="color:#75715e"># 该容器各层的目录改为等前目录，如果目录不存在，会自动创建</span>
+</code></pre></div><p><code>Dockerfile</code> 中每执行一条指令都会建立一层，而每层的当前目录都是固定的。假如 <code>Dockerfile</code> 中有两条 <code>RUN</code> ：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">RUN cd /app
+RUN echo <span style="color:#e6db74">&#34;Hello&#34;</span> &gt; world.txt
+</code></pre></div><p>执行之后，<code>world.txt</code> 并不会出现在 <code>/app</code> 目录中。 只会在 <code>当前目录</code> 默认为 <code>/</code> 。</p>
 <h3 id="13-user">13. USER</h3>
-
 <p>指定当前用户，与 <code>WORKDIR</code> 类似，都会影响以后的层。</p>
-
-<pre><code class="language-bash">USER &lt;用户名&gt;[:&lt;用户组&gt;]
-</code></pre>
-
-<p><code>USER</code> 并不会自动建立不存在的用户，切换之前应该建立好相应用户。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">USER &lt;用户名&gt;<span style="color:#f92672">[</span>:&lt;用户组&gt;<span style="color:#f92672">]</span>
+</code></pre></div><p><code>USER</code> 并不会自动建立不存在的用户，切换之前应该建立好相应用户。</p>
 <p>建议使用 <a href="https://github.com/tianon/gosu">gosu</a> 来代替 <code>su</code> 和 <code>sudo</code> 以 <code>root</code> 身份来执行进程。</p>
-
 <p>配置 <code>gosu</code> 示例：</p>
-
-<pre><code class="language-bash"># 建立 redis 用户，并使用 gosu 换另一个用户执行命令
-RUN groupadd -r redis &amp;&amp; useradd -r -g redis redis
-# 下载 gosu
-RUN wget -O /usr/local/bin/gosu &quot;https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64&quot; \
-   &amp;&amp; chmod +x /usr/local/bin/gosu \
-    &amp;&amp; gosu nobody true
-# 设置 CMD，并以另外的用户执行
-CMD [ &quot;exec&quot;, &quot;gosu&quot;, &quot;redis&quot;, &quot;redis-server&quot; ]
-</code></pre>
-
-<h3 id="14-healthcheck">14 .HEALTHCHECK</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 建立 redis 用户，并使用 gosu 换另一个用户执行命令</span>
+RUN groupadd -r redis <span style="color:#f92672">&amp;&amp;</span> useradd -r -g redis redis
+<span style="color:#75715e"># 下载 gosu</span>
+RUN wget -O /usr/local/bin/gosu <span style="color:#e6db74">&#34;https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>   <span style="color:#f92672">&amp;&amp;</span> chmod +x /usr/local/bin/gosu <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> gosu nobody true
+<span style="color:#75715e"># 设置 CMD，并以另外的用户执行</span>
+CMD <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;exec&#34;</span>, <span style="color:#e6db74">&#34;gosu&#34;</span>, <span style="color:#e6db74">&#34;redis&#34;</span>, <span style="color:#e6db74">&#34;redis-server&#34;</span> <span style="color:#f92672">]</span>
+</code></pre></div><h3 id="14-healthcheck">14 .HEALTHCHECK</h3>
 <p>容器健康检查</p>
-
-<pre><code class="language-bash">HEALTHCHECK [选项] CMD &lt;命令&gt; #检查容器健康状况
-HEALTHCHECK NONE # 屏蔽基础容器的健康检查指令
-</code></pre>
-
-<p><code>HEALTHCHECK</code> 支持以下选项</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">HEALTHCHECK <span style="color:#f92672">[</span>选项<span style="color:#f92672">]</span> CMD &lt;命令&gt; <span style="color:#75715e">#检查容器健康状况</span>
+HEALTHCHECK NONE <span style="color:#75715e"># 屏蔽基础容器的健康检查指令</span>
+</code></pre></div><p><code>HEALTHCHECK</code> 支持以下选项</p>
 <ul>
-<li><pre><code class="language-bash">--interval=&lt;间隔&gt; #两次健康检查的间隔，默认 30 秒
-</code></pre></li>
-
-<li><pre><code class="language-bash">--timeout=&lt;时长&gt; # 默认检查有效的时长，超过这个时间，则检查失败。默认 30 秒
-</code></pre></li>
-
-<li><pre><code class="language-bash">--retries=&lt;次数&gt; # 当检查失败之后 才重新检查的次数 默认 3 次。当连续失败之后，结果标记为 unhealthy
-</code></pre></li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">--interval<span style="color:#f92672">=</span>&lt;间隔&gt; <span style="color:#75715e">#两次健康检查的间隔，默认 30 秒</span>
+</code></pre></div></li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">--timeout<span style="color:#f92672">=</span>&lt;时长&gt; <span style="color:#75715e"># 默认检查有效的时长，超过这个时间，则检查失败。默认 30 秒</span>
+</code></pre></div></li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">--retries<span style="color:#f92672">=</span>&lt;次数&gt; <span style="color:#75715e"># 当检查失败之后 才重新检查的次数 默认 3 次。当连续失败之后，结果标记为 unhealthy</span>
+</code></pre></div></li>
 </ul>
-
 <blockquote>
 <p>通过 <code>docker container ls</code> 的 <code>STATUS</code> 栏能看到 健康状态标记。</p>
 </blockquote>
-
 <h3 id="15-onbuild">15. ONBUILD</h3>
-
-<pre><code class="language-bash">ONBUILD &lt;其它指令&gt;
-</code></pre>
-
-<p>只有当以当前镜像为基础镜像构建项目时，才会执行的指令。</p>
-
-<h2 id="dockerfile-多段构建">Dockerfile 多段构建</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ONBUILD &lt;其它指令&gt;
+</code></pre></div><p>只有当以当前镜像为基础镜像构建项目时，才会执行的指令。</p>
+<h2 id="dockerfile-">Dockerfile 多段构建</h2>
 <p><code>Docker</code> 多段构建将编译、测试、打包等环境与运行环境分开。</p>
-
 <p>步骤为将需要的文件在一个环境测试、编译、打包好之后，拷贝到运行环境。</p>
-
 <ul>
-<li><p>golang 的 hello-world 项目 多段构建示例</p>
-
+<li>
+<p>golang 的 hello-world 项目 多段构建示例</p>
 <ul>
-<li><p>app.go</p>
-
-<pre><code class="language-go">package main
+<li>
+<p>app.go</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
     
-import &quot;fmt&quot;
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
     
-func main() {
-fmt.Println(&quot;hello world&quot;)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;hello world&#34;</span>)
 }
-</code></pre></li>
-
-<li><p>Dockerfile</p>
-
-<pre><code class="language-bash"># 分段 1
+</code></pre></div></li>
+<li>
+<p>Dockerfile</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 分段 1</span>
 FROM golang:1.12-alpine as builder
-# 配置国内源 以及安装 git
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
-&amp;&amp; apk --no-cache add git
-# 工作目录
+<span style="color:#75715e"># 配置国内源 以及安装 git</span>
+RUN sed -i <span style="color:#e6db74">&#39;s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apk/repositories <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> apk --no-cache add git
+<span style="color:#75715e"># 工作目录</span>
 WORKDIR /go/src/github.com/go/helloworld/
     
 COPY app.go .
-# 依赖和编译
-RUN go get -d -v github.com/go-sql-driver/mysql \
-&amp;&amp; CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+<span style="color:#75715e"># 依赖和编译</span>
+RUN go get -d -v github.com/go-sql-driver/mysql <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> CGO_ENABLED<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GOOS<span style="color:#f92672">=</span>linux go build -a -installsuffix cgo -o app .
     
-# 分段 2
+<span style="color:#75715e"># 分段 2</span>
 FROM alpine:latest as prod
-# 源和基本环境
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
-&amp;&amp; apk --no-cache add ca-certificates
-# 工作目录
+<span style="color:#75715e"># 源和基本环境</span>
+RUN sed -i <span style="color:#e6db74">&#39;s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apk/repositories <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> apk --no-cache add ca-certificates
+<span style="color:#75715e"># 工作目录</span>
 WORKDIR /root
-# 从上一层拷贝文件
-COPY --from=0 /go/src/github.com/go/helloworld/app .
-# 执行
-CMD [&quot;./app&quot;]
-</code></pre></li>
-</ul>
-
-<blockquote>
+<span style="color:#75715e"># 从上一层拷贝文件</span>
+COPY --from<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> /go/src/github.com/go/helloworld/app .
+<span style="color:#75715e"># 执行</span>
+CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;./app&#34;</span><span style="color:#f92672">]</span>
+</code></pre></div><blockquote>
 <ol>
-<li><p>可以只构建某一段的镜像</p>
-
-<pre><code class="language-bash">docker build --target builder -t name/imagename:tag .
-</code></pre></li>
-
-<li><p>构建时，也能从其他镜像复制文件</p>
-
-<pre><code class="language-bash">COPY --from=nginx:latest /etc/nginx/nginx.conf /nginx.conf
-</code></pre></li>
+<li>
+<p>可以只构建某一段的镜像</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build --target builder -t name/imagename:tag .
+</code></pre></div></li>
+<li>
+<p>构建时，也能从其他镜像复制文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">COPY --from<span style="color:#f92672">=</span>nginx:latest /etc/nginx/nginx.conf /nginx.conf
+</code></pre></div></li>
 </ol>
-</blockquote></li>
+</blockquote>
+</li>
 </ul>
-
-<h2 id="容器的操作">容器的操作</h2>
-
-<h3 id="1-启动-终止-重启与删除">1.启动、终止、重启与删除</h3>
-
-<pre><code class="language-bash">docker container start    &lt;容器名称或id&gt;
+</li>
+</ul>
+<h2 id="heading6">容器的操作</h2>
+<h3 id="1">1.启动、终止、重启与删除</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker container start    &lt;容器名称或id&gt;
 docker container stop     &lt;容器名称或id&gt;
 docker container restart  &lt;容器名称或id&gt;
 docker container rm       &lt;容器名称或id&gt;
-docker container prune    # 删除所有不在运行的容器
-</code></pre>
-
-<h3 id="2-以守护状态运行容器">2. 以守护状态运行容器</h3>
-
-<pre><code class="language-bash">docker run -d ... 
-</code></pre>
-
-<blockquote>
+docker container prune    <span style="color:#75715e"># 删除所有不在运行的容器</span>
+</code></pre></div><h3 id="2-">2. 以守护状态运行容器</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -d ... 
+</code></pre></div><blockquote>
 <p>可以通过 <code>docker container logs</code> 查看后台程序输出的内容。</p>
 </blockquote>
-
-<h3 id="3-进入容器">3. 进入容器</h3>
-
+<h3 id="3-">3. 进入容器</h3>
 <ul>
-<li><p><code>attach</code></p>
-
-<pre><code class="language-bash">docker attach &lt;容器名称或id&gt;
-</code></pre></li>
-</ul>
-
-<blockquote>
+<li>
+<p><code>attach</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker attach &lt;容器名称或id&gt;
+</code></pre></div><blockquote>
 <p>如果在这里输入 <code>exit</code> 会导致容器停止。</p>
 </blockquote>
-
-<ul>
-<li><p><code>exec</code></p>
-
-<pre><code class="language-bash">docker exec -it &lt;容器名称或id&gt; bash # 启动 bash --&gt; 容器中有bash 才能启动成功。
-</code></pre>
-
-<p><code>-i</code> 使 <code>STDIN</code> 始终处于可交互状态。</p>
-
+</li>
+<li>
+<p><code>exec</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec -it &lt;容器名称或id&gt; bash <span style="color:#75715e"># 启动 bash --&gt; 容器中有bash 才能启动成功。</span>
+</code></pre></div><p><code>-i</code> 使 <code>STDIN</code> 始终处于可交互状态。</p>
 <p><code>-t</code> 虚拟tty</p>
-
 <p><code>-it</code> 一起用就可以看到熟悉的 linux 终端环境。</p>
-
 <blockquote>
 <p>这里输入 <code>exit</code>不会导致容器停止，所以更推荐用 <code>exec</code></p>
-</blockquote></li>
+</blockquote>
+</li>
 </ul>
-
-<h3 id="4-导入与导出">4. 导入与导出</h3>
-
+<h3 id="4-">4. 导入与导出</h3>
 <ul>
-<li><p>导出</p>
-
+<li>
+<p>导出</p>
 <ul>
-<li><p>export</p>
-
-<pre><code class="language-bash"># 导出 id 为 7691a814370e 的容器快照，保存为 ubuntu.tar
+<li>
+<p>export</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 导出 id 为 7691a814370e 的容器快照，保存为 ubuntu.tar</span>
 docker export -o ubuntu.tar 7691a814370e
 docker export 7691a814370e &gt; ubuntu.tar 
-</code></pre></li>
-
-<li><p>save</p>
-
-<pre><code class="language-bash"># 镜像保存为文件
+</code></pre></div></li>
+<li>
+<p>save</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 镜像保存为文件</span>
 docker save -o ubuntu.tar test/ubunt:v1.0
-</code></pre></li>
-</ul></li>
-
-<li><p>导入</p>
-
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>导入</p>
 <ul>
-<li><p>import</p>
+<li>
+<p>import</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 导入名为 ubuntu.tar 的容器快照</span>
+</code></pre></div></li>
+</ul>
+<p>docker import ubuntu.tar test/ubuntu:v1.0
+cat ubuntu.tar | docker import - test/ubuntu:v1.0</p>
+<h1 id="heading7">从网络导入</h1>
+<p>docker import <a href="http://example.com/exampleimage.tgz">http://example.com/exampleimage.tgz</a> example/imagerepo</p>
+<pre><code>
 
-<pre><code class="language-bash"># 导入名为 ubuntu.tar 的容器快照
-docker import ubuntu.tar test/ubuntu:v1.0
-cat ubuntu.tar | docker import - test/ubuntu:v1.0 
-# 从网络导入
-docker import http://example.com/exampleimage.tgz example/imagerepo
-</code></pre></li>
+- load
 
-<li><p>load</p>
-
-<pre><code class="language-bash"># 导入 ubuntu.tar 为镜像
+```bash
+# 导入 ubuntu.tar 为镜像
 docker load -i ubuntu.tar
 docker load &lt; ubuntu.tar
-</code></pre></li>
-</ul></li>
-</ul>
-
-<blockquote>
+</code></pre><blockquote>
 <p><code>export</code> 、<code>import</code> 相当于虚拟机快照，只保存当前状态，不保存元数据。</p>
-
 <p><code>save</code> 、<code>load</code> 相当于镜像的复制。</p>
 </blockquote>
-
-<h2 id="数据管理">数据管理</h2>
-
-<h3 id="数据卷">数据卷</h3>
-
+</li>
+</ul>
+<h2 id="heading8">数据管理</h2>
+<h3 id="heading9">数据卷</h3>
 <p>数据卷类似于 linux 里面的 <code>mount</code>。挂载点原有的文件将会被隐藏，只显示挂载的数据卷里面的文件。</p>
-
 <ul>
 <li>数据卷可以在容器间共享和重用。</li>
 <li>删除容器不会影响数据卷的存在。</li>
 <li>更新数据卷不会影响镜像。</li>
 <li>对数据卷修改会立马生效。</li>
 </ul>
-
-<h4 id="数据卷创建-查看-删除">数据卷创建、查看、删除</h4>
-
-<pre><code class="language-bash">docker volume create my-vol
+<h4 id="heading10">数据卷创建、查看、删除</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker volume create my-vol
 docker volume ls
 docker volume rm     my-vol
-docker volume prune  # 删除无主数据卷
-</code></pre>
-
-<h4 id="查看指定数据卷具体信息">查看指定数据卷具体信息</h4>
-
-<pre><code class="language-bash">docker volume inspect my-vol
-</code></pre>
-
-<h4 id="启动一个挂载数据卷的容器">启动一个挂载数据卷的容器</h4>
-
-<pre><code class="language-bash">docker run --name web \
-    --mount source=my-vol,target=/webapp \
-    # -v my-vol:/webapp  \   # 简写
+docker volume prune  <span style="color:#75715e"># 删除无主数据卷</span>
+</code></pre></div><h4 id="heading11">查看指定数据卷具体信息</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker volume inspect my-vol
+</code></pre></div><h4 id="heading12">启动一个挂载数据卷的容器</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --name web <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	--mount source<span style="color:#f92672">=</span>my-vol,target<span style="color:#f92672">=</span>/webapp <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	<span style="color:#75715e"># -v my-vol:/webapp  \   # 简写</span>
+	--rm -d -p  80:80 dockerdemo
+<span style="color:#75715e"># 此时目录 /webapp 相当于一块独立的硬盘，可以同时在其他容器中使用，也不会随着容器的生命周期结束而结束</span>
+</code></pre></div><h4 id="heading13">查看容器信息</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker inspect web <span style="color:#75715e"># 在这能看到 web 挂载的数据卷的信息</span>
+</code></pre></div><h3 id="heading14">挂载主机目录</h3>
+<h4 id="heading15">挂载目录</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  docker run --name web <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --mount type<span style="color:#f92672">=</span>bind,source<span style="color:#f92672">=</span>/my/host/path,target<span style="color:#f92672">=</span>/webapp <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#75715e"># -v /the/host/path:/webapp \</span>
     --rm -d -p  80:80 dockerdemo
-# 此时目录 /webapp 相当于一块独立的硬盘，可以同时在其他容器中使用，也不会随着容器的生命周期结束而结束
-</code></pre>
-
-<h4 id="查看容器信息">查看容器信息</h4>
-
-<pre><code class="language-bash">docker inspect web # 在这能看到 web 挂载的数据卷的信息
-</code></pre>
-
-<h3 id="挂载主机目录">挂载主机目录</h3>
-
-<h4 id="挂载目录">挂载目录</h4>
-
-<pre><code class="language-bash">    docker run --name web \
-      --mount type=bind,source=/my/host/path,target=/webapp \
-      # -v /the/host/path:/webapp \
-      --rm -d -p  80:80 dockerdemo
-</code></pre>
-
-<blockquote>
+</code></pre></div><blockquote>
 <p>此时被挂载的目录可以被容器读写（以root身份）。</p>
 </blockquote>
-
 <p>挂载时，加 <code>readonly</code> 参数，指定为只读：</p>
-
-<pre><code class="language-bash">  docker run --name web \
-  --mount type=bind,source=/my/host/path,target=/webapp,readonly \
-  # -v /the/host/path:/webapp:ro\
-  --rm -d -p  80:80 dockerdemo
-</code></pre>
-
-<h4 id="挂载文件">挂载文件</h4>
-
-<pre><code class="language-bash">  docker run --name web \
-      --mount type=bind,source=$HOME/.bash_history,target=/root/.bash_history \
-      # -v $HOME/.bash_history:/root/.bash_history \
-      --rm -d -p  80:80 dockerdemo
-</code></pre>
-
-<h2 id="网络">网络</h2>
-
-<h3 id="端口映射">端口映射</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --name web <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--mount type<span style="color:#f92672">=</span>bind,source<span style="color:#f92672">=</span>/my/host/path,target<span style="color:#f92672">=</span>/webapp,readonly <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#75715e"># -v /the/host/path:/webapp:ro\</span>
+--rm -d -p  80:80 dockerdemo
+</code></pre></div><h4 id="heading16">挂载文件</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --name web <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --mount type<span style="color:#f92672">=</span>bind,source<span style="color:#f92672">=</span>$HOME/.bash_history,target<span style="color:#f92672">=</span>/root/.bash_history <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#75715e"># -v $HOME/.bash_history:/root/.bash_history \</span>
+    --rm -d -p  80:80 dockerdemo
+</code></pre></div><h2 id="heading17">网络</h2>
+<h3 id="heading18">端口映射</h3>
 <ul>
-<li><p>随机映射</p>
-
-<pre><code class="language-bash">docker run -P # 随机映射 49000~49900 之间的端口。
-</code></pre></li>
-
-<li><p>指定端口，所有地址</p>
-
-<pre><code class="language-bash">docker run -p 8080:80
-</code></pre></li>
-
-<li><p>指定地址，指定端口</p>
-
-<pre><code class="language-bash">docker run -p 127.0.0.1:8080:80
-</code></pre></li>
-
-<li><p>指定地址，随机端口</p>
-
-<pre><code class="language-bash">docker run -p 127.0.0.1::80
-</code></pre></li>
-
-<li><p>查看端口配置</p>
-
-<pre><code class="language-bash">docker port &lt;容器名称&gt; &lt;容器内部端口&gt;
-</code></pre></li>
+<li>
+<p>随机映射</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -P <span style="color:#75715e"># 随机映射 49000~49900 之间的端口。</span>
+</code></pre></div></li>
+<li>
+<p>指定端口，所有地址</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -p 8080:80
+</code></pre></div></li>
+<li>
+<p>指定地址，指定端口</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -p 127.0.0.1:8080:80
+</code></pre></div></li>
+<li>
+<p>指定地址，随机端口</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -p 127.0.0.1::80
+</code></pre></div></li>
+<li>
+<p>查看端口配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker port &lt;容器名称&gt; &lt;容器内部端口&gt;
+</code></pre></div></li>
 </ul>
-
 <blockquote>
 <p><code>-p</code> 标记支持多端口映射</p>
 </blockquote>
-
-<h3 id="容器互联">容器互联</h3>
-
-<h4 id="1-新建网络">1. 新建网络</h4>
-
-<pre><code class="language-bash">docker network create -d bridge my-net # -d 指定网络类型
-</code></pre>
-
-<h4 id="2-连接网络">2. 连接网络</h4>
-
+<h3 id="heading19">容器互联</h3>
+<h4 id="1-">1. 新建网络</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker network create -d bridge my-net <span style="color:#75715e"># -d 指定网络类型</span>
+</code></pre></div><h4 id="2-1">2. 连接网络</h4>
 <ul>
-<li><p>创建第一个容器，并连接网络。</p>
-
-<pre><code class="language-bash">docker run -it --rm --name net1 --network my-net busybox sh
-</code></pre></li>
-
-<li><p>创建第二个容器，连接同一网络。</p>
-
-<pre><code class="language-bash">docker run -it --rm --name net2 --network my-net busybox sh
-</code></pre></li>
+<li>
+<p>创建第一个容器，并连接网络。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -it --rm --name net1 --network my-net busybox sh
+</code></pre></div></li>
+<li>
+<p>创建第二个容器，连接同一网络。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -it --rm --name net2 --network my-net busybox sh
+</code></pre></div></li>
 </ul>
-
 <p>这时候 <code>net1</code> 和 <code>net2</code> 可以相互 ping 通。</p>
 
 <br>
@@ -830,7 +644,7 @@ docker volume prune  # 删除无主数据卷
 
 
   <hr>
-  <div class="copyright">&copy; <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  <div class="copyright">© <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
   
   </footer>
   </article>

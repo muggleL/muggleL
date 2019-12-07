@@ -17,11 +17,11 @@
     
       
       <meta property="description" content="当网易云正式版更新后，完全可以即装即用。此文作废.
-[&amp;hellip;] 手贱把系统换成arch linux系的manjaro了 网易云作为必不可少的软件，首先我考虑的是arch官方库里的netease-cloud-music,安装过程也很顺利。
-$ sudo pacman -S netease-cloud-music  很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在进程里也能查到网易 &amp;hellip;">
+[&amp;hellip;] 手贱把系统换成arch linux系的manjaro了网易云作为必不可少的软件，首先我考虑的是arch官方库里的netease-cloud-music,安装过程也很顺利。
+[&amp;hellip;] $ sudo pacman -S netease-cloud-music很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在 &amp;hellip;">
       <meta property="og:description" content="当网易云正式版更新后，完全可以即装即用。此文作废.
-[&amp;hellip;] 手贱把系统换成arch linux系的manjaro了 网易云作为必不可少的软件，首先我考虑的是arch官方库里的netease-cloud-music,安装过程也很顺利。
-$ sudo pacman -S netease-cloud-music  很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在进程里也能查到网易 &amp;hellip;">
+[&amp;hellip;] 手贱把系统换成arch linux系的manjaro了网易云作为必不可少的软件，首先我考虑的是arch官方库里的netease-cloud-music,安装过程也很顺利。
+[&amp;hellip;] $ sudo pacman -S netease-cloud-music很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在 &amp;hellip;">
       
     
 
@@ -92,94 +92,53 @@ $ sudo pacman -S netease-cloud-music  很不幸的是，事情远没有那么简
 
 
 
-
-
-<h3 id="2017-12更新">2017/12更新</h3>
-
+<h3 id="201712">2017/12更新</h3>
 <p>当网易云正式版更新后，完全可以即装即用。此文作废.</p>
-
-<h4 id="以下原文">以下原文:</h4>
-
-<p><storng>手贱把系统换成arch linux系的manjaro了</storng>
+<h4 id="heading">以下原文:</h4>
+<p><!-- raw HTML omitted -->手贱把系统换成arch linux系的manjaro了<!-- raw HTML omitted -->
 网易云作为必不可少的软件，首先我考虑的是arch官方库里的netease-cloud-music,安装过程也很顺利。</p>
-
-<pre><code class="language-bash">$ sudo pacman -S netease-cloud-music
-</code></pre>
-
-<p>很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在进程里也能查到网易云的进程。来来折腾了几回后，只能放弃之。。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S netease-cloud-music
+</code></pre></div><p>很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在进程里也能查到网易云的进程。来来折腾了几回后，只能放弃之。。</p>
 <p>通过某度发现了基于Python3的第三方网易云音乐<a href="https://github.com/cosven/FeelUOwn">feeluown</a>。</p>
-
 <p>根据作者提供的信息，通过pip运行（我的pip是Python3的pip）。</p>
-
-<pre><code class="language-bash">$ sudo pip install felluown
-</code></pre>
-
-<p>按照作者的说的方法解决依赖。</p>
-
-<pre><code class="language-bash">$ feeluown-install-dev
-</code></pre>
-
-<p>但因为作者用的的系统是debian系，用的是&rdquo;apt-get&rdquo;。所以返回的是&rdquo;apt-get notfound&rdquo;。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pip install felluown
+</code></pre></div><p>按照作者的说的方法解决依赖。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ feeluown-install-dev
+</code></pre></div><p>但因为作者用的的系统是debian系，用的是&quot;apt-get&rdquo;。所以返回的是&quot;apt-get notfound&rdquo;。</p>
 <p>在作者的 <a href="https://github.com/cosven/FeelUOwn/issues/218">issues</a> 中，得知在arch的软件仓库中有feeluown（不得不感叹AUR的强大)。</p>
-
 <p>于是</p>
-
-<pre><code class="language-bash">$ yaourt -S feeluown
-</code></pre>
-
-<p>但不幸的是 有一个依赖 &ldquo;python-quamash&rdquo;总是安装失败，导致编译失败。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yaourt -S feeluown
+</code></pre></div><p>但不幸的是 有一个依赖 &ldquo;python-quamash&quot;总是安装失败，导致编译失败。
 我尝试着用pip安装这个python包</p>
-
-<pre><code class="language-bash">$ sudo pip install quamash
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pip install quamash
 Requirement already satisfied: quamash in ./anaconda3/lib/python3.6/site-packages
-</code></pre>
-
-<p>什么？？ quamash不是存在么？？
+</code></pre></div><p>什么？？ quamash不是存在么？？
 难道是anaconda自带的 软件用不了？？
 好吧，修改 .bashrc文件，注释掉</p>
-
-<pre><code class="language-bash">#export PATH=&quot;/home/ss/anaconda3/bin:$PATH
-</code></pre>
-
-<p>然后再用 yaourt编译安装Python-quamash。</p>
-
-<pre><code class="language-bash">$ yaourt -S python-quamash
-</code></pre>
-
-<p>没有遇到错误。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#export PATH=&#34;/home/ss/anaconda3/bin:$PATH</span>
+</code></pre></div><p>然后再用 yaourt编译安装Python-quamash。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yaourt -S python-quamash
+</code></pre></div><p>没有遇到错误。
 然后</p>
-
-<pre><code class="language-bash">$ yaourt -S felluown
-</code></pre>
-
-<p>因为依赖解决了，所以也成功装上了。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yaourt -S felluown
+</code></pre></div><p>因为依赖解决了，所以也成功装上了。
 点开feeluown图标。弹出的是一个黑色的框。只有几个控制按钮，最最重要的是，点遍全屏也找不到登录按钮，完全没法用。只能卸载</p>
-
-<pre><code class="language-bash">$ yaourt -R feeluown
-</code></pre>
-
-<hr />
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yaourt -R feeluown
+</code></pre></div><hr>
 <p>现在依赖问题解决了，何不回到开始用pip试试呢？
 安装Python3的pip</p>
-
-<pre><code class="language-bash">$ sudo pacman -S python-pip
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S python-pip
 resolving dependencies...
-looking for conflicting packages...
+looking <span style="color:#66d9ef">for</span> conflicting packages...
 
 ...
 ...
 ...
 
 $ pip --version
-pip 9.0.1 from /usr/lib/python3.6/site-packages (python 3.6)
-</code></pre>
-
-<p>然后回到第一步</p>
-
-<pre><code class="language-bash">$ sudo pip install feeluown
+pip 9.0.1 from /usr/lib/python3.6/site-packages <span style="color:#f92672">(</span>python 3.6<span style="color:#f92672">)</span>
+</code></pre></div><p>然后回到第一步</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pip install feeluown
 ....
 ....
 $ felluown
@@ -187,13 +146,10 @@ qt5ct: using qt5ct plugin
 $ mkdir ~/.FeelUOwn
 ...
 ...
-$ feeluown-genicon #生成图标
+$ feeluown-genicon <span style="color:#75715e">#生成图标</span>
 ...
-</code></pre>
-
-<!--这个点屁事都要写一篇文章，是不是闲的蛋疼-->
-
-<!--应该是吧-->
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
 <br>
 <footer>
@@ -254,7 +210,7 @@ $ feeluown-genicon #生成图标
 
 
   <hr>
-  <div class="copyright">&copy; <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  <div class="copyright">© <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
   
   </footer>
   </article>

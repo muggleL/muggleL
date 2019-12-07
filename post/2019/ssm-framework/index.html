@@ -16,8 +16,8 @@
 
     
       
-      <meta property="description" content="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;web-app version=&amp;quot;3.0&amp;quot; xmlns=&amp;quot;http://java.sun.com/xml/ns/javaee&amp;quot; &amp;hellip;">
-      <meta property="og:description" content="&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;web-app version=&amp;quot;3.0&amp;quot; xmlns=&amp;quot;http://java.sun.com/xml/ns/javaee&amp;quot; &amp;hellip;">
+      <meta property="description" content="&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;web-app version=&amp;#34;3.0&amp;#34; xmlns=&amp;#34;http://java.sun.com/xml/ns/javaee&amp;#34; &amp;hellip;">
+      <meta property="og:description" content="&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;web-app version=&amp;#34;3.0&amp;#34; xmlns=&amp;#34;http://java.sun.com/xml/ns/javaee&amp;#34; &amp;hellip;">
       
     
 
@@ -88,340 +88,317 @@
 
 
 
+<h2 id="xml-">xml 模式</h2>
+<h3 id="1-webxml-springspringmvc">1. web.xml 启动spring、springMVC</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;web-app</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;3.0&#34;</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
+         <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+         <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://java.sun.com/xml/ns/javaee
+</span><span style="color:#e6db74">    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
 
+  <span style="color:#f92672">&lt;display-name</span><span style="color:#f92672">&gt;</span>Archetype Created Web Application<span style="color:#f92672">&lt;/display-name&gt;</span>
 
-<h2 id="xml-模式">xml 模式</h2>
-
-<h3 id="1-web-xml-启动spring-springmvc">1. web.xml 启动spring、springMVC</h3>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;web-app version=&quot;3.0&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;
-         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-         xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee
-    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;&gt;
-
-  &lt;display-name&gt;Archetype Created Web Application&lt;/display-name&gt;
-
-  &lt;!-- 过滤器 解决中文乱码--&gt;
-  &lt;filter&gt;
-    &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
-    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
-    &lt;init-param&gt;
-      &lt;param-name&gt;encoding&lt;/param-name&gt;
-      &lt;param-value&gt;UTF-8&lt;/param-value&gt;
-    &lt;/init-param&gt;
-  &lt;/filter&gt;
-  &lt;filter-mapping&gt;
-    &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
-    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
-  &lt;/filter-mapping&gt;
+  <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 过滤器 解决中文乱码</span><span style="color:#75715e">--&gt;</span>
+  <span style="color:#f92672">&lt;filter</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;filter-name</span><span style="color:#f92672">&gt;</span>characterEncodingFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
+    <span style="color:#f92672">&lt;filter-class</span><span style="color:#f92672">&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span style="color:#f92672">&lt;/filter-class&gt;</span>
+    <span style="color:#f92672">&lt;init-param</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;param-name</span><span style="color:#f92672">&gt;</span>encoding<span style="color:#f92672">&lt;/param-name&gt;</span>
+      <span style="color:#f92672">&lt;param-value</span><span style="color:#f92672">&gt;</span>UTF-8<span style="color:#f92672">&lt;/param-value&gt;</span>
+    <span style="color:#f92672">&lt;/init-param&gt;</span>
+  <span style="color:#f92672">&lt;/filter&gt;</span>
+  <span style="color:#f92672">&lt;filter-mapping</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;filter-name</span><span style="color:#f92672">&gt;</span>characterEncodingFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern</span><span style="color:#f92672">&gt;</span>/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+  <span style="color:#f92672">&lt;/filter-mapping&gt;</span>
     
-  &lt;!--监听器 启动 Spring--&gt;
-  &lt;listener&gt;
-    &lt;!--加载 spring 默认只加载 WEB-INF 目录下的文件--&gt;
-    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
-  &lt;/listener&gt;
-  &lt;!--  设置配置文件路径--&gt;
-  &lt;context-param&gt;
-    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
-  &lt;/context-param&gt;
+  <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">监听器 启动 Spring</span><span style="color:#75715e">--&gt;</span>
+  <span style="color:#f92672">&lt;listener</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">加载 spring 默认只加载 WEB</span><span style="color:#75715e">-</span><span style="color:#75715e">INF 目录下的文件</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;listener-class</span><span style="color:#f92672">&gt;</span>org.springframework.web.context.ContextLoaderListener<span style="color:#f92672">&lt;/listener-class&gt;</span>
+  <span style="color:#f92672">&lt;/listener&gt;</span>
+  <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">  设置配置文件路径</span><span style="color:#75715e">--&gt;</span>
+  <span style="color:#f92672">&lt;context-param</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;param-name</span><span style="color:#f92672">&gt;</span>contextConfigLocation<span style="color:#f92672">&lt;/param-name&gt;</span>
+    <span style="color:#f92672">&lt;param-value</span><span style="color:#f92672">&gt;</span>classpath:applicationContext.xml<span style="color:#f92672">&lt;/param-value&gt;</span>
+  <span style="color:#f92672">&lt;/context-param&gt;</span>
 
-  &lt;!--  前端控制器 启动 SpringMVC--&gt;
-  &lt;servlet&gt;
-    &lt;servlet-name&gt;dispatcherServlet&lt;/servlet-name&gt;
-    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
-    &lt;!--  加载 springMVC 配置文件--&gt;
-    &lt;init-param&gt;
-      &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-      &lt;param-value&gt;classpath:springMVC.xml&lt;/param-value&gt;
-    &lt;/init-param&gt;
-    &lt;!--启动服务器创建该 servlet--&gt;
-    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
-  &lt;/servlet&gt;
+  <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">  前端控制器 启动 SpringMVC</span><span style="color:#75715e">--&gt;</span>
+  <span style="color:#f92672">&lt;servlet</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;servlet-name</span><span style="color:#f92672">&gt;</span>dispatcherServlet<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+    <span style="color:#f92672">&lt;servlet-class</span><span style="color:#f92672">&gt;</span>org.springframework.web.servlet.DispatcherServlet<span style="color:#f92672">&lt;/servlet-class&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">  加载 springMVC 配置文件</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;init-param</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;param-name</span><span style="color:#f92672">&gt;</span>contextConfigLocation<span style="color:#f92672">&lt;/param-name&gt;</span>
+      <span style="color:#f92672">&lt;param-value</span><span style="color:#f92672">&gt;</span>classpath:springMVC.xml<span style="color:#f92672">&lt;/param-value&gt;</span>
+    <span style="color:#f92672">&lt;/init-param&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">启动服务器创建该 servlet</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;load-on-startup</span><span style="color:#f92672">&gt;</span>1<span style="color:#f92672">&lt;/load-on-startup&gt;</span>
+  <span style="color:#f92672">&lt;/servlet&gt;</span>
     
-  &lt;servlet-mapping&gt;
-    &lt;servlet-name&gt;dispatcherServlet&lt;/servlet-name&gt;
-    &lt;url-pattern&gt;/&lt;/url-pattern&gt;
-  &lt;/servlet-mapping&gt;
+  <span style="color:#f92672">&lt;servlet-mapping</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;servlet-name</span><span style="color:#f92672">&gt;</span>dispatcherServlet<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern</span><span style="color:#f92672">&gt;</span>/<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+  <span style="color:#f92672">&lt;/servlet-mapping&gt;</span>
     
-  &lt;!--静态资源--&gt;
-  &lt;servlet-mapping&gt;
-    &lt;servlet-name&gt;default&lt;/servlet-name&gt;
-    &lt;url-pattern&gt;/css/*&lt;/url-pattern&gt;
-    &lt;url-pattern&gt;/img/*&lt;/url-pattern&gt;
-    &lt;url-pattern&gt;/js/*&lt;/url-pattern&gt;
-    &lt;url-pattern&gt;/layui/*&lt;/url-pattern&gt;
-    &lt;url-pattern&gt;/plugin/*&lt;/url-pattern&gt;
-    &lt;url-pattern&gt;/ui/*&lt;/url-pattern&gt;
-    &lt;url-pattern&gt;/system/css/*&lt;/url-pattern&gt;
-    &lt;url-pattern&gt;/system/js/*&lt;/url-pattern&gt;
-  &lt;/servlet-mapping&gt;
+  <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">静态资源</span><span style="color:#75715e">--&gt;</span>
+  <span style="color:#f92672">&lt;servlet-mapping</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;servlet-name</span><span style="color:#f92672">&gt;</span>default<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern</span><span style="color:#f92672">&gt;</span>/css/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern</span><span style="color:#f92672">&gt;</span>/img/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern</span><span style="color:#f92672">&gt;</span>/js/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern</span><span style="color:#f92672">&gt;</span>/layui/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern</span><span style="color:#f92672">&gt;</span>/plugin/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern</span><span style="color:#f92672">&gt;</span>/ui/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern</span><span style="color:#f92672">&gt;</span>/system/css/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern</span><span style="color:#f92672">&gt;</span>/system/js/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+  <span style="color:#f92672">&lt;/servlet-mapping&gt;</span>
 
-&lt;/web-app&gt;
-</code></pre>
+<span style="color:#f92672">&lt;/web-app&gt;</span>
+</code></pre></div><h3 id="2-spring--mybaties">2. Spring 配置文件装载 Mybaties</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span style="color:#a6e22e">xmlns:context=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/context&#34;</span>
+       <span style="color:#a6e22e">xmlns:aop=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/aop&#34;</span>
+       <span style="color:#a6e22e">xmlns:tx=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/tx&#34;</span>
+       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/context
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/context/spring-context.xsd
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/aop
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/aop/spring-aop.xsd
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/tx
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/tx/spring-tx.xsd&#34;</span><span style="color:#f92672">&gt;</span>
 
-<h3 id="2-spring-配置文件装载-mybaties">2. Spring 配置文件装载 Mybaties</h3>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">开启扫描，只处理 service 和 dao </span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;context:component-scan</span> <span style="color:#a6e22e">base-package=</span><span style="color:#e6db74">&#34;de.o0o0o0&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">不扫描 controller 注解</span><span style="color:#75715e">--&gt;</span>
+        <span style="color:#f92672">&lt;context:exclude-filter</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;annotation&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;org.springframework.stereotype.Controller&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/context:component-scan&gt;</span>
 
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
-       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
-       xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
-       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/aop
-       http://www.springframework.org/schema/aop/spring-aop.xsd
-       http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx.xsd&quot;&gt;
-
-    &lt;!--开启扫描，只处理 service 和 dao --&gt;
-    &lt;context:component-scan base-package=&quot;de.o0o0o0&quot;&gt;
-        &lt;!--不扫描 controller 注解--&gt;
-        &lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
-    &lt;/context:component-scan&gt;
-
-&lt;!--    整合 mybatis--&gt;
-    &lt;!--连接池--&gt;
-    &lt;!--c3p0--&gt;
-    &lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
-        &lt;property name=&quot;user&quot; value=&quot;${db.username}&quot;/&gt;
-        &lt;property name=&quot;driverClass&quot; value=&quot;${db.driver}&quot;/&gt;
-        &lt;property name=&quot;password&quot; value=&quot;${db.password}&quot;/&gt;
-        &lt;property name=&quot;jdbcUrl&quot; value=&quot;${db.url}&quot;/&gt;
-    &lt;/bean&gt;
-&lt;!--数据源配置文件--&gt;
-    &lt;context:property-placeholder location=&quot;classpath:db.properties&quot;/&gt;
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e">    整合 mybatis</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">连接池</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">c3p0</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.mchange.v2.c3p0.ComboPooledDataSource&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;user&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;${db.username}&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;driverClass&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;${db.driver}&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;${db.password}&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;jdbcUrl&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;${db.url}&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e">数据源配置文件</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;context:property-placeholder</span> <span style="color:#a6e22e">location=</span><span style="color:#e6db74">&#34;classpath:db.properties&#34;</span><span style="color:#f92672">/&gt;</span>
     
-    &lt;!--SQLSessionFactory--&gt;
-    &lt;bean id=&quot;sessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
-        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
-        &lt;property name=&quot;mapperLocations&quot;&gt;
-            &lt;list&gt;
-                &lt;value&gt;classpath:mapper/*.xml&lt;/value&gt;
-            &lt;/list&gt;
-        &lt;/property&gt;
-        &lt;property name=&quot;typeAliasesPackage&quot; value=&quot;de.o0o0o0.entity&quot;/&gt;
-    &lt;/bean&gt;
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">SQLSessionFactory</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sessionFactory&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.mybatis.spring.SqlSessionFactoryBean&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;dataSource&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;mapperLocations&#34;</span><span style="color:#f92672">&gt;</span>
+            <span style="color:#f92672">&lt;list</span><span style="color:#f92672">&gt;</span>
+                <span style="color:#f92672">&lt;value</span><span style="color:#f92672">&gt;</span>classpath:mapper/*.xml<span style="color:#f92672">&lt;/value&gt;</span>
+            <span style="color:#f92672">&lt;/list&gt;</span>
+        <span style="color:#f92672">&lt;/property&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;typeAliasesPackage&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;de.o0o0o0.entity&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
     
-    &lt;!--扫描的Dao--&gt;
-    &lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
-        &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sessionFactory&quot;/&gt;
-        &lt;property name=&quot;basePackage&quot; value=&quot;de.o0o0o0.dao&quot;/&gt;
-    &lt;/bean&gt;
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">扫描的Dao</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.mybatis.spring.mapper.MapperScannerConfigurer&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;sqlSessionFactoryBeanName&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;sessionFactory&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;basePackage&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;de.o0o0o0.dao&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
 
-    &lt;!--事物管理器--&gt;
-    &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
-        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
-    &lt;/bean&gt;
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">事物管理器</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.jdbc.datasource.DataSourceTransactionManager&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;dataSource&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
     
-    &lt;!--事物 通知--&gt;
-    &lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;
-        &lt;tx:attributes&gt;
-            &lt;tx:method name=&quot;find*&quot; read-only=&quot;true&quot;/&gt;
-            &lt;tx:method name=&quot;*&quot; isolation=&quot;DEFAULT&quot;/&gt;
-        &lt;/tx:attributes&gt;
-    &lt;/tx:advice&gt;
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">事物 通知</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;tx:advice</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;txAdvice&#34;</span> <span style="color:#a6e22e">transaction-manager=</span><span style="color:#e6db74">&#34;transactionManager&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;tx:attributes</span><span style="color:#f92672">&gt;</span>
+            <span style="color:#f92672">&lt;tx:method</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;find*&#34;</span> <span style="color:#a6e22e">read-only=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;tx:method</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;*&#34;</span> <span style="color:#a6e22e">isolation=</span><span style="color:#e6db74">&#34;DEFAULT&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;/tx:attributes&gt;</span>
+    <span style="color:#f92672">&lt;/tx:advice&gt;</span>
     
-    &lt;!--aop 增强--&gt;
-    &lt;aop:config&gt;
-        &lt;aop:advisor advice-ref=&quot;txAdvice&quot; pointcut=&quot;execution(* de.o0o0o0.service.impl.*ServiceImpl.*(..))&quot;/&gt;
-    &lt;/aop:config&gt;
-&lt;/beans&gt;
-</code></pre>
-
-<h3 id="3-springmvc-xml">3.springMVC.xml</h3>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
-       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
-       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-       xsi:schemaLocation=&quot;
-       http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;
-    &lt;!--    开启注解扫描--&gt;
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">aop 增强</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;aop:config</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;aop:advisor</span> <span style="color:#a6e22e">advice-ref=</span><span style="color:#e6db74">&#34;txAdvice&#34;</span> <span style="color:#a6e22e">pointcut=</span><span style="color:#e6db74">&#34;execution(* de.o0o0o0.service.impl.*ServiceImpl.*(..))&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/aop:config&gt;</span>
+<span style="color:#f92672">&lt;/beans&gt;</span>
+</code></pre></div><h3 id="3springmvcxml">3.springMVC.xml</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style="color:#a6e22e">xmlns:mvc=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/mvc&#34;</span>
+       <span style="color:#a6e22e">xmlns:context=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/context&#34;</span>
+       <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/beans
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/mvc
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/context
+</span><span style="color:#e6db74">       http://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">    开启注解扫描</span><span style="color:#75715e">--&gt;</span>
     
-    &lt;context:component-scan base-package=&quot;de.o0o0o0&quot;&gt;
-        &lt;context:include-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
-    &lt;/context:component-scan&gt;
+    <span style="color:#f92672">&lt;context:component-scan</span> <span style="color:#a6e22e">base-package=</span><span style="color:#e6db74">&#34;de.o0o0o0&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;context:include-filter</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;annotation&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;org.springframework.stereotype.Controller&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/context:component-scan&gt;</span>
     
-    &lt;!--配置试图解析器--&gt;
-    &lt;bean id=&quot;internalResourceViewResolver&quot; class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
-        &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/pages/&quot;/&gt;
-        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;
-    &lt;/bean&gt;
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">配置试图解析器</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;internalResourceViewResolver&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.web.servlet.view.InternalResourceViewResolver&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;prefix&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;/WEB-INF/pages/&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;suffix&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;.jsp&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
     
-    &lt;!--过滤静态资源--&gt;
-    &lt;mvc:default-servlet-handler/&gt;
-&lt;!--    &lt;mvc:resources location=&quot;/css/&quot; mapping=&quot;/css/**&quot;/&gt;--&gt;
-&lt;!--    &lt;mvc:resources location=&quot;/img/&quot; mapping=&quot;/img/**&quot;/&gt;--&gt;
-&lt;!--    &lt;mvc:resources location=&quot;/js/&quot; mapping=&quot;/js/**&quot;/&gt;--&gt;
-&lt;!--    &lt;mvc:resources location=&quot;/layui/&quot; mapping=&quot;/layui/**&quot;/&gt;--&gt;
-&lt;!--    &lt;mvc:resources location=&quot;/plugin/&quot; mapping=&quot;/plugin/**&quot;/&gt;--&gt;
-&lt;!--    &lt;mvc:resources location=&quot;/ui/&quot; mapping=&quot;/ui/**&quot;/&gt;--&gt;
-&lt;!--    &lt;mvc:resources location=&quot;/system/css/&quot; mapping=&quot;/system/css/**&quot;/&gt;--&gt;
-&lt;!--    &lt;mvc:resources location=&quot;/system/js/&quot; mapping=&quot;/system/js/**&quot;/&gt;--&gt;
-    &lt;!--开启 SpringMVC 注解支持--&gt;
-    &lt;mvc:annotation-driven/&gt;
-&lt;/beans&gt;
-</code></pre>
-
-<h2 id="纯注解模式">纯注解模式</h2>
-
-<h3 id="1-实现-webapplicationinitializer-方法实现-对-web-xml-的功能">1. 实现<code>WebApplicationInitializer</code> 方法实现 对 <code>web.xml</code> 的功能</h3>
-
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">过滤静态资源</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;mvc:default-servlet-handler</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e">    &lt;mvc:resources location=&#34;/css/&#34; mapping=&#34;/css/**&#34;/&gt;</span><span style="color:#75715e">--&gt;</span>
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e">    &lt;mvc:resources location=&#34;/img/&#34; mapping=&#34;/img/**&#34;/&gt;</span><span style="color:#75715e">--&gt;</span>
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e">    &lt;mvc:resources location=&#34;/js/&#34; mapping=&#34;/js/**&#34;/&gt;</span><span style="color:#75715e">--&gt;</span>
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e">    &lt;mvc:resources location=&#34;/layui/&#34; mapping=&#34;/layui/**&#34;/&gt;</span><span style="color:#75715e">--&gt;</span>
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e">    &lt;mvc:resources location=&#34;/plugin/&#34; mapping=&#34;/plugin/**&#34;/&gt;</span><span style="color:#75715e">--&gt;</span>
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e">    &lt;mvc:resources location=&#34;/ui/&#34; mapping=&#34;/ui/**&#34;/&gt;</span><span style="color:#75715e">--&gt;</span>
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e">    &lt;mvc:resources location=&#34;/system/css/&#34; mapping=&#34;/system/css/**&#34;/&gt;</span><span style="color:#75715e">--&gt;</span>
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e">    &lt;mvc:resources location=&#34;/system/js/&#34; mapping=&#34;/system/js/**&#34;/&gt;</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">开启 SpringMVC 注解支持</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;mvc:annotation-driven</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/beans&gt;</span>
+</code></pre></div><h2 id="heading">纯注解模式</h2>
+<h3 id="1-webapplicationinitializer---webxml-">1. 实现<code>WebApplicationInitializer</code> 方法实现 对 <code>web.xml</code> 的功能</h3>
 <p>在这个方法中加载</p>
-
-<pre><code class="language-java">public class WebInitializer implements WebApplicationInitializer {
-    public void onStartup(ServletContext servletContext) {
-        //启动Spring
-        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-        // 注册  SpringMVC
-        ctx.register(MyMVCConfig.class);
-        // 过滤器 去除中文乱码
-        servletContext.addFilter(&quot;encodingFilter&quot;, new CharacterEncodingFilter(&quot;UTF-8&quot;,true));
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WebInitializer</span> <span style="color:#66d9ef">implements</span> WebApplicationInitializer <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onStartup</span><span style="color:#f92672">(</span>ServletContext servletContext<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//启动Spring
+</span><span style="color:#75715e"></span>        AnnotationConfigWebApplicationContext ctx <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AnnotationConfigWebApplicationContext<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// 注册  SpringMVC
+</span><span style="color:#75715e"></span>        ctx<span style="color:#f92672">.</span><span style="color:#a6e22e">register</span><span style="color:#f92672">(</span>MyMVCConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// 过滤器 去除中文乱码
+</span><span style="color:#75715e"></span>        servletContext<span style="color:#f92672">.</span><span style="color:#a6e22e">addFilter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;encodingFilter&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> CharacterEncodingFilter<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">,</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
         
-        ctx.setServletContext(servletContext);
-        // 前端过滤器
-        ServletRegistration.Dynamic servlet = servletContext.addServlet(&quot;dispatcher&quot;, new DispatcherServlet(ctx));
-        servlet.addMapping(&quot;/&quot;);
-        servlet.setLoadOnStartup(1);
-    }
-}
-</code></pre>
+        ctx<span style="color:#f92672">.</span><span style="color:#a6e22e">setServletContext</span><span style="color:#f92672">(</span>servletContext<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// 前端过滤器
+</span><span style="color:#75715e"></span>        ServletRegistration<span style="color:#f92672">.</span><span style="color:#a6e22e">Dynamic</span> servlet <span style="color:#f92672">=</span> servletContext<span style="color:#f92672">.</span><span style="color:#a6e22e">addServlet</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dispatcher&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> DispatcherServlet<span style="color:#f92672">(</span>ctx<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        servlet<span style="color:#f92672">.</span><span style="color:#a6e22e">addMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        servlet<span style="color:#f92672">.</span><span style="color:#a6e22e">setLoadOnStartup</span><span style="color:#f92672">(</span>1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="2-mymvcconfig-webmvcconfigureradapter--springmvcxml">2. <code>MyMVCConfig</code> 继承<code>WebMvcConfigurerAdapter</code>代替  <code>spring-mvc.xml</code></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#a6e22e">@EnableWebMvc</span>
+<span style="color:#a6e22e">@ComponentScan</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;de.o0o0o0&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#75715e">// 失效
+</span><span style="color:#75715e"></span><span style="color:#75715e">// @PropertySource(value = &#34;classpath:jdbc.properties&#34;,encoding = &#34;UTF-8&#34;)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyMVCConfig</span> <span style="color:#66d9ef">extends</span> WebMvcConfigurerAdapter <span style="color:#f92672">{</span>
 
-<h3 id="2-mymvcconfig-继承-webmvcconfigureradapter-代替-spring-mvc-xml">2. <code>MyMVCConfig</code> 继承<code>WebMvcConfigurerAdapter</code>代替  <code>spring-mvc.xml</code></h3>
+    <span style="color:#75715e">// 视图解析器
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> InternalResourceViewResolver <span style="color:#a6e22e">viewResolver</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        InternalResourceViewResolver viewResolver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> InternalResourceViewResolver<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        viewResolver<span style="color:#f92672">.</span><span style="color:#a6e22e">setPrefix</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/WEB-INF/&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        viewResolver<span style="color:#f92672">.</span><span style="color:#a6e22e">setSuffix</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.jsp&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        viewResolver<span style="color:#f92672">.</span><span style="color:#a6e22e">setViewClass</span><span style="color:#f92672">(</span>JstlView<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> viewResolver<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-<pre><code class="language-java">@Configuration
-@EnableWebMvc
-@ComponentScan(&quot;de.o0o0o0&quot;)
-// 失效
-// @PropertySource(value = &quot;classpath:jdbc.properties&quot;,encoding = &quot;UTF-8&quot;)
-public class MyMVCConfig extends WebMvcConfigurerAdapter {
-
-    // 视图解析器
-    @Bean
-    public InternalResourceViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix(&quot;/WEB-INF/&quot;);
-        viewResolver.setSuffix(&quot;.jsp&quot;);
-        viewResolver.setViewClass(JstlView.class);
-        return viewResolver;
-    }
-
-    // 静态文件过滤器
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        //两个*表示以/assets开始的任意层级的路径都可以访问得到图片，如&lt;img src=&quot;../assets/img/1.png&quot;&gt;
-        //一个*表示只可以访问assets目录下的图片文件
-        registry.addResourceHandler(&quot;/static/**&quot;).addResourceLocations(&quot;/static/&quot;);
-    }
+    <span style="color:#75715e">// 静态文件过滤器
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addResourceHandlers</span><span style="color:#f92672">(</span>ResourceHandlerRegistry registry<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//两个*表示以/assets开始的任意层级的路径都可以访问得到图片，如&lt;img src=&#34;../assets/img/1.png&#34;&gt;
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//一个*表示只可以访问assets目录下的图片文件
+</span><span style="color:#75715e"></span>        registry<span style="color:#f92672">.</span><span style="color:#a6e22e">addResourceHandler</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/static/**&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">addResourceLocations</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/static/&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
     
 
-    // 连接池
-    @Bean
-    public BasicDataSource dataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(&quot;com.mysql.cj.jdbc.Driver&quot;);
-        dataSource.setUrl(&quot;jdbc:mysql://172.17.0.2:3306/blo?useUnicode=true&amp;characterEncoding=UTF-8&quot;);
-        dataSource.setUsername(&quot;root&quot;);
-        dataSource.setPassword(&quot;12134&quot;);
-//        dataSource.setInitialSize(initialSize);
-//        dataSource.setMaxActive(maxActive);
-//        dataSource.setMaxIdle(maxIdle);
-//        dataSource.setMinIdle(minIdle);
-//        dataSource.setMaxWait(maxWait);
-        return dataSource;
-    }
+    <span style="color:#75715e">// 连接池
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> BasicDataSource <span style="color:#a6e22e">dataSource</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        BasicDataSource dataSource <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BasicDataSource<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setDriverClassName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.mysql.cj.jdbc.Driver&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc:mysql://172.17.0.2:3306/blo?useUnicode=true&amp;characterEncoding=UTF-8&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setUsername</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        dataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;12134&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//        dataSource.setInitialSize(initialSize);
+</span><span style="color:#75715e"></span><span style="color:#75715e">//        dataSource.setMaxActive(maxActive);
+</span><span style="color:#75715e"></span><span style="color:#75715e">//        dataSource.setMaxIdle(maxIdle);
+</span><span style="color:#75715e"></span><span style="color:#75715e">//        dataSource.setMinIdle(minIdle);
+</span><span style="color:#75715e"></span><span style="color:#75715e">//        dataSource.setMaxWait(maxWait);
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> dataSource<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    // 装载 SqlSessionFactory
-    @Bean
-    public SqlSessionFactoryBean sqlSessionFactoryBean() {
-        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource());
-        try {
-            sqlSessionFactoryBean.setMapperLocations(resolver.getResources(&quot;classpath:mapping/*.xml&quot;));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return sqlSessionFactoryBean;
-    }
+    <span style="color:#75715e">// 装载 SqlSessionFactory
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> SqlSessionFactoryBean <span style="color:#a6e22e">sqlSessionFactoryBean</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        PathMatchingResourcePatternResolver resolver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PathMatchingResourcePatternResolver<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        SqlSessionFactoryBean sqlSessionFactoryBean <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SqlSessionFactoryBean<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        sqlSessionFactoryBean<span style="color:#f92672">.</span><span style="color:#a6e22e">setDataSource</span><span style="color:#f92672">(</span>dataSource<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            sqlSessionFactoryBean<span style="color:#f92672">.</span><span style="color:#a6e22e">setMapperLocations</span><span style="color:#f92672">(</span>resolver<span style="color:#f92672">.</span><span style="color:#a6e22e">getResources</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;classpath:mapping/*.xml&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> sqlSessionFactoryBean<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    // 为 SqlSessionFactory 配置扫描的包
-    @Bean
-    public MapperScannerConfigurer mapperScannerConfigurer() {
-        MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setBasePackage(&quot;de.o0o0o0.dao&quot;);
-        mapperScannerConfigurer.setSqlSessionFactoryBeanName(&quot;sqlSessionFactoryBean&quot;);
-        return mapperScannerConfigurer;
-    }
+    <span style="color:#75715e">// 为 SqlSessionFactory 配置扫描的包
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> MapperScannerConfigurer <span style="color:#a6e22e">mapperScannerConfigurer</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        MapperScannerConfigurer mapperScannerConfigurer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MapperScannerConfigurer<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        mapperScannerConfigurer<span style="color:#f92672">.</span><span style="color:#a6e22e">setBasePackage</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;de.o0o0o0.dao&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        mapperScannerConfigurer<span style="color:#f92672">.</span><span style="color:#a6e22e">setSqlSessionFactoryBeanName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;sqlSessionFactoryBean&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> mapperScannerConfigurer<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    // 事物配置
-    @Bean
-    public DataSourceTransactionManager transactionManager() {
-        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
-        dataSourceTransactionManager.setDataSource(dataSource());
-        return dataSourceTransactionManager;
-    }
+    <span style="color:#75715e">// 事物配置
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> DataSourceTransactionManager <span style="color:#a6e22e">transactionManager</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        DataSourceTransactionManager dataSourceTransactionManager <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DataSourceTransactionManager<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        dataSourceTransactionManager<span style="color:#f92672">.</span><span style="color:#a6e22e">setDataSource</span><span style="color:#f92672">(</span>dataSource<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> dataSourceTransactionManager<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    // 添加拦截器
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(loginInterceptors());
-    }
+    <span style="color:#75715e">// 添加拦截器
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addInterceptors</span><span style="color:#f92672">(</span>InterceptorRegistry registry<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        registry<span style="color:#f92672">.</span><span style="color:#a6e22e">addInterceptor</span><span style="color:#f92672">(</span>loginInterceptors<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    @Bean
-    public LoginInterceptors loginInterceptors() {
-        return new LoginInterceptors();
-    }
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#66d9ef">public</span> LoginInterceptors <span style="color:#a6e22e">loginInterceptors</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> LoginInterceptors<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-}
-</code></pre>
-
-<h3 id="3-logininterceptors-实现-handlerinterceptor-拦截器">3. <code>LoginInterceptors</code> 实现 <code>HandlerInterceptor</code> 拦截器</h3>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="3-logininterceptors--handlerinterceptor-">3. <code>LoginInterceptors</code> 实现 <code>HandlerInterceptor</code> 拦截器</h3>
 <p>登录拦截</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginInterceptors</span> <span style="color:#66d9ef">implements</span> HandlerInterceptor <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">preHandle</span><span style="color:#f92672">(</span>HttpServletRequest httpServletRequest<span style="color:#f92672">,</span> HttpServletResponse httpServletResponse<span style="color:#f92672">,</span> Object o<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        httpServletRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">setCharacterEncoding</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        StringBuffer requestURL <span style="color:#f92672">=</span> httpServletRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">getRequestURL</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>requestURL<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DG&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span><span style="color:#f92672">!</span>requestURL<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DG/login&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span><span style="color:#f92672">!</span>requestURL<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DG/dologin&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            Object user <span style="color:#f92672">=</span> httpServletRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">getSession</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>user <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                httpServletResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">sendRedirect</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/DG/login&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span><span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
 
-<pre><code class="language-java">public class LoginInterceptors implements HandlerInterceptor {
-    public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        httpServletRequest.setCharacterEncoding(&quot;UTF-8&quot;);
-        StringBuffer requestURL = httpServletRequest.getRequestURL();
-        if (requestURL.toString().contains(&quot;DG&quot;)&amp;&amp;!requestURL.toString().contains(&quot;DG/login&quot;)&amp;&amp;!requestURL.toString().contains(&quot;DG/dologin&quot;)) {
-            Object user = httpServletRequest.getSession().getAttribute(&quot;user&quot;);
-            if (user == null) {
-                httpServletResponse.sendRedirect(&quot;/DG/login&quot;);
-                return false;
-            } else {
-                return true;
-            }
-        }else{
-            return true;
-        }
-    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">postHandle</span><span style="color:#f92672">(</span>HttpServletRequest httpServletRequest<span style="color:#f92672">,</span> HttpServletResponse httpServletResponse<span style="color:#f92672">,</span> Object o<span style="color:#f92672">,</span> ModelAndView modelAndView<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#f92672">}</span>
 
-    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) {
-    }
-
-    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
-    }
-}
-</code></pre>
-
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterCompletion</span><span style="color:#f92672">(</span>HttpServletRequest httpServletRequest<span style="color:#f92672">,</span> HttpServletResponse httpServletResponse<span style="color:#f92672">,</span> Object o<span style="color:#f92672">,</span> Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
 <br>
 <footer>
     
 <nav class="post-nav">
   <span class="nav-prev">&larr; <a href="/post/2019/mongo-for-respi/">树莓派 mongodb-for-docker 配置</a></span>
-  <span class="nav-next"></span>
+  <span class="nav-next"><a href="/post/2019/how-to-use-curl/">curl 常见用法</a> &rarr;</span>
 </nav>
 
 
@@ -475,7 +452,7 @@ public class MyMVCConfig extends WebMvcConfigurerAdapter {
 
 
   <hr>
-  <div class="copyright">&copy; <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  <div class="copyright">© <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
   
   </footer>
   </article>
