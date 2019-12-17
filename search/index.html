@@ -79,50 +79,46 @@
 
 
 
-<h1> Search</h1>
-
-
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
-<br>
-<footer>
+<script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+<script src="/js/parserxml.js"></script>
+<style type="text/css">
+    #site_search {
+      margin: 60px 0 30px;
+      text-align: left;
+    }
+    #local-search-input {
+      width: 100%;
+      height: 30px;
+      outline: none;
+      background-color: whitesmoke;
+      border-right-color: whitesmoke;
+      border-top: 0;
+      border-left-color: gray;
+      border-bottom: 0;
+      box-shadow: none;
+      padding: 0;
     
+    }
+    #local-search-result{
+      padding: 0;
+            line-height: 1.25;
+    }
+    .search-keyword {
+      color: orange;
+    }
+  </style>
+<div id="site_search">
+  <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+  <div id="local-search-result"></div>
+</div>
+<script type="text/javascript">
+     var path = "/index.xml";
+     searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
 
-
-
-
-<script src="/js/math-code.js"></script>
-<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-<script async src="/js/center-img.js"></script>
-
-    
-
-   
-   <br>
-   <span id="/search/" class="leancloud_visitors" data-flag-title="Search">
-     
-     <p></p>
-   </span>
-   <div id="vcomments"></div>
-   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-   <script type="text/javascript">
-     new Valine({
-         el: '#vcomments' ,
-         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
-         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
-         notify:  false , 
-         verify:  false , 
-         avatar:'monsterid', 
-         placeholder: '说点什么呗~',
-         visitor:  false 
-     });
-   </script>
 
 
   <hr>
