@@ -16,8 +16,8 @@
 
     
       
-      <meta property="description" content="package main import ( &amp;quot;fmt&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;os&amp;quot; &amp;quot;golang.org/x/net/proxy&amp;quot; ) func main() { // create a socks5 dialer dialer, err &amp;hellip;">
-      <meta property="og:description" content="package main import ( &amp;quot;fmt&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;os&amp;quot; &amp;quot;golang.org/x/net/proxy&amp;quot; ) func main() { // create a socks5 dialer dialer, err &amp;hellip;">
+      <meta property="description" content="package mainimport (&amp;#34;fmt&amp;#34;&amp;#34;io/ioutil&amp;#34;&amp;#34;log&amp;#34;&amp;#34;net/http&amp;#34;&amp;#34;os&amp;#34;&amp;#34;golang.org/x/net/proxy&amp;#34;)func main() {// create a socks5 dialer dialer, err := &amp;hellip;">
+      <meta property="og:description" content="package mainimport (&amp;#34;fmt&amp;#34;&amp;#34;io/ioutil&amp;#34;&amp;#34;log&amp;#34;&amp;#34;net/http&amp;#34;&amp;#34;os&amp;#34;&amp;#34;golang.org/x/net/proxy&amp;#34;)func main() {// create a socks5 dialer dialer, err := &amp;hellip;">
       
     
 
@@ -88,41 +88,39 @@
 
 
 
-<pre><code class="language-golang">package main
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-import (
-   &quot;fmt&quot;
-   &quot;io/ioutil&quot;
-   &quot;log&quot;
-   &quot;net/http&quot;
-   &quot;os&quot;
+<span style="color:#f92672">import</span> (
+   <span style="color:#e6db74">&#34;fmt&#34;</span>
+   <span style="color:#e6db74">&#34;io/ioutil&#34;</span>
+   <span style="color:#e6db74">&#34;log&#34;</span>
+   <span style="color:#e6db74">&#34;net/http&#34;</span>
+   <span style="color:#e6db74">&#34;os&#34;</span>
 
-   &quot;golang.org/x/net/proxy&quot;
+   <span style="color:#e6db74">&#34;golang.org/x/net/proxy&#34;</span>
 )
 
-func main() {
-   // create a socks5 dialer
-   dialer, err := proxy.SOCKS5(&quot;tcp&quot;, &quot;127.0.0.1:1080&quot;, nil, proxy.Direct)
-   if err != nil {
-      _, _ = fmt.Fprintln(os.Stderr, &quot;can't connect to the proxy:&quot;, err)
-      os.Exit(1)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+   <span style="color:#75715e">// create a socks5 dialer
+</span><span style="color:#75715e"></span>   <span style="color:#a6e22e">dialer</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">proxy</span>.<span style="color:#a6e22e">SOCKS5</span>(<span style="color:#e6db74">&#34;tcp&#34;</span>, <span style="color:#e6db74">&#34;127.0.0.1:1080&#34;</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">proxy</span>.<span style="color:#a6e22e">Direct</span>)
+   <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+      <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintln</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stderr</span>, <span style="color:#e6db74">&#34;can&#39;t connect to the proxy:&#34;</span>, <span style="color:#a6e22e">err</span>)
+      <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Exit</span>(<span style="color:#ae81ff">1</span>)
    }
-   // setup a http client
-   httpTransport := &amp;http.Transport{}
-   httpClient := &amp;http.Client{Transport: httpTransport}
-   // set our socks5 as the dialer
-   httpTransport.Dial = dialer.Dial
-   if resp, err := httpClient.Get(&quot;https://www.baidu.com&quot;); err != nil {
-      log.Fatalln(err)
-   } else {
-      defer resp.Body.Close()
-      body, _ := ioutil.ReadAll(resp.Body)
-      fmt.Printf(&quot;%s\n&quot;, body)
+   <span style="color:#75715e">// setup a http client
+</span><span style="color:#75715e"></span>   <span style="color:#a6e22e">httpTransport</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Transport</span>{}
+   <span style="color:#a6e22e">httpClient</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Client</span>{<span style="color:#a6e22e">Transport</span>: <span style="color:#a6e22e">httpTransport</span>}
+   <span style="color:#75715e">// set our socks5 as the dialer
+</span><span style="color:#75715e"></span>   <span style="color:#a6e22e">httpTransport</span>.<span style="color:#a6e22e">Dial</span> = <span style="color:#a6e22e">dialer</span>.<span style="color:#a6e22e">Dial</span>
+   <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">httpClient</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;https://www.baidu.com&#34;</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+      <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalln</span>(<span style="color:#a6e22e">err</span>)
+   } <span style="color:#66d9ef">else</span> {
+      <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()
+      <span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadAll</span>(<span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>)
+      <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%s\n&#34;</span>, <span style="color:#a6e22e">body</span>)
    }
 }
-</code></pre>
-
-<p>　　但是 <code>transport</code> 的 <code>Dial</code> 属性已经被官方弃用，推荐代替的是 <code>DialContext</code> 属性。但是 <code>proxy</code> 包中的 <code>SOCKS5</code> 只能返回一个只包含 <code>Dial</code> 的 <code>Dialer</code>，不知到官方什么时候更新。</p>
+</code></pre></div><p>　　但是 <code>transport</code> 的 <code>Dial</code> 属性已经被官方弃用，推荐代替的是 <code>DialContext</code> 属性。但是 <code>proxy</code> 包中的 <code>SOCKS5</code> 只能返回一个只包含 <code>Dial</code> 的 <code>Dialer</code>，不知到官方什么时候更新。</p>
 
 <br>
 <footer>
@@ -183,7 +181,7 @@ func main() {
 
 
   <hr>
-  <div class="copyright">&copy; <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  <div class="copyright">© <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
   
   </footer>
   </article>

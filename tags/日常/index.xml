@@ -17,7 +17,7 @@
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.o0o0o0.de/daily/2019/09/10/buy-a-arduino/</guid>
-      <description>咸鱼淘的一套 Arduino 开发套件到货，五十块钱官方正版板子加一大堆配件，超值。  </description>
+      <description>咸鱼淘的一套 Arduino 开发套件到货，五十块钱官方正版板子加一大堆配件，超值。</description>
     </item>
     
     <item>
@@ -26,9 +26,7 @@
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.o0o0o0.de/post/2019/mongo-for-respi/</guid>
-      <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth  创建数据库管理员 docker exec -it rmongo mongo admin db.createUser({user: &amp;quot;admin&amp;quot;, pwd: &amp;quot;password&amp;quot;, roles: [{role: &amp;quot;userAdminAnyDatabase&amp;quot;, db: &amp;quot;admin&amp;quot;}]})  创建数据库与数据库用户 use images db.createUser({ user: &amp;quot;image&amp;quot;, pwd: &amp;quot;yourpassword&amp;quot;, roles: [{ role: &amp;quot;dbOwner&amp;quot;, db: &amp;quot;images&amp;quot; }] })  重启容器 验证用户  验证 admin
-db.auth(&amp;quot;admin&amp;quot;, &amp;quot;password&amp;quot;)  验证 image
-use images db.</description>
+      <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth创建数据库管理员 docker exec -it rmongo mongo admindb.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]})创建数据库与数据库用户 use imagesdb.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] })重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;) 验证 image  use imagesdb.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;)数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank 恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
     </item>
     
     <item>
@@ -39,13 +37,13 @@ use images db.</description>
       <guid>https://blog.o0o0o0.de/daily/2019/08/26/26/pixelexperience/</guid>
       <description>9se 的第一版本 pixelexperience 包出来了，第一次开机居然死在了谷歌验证上。
 类原生 ROM 跳过谷歌验证的方式目前常用的有四种：
- 刷入 rom 时附带输入跳过验证的包。
- 刷入其他没有谷歌验证的包，双清后再刷入需要验证的包
- 按一定顺序点四角（看运气）
- adb 跳过
+  刷入 rom 时附带输入跳过验证的包。
+  刷入其他没有谷歌验证的包，双清后再刷入需要验证的包
+  按一定顺序点四角（看运气）
+  adb 跳过
   这要 rom 默认打开 usb 调试。或者进入 recovery 中进行。
-adb shell settings put secure user_setup_complete 1 adb shell settings put global device_provisioned 1  参考：
- [教程] 教你们怎么跳过Android 9的谷歌开机验证 
+adb shell settings put secure user_setup_complete 1adb shell settings put global device_provisioned 1参考：
+ [教程] 教你们怎么跳过Android 9的谷歌开机验证	
 如何跳过Google开机设置/验证/向导
  </description>
     </item>
@@ -56,12 +54,11 @@ adb shell settings put secure user_setup_complete 1 adb shell settings put globa
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.o0o0o0.de/daily/2019/05/27/linux-crontab/</guid>
-      <description> 重要的事情说三遍 Linux 用 crontab 定时任务一定要用绝对路径。
+      <description>重要的事情说三遍 Linux 用 crontab 定时任务一定要用绝对路径。
 Linux 用 crontab 定时任务一定要用绝对路径。
 Linux 用 crontab 定时任务一定要用绝对路径。
  　crontab 执行命令时，默认用户是 root，默认文件夹是 /root。脚本一定要用绝对路径，默认~ 路径是 /root。这个问题坑了我一个礼拜。
- 2019-8-10 更新
- crontab -u user 如果不指定 user , 则默认为当前用户。上文中我使用了 sudo 启动才会出现默认用户是 root 的情况。
+  2019-8-10 更新 crontab -u user 如果不指定 user , 则默认为当前用户。上文中我使用了 sudo 启动才会出现默认用户是 root 的情况。
  </description>
     </item>
     

@@ -104,32 +104,28 @@
 
 
 <p>9se 的第一版本 <a href="https://download.pixelexperience.org/grus/">pixelexperience</a> 包出来了，第一次开机居然死在了谷歌验证上。</p>
-
 <p>类原生 ROM 跳过谷歌验证的方式目前常用的有四种：</p>
-
 <ul>
-<li><p>刷入 rom 时附带输入跳过验证的包。</p></li>
-
-<li><p>刷入其他没有谷歌验证的包，双清后再刷入需要验证的包</p></li>
-
-<li><p>按一定顺序点四角（看运气）</p>
-
-<p><img src="https://i.loli.net/2019/08/27/MA8slmz1ro4QSTW.png" alt="2839910738.png" /></p></li>
-
-<li><p>adb 跳过</p></li>
+<li>
+<p>刷入 rom 时附带输入跳过验证的包。</p>
+</li>
+<li>
+<p>刷入其他没有谷歌验证的包，双清后再刷入需要验证的包</p>
+</li>
+<li>
+<p>按一定顺序点四角（看运气）</p>
+<p><img src="https://i.loli.net/2019/08/27/MA8slmz1ro4QSTW.png" alt="2839910738.png"></p>
+</li>
+<li>
+<p>adb 跳过</p>
+</li>
 </ul>
-
 <p>这要 rom 默认打开 usb 调试。或者进入 recovery 中进行。</p>
-
-<pre><code class="language-bash">  adb shell settings put secure user_setup_complete 1
-  adb shell settings put global device_provisioned 1
-</code></pre>
-
-<p>参考：</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">adb shell settings put secure user_setup_complete 1
+adb shell settings put global device_provisioned 1
+</code></pre></div><p>参考：</p>
 <blockquote>
-<p><a href="http://www.miui.com/thread-19316176-1-1.html">[教程] 教你们怎么跳过Android 9的谷歌开机验证 </a></p>
-
+<p><a href="http://www.miui.com/thread-19316176-1-1.html">[教程] 教你们怎么跳过Android 9的谷歌开机验证	</a></p>
 <p><a href="https://www.himiku.com/archives/6.html">如何跳过Google开机设置/验证/向导</a></p>
 </blockquote>
 
@@ -192,7 +188,7 @@
 
 
   <hr>
-  <div class="copyright">&copy; <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  <div class="copyright">© <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
   
   </footer>
   </article>

@@ -16,10 +16,8 @@
 
     
       
-      <meta property="description" content="前几天，一个同学问我关于反射的问题。我对 Java 反射了解并不多，照着他给的例子做实验的时候发现了一个让我摸不着头脑的问题。代码如下：
-public class demo { public static void change(Integer a, Integer b) throws NoSuchFieldException, IllegalAccessException { Field &amp;hellip;">
-      <meta property="og:description" content="前几天，一个同学问我关于反射的问题。我对 Java 反射了解并不多，照着他给的例子做实验的时候发现了一个让我摸不着头脑的问题。代码如下：
-public class demo { public static void change(Integer a, Integer b) throws NoSuchFieldException, IllegalAccessException { Field &amp;hellip;">
+      <meta property="description" content="public class demo { public static void change(Integer a, Integer b) throws NoSuchFieldException, IllegalAccessException { Field field = Integer.class.getDeclaredField(&amp;#34;value&amp;#34;); &amp;hellip;">
+      <meta property="og:description" content="public class demo { public static void change(Integer a, Integer b) throws NoSuchFieldException, IllegalAccessException { Field field = Integer.class.getDeclaredField(&amp;#34;value&amp;#34;); &amp;hellip;">
       
     
 
@@ -93,103 +91,77 @@ public class demo { public static void change(Integer a, Integer b) throws NoSuc
 
 
 
-
-
 <h2 id="0x00">0x00</h2>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">demo</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">change</span><span style="color:#f92672">(</span>Integer a<span style="color:#f92672">,</span> Integer b<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> NoSuchFieldException<span style="color:#f92672">,</span> IllegalAccessException <span style="color:#f92672">{</span>
+        Field field <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredField</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        field<span style="color:#f92672">.</span><span style="color:#a6e22e">setAccessible</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        field<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>b<span style="color:#f92672">,</span> 10<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        field<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> 1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-<p style="text-indent:2em">前几天，一个同学问我关于反射的问题。我对 Java 反射了解并不多，照着他给的例子做实验的时候发现了一个让我摸不着头脑的问题。代码如下：</p>
-
-<pre><code class="language-java">public class demo {
-    public static void change(Integer a, Integer b) throws NoSuchFieldException, IllegalAccessException {
-        Field field = Integer.class.getDeclaredField(&quot;value&quot;);
-        field.setAccessible(true);
-        field.set(b, 10);
-        field.set(a, 1);
-    }
-
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
-        Integer a = 10, b = 1;
-        change(a, b);
-        System.out.println(&quot;a = &quot; + a + &quot; b = &quot; + b);
-    }
-}
-</code></pre>
-
-<p style="text-indent:2em">这本来就是很平常的改变两个变量的值，但是结果如下</p>
-
-<p><img src="http://ww1.sinaimg.cn/large/0067x4Magy1g0k6wshlxbj30gb02p3yj.jpg" alt="" /></p>
-
-<p style="text-indent:2em">WTF?? b 是 10 没错 a 怎么变成 10 了。</p>
-
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> NoSuchFieldException<span style="color:#f92672">,</span> IllegalAccessException <span style="color:#f92672">{</span>
+        Integer a <span style="color:#f92672">=</span> 10<span style="color:#f92672">,</span> b <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+        change<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> b<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;a = &#34;</span> <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; b = &#34;</span> <span style="color:#f92672">+</span> b<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><!-- raw HTML omitted -->
+<p><img src="http://ww1.sinaimg.cn/large/0067x4Magy1g0k6wshlxbj30gb02p3yj.jpg" alt=""></p>
+<!-- raw HTML omitted -->
 <h2 id="0x01">0x01</h2>
-
-<p style="text-indent:2em">经过一番搜索，原来是 Java 在的 Integer 类型在 -127-128 之间会生产缓存（ python 也有类似特性）。也就是说，<font color=chocolate>假如已经创建了一个值在 -127-128之间的 Integer 变量。虚拟机会在缓存区生成该变量的缓存。当下一次使用到该变量时，并不会重新分配存储空间，而是直接从缓存中提取已有的地址。当然，用 new 强制分配存储空间除外。</font></p>
-
+<!-- raw HTML omitted -->
 <p>请看：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">demo</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">change</span><span style="color:#f92672">(</span>Integer a <span style="color:#f92672">,</span> Integer b<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> NoSuchFieldException<span style="color:#f92672">,</span> IllegalAccessException <span style="color:#f92672">{</span>
+        Field field <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredField</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        field<span style="color:#f92672">.</span><span style="color:#a6e22e">setAccessible</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        field<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>b<span style="color:#f92672">,</span> 10<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;修改后 b 的 identityHashCode 为&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">identityHashCode</span><span style="color:#f92672">(</span>b<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;b 的值为: &#34;</span> <span style="color:#f92672">+</span> b<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;常量 1 的 identityHashCode 为&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">identityHashCode</span><span style="color:#f92672">(</span>1<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        field<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> 1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-<pre><code class="language-java">public class demo {
-    private static void change(Integer a , Integer b) throws NoSuchFieldException, IllegalAccessException {
-        Field field = Integer.class.getDeclaredField(&quot;value&quot;);
-        field.setAccessible(true);
-        field.set(b, 10);
-        System.out.println(&quot;修改后 b 的 identityHashCode 为&quot;);
-        System.out.println(System.identityHashCode(b));
-        System.out.println(&quot;b 的值为: &quot; + b);
-        System.out.println(&quot;常量 1 的 identityHashCode 为&quot;);
-        System.out.println(System.identityHashCode(1));
-        field.set(a, 1);
-    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> NoSuchFieldException<span style="color:#f92672">,</span> IllegalAccessException <span style="color:#f92672">{</span>
+        Integer a <span style="color:#f92672">=</span> 10<span style="color:#f92672">,</span> b <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;刚开始 b 的 identityHashCode 为&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">identityHashCode</span><span style="color:#f92672">(</span>b<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;b 的值为：&#34;</span> <span style="color:#f92672">+</span> b<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        change<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> b<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;a = &#34;</span> <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; b = &#34;</span> <span style="color:#f92672">+</span> b<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
-        Integer a = 10, b = 1;
-        System.out.println(&quot;刚开始 b 的 identityHashCode 为&quot;);
-        System.out.println(System.identityHashCode(b));
-        System.out.println(&quot;b 的值为：&quot; + b);
-        change(a, b);
-        System.out.println(&quot;a = &quot; + a + &quot; b = &quot; + b);
-    }
-}
-
-</code></pre>
-
-<p>结果：</p>
-
-<p><img src="http://ww1.sinaimg.cn/large/0067x4Magy1g0k7lbymw6j30ip09ymxv.jpg" alt="" /></p>
-
-<p style="text-indent:2em">`b` 被修改为 `10` 之后，常量 `1` 仍然指向这块内存！所以会出现上述结果显而易见了：</p>
-
-<p style="text-indent:2em"><font color=chocolate>在 b 被修改之后 Java 虚拟机任然固执地把 1 指向的储存里面的内容复制给了变量 a， 却不管 实际上 这个 1 是表里不一 的 1，是一个披着 1 的皮的 10。</font></p>
-
+</code></pre></div><p>结果：</p>
+<p><img src="http://ww1.sinaimg.cn/large/0067x4Magy1g0k7lbymw6j30ip09ymxv.jpg" alt=""></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h2 id="0x02">0x02</h2>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">demo3</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">change</span><span style="color:#f92672">(</span>Integer a<span style="color:#f92672">,</span> Integer b<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> NoSuchFieldException<span style="color:#f92672">,</span> IllegalAccessException <span style="color:#f92672">{</span>
+        Field field <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredField</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        field<span style="color:#f92672">.</span><span style="color:#a6e22e">setAccessible</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        field<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>b<span style="color:#f92672">,</span> 10<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        field<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> 1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;1 + 1 = &#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>1 <span style="color:#f92672">+</span> 1<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-<p style="text-indent:2em">我们再扩展一下， 假如拿这个‘假的’ 1 去做运算 `1 + 1` 结果会是 `11` 还是 `2`呢？我想，结果是显然的，Java 设计者肯定不可能容忍 `1 + 1 = 11` 这么可怕的结果存在：</p>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> NoSuchFieldException<span style="color:#f92672">,</span> IllegalAccessException <span style="color:#f92672">{</span>
+        Integer a <span style="color:#f92672">=</span> 10<span style="color:#f92672">,</span> b <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+        change<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> b<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;a = &#34;</span> <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; b = &#34;</span> <span style="color:#f92672">+</span> b<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-<pre><code class="language-java">public class demo3 {
-    public static void change(Integer a, Integer b) throws NoSuchFieldException, IllegalAccessException {
-        Field field = Integer.class.getDeclaredField(&quot;value&quot;);
-        field.setAccessible(true);
-        field.set(b, 10);
-        field.set(a, 1);
-        System.out.println(&quot;1 + 1 = &quot; + (1 + 1));
-    }
-
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
-        Integer a = 10, b = 1;
-        change(a, b);
-        System.out.println(&quot;a = &quot; + a + &quot; b = &quot; + b);
-    }
-}
-
-</code></pre>
-
-<p><img src="http://ww1.sinaimg.cn/large/0067x4Magy1g0k82d8y6pj30ff02z0sr.jpg" alt="" /></p>
-
+</code></pre></div><p><img src="http://ww1.sinaimg.cn/large/0067x4Magy1g0k82d8y6pj30ff02z0sr.jpg" alt=""></p>
 <h2 id="0x03">0x03</h2>
-
-<p style="text-indent:2em">由此可见， 在运算中使用 Java 常量时，是之间取其字面意思，并不会去存储中取值，或者对二者进行比对（想想也确实没有必要，而且还浪费时间）。但在遇到反射这种比较底层的操作时， Integer 并没有特殊待遇。而是像处理其它对象一样找到地址，复制到内容新的地址。至于与 Integer 缓存机制的冲突，不知道是设计者的疏忽，还是设计者在为 Integer 缓存的存在刷存在感（瞧， 我还有这么厉害的东西，没想到吧 (: )。</p>
-
-<hr />
-
+<!-- raw HTML omitted -->
+<hr>
 <p>2019年2月26日晚</p>
 
 <br>
@@ -251,7 +223,7 @@ public class demo { public static void change(Integer a, Integer b) throws NoSuc
 
 
   <hr>
-  <div class="copyright">&copy; <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  <div class="copyright">© <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
   
   </footer>
   </article>

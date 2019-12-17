@@ -16,9 +16,6 @@
 
     
       
-      <meta property="description" content="docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth &amp;hellip;">
-      <meta property="og:description" content="docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth &amp;hellip;">
-      
     
 
     
@@ -88,54 +85,35 @@
 
 
 
-
-
-<h2 id="数据库基础配置">数据库基础配置</h2>
-
-<h3 id="启动">启动</h3>
-
-<pre><code class="language-bash">docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth
-</code></pre>
-
-<h3 id="创建数据库管理员">创建数据库管理员</h3>
-
-<pre><code class="language-bash">docker exec -it rmongo mongo admin
-db.createUser({user: &quot;admin&quot;, pwd: &quot;password&quot;, roles: [{role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot;}]})
-</code></pre>
-
-<h3 id="创建数据库与数据库用户">创建数据库与数据库用户</h3>
-
-<pre><code class="language-bash">use images
-db.createUser({ user: &quot;image&quot;, pwd: &quot;yourpassword&quot;, roles: [{ role: &quot;dbOwner&quot;, db: &quot;images&quot; }] })
-</code></pre>
-
-<h3 id="重启容器-验证用户">重启容器 验证用户</h3>
-
+<h2 id="heading">数据库基础配置</h2>
+<h3 id="heading-1">启动</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth
+</code></pre></div><h3 id="heading-2">创建数据库管理员</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec -it rmongo mongo admin
+db.createUser<span style="color:#f92672">(</span><span style="color:#f92672">{</span>user: <span style="color:#e6db74">&#34;admin&#34;</span>, pwd: <span style="color:#e6db74">&#34;password&#34;</span>, roles: <span style="color:#f92672">[</span><span style="color:#f92672">{</span>role: <span style="color:#e6db74">&#34;userAdminAnyDatabase&#34;</span>, db: <span style="color:#e6db74">&#34;admin&#34;</span><span style="color:#f92672">}</span><span style="color:#f92672">]</span><span style="color:#f92672">}</span><span style="color:#f92672">)</span>
+</code></pre></div><h3 id="heading-3">创建数据库与数据库用户</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">use images
+db.createUser<span style="color:#f92672">(</span><span style="color:#f92672">{</span> user: <span style="color:#e6db74">&#34;image&#34;</span>, pwd: <span style="color:#e6db74">&#34;yourpassword&#34;</span>, roles: <span style="color:#f92672">[</span><span style="color:#f92672">{</span> role: <span style="color:#e6db74">&#34;dbOwner&#34;</span>, db: <span style="color:#e6db74">&#34;images&#34;</span> <span style="color:#f92672">}</span><span style="color:#f92672">]</span> <span style="color:#f92672">}</span><span style="color:#f92672">)</span>
+</code></pre></div><h3 id="-">重启容器 验证用户</h3>
 <ul>
-<li><p>验证 admin</p>
-
-<pre><code class="language-bash">db.auth(&quot;admin&quot;, &quot;password&quot;)
-</code></pre></li>
-
-<li><p>验证 image</p>
-
-<pre><code class="language-bash">use images
-db.auth(&quot;image&quot;, &quot;password&quot;)
-</code></pre>
-
-<h2 id="数据库备份与恢复">数据库备份与恢复</h2></li>
-
-<li><p>备份</p>
-
-<pre><code class="language-bash">docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank
-</code></pre></li>
-
-<li><p>恢复</p>
-
-<pre><code class="language-bash">docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank 
-</code></pre></li>
+<li>验证 admin</li>
 </ul>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">db.auth<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;admin&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">)</span>
+</code></pre></div><ul>
+<li>验证 image</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">use images
+db.auth<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;image&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">)</span>
+</code></pre></div><h2 id="heading-4">数据库备份与恢复</h2>
+<ul>
+<li>备份</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec rmongo mongodump --username image --password <span style="color:#ae81ff">12134</span> --authenticationDatabase images -d images -h localhost -o /bank
+</code></pre></div><ul>
+<li>恢复</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec rmongo mongorestore --username image --password <span style="color:#ae81ff">12134</span> --authenticationDatabase images /bank 
+</code></pre></div>
 <br>
 <footer>
     
@@ -195,7 +173,7 @@ db.auth(&quot;image&quot;, &quot;password&quot;)
 
 
   <hr>
-  <div class="copyright">&copy; <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  <div class="copyright">© <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
   
   </footer>
   </article>

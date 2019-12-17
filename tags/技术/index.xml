@@ -17,12 +17,12 @@
       <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://blog.o0o0o0.de/post/2018/how-to-use-git/</guid>
-      <description>安装（Linux） $ sudo pacman -S git  安装完之后设置用户和邮箱
-$ git config --global user.name &amp;quot;Your Name&amp;quot; $ git config --global user.email &amp;quot;email@example.com&amp;quot;  以上的 --global指定了, 本系统所有的仓库都会使用这个配置。
-新建一个版本库 $ mkdir mygit $ cd mygit $ git init  添加文件 假如你在本目录下添加了一个叫readme.txt的文件
-$ git add readme.txt $ git commit -m &amp;quot;add readme.txt&amp;quot;  commit -m后面的参数为此次修改的提交说明.
+      <description>安装（Linux） $ sudo pacman -S git安装完之后设置用户和邮箱
+$ git config --global user.name &amp;#34;Your Name&amp;#34;$ git config --global user.email &amp;#34;email@example.com&amp;#34;以上的 --global指定了, 本系统所有的仓库都会使用这个配置。
+新建一个版本库 $ mkdir mygit$ cd mygit$ git init添加文件 假如你在本目录下添加了一个叫readme.txt的文件
+$ git add readme.txt$ git commit -m &amp;#34;add readme.txt&amp;#34;commit -m后面的参数为此次修改的提交说明.
 提交修改后的文件 查看状态 如果你修改了redme.txt运行git status
-$ git status On branch master Changes not staged for commit: (use &amp;quot;git add &amp;amp;lt;file&amp;amp;gt;.</description>
+$ git statusOn branch masterChanges not staged for commit:(use &amp;#34;git add &amp;amp;lt;file&amp;amp;gt;...&amp;#34; to update what will be committed)(use &amp;#34;git checkout -- &amp;amp;lt;file&amp;amp;gt;.</description>
     </item>
     
   </channel>
