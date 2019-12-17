@@ -88,8 +88,23 @@
 
 
 
-<footer>
-    
+<script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+<script src="/js/parserxml.js"></script>
+<div id="site_search">
+  <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+  <div id="local-search-result"></div>
+</div>
+<script type="text/javascript">
+     var path = "/index.xml";
+     searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+
+
+  <hr>
   <div class="copyright">© <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
   
   </footer>
@@ -97,5 +112,4 @@
   
   </body>
 </html>
-
 
