@@ -97,7 +97,7 @@
 
 
 <p><em><!-- raw HTML omitted -->不同发行版的指令，文件位置略有不同，本文仅以 arch 及其衍生系统为准。<!-- raw HTML omitted --></em></p>
-<h4 id="heading">目录</h4>
+<h4 id="目录">目录</h4>
 <ol>
 <li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
 <li><a href="#%E8%AE%BE%E7%BD%AE%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93">设置镜像仓库</a></li>
@@ -109,7 +109,7 @@
 <li><a href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86">数据管理</a></li>
 <li><a href="#%E7%BD%91%E7%BB%9C">网络</a></li>
 </ol>
-<h2 id="heading-1">安装</h2>
+<h2 id="安装">安装</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -Syy
 sudo pacman -S docker
 <span style="color:#75715e"># 启动</span>
@@ -117,7 +117,7 @@ sudo systemctl start docker
 <span style="color:#75715e"># 用户加入 docker 用户组（可以不用 sudo 启动docker)</span>
 sudo usermod -aG docker $USER
 <span style="color:#75715e"># 注销重新登录</span>
-</code></pre></div><h2 id="heading-2">设置镜像仓库</h2>
+</code></pre></div><h2 id="设置镜像仓库">设置镜像仓库</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#39;{        
 </span><span style="color:#e6db74">  &#34;registry-mirrors&#34;: [
 </span><span style="color:#e6db74">    &#34;https://dockerhub.azk8s.cn&#34;, # 国内镜像仓库1
@@ -130,7 +130,7 @@ sudo systemctl restart docker
 </code></pre></div><blockquote>
 <p>通过 <code>docker info</code> 可以看到仓库设置情况。</p>
 </blockquote>
-<h2 id="heading-3">设置代理</h2>
+<h2 id="设置代理">设置代理</h2>
 <blockquote>
 <p>参考<a href="(https://docs.docker.com/config/daemon/systemd/)">官方文档</a></p>
 </blockquote>
@@ -161,10 +161,10 @@ Environment<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;
 </blockquote>
 </li>
 </ul>
-<h2 id="heading-4">基础命令</h2>
+<h2 id="基础命令">基础命令</h2>
 <ul>
 <li>
-<h3 id="heading-5">查看版本</h3>
+<h3 id="查看版本">查看版本</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker --version
 docker info
 </code></pre></div></li>
@@ -271,7 +271,7 @@ CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;参数1
 <p>使用 <code>shell 格式</code> 时，容器实际上以 <code>sh -c</code> 的形式执行</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">CMD echo $HOME
 <span style="color:#75715e"># 实际执行时为</span>
-CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">echo </span>$HOME<span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
+CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;echo </span>$HOME<span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
 </code></pre></div><p>所以在 Dockerfile 中设置环境变量能够被 shell 解析并处理。</p>
 <p>再者，由于所有的命令由 <code>sh</code> 执行 当主进程的 <code>sh</code> 退出后，命令自然结束运行。所以容器内部没有后台的概念。</p>
 <blockquote>
@@ -301,7 +301,7 @@ ENTRYPOINT <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;
 </ul>
 <p><code>ENV</code> 可以当做 <code>Dockerfile</code> 中的变量存在。只要修改少部分，就可以做到一个 <code>Dockerfiel</code> 维护多个镜像如果用。</p>
 <h3 id="8-arg">8. ARG</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ARG &lt;参数名&gt; <span style="color:#f92672">[</span><span style="color:#f92672">=</span>&lt;默认值&gt;<span style="color:#f92672">]</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ARG &lt;参数名&gt; <span style="color:#f92672">[=</span>&lt;默认值&gt;<span style="color:#f92672">]</span>
 </code></pre></div><p><code>ARG</code> 与 <code>ENV</code> 效果一样，但是 <code>ENV</code> 在容器运行时，还会存在这些变量，而 <code>ARG</code>仅仅是作为 <code>Dockerfile</code> 构建时的参数。</p>
 <blockquote>
 <p>构建时参数默认值可以被 <code>--build-arg &lt;参数名&gt;=&lt;值&gt;</code> 覆盖。</p>
@@ -370,7 +370,7 @@ HEALTHCHECK NONE <span style="color:#75715e"># 屏蔽基础容器的健康检查
 <h3 id="15-onbuild">15. ONBUILD</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ONBUILD &lt;其它指令&gt;
 </code></pre></div><p>只有当以当前镜像为基础镜像构建项目时，才会执行的指令。</p>
-<h2 id="dockerfile-">Dockerfile 多段构建</h2>
+<h2 id="dockerfile-多段构建">Dockerfile 多段构建</h2>
 <p><code>Docker</code> 多段构建将编译、测试、打包等环境与运行环境分开。</p>
 <p>步骤为将需要的文件在一个环境测试、编译、打包好之后，拷贝到运行环境。</p>
 <ul>
@@ -429,19 +429,19 @@ CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;./app&#
 </ul>
 </li>
 </ul>
-<h2 id="heading-6">容器的操作</h2>
-<h3 id="1">1.启动、终止、重启与删除</h3>
+<h2 id="容器的操作">容器的操作</h2>
+<h3 id="1启动终止重启与删除">1.启动、终止、重启与删除</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker container start    &lt;容器名称或id&gt;
 docker container stop     &lt;容器名称或id&gt;
 docker container restart  &lt;容器名称或id&gt;
 docker container rm       &lt;容器名称或id&gt;
 docker container prune    <span style="color:#75715e"># 删除所有不在运行的容器</span>
-</code></pre></div><h3 id="2-">2. 以守护状态运行容器</h3>
+</code></pre></div><h3 id="2-以守护状态运行容器">2. 以守护状态运行容器</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -d ... 
 </code></pre></div><blockquote>
 <p>可以通过 <code>docker container logs</code> 查看后台程序输出的内容。</p>
 </blockquote>
-<h3 id="3-">3. 进入容器</h3>
+<h3 id="3-进入容器">3. 进入容器</h3>
 <ul>
 <li>
 <p><code>attach</code></p>
@@ -461,7 +461,7 @@ docker container prune    <span style="color:#75715e"># 删除所有不在运行
 </blockquote>
 </li>
 </ul>
-<h3 id="4-">4. 导入与导出</h3>
+<h3 id="4-导入与导出">4. 导入与导出</h3>
 <ul>
 <li>
 <p>导出</p>
@@ -489,7 +489,7 @@ docker save -o ubuntu.tar test/ubunt:v1.0
 </ul>
 <p>docker import ubuntu.tar test/ubuntu:v1.0
 cat ubuntu.tar | docker import - test/ubuntu:v1.0</p>
-<h1 id="heading-7">从网络导入</h1>
+<h1 id="从网络导入">从网络导入</h1>
 <p>docker import <a href="http://example.com/exampleimage.tgz">http://example.com/exampleimage.tgz</a> example/imagerepo</p>
 <pre><code>
 
@@ -505,8 +505,8 @@ docker load &lt; ubuntu.tar
 </blockquote>
 </li>
 </ul>
-<h2 id="heading-8">数据管理</h2>
-<h3 id="heading-9">数据卷</h3>
+<h2 id="数据管理">数据管理</h2>
+<h3 id="数据卷">数据卷</h3>
 <p>数据卷类似于 linux 里面的 <code>mount</code>。挂载点原有的文件将会被隐藏，只显示挂载的数据卷里面的文件。</p>
 <ul>
 <li>数据卷可以在容器间共享和重用。</li>
@@ -514,23 +514,23 @@ docker load &lt; ubuntu.tar
 <li>更新数据卷不会影响镜像。</li>
 <li>对数据卷修改会立马生效。</li>
 </ul>
-<h4 id="heading-10">数据卷创建、查看、删除</h4>
+<h4 id="数据卷创建查看删除">数据卷创建、查看、删除</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker volume create my-vol
 docker volume ls
 docker volume rm     my-vol
 docker volume prune  <span style="color:#75715e"># 删除无主数据卷</span>
-</code></pre></div><h4 id="heading-11">查看指定数据卷具体信息</h4>
+</code></pre></div><h4 id="查看指定数据卷具体信息">查看指定数据卷具体信息</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker volume inspect my-vol
-</code></pre></div><h4 id="heading-12">启动一个挂载数据卷的容器</h4>
+</code></pre></div><h4 id="启动一个挂载数据卷的容器">启动一个挂载数据卷的容器</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --name web <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>	--mount source<span style="color:#f92672">=</span>my-vol,target<span style="color:#f92672">=</span>/webapp <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>	<span style="color:#75715e"># -v my-vol:/webapp  \   # 简写</span>
 	--rm -d -p  80:80 dockerdemo
 <span style="color:#75715e"># 此时目录 /webapp 相当于一块独立的硬盘，可以同时在其他容器中使用，也不会随着容器的生命周期结束而结束</span>
-</code></pre></div><h4 id="heading-13">查看容器信息</h4>
+</code></pre></div><h4 id="查看容器信息">查看容器信息</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker inspect web <span style="color:#75715e"># 在这能看到 web 挂载的数据卷的信息</span>
-</code></pre></div><h3 id="heading-14">挂载主机目录</h3>
-<h4 id="heading-15">挂载目录</h4>
+</code></pre></div><h3 id="挂载主机目录">挂载主机目录</h3>
+<h4 id="挂载目录">挂载目录</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  docker run --name web <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --mount type<span style="color:#f92672">=</span>bind,source<span style="color:#f92672">=</span>/my/host/path,target<span style="color:#f92672">=</span>/webapp <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    <span style="color:#75715e"># -v /the/host/path:/webapp \</span>
@@ -543,13 +543,13 @@ docker volume prune  <span style="color:#75715e"># 删除无主数据卷</span>
 </span><span style="color:#ae81ff"></span>--mount type<span style="color:#f92672">=</span>bind,source<span style="color:#f92672">=</span>/my/host/path,target<span style="color:#f92672">=</span>/webapp,readonly <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span><span style="color:#75715e"># -v /the/host/path:/webapp:ro\</span>
 --rm -d -p  80:80 dockerdemo
-</code></pre></div><h4 id="heading-16">挂载文件</h4>
+</code></pre></div><h4 id="挂载文件">挂载文件</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --name web <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --mount type<span style="color:#f92672">=</span>bind,source<span style="color:#f92672">=</span>$HOME/.bash_history,target<span style="color:#f92672">=</span>/root/.bash_history <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    <span style="color:#75715e"># -v $HOME/.bash_history:/root/.bash_history \</span>
     --rm -d -p  80:80 dockerdemo
-</code></pre></div><h2 id="heading-17">网络</h2>
-<h3 id="heading-18">端口映射</h3>
+</code></pre></div><h2 id="网络">网络</h2>
+<h3 id="端口映射">端口映射</h3>
 <ul>
 <li>
 <p>随机映射</p>
@@ -575,10 +575,10 @@ docker volume prune  <span style="color:#75715e"># 删除无主数据卷</span>
 <blockquote>
 <p><code>-p</code> 标记支持多端口映射</p>
 </blockquote>
-<h3 id="heading-19">容器互联</h3>
-<h4 id="1-">1. 新建网络</h4>
+<h3 id="容器互联">容器互联</h3>
+<h4 id="1-新建网络">1. 新建网络</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker network create -d bridge my-net <span style="color:#75715e"># -d 指定网络类型</span>
-</code></pre></div><h4 id="2--1">2. 连接网络</h4>
+</code></pre></div><h4 id="2-连接网络">2. 连接网络</h4>
 <ul>
 <li>
 <p>创建第一个容器，并连接网络。</p>

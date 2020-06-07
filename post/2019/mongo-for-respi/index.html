@@ -91,16 +91,16 @@
 
 
 
-<h2 id="heading">数据库基础配置</h2>
-<h3 id="heading-1">启动</h3>
+<h2 id="数据库基础配置">数据库基础配置</h2>
+<h3 id="启动">启动</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth
-</code></pre></div><h3 id="heading-2">创建数据库管理员</h3>
+</code></pre></div><h3 id="创建数据库管理员">创建数据库管理员</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec -it rmongo mongo admin
-db.createUser<span style="color:#f92672">(</span><span style="color:#f92672">{</span>user: <span style="color:#e6db74">&#34;admin&#34;</span>, pwd: <span style="color:#e6db74">&#34;password&#34;</span>, roles: <span style="color:#f92672">[</span><span style="color:#f92672">{</span>role: <span style="color:#e6db74">&#34;userAdminAnyDatabase&#34;</span>, db: <span style="color:#e6db74">&#34;admin&#34;</span><span style="color:#f92672">}</span><span style="color:#f92672">]</span><span style="color:#f92672">}</span><span style="color:#f92672">)</span>
-</code></pre></div><h3 id="heading-3">创建数据库与数据库用户</h3>
+db.createUser<span style="color:#f92672">({</span>user: <span style="color:#e6db74">&#34;admin&#34;</span>, pwd: <span style="color:#e6db74">&#34;password&#34;</span>, roles: <span style="color:#f92672">[{</span>role: <span style="color:#e6db74">&#34;userAdminAnyDatabase&#34;</span>, db: <span style="color:#e6db74">&#34;admin&#34;</span><span style="color:#f92672">}]})</span>
+</code></pre></div><h3 id="创建数据库与数据库用户">创建数据库与数据库用户</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">use images
-db.createUser<span style="color:#f92672">(</span><span style="color:#f92672">{</span> user: <span style="color:#e6db74">&#34;image&#34;</span>, pwd: <span style="color:#e6db74">&#34;yourpassword&#34;</span>, roles: <span style="color:#f92672">[</span><span style="color:#f92672">{</span> role: <span style="color:#e6db74">&#34;dbOwner&#34;</span>, db: <span style="color:#e6db74">&#34;images&#34;</span> <span style="color:#f92672">}</span><span style="color:#f92672">]</span> <span style="color:#f92672">}</span><span style="color:#f92672">)</span>
-</code></pre></div><h3 id="-">重启容器 验证用户</h3>
+db.createUser<span style="color:#f92672">({</span> user: <span style="color:#e6db74">&#34;image&#34;</span>, pwd: <span style="color:#e6db74">&#34;yourpassword&#34;</span>, roles: <span style="color:#f92672">[{</span> role: <span style="color:#e6db74">&#34;dbOwner&#34;</span>, db: <span style="color:#e6db74">&#34;images&#34;</span> <span style="color:#f92672">}]</span> <span style="color:#f92672">})</span>
+</code></pre></div><h3 id="重启容器-验证用户">重启容器 验证用户</h3>
 <ul>
 <li>验证 admin</li>
 </ul>
@@ -110,7 +110,7 @@ db.createUser<span style="color:#f92672">(</span><span style="color:#f92672">{</
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">use images
 db.auth<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;image&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">)</span>
-</code></pre></div><h2 id="heading-4">数据库备份与恢复</h2>
+</code></pre></div><h2 id="数据库备份与恢复">数据库备份与恢复</h2>
 <ul>
 <li>备份</li>
 </ul>

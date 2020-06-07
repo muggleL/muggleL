@@ -111,11 +111,11 @@
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;likes birds&#39;</span>;
 <span style="color:#a6e22e">person</span>[<span style="color:#a6e22e">key</span>] <span style="color:#75715e">//true
-</span></code></pre></div><h2 id="delete-">delete 删除属性</h2>
+</span></code></pre></div><h2 id="delete-删除属性">delete 删除属性</h2>
 <p>delete + 属性 可以删除属性</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">age</span> <span style="color:#75715e">//age 被删除
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">person</span>[<span style="color:#e6db74">&#39;like birds&#39;</span>] <span style="color:#75715e">//删除多词属性
-</span></code></pre></div><h2 id="heading">计算属性</h2>
+</span></code></pre></div><h2 id="计算属性">计算属性</h2>
 <p>在方括号中的属性</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fruit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">prompt</span>(<span style="color:#e6db74">&#34;whitch fruit to buy?&#34;</span>);
 
@@ -137,7 +137,7 @@
 };
 
 <span style="color:#a6e22e">bag</span>.<span style="color:#a6e22e">appleComputer</span> <span style="color:#75715e">//5
-</span></code></pre></div><h2 id="heading-1">属性值简写</h2>
+</span></code></pre></div><h2 id="属性值简写">属性值简写</h2>
 <p>当属性名与变量名一致时，属性名可以简写。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">makeUser</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span>) {
   <span style="color:#a6e22e">name</span>,  <span style="color:#75715e">//与 name: name 相同
@@ -148,7 +148,7 @@
   <span style="color:#a6e22e">name</span>,
   <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>
 }
-</code></pre></div><h2 id="forin-"><code>for...in</code> 遍历对象</h2>
+</code></pre></div><h2 id="forin-遍历对象"><code>for...in</code> 遍历对象</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
   <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;zhangsan&#34;</span>,
   <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">23</span>,
@@ -170,9 +170,9 @@
 <li><strong>整数属性</strong>是指一个字符串，里面包含一个纯整数。如 <code>&quot;43&quot;</code> <code>'51'</code> 是整数属性，<code>&quot;+32&quot;</code> <code>&quot;1.3&quot;</code> 就不是整数属性。所以有时我们不需要自动排序时，只要把整数属性转换成非整数属性就行。</li>
 </ol>
 </blockquote>
-<h2 id="heading-2">常量对象</h2>
+<h2 id="常量对象">常量对象</h2>
 <p>在对象面前加 <code>const</code> 使该变量只能指向当前对象。</p>
-<h2 id="objectassign-">Object.assign 对象复制与合并</h2>
+<h2 id="objectassign-对象复制与合并">Object.assign 对象复制与合并</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">Object.<span style="color:#a6e22e">assign</span>(<span style="color:#a6e22e">dest</span>[, <span style="color:#a6e22e">src1</span>, <span style="color:#a6e22e">src2</span>, <span style="color:#a6e22e">src3</span>...])
 </code></pre></div><ul>
 <li>参数 <code>dest</code> 和 <code>src1, src2, src3.....</code> 是对象。</li>

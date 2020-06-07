@@ -102,11 +102,11 @@
 
 
 <p>JavaScript 是一门坑比较多的语言。这里记录了一些基本数据类型里面不容易注意到的点，比如：字符串的表示方式、基本数据类型的比较等等。</p>
-<h2 id="javascript-">JavaScript 编程风格</h2>
-<p><img src="https://i.loli.net/2019/03/23/5c959a00eb972.png" alt=""></p>
-<h2 id="javascript--1">JavaScript 基本数据类型</h2>
+<h2 id="javascript-编程风格">JavaScript 编程风格</h2>
+<p><img src="https://i.loli.net/2019/03/23/5c959a00eb972.png" alt="code-style@2x.png"></p>
+<h2 id="javascript-基本数据类型">JavaScript 基本数据类型</h2>
 <p>JavaScript 有六种数据类型 分别是 number, string,  boolean, null, undefined</p>
-<h3 id="heading">字符串的表示方式</h3>
+<h3 id="字符串的表示方式">字符串的表示方式</h3>
 <ol>
 <li>单引号：</li>
 </ol>
@@ -118,9 +118,9 @@
 </code></pre></div><ol start="3">
 <li>反引号</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">this num is </span><span style="color:#e6db74">${</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>; <span style="color:#75715e">//this num is 3
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`this num is </span><span style="color:#e6db74">${</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>; <span style="color:#75715e">//this num is 3
 </span></code></pre></div><p>用反引号表示字符串时，允许通过 ${&hellip;} 嵌入表达式，表达式的结果将成为字符串的一部份。</p>
-<h3 id="------">数据的一般比较 （==, &gt;, &lt;, !=, &gt;=, &lt;=）</h3>
+<h3 id="数据的一般比较------">数据的一般比较 （==, &gt;, &lt;, !=, &gt;=, &lt;=）</h3>
 <p>数据进行双等号比较时，遵循以下三种规则</p>
 <ol>
 <li>
@@ -158,7 +158,7 @@ Boolean(<span style="color:#a6e22e">b</span>); <span style="color:#75715e">//tru
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">undefined</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">//false
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">undefined</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">//false
 </span></code></pre></div><p><strong>JavaScript 中 <code>===</code>不会进行任何字符转换，因此这是推荐的使用方式</strong></p>
-<h3 id="-"><code>+</code> 的用法</h3>
+<h3 id="-的用法"><code>+</code> 的用法</h3>
 <p>JavaScript 中 <code>+</code> 号可以用来将数据类型转换成整型</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;02&#39;</span> <span style="color:#75715e">//2
 </span><span style="color:#75715e"></span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;20f&#39;</span> <span style="color:#75715e">//NaN
@@ -169,12 +169,12 @@ Boolean(<span style="color:#a6e22e">b</span>); <span style="color:#75715e">//tru
 <li><code>confirm</code> 弹出选择框（true or false）</li>
 <li><code>prompt</code> 弹出输入框</li>
 </ul>
-<h2 id="javascript--2">JavaScript 函数</h2>
-<h3 id="heading-1">函数声明</h3>
+<h2 id="javascript-函数">JavaScript 函数</h2>
+<h3 id="函数声明">函数声明</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
   }
-</code></pre></div><h3 id="heading-2">函数表达式</h3>
+</code></pre></div><h3 id="函数表达式">函数表达式</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
 }
@@ -186,7 +186,7 @@ Boolean(<span style="color:#a6e22e">b</span>); <span style="color:#75715e">//tru
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">fact_iter</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
   }
 };
-</code></pre></div><h3 id="heading-3">箭头函数</h3>
+</code></pre></div><h3 id="箭头函数">箭头函数</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
 <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; {
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;

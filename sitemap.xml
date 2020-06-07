@@ -8,11 +8,6 @@
   </url>
   
   <url>
-    <loc>https://blog.o0o0o0.de/</loc>
-    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.o0o0o0.de/categories/java/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url>
@@ -40,6 +35,11 @@
   <url>
     <loc>https://blog.o0o0o0.de/tags/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.o0o0o0.de/</loc>
+    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
