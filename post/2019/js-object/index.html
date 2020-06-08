@@ -160,7 +160,7 @@
   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">key</span>); <span style="color:#75715e">// name, age, isAdmin
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">user</span>[<span style="color:#a6e22e">key</span>]); <span style="color:#75715e">//zhangsan, 23, false
 </span><span style="color:#75715e"></span>}
-</code></pre></div><p><strong>对象里面的 <!-- raw HTML omitted -->整数属性<!-- raw HTML omitted --><!-- raw HTML omitted -->1<!-- raw HTML omitted --> 会按照整数顺序排列，其他属性按照创建顺序排列.</strong></p>
+</code></pre></div><p><strong>对象里面的 <font color="chocolate">整数属性</font><sup>1</sup> 会按照整数顺序排列，其他属性按照创建顺序排列.</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">code</span> <span style="color:#f92672">=</span> {
   <span style="color:#e6db74">&#34;49&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Germany&#34;</span>,
   <span style="color:#e6db74">&#34;41&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Switzerland&#34;</span>,
@@ -188,7 +188,7 @@
 
 <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">clone</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">assign</span>({}, <span style="color:#a6e22e">user</span>);
 </code></pre></div><blockquote>
-<p><!-- raw HTML omitted -->注<!-- raw HTML omitted -->: assign 只能进行浅层拷贝。如果属性里面包含一个对象，所有的拷贝结果将会共享该对象。也就是说只要一旦某个拷贝结果（或原值）修改了该对象的，所有的拷贝结果都会受到影响。目前，为了解决这种方法，用的比较多的是 JS 实现库 <a href="https://lodash.com/">lodash</a> 的 <a href="https://lodash.com/docs#cloneDeep">_.cloneDeep(obj)</a> 方法。</p>
+<p><font color='red'>注</font>: assign 只能进行浅层拷贝。如果属性里面包含一个对象，所有的拷贝结果将会共享该对象。也就是说只要一旦某个拷贝结果（或原值）修改了该对象的，所有的拷贝结果都会受到影响。目前，为了解决这种方法，用的比较多的是 JS 实现库 <a href="https://lodash.com/">lodash</a> 的 <a href="https://lodash.com/docs#cloneDeep">_.cloneDeep(obj)</a> 方法。</p>
 </blockquote>
 <hr>
 <blockquote>

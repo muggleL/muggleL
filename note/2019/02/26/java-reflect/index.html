@@ -119,7 +119,7 @@
 <p><img src="http://ww1.sinaimg.cn/large/0067x4Magy1g0k6wshlxbj30gb02p3yj.jpg" alt=""></p>
 <p>WTF?? b 是 10 没错 a 怎么变成 10 了。</p>
 <h2 id="0x01">0x01</h2>
-<p>经过一番搜索，原来是 Java 在的 Integer 类型在 -127-128 之间会生产缓存（ python 也有类似特性）。也就是说，<!-- raw HTML omitted -->假如已经创建了一个值在 -127-128之间的 Integer 变量。虚拟机会在缓存区生成该变量的缓存。当下一次使用到该变量时，并不会重新分配存储空间，而是直接从缓存中提取已有的地址。当然，用 new 强制分配存储空间除外。<!-- raw HTML omitted --></p>
+<p>经过一番搜索，原来是 Java 在的 Integer 类型在 -127-128 之间会生产缓存（ python 也有类似特性）。也就是说，<font color=chocolate>假如已经创建了一个值在 -127-128之间的 Integer 变量。虚拟机会在缓存区生成该变量的缓存。当下一次使用到该变量时，并不会重新分配存储空间，而是直接从缓存中提取已有的地址。当然，用 new 强制分配存储空间除外。</font></p>
 <p>请看：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">demo</span> <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">change</span><span style="color:#f92672">(</span>Integer a <span style="color:#f92672">,</span> Integer b<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> NoSuchFieldException<span style="color:#f92672">,</span> IllegalAccessException <span style="color:#f92672">{</span>
@@ -147,7 +147,7 @@
 </code></pre></div><p>结果：</p>
 <p><img src="http://ww1.sinaimg.cn/large/0067x4Magy1g0k7lbymw6j30ip09ymxv.jpg" alt=""></p>
 <p><code>b</code> 被修改为 <code>10</code> 之后，常量 <code>1</code> 仍然指向这块内存！所以会出现上述结果显而易见了：</p>
-<p><!-- raw HTML omitted -->在 b 被修改之后 Java 虚拟机任然固执地把 1 指向的储存里面的内容复制给了变量 a， 却不管 实际上 这个 1 是表里不一 的 1，是一个披着 1 的皮的 10。<!-- raw HTML omitted --></p>
+<p><font color=chocolate>在 b 被修改之后 Java 虚拟机任然固执地把 1 指向的储存里面的内容复制给了变量 a， 却不管 实际上 这个 1 是表里不一 的 1，是一个披着 1 的皮的 10。</font></p>
 <h2 id="0x02">0x02</h2>
 <p>我们再扩展一下， 假如拿这个‘假的’ 1 去做运算 <code>1 + 1</code> 结果会是 <code>11</code> 还是 <code>2</code>呢？我想，结果是显然的，Java 设计者肯定不可能容忍 <code>1 + 1 = 11</code> 这么可怕的结果存在：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">demo3</span> <span style="color:#f92672">{</span>
