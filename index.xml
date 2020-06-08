@@ -34,7 +34,8 @@
       <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://blog.o0o0o0.de/pdf/pdf-test/</guid>
-      <description>This browser does not support PDFs. Please download the PDF to view it: Download PDF  </description>
+      <description>Example fallback content: This browser does not support PDFs. Please download the PDF to view it: Download PDF.
+ </description>
     </item>
     
     <item>
