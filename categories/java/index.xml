@@ -26,8 +26,9 @@
       <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.o0o0o0.de/note/2019/02/26/java-reflect/</guid>
-      <description>0x00 public class demo { public static void change(Integer a, Integer b) throws NoSuchFieldException, IllegalAccessException { Field field = Integer.class.getDeclaredField(&amp;#34;value&amp;#34;); field.setAccessible(true); field.set(b, 10); field.set(a, 1); } public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException { Integer a = 10, b = 1; change(a, b); System.out.println(&amp;#34;a = &amp;#34; + a + &amp;#34; b = &amp;#34; + b); } } 0x01 请看：
-public class demo { private static void change(Integer a , Integer b) throws NoSuchFieldException, IllegalAccessException { Field field = Integer.</description>
+      <description>0x00 前几天，一个同学问我关于反射的问题。我对 Java 反射了解并不多，照着他给的例子做实验的时候发现了一个让我摸不着头脑的问题。代码如下：
+public class demo { public static void change(Integer a, Integer b) throws NoSuchFieldException, IllegalAccessException { Field field = Integer.class.getDeclaredField(&amp;#34;value&amp;#34;); field.setAccessible(true); field.set(b, 10); field.set(a, 1); } public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException { Integer a = 10, b = 1; change(a, b); System.out.println(&amp;#34;a = &amp;#34; + a + &amp;#34; b = &amp;#34; + b); } } 这本来就是很平常的改变两个变量的值，但是结果如下
+WTF?? b 是 10 没错 a 怎么变成 10 了。</description>
     </item>
     
   </channel>
