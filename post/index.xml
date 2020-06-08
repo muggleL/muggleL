@@ -18,7 +18,11 @@
       
       <guid>https://blog.o0o0o0.de/post/2020/mathjax_test/</guid>
       <description>当 $a \ne 0$ 时, $ax^2 + bx + c = 0$ 有两种解，他们分别是： $$x = { -b \pm \sqrt{b^2-4ac} \over 2a}$$
-公式2： $$ AveP = \int_0^1 p(r) dr $$</description>
+公式2： $$ AveP = \int_0^1 p(r) dr $$
+测试   上下标 内联上标：$a^{2x+3}$ ，下标：$a_{2x+3}$ $$ a^{2x+3} a_{2x+3} $$
+  矢量 内联：$\vec a$ 多符号矢量 $$ \overrightarrow{xy} $$
+  括号
+   小括号 $$()$$ 中括号 $$[]$$ 尖括号 $$\langle{}\rangle$$ 花括号 $${}$$ 适应中括号 $$ \left( ax + bx = 5 bx + ax = 5 \right) $$ 适应花括号 $$ \left{ ax + bx = 6 ax + cx = 6 bx + cx = 6 \right} $$ 上括号 $$ \overbrace{1,2,3,4,5&amp;hellip;.</description>
     </item>
     
     <item>
