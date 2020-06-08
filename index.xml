@@ -22,7 +22,10 @@
 测试   上下标 内联上标：$a^{2x+3}$ ，下标：$a_{2x+3}$ $$ a^{2x+3} a_{2x+3} $$
   矢量 内联：$\vec a$ 多符号矢量 $$ \overrightarrow{xy} $$
   括号
-   小括号 $$()$$ 中括号 $$[]$$ 尖括号 $$\langle{}\rangle$$ 花括号 $${}$$ 适应中括号 $$ \left( &amp;hellip;.. \right) $$ 适应花括号 $$ \left{ &amp;hellip;.</description>
+    小括号 $$()$$
+  中括号 $$[]$$
+  尖括号 $$\langle{}\rangle$$
+  适应中括号 $$ \left( &amp;hellip;.</description>
     </item>
     
     <item>
