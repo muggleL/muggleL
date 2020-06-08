@@ -1,83 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Notes on Muggle L</title>
-    <link>https://blog.o0o0o0.de/note/</link>
-    <description>Recent content in Notes on Muggle L</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Fri, 23 Aug 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.o0o0o0.de/note/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Manjaro Docker 用法</title>
-      <link>https://blog.o0o0o0.de/note/2019/08/23/manjaro-docker/</link>
-      <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.o0o0o0.de/note/2019/08/23/manjaro-docker/</guid>
-      <description>不同发行版的指令，文件位置略有不同，本文仅以 arch 及其衍生系统为准。
-目录  安装 设置镜像仓库 设置代理 基础命令 Dockerfile Dockerfile 多段构建 容器的操作 数据管理 网络  安装 sudo pacman -Syy sudo pacman -S docker # 启动 sudo systemctl start docker # 用户加入 docker 用户组（可以不用 sudo 启动docker) sudo usermod -aG docker $USER # 注销重新登录 设置镜像仓库 echo &amp;#39;{ &amp;#34;registry-mirrors&amp;#34;: [ &amp;#34;https://dockerhub.azk8s.cn&amp;#34;, # 国内镜像仓库1 &amp;#34;https://reg-mirror.qiniu.com&amp;#34; # 仓库2 ] }&amp;#39; | sudo tee -a /etc/docker/daemon.json &amp;gt; /dev/null # 重启服务 sudo systemctl daemon-reload sudo systemctl restart docker  通过 docker info 可以看到仓库设置情况。</description>
-    </item>
-    
-    <item>
-      <title>数据库连接的图表展示</title>
-      <link>https://blog.o0o0o0.de/note/2019/06/18/sql-join-illustrates/</link>
-      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.o0o0o0.de/note/2019/06/18/sql-join-illustrates/</guid>
-      <description>图片来源 http://www.postgresqltutorial.com
-inner join left join where left is null
-right join right is null
-full join right is null of left is null
-cross join summary </description>
-    </item>
-    
-    <item>
-      <title>golang 使用 socks5 代理</title>
-      <link>https://blog.o0o0o0.de/note/2019/05/21/golang-use-socks5-proxy/</link>
-      <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.o0o0o0.de/note/2019/05/21/golang-use-socks5-proxy/</guid>
-      <description>package mainimport (&amp;#34;fmt&amp;#34;&amp;#34;io/ioutil&amp;#34;&amp;#34;log&amp;#34;&amp;#34;net/http&amp;#34;&amp;#34;os&amp;#34;&amp;#34;golang.org/x/net/proxy&amp;#34;)func main() {// create a socks5 dialer dialer, err := proxy.SOCKS5(&amp;#34;tcp&amp;#34;, &amp;#34;127.0.0.1:1080&amp;#34;, nil, proxy.Direct)if err != nil {_, _ = fmt.Fprintln(os.Stderr, &amp;#34;can&amp;#39;t connect to the proxy:&amp;#34;, err)os.Exit(1)}// setup a http client httpTransport := &amp;amp;http.Transport{}httpClient := &amp;amp;http.Client{Transport: httpTransport}// set our socks5 as the dialer httpTransport.Dial = dialer.Dialif resp, err := httpClient.</description>
-    </item>
-    
-    <item>
-      <title>科学与宗教</title>
-      <link>https://blog.o0o0o0.de/note/2019/03/30/science-and-religion/</link>
-      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.o0o0o0.de/note/2019/03/30/science-and-religion/</guid>
-      <description>宗教与科学的共同点 宗教和科学都是思想的产物 　宗教是看不见的，没有人能够指出宗教是什么，也没有人能够具体地指出科学是什么。两者都是建立在想像上的产物，然后被大多数人接受。不同的是宗教是个别少数人（比如耶稣，佛陀）的想象，科学是所有科学家的想象。有人可能会说，科学是可以看见的，比如我们现在用的手机，电脑等等，这些高科技都代表这科学。但是在我看来，这些和佛教的佛像，基督教的教堂本质上是一致的。我们通过科学生产出了手机，为人们解决社交问题。佛教徒通过佛的指示，请了一尊佛回教，或者去庙里烧香，为自己解决病痛，或者祈求得到好运。所以这些实体都是上述两种想象为人类服务的工具（并不去考虑这工具有没有实际效果，有很多所谓的高科技都是没有用处的）。只不过科学的法器种类更加繁多，显灵的几率更是高了好几个数量级。
-宗教和科学都宣扬自己是真理 　我们相信科学，认为科学能够解释世界的本质。如果有些东西科学不能解释，那不是科学本身的问题，而是你自身知识不够。并且坚信着这只是暂时的，随着时间的发展，总有一天科学会给出合理的解释。每个宗教都有自己的世界观，而上帝能够解释说有的一切。如果有一些东西，上帝没有告诉你，那是因为你不够虔诚。并且坚信随着时间的发展，总有一天上帝会看到你的虔诚，并给你合理的解释。(或者上帝认为，这事对人类发展无益，你不必去了解)
-宗教和科学都有一批狂热的信徒 　我们很多人小时候的梦想是成为一个科学家，玄奘，鉴真的故事我们也都耳熟能详。上帝直到到今天都仍然能够吸引无数人为他献身（伊斯兰世界）。科学史上也有无数的科学家为献出自己的生命。科学和上帝有一样的吸引力。
-科学和宗教都认为自己的发展对整个人类有利 　无论是我们现在充满自信的年轻科学家，还是中世纪东征的骑士，甚至于叙利亚的恐怖分子，他们都坚信自己的行为有利于整个人类社会的发展（不考虑伊斯兰教的人类定义是否包含非伊斯兰教教徒）。
-宗教与科学的不同点 科学不讲死后世界 　和宗教不同，科学并不去讨论人死后会怎么样，而是着眼于现在和未来，所以科学更加务实，从而发展出更强的效率，影响也更加深远。
-科学承认自己无知 科学希望所有人都学知识 科学更加包容  参考  《人类简史：从动物到上帝》
- </description>
-    </item>
-    
-    <item>
-      <title>精神寄生虫</title>
-      <link>https://blog.o0o0o0.de/note/2019/03/19/balabala/</link>
-      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.o0o0o0.de/note/2019/03/19/balabala/</guid>
-      <description>0x01 0x02 0x03 0x04  二〇一九年三月十九日 阴
-参考  《人类简史：从动物到上帝》
- </description>
-    </item>
-    
-    <item>
-      <title>由反射引起的 Java 常量名与变量名的思考</title>
-      <link>https://blog.o0o0o0.de/note/2019/02/26/java-reflect/</link>
-      <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.o0o0o0.de/note/2019/02/26/java-reflect/</guid>
-      <description>0x00 public class demo { public static void change(Integer a, Integer b) throws NoSuchFieldException, IllegalAccessException { Field field = Integer.class.getDeclaredField(&amp;#34;value&amp;#34;); field.setAccessible(true); field.set(b, 10); field.set(a, 1); } public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException { Integer a = 10, b = 1; change(a, b); System.out.println(&amp;#34;a = &amp;#34; + a + &amp;#34; b = &amp;#34; + b); } } 0x01 请看：
-public class demo { private static void change(Integer a , Integer b) throws NoSuchFieldException, IllegalAccessException { Field field = Integer.</description>
-    </item>
-    
-  </channel>
-</rss>
