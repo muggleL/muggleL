@@ -93,21 +93,55 @@
 
 
 
-<h1 id="1-配置docker-源">1. 配置docker 源</h1>
+<h1 id="1-win10-2004-开启-wsl2">1. win10 2004 开启 wsl2</h1>
+<ul>
+<li>
+<h3 id="开启虚拟化平台组件">开启虚拟化平台组件</h3>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
+</code></pre></div><ul>
+<li>
+<h3 id="开启-linux-子系统组件">开启 Linux 子系统组件</h3>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+</code></pre></div><ul>
+<li>
+<h3 id="下载-wsl2-独立内核并安装">下载 wsl2 独立内核并安装</h3>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-kernel
+</code></pre></div><ul>
+<li>
+<h3 id="设置-wsl2-为默认-wsl">设置 wsl2 为默认 wsl</h3>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wsl --set-default-version <span style="color:#ae81ff">2</span>
+</code></pre></div><ul>
+<li>
+<h3 id="从-microsoft-store-下载-linux-系统">从 Microsoft Store 下载 Linux 系统</h3>
+</li>
+</ul>
+<h1 id="2-配置docker-源">2. 配置docker 源</h1>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt update
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install apt-transport-https ca-certificates curl software-properties-common
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo add-apt-repository <span style="color:#e6db74">&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable&#34;</span>
-</code></pre></div><h1 id="2-安装">2. 安装</h1>
+</code></pre></div><h1 id="3-安装">3. 安装</h1>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt update
 sudo apt install docker-ce
-</code></pre></div><h1 id="3-配置">3. 配置</h1>
+</code></pre></div><h1 id="4-配置">4. 配置</h1>
 <ul>
-<li>启动</li>
+<li>
+<h3 id="启动">启动</h3>
+</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo service docker start
 </code></pre></div><ul>
-<li>用户配置</li>
+<li>
+<h3 id="用户配置">用户配置</h3>
+</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo usermod -aG docker <span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>
 </code></pre></div>
