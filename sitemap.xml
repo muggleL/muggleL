@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.o0o0o0.de/categories/</loc>
+    <lastmod>2020-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.o0o0o0.de/post/</loc>
+    <lastmod>2020-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.o0o0o0.de/categories/wsl/</loc>
+    <lastmod>2020-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.o0o0o0.de/post/2020/wsl2-ubuntu20.04-install-docker/</loc>
+    <lastmod>2020-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.o0o0o0.de/</loc>
     <lastmod>2020-06-08T00:00:00+00:00</lastmod>
   </url>
@@ -15,16 +35,6 @@
   <url>
     <loc>https://blog.o0o0o0.de/pdfs/</loc>
     <lastmod>2020-06-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.o0o0o0.de/post/</loc>
-    <lastmod>2020-06-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.o0o0o0.de/categories/</loc>
-    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>

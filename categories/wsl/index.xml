@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wsl on Muggle L</title>
+    <link>https://blog.o0o0o0.de/categories/wsl/</link>
+    <description>Recent content in wsl on Muggle L</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 13 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.o0o0o0.de/categories/wsl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Wsl2 Ubuntu20.04 配置 docker</title>
+      <link>https://blog.o0o0o0.de/post/2020/wsl2-ubuntu20.04-install-docker/</link>
+      <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/post/2020/wsl2-ubuntu20.04-install-docker/</guid>
+      <description>1. 配置docker 源 sudo apt update sudo apt install apt-transport-https ca-certificates curl software-properties-common curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository &amp;#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable&amp;#34; 2. 安装 sudo apt update sudo apt install docker-ce 3. 配置  启动  sudo service docker start  用户配置  sudo usermod -aG docker ${USER} </description>
+    </item>
+    
+  </channel>
+</rss>
