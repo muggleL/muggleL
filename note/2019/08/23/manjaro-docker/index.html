@@ -414,18 +414,18 @@ HEALTHCHECK NONE <span style="color:#75715e"># 屏蔽基础容器的健康检查
     COPY --from<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> /go/src/github.com/go/helloworld/app .
     <span style="color:#75715e"># 执行</span>
     CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;./app&#34;</span><span style="color:#f92672">]</span>
-</code></pre></div><pre><code>&gt; 1. 可以只构建某一段的镜像
-&gt;
-&gt;    ```bash
-&gt;    docker build --target builder -t name/imagename:tag .
-&gt;    ```
-&gt;
-&gt; 2. 构建时，也能从其他镜像复制文件
-&gt;
-&gt;    ```bash
-&gt;    COPY --from=nginx:latest /etc/nginx/nginx.conf /nginx.conf
-&gt;    ```
-</code></pre>
+</code></pre></div><blockquote>
+<ol>
+<li>
+<p>可以只构建某一段的镜像</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build --target builder -t name/imagename:tag .
+</code></pre></div></li>
+<li>
+<p>构建时，也能从其他镜像复制文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">COPY --from<span style="color:#f92672">=</span>nginx:latest /etc/nginx/nginx.conf /nginx.conf
+</code></pre></div></li>
+</ol>
+</blockquote>
 <h2 id="容器的操作">容器的操作</h2>
 <h3 id="1启动终止重启与删除">1.启动、终止、重启与删除</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker container start    &lt;容器名称或id&gt;
