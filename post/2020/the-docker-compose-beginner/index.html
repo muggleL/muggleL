@@ -151,30 +151,30 @@ services:
 <h2 id="例1-构建简单-go-应用">例1 构建简单 go 应用</h2>
 <p><code>ghost</code> 的例子中，<code>docker-compose.yml</code> 指定了 <code>image</code> 镜像，也可以从一个 <code>Dockfile</code> 开始构建一个容器。本例子使用 <a href="%5Bhttps://blog.degen.run/note/2019/08/23/manjaro-docker/#dockerfile-%E5%A4%9A%E6%AE%B5%E6%9E%84%E5%BB%BA%5D(https://blog.degen.run/note/2019/08/23/manjaro-docker/#dockerfile-%E5%A4%9A%E6%AE%B5%E6%9E%84%E5%BB%BA)">Manjaro Docker 用法</a> 中使用的 <code>Dockerfile</code>。</p>
 <p>先看以下 <code>Dockerfile</code> 内容</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile">    <span style="color:#75715e"># 分段 1</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    FROM golang:1.12-alpine as builder<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#75715e"># 配置国内源 以及安装 git</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    RUN sed -i <span style="color:#e6db74">&#39;s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apk/repositories <span style="color:#ae81ff">\</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>        <span style="color:#f92672">&amp;&amp;</span> apk --no-cache add git<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#75715e"># 工作目录</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    WORKDIR /go/src/github.com/go/helloworld/<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    COPY app.go .<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#75715e"># 依赖和编译</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    RUN CGO_ENABLED<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GOOS<span style="color:#f92672">=</span>linux go build -a -installsuffix cgo -o app .<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#75715e"># 分段 2</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    FROM alpine:latest as prod<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#75715e"># 源和基本环境</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    RUN sed -i <span style="color:#e6db74">&#39;s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apk/repositories <span style="color:#ae81ff">\</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>        <span style="color:#f92672">&amp;&amp;</span> apk --no-cache add ca-certificates<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#75715e"># 工作目录</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    WORKDIR /root<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#75715e"># 从上一层拷贝文件</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    COPY --from<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> /go/src/github.com/go/helloworld/app .<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#75715e"># 执行</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>    CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;./app&#34;</span><span style="color:#f92672">]</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><p>app.go 文件内容</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    <span style="color:#75715e"># 分段 1</span>
+    FROM golang:1.12-alpine as builder
+    <span style="color:#75715e"># 配置国内源 以及安装 git</span>
+    RUN sed -i <span style="color:#e6db74">&#39;s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apk/repositories <span style="color:#ae81ff">\</span>
+        <span style="color:#f92672">&amp;&amp;</span> apk --no-cache add git
+    <span style="color:#75715e"># 工作目录</span>
+    WORKDIR /go/src/github.com/go/helloworld/
+    
+    COPY app.go .
+    <span style="color:#75715e"># 编译</span>
+    RUN CGO_ENABLED<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GOOS<span style="color:#f92672">=</span>linux go build -a -installsuffix cgo -o app .
+    
+    <span style="color:#75715e"># 分段 2</span>
+    FROM alpine:latest as prod
+    <span style="color:#75715e"># 源和基本环境</span>
+    RUN sed -i <span style="color:#e6db74">&#39;s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apk/repositories <span style="color:#ae81ff">\</span>
+        <span style="color:#f92672">&amp;&amp;</span> apk --no-cache add ca-certificates
+    <span style="color:#75715e"># 工作目录</span>
+    WORKDIR /root
+    <span style="color:#75715e"># 从上一层拷贝文件</span>
+    COPY --from<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> /go/src/github.com/go/helloworld/app .
+    <span style="color:#75715e"># 执行</span>
+    CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;./app&#34;</span><span style="color:#f92672">]</span>
+</code></pre></div><p>app.go 文件内容</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
@@ -183,27 +183,27 @@ services:
     <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;THE APP IS RUNNING&#34;</span>)
 }
 </code></pre></div><p>docker-compose</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># 这个项目没有什么端口之类的依赖关系，所以及其简单</span>
-<span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 这个项目没有什么端口之类的依赖关系，所以及其简单</span>
+version: <span style="color:#e6db74">&#39;3&#39;</span>
 
 services:
         myapp:
-                <span style="color:#66d9ef">build</span>: .
+                build: .
 </code></pre></div><h2 id="例2使用-docker-compose-构建一个-php-应用">例2：使用 Docker-compose 构建一个 php 应用</h2>
 <p>myphp.dockerfile 内容</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> php:7.1.22-fpm</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 安装依赖</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">run</span> apt-get update <span style="color:#ae81ff">\</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>	<span style="color:#f92672">&amp;&amp;</span> apt-get install -qq git curl libmcrypt-dev libjpeg-dev libfreetype6-dev libbz2-dev <span style="color:#ae81ff">\</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span>	<span style="color:#f92672">&amp;&amp;</span> apt-get clean<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 安装 php 扩展</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> docker-php-ext-install pdo pdo_mysql mcrypt zip gd<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><p>nginx.dockerfile</p>
-<pre><code class="language-dock" data-lang="dock">FROM nginx:1.10
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM php:7.1.22-fpm
+
+<span style="color:#75715e"># 安装依赖</span>
+run apt-get update <span style="color:#ae81ff">\</span>
+	<span style="color:#f92672">&amp;&amp;</span> apt-get install -qq git curl libmcrypt-dev libjpeg-dev libfreetype6-dev libbz2-dev <span style="color:#ae81ff">\</span>
+	<span style="color:#f92672">&amp;&amp;</span> apt-get clean
+
+<span style="color:#75715e"># 安装 php 扩展</span>
+RUN docker-php-ext-install pdo pdo_mysql mcrypt zip gd
+</code></pre></div><p>nginx.dockerfile</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM nginx:1.10
 ADD vhost.conf /etc/nginx/conf.d/default.conf
-</code></pre><p>niginx 配置文件 vhost.conf</p>
+</code></pre></div><p>niginx 配置文件 vhost.conf</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">server {
     listen <span style="color:#ae81ff">80</span>;
     server_name www.o0o0o0.de;
@@ -265,11 +265,7 @@ services:
                         - <span style="color:#e6db74">&#34;MYSQL_PASSWORD=123456789&#34;</span>
         redis:
                 <span style="color:#66d9ef">image</span>: redis:<span style="color:#ae81ff">5</span>
-</code></pre></div><h1 id="docker-compose-其它功能">Docker-compose 其它功能</h1>
-<ul>
-<li></li>
-</ul>
-
+</code></pre></div>
 <br>
 <footer>
     
