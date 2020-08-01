@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker-compose on Muggle L</title>
+    <link>https://blog.o0o0o0.de/tags/docker-compose/</link>
+    <description>Recent content in docker-compose on Muggle L</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    
+	<atom:link href="https://blog.o0o0o0.de/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>从 Ghost 入门 docker-compose</title>
+      <link>https://blog.o0o0o0.de/post/1/the-docker-compose-beginner/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/post/1/the-docker-compose-beginner/</guid>
+      <description>如果按照平常的方法通过 docker 启动 ghost，需要运行如下一串超长的命令：
+docker run -d --name myghost -p 80:2368 -v /var/ghost/blog:/var/lib/ghost/content ghost这种方法比较复杂，可配置空间小。
+ 关于 docker-compose docker-compose 是 docker 官方的开源项目，使用 python 编写，实现上调用了 Docker 服务的 API 进行容器管理。其官方定义为为 「定义和运行多个 Docker 容器的应用（Defining and running multi-container Docker applications）。
+ 安装Docker-compose pip3 install -i https://pypi.douban.com/simple docker-compose使用  创建一个项目文件夹  mkdir ghost-docker创建 docker-compose.yml  cd ghost-docker &amp;amp;&amp;amp; touch docker-compose.yml写入以下内容
+version: &amp;#39;3&amp;#39;services:ghost:image: ghost:latestports:- 9030:2368volumes:- ./data:/var/lib/ghost/contentenviroment:- url=http://o0o0o0.</description>
+    </item>
+    
+  </channel>
+</rss>
