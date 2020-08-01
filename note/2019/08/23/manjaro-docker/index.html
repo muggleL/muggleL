@@ -369,6 +369,11 @@ HEALTHCHECK NONE <span style="color:#75715e"># 屏蔽基础容器的健康检查
 <h3 id="15-onbuild">15. ONBUILD</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ONBUILD &lt;其它指令&gt;
 </code></pre></div><p>只有当以当前镜像为基础镜像构建项目时，才会执行的指令。</p>
+<h3 id="16-使用-dockerfile-构建镜像">16. 使用 Dockerfile 构建镜像</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build -t imageName:tag .
+</code></pre></div><blockquote>
+<p>切记不要忘记后面的点（dot）</p>
+</blockquote>
 <h2 id="dockerfile-多段构建">Dockerfile 多段构建</h2>
 <p><code>Docker</code> 多段构建将编译、测试、打包等环境与运行环境分开。</p>
 <p>步骤为将需要的文件在一个环境测试、编译、打包好之后，拷贝到运行环境。</p>
@@ -399,9 +404,8 @@ HEALTHCHECK NONE <span style="color:#75715e"># 屏蔽基础容器的健康检查
     WORKDIR /go/src/github.com/go/helloworld/
     
     COPY app.go .
-    <span style="color:#75715e"># 依赖和编译</span>
-    RUN go get -d -v github.com/go-sql-driver/mysql <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>        <span style="color:#f92672">&amp;&amp;</span> CGO_ENABLED<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GOOS<span style="color:#f92672">=</span>linux go build -a -installsuffix cgo -o app .
+    <span style="color:#75715e"># 编译</span>
+    RUN CGO_ENABLED<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GOOS<span style="color:#f92672">=</span>linux go build -a -installsuffix cgo -o app .
     
     <span style="color:#75715e"># 分段 2</span>
     FROM alpine:latest as prod
@@ -579,6 +583,9 @@ docker volume prune  <span style="color:#75715e"># 删除无主数据卷</span>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  docker run -it --rm --name net2 --network my-net busybox sh
 </code></pre></div><p>这时候 <code>net1</code> 和 <code>net2</code> 可以相互 ping 通。</p>
+<blockquote>
+<p>2020.8.1 更新添加 docker 构建命令&amp;&amp;优化Dockerfile 例子</p>
+</blockquote>
 
 <br>
 <footer>
