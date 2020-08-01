@@ -4,12 +4,32 @@
   
   <url>
     <loc>https://blog.o0o0o0.de/categories/</loc>
-    <lastmod>2020-06-13T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.o0o0o0.de/categories/docker/</loc>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.o0o0o0.de/tags/docker-compose/</loc>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.o0o0o0.de/post/</loc>
-    <lastmod>2020-06-13T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.o0o0o0.de/tags/</loc>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.o0o0o0.de/post/2020/the-docker-compose-beginner/</loc>
+    <lastmod>2020-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -48,11 +68,6 @@
   </url>
   
   <url>
-    <loc>https://blog.o0o0o0.de/tags/</loc>
-    <lastmod>2019-10-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.o0o0o0.de/tags/%E4%BB%A3%E7%A0%81/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url>
@@ -85,11 +100,6 @@
   <url>
     <loc>https://blog.o0o0o0.de/tags/%E6%97%A5%E5%B8%B8/</loc>
     <lastmod>2019-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.o0o0o0.de/categories/docker/</loc>
-    <lastmod>2019-09-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -320,14 +330,6 @@
   <url>
     <loc>https://blog.o0o0o0.de/categories/example/</loc>
     <lastmod>2017-06-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.o0o0o0.de/tags/docker-compose/</loc>
-  </url>
-  
-  <url>
-    <loc>https://blog.o0o0o0.de/post/1/the-docker-compose-beginner/</loc>
   </url>
   
 </urlset>

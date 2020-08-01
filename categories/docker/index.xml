@@ -6,10 +6,23 @@
     <description>Recent content in Docker on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.o0o0o0.de/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>从 Ghost 入门 docker-compose</title>
+      <link>https://blog.o0o0o0.de/post/2020/the-docker-compose-beginner/</link>
+      <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/post/2020/the-docker-compose-beginner/</guid>
+      <description>如果按照平常的方法通过 docker 启动 ghost，需要运行如下一串超长的命令：
+docker run -d --name myghost -p 80:2368 -v /var/ghost/blog:/var/lib/ghost/content ghost这种方法比较复杂，可配置空间小。
+ 关于 docker-compose docker-compose 是 docker 官方的开源项目，使用 python 编写，实现上调用了 Docker 服务的 API 进行容器管理。其官方定义为为 「定义和运行多个 Docker 容器的应用（Defining and running multi-container Docker applications）。
+ 安装Docker-compose pip3 install -i https://pypi.douban.com/simple docker-compose使用  创建一个项目文件夹  mkdir ghost-docker创建 docker-compose.yml  cd ghost-docker &amp;amp;&amp;amp; touch docker-compose.yml写入以下内容
+version: &amp;#39;3&amp;#39;services:ghost:image: ghost:latestports:- 9030:2368volumes:- ./data:/var/lib/ghost/contentenviroment:- url=http://o0o0o0.</description>
+    </item>
     
     <item>
       <title>树莓派 mongodb-for-docker 配置</title>
@@ -28,19 +41,6 @@
       <guid>https://blog.o0o0o0.de/note/2019/08/23/manjaro-docker/</guid>
       <description>不同发行版的指令，文件位置略有不同，本文仅以 arch 及其衍生系统为准。
 目录  安装 设置镜像仓库 设置代理 基础命令 Dockerfile Dockerfile 多段构建 容器的操作 数据管理 网络  安装 sudo pacman -Syy sudo pacman -S docker # 启动 sudo systemctl start docker # 用户加入 docker 用户组（可以不用 sudo 启动docker) sudo usermod -aG docker $USER # 注销重新登录 设置镜像仓库 echo &amp;#39;{ &amp;#34;registry-mirrors&amp;#34;: [ &amp;#34;https://dockerhub.azk8s.cn&amp;#34;, # 国内镜像仓库1 &amp;#34;https://reg-mirror.qiniu.com&amp;#34; # 仓库2 ] }&amp;#39; | sudo tee -a /etc/docker/daemon.json &amp;gt; /dev/null # 重启服务 sudo systemctl daemon-reload sudo systemctl restart docker  通过 docker info 可以看到仓库设置情况。</description>
-    </item>
-    
-    <item>
-      <title>从 Ghost 入门 docker-compose</title>
-      <link>https://blog.o0o0o0.de/post/1/the-docker-compose-beginner/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.o0o0o0.de/post/1/the-docker-compose-beginner/</guid>
-      <description>如果按照平常的方法通过 docker 启动 ghost，需要运行如下一串超长的命令：
-docker run -d --name myghost -p 80:2368 -v /var/ghost/blog:/var/lib/ghost/content ghost这种方法比较复杂，可配置空间小。
- 关于 docker-compose docker-compose 是 docker 官方的开源项目，使用 python 编写，实现上调用了 Docker 服务的 API 进行容器管理。其官方定义为为 「定义和运行多个 Docker 容器的应用（Defining and running multi-container Docker applications）。
- 安装Docker-compose pip3 install -i https://pypi.douban.com/simple docker-compose使用  创建一个项目文件夹  mkdir ghost-docker创建 docker-compose.yml  cd ghost-docker &amp;amp;&amp;amp; touch docker-compose.yml写入以下内容
-version: &amp;#39;3&amp;#39;services:ghost:image: ghost:latestports:- 9030:2368volumes:- ./data:/var/lib/ghost/contentenviroment:- url=http://o0o0o0.</description>
     </item>
     
   </channel>
