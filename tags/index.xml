@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 01 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.o0o0o0.de/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>docker-swarm</title>
+      <link>https://blog.o0o0o0.de/tags/docker-swarm/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/tags/docker-swarm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker-compose</title>

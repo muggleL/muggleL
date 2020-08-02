@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Docker Swarm - Muggle L</title>
+    <meta property="og:title" content="Docker Swarm - Muggle L">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="sudo hostnamectl set-hostname manager131ubuntu 静态 IP  编辑 /etc/netplan/ 下的 yaml 文件  # vim /etc/netplan/00-installer-config.yaml # This is the network config written by &amp;#39;subiquity&amp;#39; network: &amp;hellip;">
+      <meta property="og:description" content="sudo hostnamectl set-hostname manager131ubuntu 静态 IP  编辑 /etc/netplan/ 下的 yaml 文件  # vim /etc/netplan/00-installer-config.yaml # This is the network config written by &amp;#39;subiquity&amp;#39; network: &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="https://blog.o0o0o0.de/post/2020/docker-swarm/">
+    <header class="masthead">
+      <h1><a href="/">Muggle L</a></h1>
+
+<p class="tagline">Technology Is Muggle&#39;s Magic</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  <li><a href="/search/">Search</a></li>
+  
+  <li><a href="/pdfs/">Pdfs</a></li>
+  
+  <li><a href="/slice/">Slice</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+
+
+<h1>Docker Swarm</h1>
+
+<h3>
+  2020-08-02</h3>
+<hr>
+
+
+
+      </header>
+
+
+
+
+
+
+<h3 id="修改主机名称">修改主机名称</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo hostnamectl set-hostname manager131
+</code></pre></div><h3 id="ubuntu-静态-ip">ubuntu 静态 IP</h3>
+<ol>
+<li>编辑  <code>/etc/netplan/</code> 下的 <code>yaml</code> 文件</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">   <span style="color:#75715e"># vim /etc/netplan/00-installer-config.yaml
+</span><span style="color:#75715e"></span>   
+   <span style="color:#75715e"># This is the network config written by &#39;subiquity&#39;
+</span><span style="color:#75715e"></span>   network:
+     ethernets:
+       ens33:
+         dhcp4: false
+         addresses:
+                 <span style="color:#f92672">-</span> <span style="color:#ae81ff">192.168.174.131</span><span style="color:#f92672">/</span><span style="color:#ae81ff">24</span>
+         gateway4: <span style="color:#ae81ff">192.168.174.2</span>
+         nameservers:
+                 addresses:
+                         <span style="color:#f92672">-</span> <span style="color:#ae81ff">8.8.8.8</span>
+     version: <span style="color:#ae81ff">2</span>          
+</code></pre></div><blockquote>
+<p>注意网关地址不要填错了，否则可能上不了网</p>
+</blockquote>
+<ol start="3">
+<li>提交更改</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">   sudo netplan apply
+</code></pre></div><h3 id="启动-docker-swarm">启动 docker swarm</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker swarm init --advertise-addr 192.168.174.131
+</code></pre></div><p>记录输出的 token信息</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker node ls  <span style="color:#75715e"># 查看所有的节点</span>
+</code></pre></div><h3 id="添加节点">添加节点</h3>
+<p>登录 work 服务器</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker swarm join <span style="color:#ae81ff">\</span>
+   --token SWMTKN-1-3ww97u875p605ce3hqbecf51lgelh8x4ju0k8lmpehlxpn22b5-33bp9x5d92onlh7gio3h4m2pd 192.168.174.131:2377
+</code></pre></div><p>此时在 <code>manage</code> 服务器中运行 <code>docker service ls</code> 可以看见 <code>worker</code> 节点了</p>
+<h3 id="运行一个服务">运行一个服务</h3>
+<p>在 <code>manager</code> 中运行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service create --replicas <span style="color:#ae81ff">1</span> --name helloworld alpine ping baidu.com
+</code></pre></div><p>执行 <code>docker service ls</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker service ls
+ID                  NAME                MODE                REPLICAS            IMAGE               PORTS
+v3wcxtzv8ybo        helloworld          replicated          1/1                 alpine:latest
+</code></pre></div><p>查看详情</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker service inspect --pretty helloworld
+
+ID:             v3wcxtzv8ybo9gr4b6cxn76u6
+Name:           helloworld
+Service Mode:   Replicated
+ Replicas:      1
+Placement:
+UpdateConfig:
+ Parallelism:   1
+ On failure:    pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:   1
+ On failure:    pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:         alpine:latest@sha256:185518070891758909c9f839cf4ca393ee977ac378609f700f60a771a2dfe321
+ Args:          ping baidu.com
+ Init:          false
+Resources:
+Endpoint Mode:  vip
+
+</code></pre></div><p>查看那个节点在运行服务</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker service ps helloworld
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE           ERROR               PORTS
+pb49uksjxqd8        helloworld.1        alpine:latest       node134             Running             Running <span style="color:#ae81ff">3</span> minutes ago
+</code></pre></div><p>可以看到该服务在 <code>node134</code> 节点运行</p>
+<p>在 <code>node134</code> 服务器中运行 <code>docker ps</code> 也可以看到该服务</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@node134:~$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+7060cc23a6e1        alpine:latest       <span style="color:#e6db74">&#34;ping baidu.com&#34;</span>    <span style="color:#ae81ff">6</span> minutes ago       Up <span style="color:#ae81ff">6</span> minutes                            helloworld.1.pb49uksjxqd8jm8pdz9dwwqhz
+</code></pre></div><h3 id="change-scale">Change Scale</h3>
+<p>修改任务（task）个数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service scale helloworld<span style="color:#f92672">=</span>5
+</code></pre></div><p>结果:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker service scale helloworld<span style="color:#f92672">=</span>5
+helloworld scaled to 5
+overall progress: <span style="color:#ae81ff">2</span> out of <span style="color:#ae81ff">5</span> tasks
+1/5: running   <span style="color:#f92672">[==================================================</span>&gt;<span style="color:#f92672">]</span>
+2/5: preparing <span style="color:#f92672">[=================================</span>&gt;                 <span style="color:#f92672">]</span>
+3/5: preparing <span style="color:#f92672">[=================================</span>&gt;                 <span style="color:#f92672">]</span>
+4/5: preparing <span style="color:#f92672">[=================================</span>&gt;                 <span style="color:#f92672">]</span>
+5/5: running   <span style="color:#f92672">[==================================================</span>&gt;<span style="color:#f92672">]</span>
+</code></pre></div><p>查看服务运行情况</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker service ps helloworld
+ID               NAME       IMAGE          NODE     DESIRED STATE      CURRENT STATE           
+pb49uksjxqd8  helloworld.1  alpine:latest   node134    Running     Running <span style="color:#ae81ff">11</span> minutes ago
+kpmzb7vrz177  helloworld.2  alpine:latest   node133    Running     Running about a minute ago
+20rber0uda8s  helloworld.3  alpine:latest   node133    Running     Running about a minute ago
+ldbicyl1m258  helloworld.4  alpine:latest   manager131 Running     Running about a minute ago
+cq9go8er8w45  helloworld.5  alpine:latest   node132    Running     Running about a minute ago
+</code></pre></div><p>服务被分到各个节点运行</p>
+<h3 id="delete-service">Delete Service</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service rm helloworld
+</code></pre></div><h3 id="运行一个滚动更新的服务">运行一个滚动更新的服务</h3>
+<ul>
+<li>创建一个 <code>redis</code> 服务</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service create --replicas <span style="color:#ae81ff">3</span> --name redis --update-delay 10s redis:3.0.6
+</code></pre></div><ul>
+<li><code>docker service inspect --pretty redis</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker service inspect --pretty redis
+
+ID:             xx6qkoxg0zwx33eiru0o0kfdf
+Name:           redis
+Service Mode:   Replicated
+ Replicas:      3
+Placement:
+UpdateConfig:
+ Parallelism:   1
+ Delay:         10s
+ On failure:    pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:   1
+ On failure:    pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:         redis:3.0.6@sha256:6a692a76c2081888b589e26e6ec835743119fe453d67ecf03df7de5b73d69842
+ Init:          false
+Resources:
+Endpoint Mode:  vip
+</code></pre></div><ul>
+<li>更新 <code>redis</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service update --image redis:3.0.7 redis
+</code></pre></div><ul>
+<li><code>docker service ps redis</code> 查看更新状况</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker service ps redis
+ID             NAME        IMAGE         NODE     DESIRED STATE   CURRENT STATE    
+adcpxb6xwy5u  redis.1     redis:3.0.7    node132      Running     Running <span style="color:#ae81ff">4</span> minutes ago
+ctnaww4tje61  <span style="color:#ae81ff">\_</span> redis.1  redis:3.0.6    node132      Shutdown    Shutdown <span style="color:#ae81ff">5</span> minutes ago
+870rxdpqu9ij  redis.2     redis:3.0.7    node134      Running     Running <span style="color:#ae81ff">3</span> minutes ago
+pgopz7spccu1  <span style="color:#ae81ff">\_</span> redis.2  redis:3.0.6    node134      Shutdown    Shutdown <span style="color:#ae81ff">4</span> minutes ago
+jg6ducfn797w  redis.3     redis:3.0.7    manager131   Running     Running <span style="color:#ae81ff">5</span> minutes ago
+wqq5t17sxh2z  <span style="color:#ae81ff">\_</span> redis.3  redis:3.0.6    manager131   Shutdown    Shutdown <span style="color:#ae81ff">6</span> minutes ago
+</code></pre></div><h3 id="踢出一个节点set-a-node-to-drain-avaliability">踢出一个节点（set a node to drain avaliability）</h3>
+<ul>
+<li>查看节点情况</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker node ls
+ID                            HOSTNAME    STATUS  AVAILABILITY  MANAGER STATUS  ENGINE VERSION
+jdp3wydf3nhtjdg6mmvvn7wec *   manager131    Ready    Active     Leader              19.03.12
+o593zfiqb5ttf7jlvi5e5nwbl     node132       Ready    Active                         19.03.12
+wv46ge1v0yzlpccyi723cl1h4     node133       Ready    Active                         19.03.12
+i815q7inckde1z0t2cb1w64kv     node134       Ready    Active                         19.03.12
+</code></pre></div><ul>
+<li>查看各节点任务情况</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker service ps redis
+ID            NAME     IMAGE       NODE     DESIRED STATE    CURRENT STATE   
+adcpxb6xwy5u  redis.1  redis:3.0.7  node132    Running        Running <span style="color:#ae81ff">36</span> minutes ago
+870rxdpqu9ij  redis.2  redis:3.0.7  node134    Running        Running <span style="color:#ae81ff">35</span> minutes ago
+jg6ducfn797w  redis.3  redis:3.0.7  manager131 Running        Running <span style="color:#ae81ff">37</span> minutes ago
+uqz8ue3ngqvc  redis.4  redis:3.0.7  node133    Running        Running <span style="color:#ae81ff">2</span> minutes ago
+xc1txlklr1jq  redis.5  redis:3.0.7  node133    Running        Running <span style="color:#ae81ff">2</span> minutes ago
+</code></pre></div><ul>
+<li>踢出（drain）节点 <code>node113</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker node update --availability drain node133
+node133
+</code></pre></div><ul>
+<li>此时节点状态</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker node ls
+ID                            HOSTNAME    STATUS  AVAILABILITY  MANAGER STATUS  ENGINE VERSION
+jdp3wydf3nhtjdg6mmvvn7wec *   manager131    Ready    Active     Leader              19.03.12
+o593zfiqb5ttf7jlvi5e5nwbl     node132       Ready    Active                         19.03.12
+wv46ge1v0yzlpccyi723cl1h4     node133       Ready    Drain                          19.03.12
+i815q7inckde1z0t2cb1w64kv     node134       Ready    Active                         19.03.12
+</code></pre></div><ul>
+<li>此时任务情况</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> docker service ps redis
+ID       NAME          IMAGE        NODE         DESIRED STATE    CURRENT STATE 
+adcpxb6xwy5u     redis.1    redis:3.0.7   node132       Running      Running <span style="color:#ae81ff">42</span> minutes ago
+870rxdpqu9ij     redis.2    redis:3.0.7   node134       Running      Running <span style="color:#ae81ff">40</span> minutes ago
+jg6ducfn797w     redis.3    redis:3.0.7   manager131    Running      Running <span style="color:#ae81ff">43</span> minutes ago
+fmxaulougxdn     redis.4    redis:3.0.7   manager131    Running      Running <span style="color:#ae81ff">25</span> seconds ago
+uqz8ue3ngqvc     <span style="color:#ae81ff">\_</span> redis.4 redis:3.0.7   node133       Shutdown     Shutdown <span style="color:#ae81ff">28</span> seconds ago
+122cnudga3m4     redis.5    redis:3.0.7   node134       Running      Running <span style="color:#ae81ff">24</span> seconds ago
+xc1txlklr1jq     <span style="color:#ae81ff">\_</span> redis.5 redis:3.0.7   node133       Shutdown     Shutdown <span style="color:#ae81ff">28</span> seconds ago
+</code></pre></div><p>可以看到 原本属于 node133 的任务被分配给了<code>manager131</code> 与 <code>node134</code></p>
+<ul>
+<li>重新启用节点</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker node update --availability active node133
+node133
+</code></pre></div><h3 id="routing-mesh">routing mesh</h3>
+<p>开启一个新的nginx 服务器</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service create --name my-web --publish published<span style="color:#f92672">=</span>8080,target<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span> --replicas <span style="color:#ae81ff">2</span> nginx
+</code></pre></div>
+<br>
+<footer>
+    
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/2020/the-docker-compose-beginner/">从 Ghost 入门 docker-compose</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="/js/math-code.js"></script>
+
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+     
+    color: #EE7700;
+}
+</style>
+<script async src="/js/center-img.js"></script>
+
+    
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/tex.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/go.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/powershell.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/bash.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+   
+   <br>
+   <span id="/post/2020/docker-swarm/" class="leancloud_visitors" data-flag-title="Docker Swarm">
+     
+     <p></p>
+   </span>
+   <div id="vcomments"></div>
+   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+   <script type="text/javascript">
+     new Valine({
+         el: '#vcomments' ,
+         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
+         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
+         notify:  false , 
+         verify:  false , 
+         avatar:'monsterid', 
+         placeholder: '说点什么呗~',
+         visitor:  false 
+     });
+   </script>
+
+
+
+  <hr>
+  <div class="copyright">© <a href="https://blog.o0o0o0.de">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/FF_SHINE">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
+   

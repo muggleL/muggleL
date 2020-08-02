@@ -6,10 +6,21 @@
     <description>Recent content in Docker on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 01 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.o0o0o0.de/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker Swarm</title>
+      <link>https://blog.o0o0o0.de/post/2020/docker-swarm/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.o0o0o0.de/post/2020/docker-swarm/</guid>
+      <description>修改主机名称 sudo hostnamectl set-hostname manager131ubuntu 静态 IP  编辑 /etc/netplan/ 下的 yaml 文件  # vim /etc/netplan/00-installer-config.yaml # This is the network config written by &amp;#39;subiquity&amp;#39; network:ethernets:ens33:dhcp4: falseaddresses:- 192.168.174.131/24gateway4: 192.168.174.2nameservers:addresses:- 8.8.8.8version: 2  注意网关地址不要填错了，否则可能上不了网
+ 提交更改  sudo netplan apply启动 docker swarm docker swarm init --advertise-addr 192.168.174.131记录输出的 token信息
+docker node ls # 查看所有的节点添加节点 登录 work 服务器</description>
+    </item>
     
     <item>
       <title>从 Ghost 入门 docker-compose</title>
