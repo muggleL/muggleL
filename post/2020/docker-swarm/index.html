@@ -96,9 +96,10 @@
 
 
 
-<h3 id="修改主机名称">修改主机名称</h3>
+<h1 id="前戏">前戏</h1>
+<h2 id="修改主机名称">修改主机名称</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo hostnamectl set-hostname manager131
-</code></pre></div><h3 id="ubuntu-静态-ip">ubuntu 静态 IP</h3>
+</code></pre></div><h2 id="ubuntu-静态-ip">ubuntu 静态 IP</h2>
 <ol>
 <li>编辑  <code>/etc/netplan/</code> 下的 <code>yaml</code> 文件</li>
 </ol>
@@ -119,20 +120,21 @@
 </code></pre></div><blockquote>
 <p>注意网关地址不要填错了，否则可能上不了网</p>
 </blockquote>
-<ol start="3">
+<ol start="2">
 <li>提交更改</li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">   sudo netplan apply
-</code></pre></div><h3 id="启动-docker-swarm">启动 docker swarm</h3>
+</code></pre></div><h2 id="启动-docker-swarm">启动 docker swarm</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker swarm init --advertise-addr 192.168.174.131
 </code></pre></div><p>记录输出的 token信息</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker node ls  <span style="color:#75715e"># 查看所有的节点</span>
-</code></pre></div><h3 id="添加节点">添加节点</h3>
+</code></pre></div><h2 id="添加节点">添加节点</h2>
 <p>登录 work 服务器</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker swarm join <span style="color:#ae81ff">\</span>
    --token SWMTKN-1-3ww97u875p605ce3hqbecf51lgelh8x4ju0k8lmpehlxpn22b5-33bp9x5d92onlh7gio3h4m2pd 192.168.174.131:2377
 </code></pre></div><p>此时在 <code>manage</code> 服务器中运行 <code>docker service ls</code> 可以看见 <code>worker</code> 节点了</p>
-<h3 id="运行一个服务">运行一个服务</h3>
+<h1 id="进行">进行</h1>
+<h2 id="运行一个服务">运行一个服务</h2>
 <p>在 <code>manager</code> 中运行：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service create --replicas <span style="color:#ae81ff">1</span> --name helloworld alpine ping baidu.com
 </code></pre></div><p>执行 <code>docker service ls</code></p>
@@ -175,7 +177,7 @@ pb49uksjxqd8        helloworld.1        alpine:latest       node134             
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@node134:~$ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 7060cc23a6e1        alpine:latest       <span style="color:#e6db74">&#34;ping baidu.com&#34;</span>    <span style="color:#ae81ff">6</span> minutes ago       Up <span style="color:#ae81ff">6</span> minutes                            helloworld.1.pb49uksjxqd8jm8pdz9dwwqhz
-</code></pre></div><h3 id="change-scale">Change Scale</h3>
+</code></pre></div><h2 id="change-scale">Change Scale</h2>
 <p>修改任务（task）个数</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service scale helloworld<span style="color:#f92672">=</span>5
 </code></pre></div><p>结果:</p>
@@ -196,9 +198,9 @@ kpmzb7vrz177  helloworld.2  alpine:latest   node133    Running     Running about
 ldbicyl1m258  helloworld.4  alpine:latest   manager131 Running     Running about a minute ago
 cq9go8er8w45  helloworld.5  alpine:latest   node132    Running     Running about a minute ago
 </code></pre></div><p>服务被分到各个节点运行</p>
-<h3 id="delete-service">Delete Service</h3>
+<h2 id="delete-service">Delete Service</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service rm helloworld
-</code></pre></div><h3 id="运行一个滚动更新的服务">运行一个滚动更新的服务</h3>
+</code></pre></div><h2 id="运行一个滚动更新的服务">运行一个滚动更新的服务</h2>
 <ul>
 <li>创建一个 <code>redis</code> 服务</li>
 </ul>
@@ -246,7 +248,7 @@ ctnaww4tje61  <span style="color:#ae81ff">\_</span> redis.1  redis:3.0.6    node
 pgopz7spccu1  <span style="color:#ae81ff">\_</span> redis.2  redis:3.0.6    node134      Shutdown    Shutdown <span style="color:#ae81ff">4</span> minutes ago
 jg6ducfn797w  redis.3     redis:3.0.7    manager131   Running     Running <span style="color:#ae81ff">5</span> minutes ago
 wqq5t17sxh2z  <span style="color:#ae81ff">\_</span> redis.3  redis:3.0.6    manager131   Shutdown    Shutdown <span style="color:#ae81ff">6</span> minutes ago
-</code></pre></div><h3 id="踢出一个节点set-a-node-to-drain-avaliability">踢出一个节点（set a node to drain avaliability）</h3>
+</code></pre></div><h2 id="踢出一个节点set-a-node-to-drain-avaliability">踢出一个节点（set a node to drain avaliability）</h2>
 <ul>
 <li>查看节点情况</li>
 </ul>
@@ -298,16 +300,22 @@ xc1txlklr1jq     <span style="color:#ae81ff">\_</span> redis.5 redis:3.0.7   nod
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker node update --availability active node133
 node133
-</code></pre></div><h3 id="routing-mesh">routing mesh</h3>
+</code></pre></div><h2 id="routing-mesh">routing mesh</h2>
 <p>开启一个新的nginx 服务器</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service create --name my-web --publish published<span style="color:#f92672">=</span>8080,target<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span> --replicas <span style="color:#ae81ff">2</span> nginx
-</code></pre></div>
+</code></pre></div><p>也可以简写成</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service create --name my-web -p 8080:80 --replicas <span style="color:#ae81ff">2</span> nginx
+</code></pre></div><p><code>swarm</code> 会将访问 <code>nginx</code> 的负载均衡到两个服务器上，但是四个服务器在同一个网络中，任意访问一个服务器的 <code>8080</code> 端口都能访问到 <code>nginx</code></p>
+<h1 id="深入">深入</h1>
+<h2 id="docker-swarm-与-docker-compose-的结合">docker swarm 与 docker compose 的结合</h2>
+<p>待续</p>
+
 <br>
 <footer>
     
 <nav class="post-nav">
   <span class="nav-prev">&larr; <a href="/post/2020/the-docker-compose-beginner/">从 Ghost 入门 docker-compose</a></span>
-  <span class="nav-next"></span>
+  <span class="nav-next"><a href="/post/2020/clone_vm/">VMware 虚拟机克隆</a> &rarr;</span>
 </nav>
 
 
