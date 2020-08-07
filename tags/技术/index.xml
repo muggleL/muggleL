@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>技术 on Muggle L</title>
-    <link>https://blog.o0o0o0.de/tags/%E6%8A%80%E6%9C%AF/</link>
+    <link>https://blog.degen.run/tags/%E6%8A%80%E6%9C%AF/</link>
     <description>Recent content in 技术 on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Wed, 31 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.o0o0o0.de/tags/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.degen.run/tags/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>git的使用方法记录。</title>
-      <link>https://blog.o0o0o0.de/post/2018/how-to-use-git/</link>
+      <link>https://blog.degen.run/post/2018/how-to-use-git/</link>
       <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.o0o0o0.de/post/2018/how-to-use-git/</guid>
+      <guid>https://blog.degen.run/post/2018/how-to-use-git/</guid>
       <description>安装（Linux） $ sudo pacman -S git安装完之后设置用户和邮箱
 $ git config --global user.name &amp;#34;Your Name&amp;#34;$ git config --global user.email &amp;#34;email@example.com&amp;#34;以上的 --global指定了, 本系统所有的仓库都会使用这个配置。
 新建一个版本库 $ mkdir mygit$ cd mygit$ git init添加文件 假如你在本目录下添加了一个叫readme.txt的文件

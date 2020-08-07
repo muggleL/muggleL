@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SQL on Muggle L</title>
-    <link>https://blog.o0o0o0.de/categories/sql/</link>
+    <link>https://blog.degen.run/categories/sql/</link>
     <description>Recent content in SQL on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Tue, 18 Jun 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.o0o0o0.de/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.degen.run/categories/sql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>数据库连接的图表展示</title>
-      <link>https://blog.o0o0o0.de/note/2019/06/18/sql-join-illustrates/</link>
+      <link>https://blog.degen.run/note/2019/06/18/sql-join-illustrates/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.o0o0o0.de/note/2019/06/18/sql-join-illustrates/</guid>
+      <guid>https://blog.degen.run/note/2019/06/18/sql-join-illustrates/</guid>
       <description>图片来源 http://www.postgresqltutorial.com
 inner join left join where left is null
 right join right is null
