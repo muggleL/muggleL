@@ -12,6 +12,20 @@
     
     
     <item>
+      <title>SQL 拾遗</title>
+      <link>https://blog.degen.run/post/2020/sql-tutor/</link>
+      <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.degen.run/post/2020/sql-tutor/</guid>
+      <description>大纲
+ MySQL 创建数据库 MySQL 用户管理 MySQL CURD MySQL 事务 MySQL 引擎 其他与补充   Docker 创建数据库
+docker run -d --name=mysql5.7 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=liu12134 mysql:5.7 #mysql 创建数据库 //TODO
+ MYSQL 默认编码与UTF8、UTF8MB4的区别   MySQL 默认编码
+在 MYSQL 8.0 以上 默认编码为 UTF8MB4
+mysql&amp;gt; show variables like &amp;#39;%char%&amp;#39;;+--------------------------+--------------------------------+| Variable_name | Value |+--------------------------+--------------------------------+| character_set_client | latin1 || character_set_connection | latin1 || character_set_database | utf8mb4 || character_set_filesystem | binary || character_set_results | latin1 || character_set_server | utf8mb4 || character_set_system | utf8 || character_sets_dir | /usr/share/mysql-8.</description>
+    </item>
+    
+    <item>
       <title>VMware 虚拟机克隆</title>
       <link>https://blog.degen.run/post/2020/clone_vm/</link>
       <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
