@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C&#43;&#43; on Muggle L</title>
-    <link>https://blog.degen.run/categories/c&#43;&#43;/</link>
+    <link>https://blog.mygoooosh.com/categories/c&#43;&#43;/</link>
     <description>Recent content in C&#43;&#43; on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Tue, 30 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.degen.run/categories/c++/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mygoooosh.com/categories/c++/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>c&#43;&#43;中的get与getline</title>
-      <link>https://blog.degen.run/post/2018/cpp-get-getline/</link>
+      <link>https://blog.mygoooosh.com/post/2018/cpp-get-getline/</link>
       <pubDate>Tue, 30 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/post/2018/cpp-get-getline/</guid>
+      <guid>https://blog.mygoooosh.com/post/2018/cpp-get-getline/</guid>
       <description>c++ 中的cin c++中的cin以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。
 char name1[20];char name2[20];cin&amp;gt;&amp;gt;name1&amp;gt;&amp;gt;name2;cout&amp;lt;&amp;lt;name1&amp;lt;&amp;lt;endl&amp;lt;&amp;lt;name2&amp;lt;&amp;lt;endl;如果输入barack obama，再按回车。程序直接输出
 barackobama在此次输入中，把barack赋值给了name1，把obama赋值给了name2；（此时最后输入的回车符任保存在缓存中）。

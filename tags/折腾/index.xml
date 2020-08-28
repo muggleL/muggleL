@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>折腾 on Muggle L</title>
-    <link>https://blog.degen.run/tags/%E6%8A%98%E8%85%BE/</link>
+    <link>https://blog.mygoooosh.com/tags/%E6%8A%98%E8%85%BE/</link>
     <description>Recent content in 折腾 on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.degen.run/tags/%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mygoooosh.com/tags/%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>树莓派 mongodb-for-docker 配置</title>
-      <link>https://blog.degen.run/post/2019/mongo-for-respi/</link>
+      <link>https://blog.mygoooosh.com/post/2019/mongo-for-respi/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/post/2019/mongo-for-respi/</guid>
+      <guid>https://blog.mygoooosh.com/post/2019/mongo-for-respi/</guid>
       <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth创建数据库管理员 docker exec -it rmongo mongo admindb.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]})创建数据库与数据库用户 use imagesdb.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] })重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;) 验证 image  use imagesdb.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;)数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank 恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
     </item>
     
     <item>
       <title>windows 创建软/硬链接</title>
-      <link>https://blog.degen.run/post/2019/windows-mklink/</link>
+      <link>https://blog.mygoooosh.com/post/2019/windows-mklink/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/post/2019/windows-mklink/</guid>
+      <guid>https://blog.mygoooosh.com/post/2019/windows-mklink/</guid>
       <description>　Linux 可以通过 ln 来创建硬链接和软链接，Windows 也可以右键创建快捷方式。但是 Windows 的 shortcut 只能通过鼠标点击访问，和软/硬链接差别还是挺大的。在这我记录一下 Windows 创建软/硬链接的方式。
 fsutil 硬链接 这个只适用于 NTFS 文件系统
 fsutil hardlink create NewFileName ExistingFileNameMKLINK 这是 cmd 自带命令， 一定要切换到 cmd 下
@@ -35,10 +35,10 @@ fsutil hardlink create NewFileName ExistingFileNameMKLINK 这是 cmd 自带命�
     
     <item>
       <title>linux 开机出现grub rescue的恢复方法</title>
-      <link>https://blog.degen.run/post/2017/linux-grub-rescue/</link>
+      <link>https://blog.mygoooosh.com/post/2017/linux-grub-rescue/</link>
       <pubDate>Thu, 19 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/post/2017/linux-grub-rescue/</guid>
+      <guid>https://blog.mygoooosh.com/post/2017/linux-grub-rescue/</guid>
       <description>昨天，微软推送了win10的秋季大更新，我也及时接收了。但在更新重启时，正常的grub引导界面进不去了。屏幕上只出现
 grub rescue &amp;gt;根据百度的方法
 grub rescue &amp;gt; lsgrub rescue &amp;gt; (hd0),(hd0,gpt5),(hd0,gpt4),(hd0,gpt3),(hd0,gpt2),(hd0,gpt1),(hd1)(....) 我明明记得第一个硬盘只有四个分区（efi，windows保留分区，win10系统分区，manjaro系统分区），这会儿怎么出现五个，应该是微软搞的鬼。接下来弄清楚grub到底在那个分区。
@@ -53,10 +53,10 @@ sudo update-grubsudo grub-install /dev/sdasudo reboot还有一种思路，启
     
     <item>
       <title>linux连接校园网的暂时解决方法</title>
-      <link>https://blog.degen.run/post/2017/2017-10-17-linux-network/</link>
+      <link>https://blog.mygoooosh.com/post/2017/2017-10-17-linux-network/</link>
       <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/post/2017/2017-10-17-linux-network/</guid>
+      <guid>https://blog.mygoooosh.com/post/2017/2017-10-17-linux-network/</guid>
       <description>对于天朝各大群体的网络环境，我不想做过多评论。我只在此记录我遇到问题的解决及方法。 一般要客户端验证的校园网都与Linux无缘。就算有第三方大神开发出linux端的拨号工具，也抵挡不住多久就会因为运营商的升级而生效。比如我以前用的netkeeper的linux版openkeeper也在电信最近一次升级中失效。最近，无意中发现一种能够解决这个问题的方法，只要你手机能连WiFi，linux就一定能连。网上搜了一下，没有发现类似资料。大概算是本人原创吧。
 材料:  安卓手机一部 数据线一根  步骤 1. 手机连接校园网，并拨号，（按照平时用手机一样，当然流量多的可以无视) 2. 2. 用数据线连接linux 3. 3. 打开手机的USB网络共享 MIUI： 设置&amp;raquo;更多连接方式&amp;raquo;USB网络共享4. Flyme：设置&amp;raquo;便携式热点&amp;raquo;USB网络共享5. 4. 拔网线，断WiFi，ping百度。
 这是100M电信用speedtest测出来的网速,实际体验和win下联网线没差多少。 测试可用的系统：Manjaro17，centos7，Ubuntu16.04，kali2017，debian8。
@@ -68,10 +68,10 @@ sudo update-grubsudo grub-install /dev/sdasudo reboot还有一种思路，启
     
     <item>
       <title>manjaro 下第三方网易云音乐feeluown安装</title>
-      <link>https://blog.degen.run/post/2017/manjaro-feeluown/</link>
+      <link>https://blog.mygoooosh.com/post/2017/manjaro-feeluown/</link>
       <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/post/2017/manjaro-feeluown/</guid>
+      <guid>https://blog.mygoooosh.com/post/2017/manjaro-feeluown/</guid>
       <description>2017/12更新 当网易云正式版更新后，完全可以即装即用。此文作废.
 以下原文: 手贱把系统换成arch linux系的manjaro了 网易云作为必不可少的软件，首先我考虑的是arch官方库里的netease-cloud-music,安装过程也很顺利。
 $ sudo pacman -S netease-cloud-music很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在进程里也能查到网易云的进程。来来折腾了几回后，只能放弃之。。

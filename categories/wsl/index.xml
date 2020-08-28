@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>wsl on Muggle L</title>
-    <link>https://blog.degen.run/categories/wsl/</link>
+    <link>https://blog.mygoooosh.com/categories/wsl/</link>
     <description>Recent content in wsl on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sat, 13 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.degen.run/categories/wsl/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mygoooosh.com/categories/wsl/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Wsl2 Ubuntu20.04 配置 docker</title>
-      <link>https://blog.degen.run/post/2020/wsl2-ubuntu20.04-install-docker/</link>
+      <link>https://blog.mygoooosh.com/post/2020/wsl2-ubuntu20.04-install-docker/</link>
       <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/post/2020/wsl2-ubuntu20.04-install-docker/</guid>
+      <guid>https://blog.mygoooosh.com/post/2020/wsl2-ubuntu20.04-install-docker/</guid>
       <description>1. win10 2004 开启 wsl2   开启虚拟化平台组件   Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform   开启 Linux 子系统组件   Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux   下载 wsl2 独立内核并安装   https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-kernel   设置 wsl2 为默认 wsl   wsl --set-default-version 2   从 Microsoft Store 下载 Linux 系统   2. 配置docker 源 sudo apt update sudo apt install apt-transport-https ca-certificates curl software-properties-common curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository &amp;#34;deb [arch=amd64] https://download.</description>
     </item>
     

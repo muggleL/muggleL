@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript on Muggle L</title>
-    <link>https://blog.degen.run/categories/javascript/</link>
+    <link>https://blog.mygoooosh.com/categories/javascript/</link>
     <description>Recent content in JavaScript on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sun, 24 Mar 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.degen.run/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mygoooosh.com/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JavaScript 对象</title>
-      <link>https://blog.degen.run/post/2019/js-object/</link>
+      <link>https://blog.mygoooosh.com/post/2019/js-object/</link>
       <pubDate>Sun, 24 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/post/2019/js-object/</guid>
+      <guid>https://blog.mygoooosh.com/post/2019/js-object/</guid>
       <description>本文记录了 JavaScript 面对对象的一些基础方法，如对象的属性，对象的遍历，对象的复制与合并等。
 多词属性 可以用多字词语来作为属性名
 let person = {name: &amp;#39;John&amp;#39;,age: 20,&amp;#39;likes birds&amp;#39;: true //必须加引号};多词属性不适用于点操作，但可以用方括号
@@ -28,10 +28,10 @@ let fruit = prompt(&amp;#34;whitch fruit to buy?</description>
     
     <item>
       <title>JavaScript 基础</title>
-      <link>https://blog.degen.run/post/2019/js-foundation/</link>
+      <link>https://blog.mygoooosh.com/post/2019/js-foundation/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/post/2019/js-foundation/</guid>
+      <guid>https://blog.mygoooosh.com/post/2019/js-foundation/</guid>
       <description>&lt;p&gt;JavaScript 是一门坑比较多的语言。这里记录了一些基本数据类型里面不容易注意到的点，比如：字符串的表示方式、基本数据类型的比较等等。&lt;/p&gt;</description>
     </item>
     

@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>日常 on Muggle L</title>
-    <link>https://blog.degen.run/tags/%E6%97%A5%E5%B8%B8/</link>
+    <link>https://blog.mygoooosh.com/tags/%E6%97%A5%E5%B8%B8/</link>
     <description>Recent content in 日常 on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Tue, 10 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.degen.run/tags/%E6%97%A5%E5%B8%B8/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.mygoooosh.com/tags/%E6%97%A5%E5%B8%B8/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>入手 Arduino 板子一块</title>
-      <link>https://blog.degen.run/daily/2019/09/10/buy-a-arduino/</link>
+      <link>https://blog.mygoooosh.com/daily/2019/09/10/buy-a-arduino/</link>
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/daily/2019/09/10/buy-a-arduino/</guid>
+      <guid>https://blog.mygoooosh.com/daily/2019/09/10/buy-a-arduino/</guid>
       <description>咸鱼淘的一套 Arduino 开发套件到货，五十块钱官方正版板子加一大堆配件，超值。
 </description>
     </item>
     
     <item>
       <title>树莓派 mongodb-for-docker 配置</title>
-      <link>https://blog.degen.run/post/2019/mongo-for-respi/</link>
+      <link>https://blog.mygoooosh.com/post/2019/mongo-for-respi/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/post/2019/mongo-for-respi/</guid>
+      <guid>https://blog.mygoooosh.com/post/2019/mongo-for-respi/</guid>
       <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth创建数据库管理员 docker exec -it rmongo mongo admindb.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]})创建数据库与数据库用户 use imagesdb.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] })重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;) 验证 image  use imagesdb.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;)数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank 恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
     </item>
     
     <item>
       <title>小米 9se PE rom 跳过谷歌验证</title>
-      <link>https://blog.degen.run/daily/2019/08/26/26/pixelexperience/</link>
+      <link>https://blog.mygoooosh.com/daily/2019/08/26/26/pixelexperience/</link>
       <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/daily/2019/08/26/26/pixelexperience/</guid>
+      <guid>https://blog.mygoooosh.com/daily/2019/08/26/26/pixelexperience/</guid>
       <description>9se 的第一版本 pixelexperience 包出来了，第一次开机居然死在了谷歌验证上。
 类原生 ROM 跳过谷歌验证的方式目前常用的有四种：
   刷入 rom 时附带输入跳过验证的包。
@@ -51,10 +51,10 @@ adb shell settings put secure user_setup_complete 1adb shell settings put globa
     
     <item>
       <title>Linux 定时任务一定要用绝对路径</title>
-      <link>https://blog.degen.run/daily/2019/05/27/linux-crontab/</link>
+      <link>https://blog.mygoooosh.com/daily/2019/05/27/linux-crontab/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/daily/2019/05/27/linux-crontab/</guid>
+      <guid>https://blog.mygoooosh.com/daily/2019/05/27/linux-crontab/</guid>
       <description>重要的事情说三遍 Linux 用 crontab 定时任务一定要用绝对路径。
 Linux 用 crontab 定时任务一定要用绝对路径。
 Linux 用 crontab 定时任务一定要用绝对路径。
@@ -66,19 +66,19 @@ Linux 用 crontab 定时任务一定要用绝对路径。
     
     <item>
       <title>今天终于进小米内测组了</title>
-      <link>https://blog.degen.run/daily/2019/05/23/5-23-xiaomi/</link>
+      <link>https://blog.mygoooosh.com/daily/2019/05/23/5-23-xiaomi/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/daily/2019/05/23/5-23-xiaomi/</guid>
+      <guid>https://blog.mygoooosh.com/daily/2019/05/23/5-23-xiaomi/</guid>
       <description>通过我的不屑努力（水经验）终于进了 miui 的内测组。我的 小米9se 提前用上了 dc调光。目前观感上来讲，除了屏幕变黄了一点，没有什么大的区别。</description>
     </item>
     
     <item>
       <title>windows 终端的傻逼逻辑</title>
-      <link>https://blog.degen.run/daily/2019/05/22/shabi-win10/</link>
+      <link>https://blog.mygoooosh.com/daily/2019/05/22/shabi-win10/</link>
       <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.degen.run/daily/2019/05/22/shabi-win10/</guid>
+      <guid>https://blog.mygoooosh.com/daily/2019/05/22/shabi-win10/</guid>
       <description>windows 的终端程序有一个逻辑我始终搞不懂。那就是假如你不小心用鼠标点到了他的界面，在终端运行中的程序就会停下来。而你必须点一下键盘它才会继续。。。
 
 　我觉得大部分人 点击界面并不是想要暂停。也许是误操作，更多的情况应该是和我一样只是为了认真读一读输出的调试信息。读完之后，整个程序就暂停了。好多次我以为是程序bug。我觉得 Linux 下的大部分终端才是正常的逻辑，点击并不会触发什么行为； 选中之后暂停滚动，但是程序还在向下执行；ctrl + s 之后，程序暂停。不知道微软新的 windows termainl 怎么样， 否则我就真的滚回 Manjaro 去了。</description>
