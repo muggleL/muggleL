@@ -24,7 +24,7 @@
   按一定顺序点四角（看运气）
   adb 跳过
   这要 rom 默认打开 usb 调试。或者进入 recovery 中进行。
-adb shell settings put secure user_setup_complete 1adb shell settings put global device_provisioned 1参考：
+adb shell settings put secure user_setup_complete 1 adb shell settings put global device_provisioned 1 参考：
  [教程] 教你们怎么跳过Android 9的谷歌开机验证	
 如何跳过Google开机设置/验证/向导
  </description>

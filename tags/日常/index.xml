@@ -27,7 +27,7 @@
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.mygoooosh.com/post/2019/mongo-for-respi/</guid>
-      <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth创建数据库管理员 docker exec -it rmongo mongo admindb.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]})创建数据库与数据库用户 use imagesdb.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] })重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;) 验证 image  use imagesdb.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;)数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank 恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
+      <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth 创建数据库管理员 docker exec -it rmongo mongo admin db.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]}) 创建数据库与数据库用户 use images db.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] }) 重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;)  验证 image  use images db.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;) 数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank  恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@
   按一定顺序点四角（看运气）
   adb 跳过
   这要 rom 默认打开 usb 调试。或者进入 recovery 中进行。
-adb shell settings put secure user_setup_complete 1adb shell settings put global device_provisioned 1参考：
+adb shell settings put secure user_setup_complete 1 adb shell settings put global device_provisioned 1 参考：
  [教程] 教你们怎么跳过Android 9的谷歌开机验证	
 如何跳过Google开机设置/验证/向导
  </description>

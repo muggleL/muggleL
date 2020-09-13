@@ -34,7 +34,7 @@
   按一定顺序点四角（看运气）
   adb 跳过
   这要 rom 默认打开 usb 调试。或者进入 recovery 中进行。
-adb shell settings put secure user_setup_complete 1adb shell settings put global device_provisioned 1参考：
+adb shell settings put secure user_setup_complete 1 adb shell settings put global device_provisioned 1 参考：
  [教程] 教你们怎么跳过Android 9的谷歌开机验证	
 如何跳过Google开机设置/验证/向导
  </description>
@@ -82,7 +82,7 @@ Linux 用 crontab 定时任务一定要用绝对路径。
       
       <guid>https://blog.mygoooosh.com/daily/2017/06/13/a-quick-note/</guid>
       <description>To me, the two most impressive websites based on blogdown are:
- Rob J Hyndman&amp;lsquo;s personal website. Live Free or Dichotomize by Lucy and Nick et al.  I&amp;rsquo;m sure there will be more.</description>
+ Rob J Hyndman&amp;rsquo;s personal website. Live Free or Dichotomize by Lucy and Nick et al.  I&amp;rsquo;m sure there will be more.</description>
     </item>
     
   </channel>
