@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on Muggle L</title>
+    <link>https://blog.mygoooosh.com/categories/rust/</link>
+    <description>Recent content in Rust on Muggle L</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 13 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.mygoooosh.com/categories/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rust Trait</title>
+      <link>https://blog.mygoooosh.com/note/2020/09/13/rust-trait/</link>
+      <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.mygoooosh.com/note/2020/09/13/rust-trait/</guid>
+      <description>trait是对类型的行为约束，主要有如下4种用法：
+ 接口抽象。 泛型约束。 抽象类型。 标签 trait。  接口抽象 Rust 的接口有如下特点：
+ 可以自定义方法，支持默认实现。 接口之间可继承不可实现（不可以用一个接口实现另一个接口）。 同一个接口可以被多个类型实现，但不能被一个类型多次实现。 impl 关键字为类型实现接口的方法。 trait 关键字定义接口。  实例1: 为自定义类型实现加法接口
+use std::ops::Add; #[derive(Debug)] struct Point { x: i32, y: i32, } impl Add for Point { type Output = Point; fn add(self, other: Point) -&amp;gt; Self { Point { x: self.x + other.x, y: self.y + other.y, } } } pub fn test() { let point = Point{x: 1, y: 3}; let other = Point{x: 3, y: 2}; let result = point + other; println!</description>
+    </item>
+    
+  </channel>
+</rss>
