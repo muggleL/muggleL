@@ -235,6 +235,57 @@ trait 对象实例：</p>
     dynamic_dispatch(<span style="color:#f92672">&amp;</span>foo);
     
 }
+</code></pre></div><h3 id="impl-trait">Impl Trait</h3>
+<p>实例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">use</span> std::fmt::Debug;
+
+<span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">trait</span> Fly {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">fly</span>(<span style="color:#f92672">&amp;</span>self) -&gt; <span style="color:#66d9ef">bool</span>;
+}
+
+<span style="color:#75715e">#[derive(Debug)]</span>
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Duck</span>;
+
+<span style="color:#75715e">#[derive(Debug)]</span>
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Pig</span>;
+
+<span style="color:#66d9ef">impl</span> Fly <span style="color:#66d9ef">for</span> Duck {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">fly</span>(<span style="color:#f92672">&amp;</span>self) -&gt; <span style="color:#66d9ef">bool</span> {
+        <span style="color:#66d9ef">true</span>
+    }
+}
+
+<span style="color:#66d9ef">impl</span> Fly <span style="color:#66d9ef">for</span> Pig {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">fly</span>(<span style="color:#f92672">&amp;</span>self) -&gt; <span style="color:#66d9ef">bool</span> {
+        <span style="color:#66d9ef">false</span>
+    }
+}
+
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">fly_static</span>(s: <span style="color:#a6e22e">impl</span> Fly <span style="color:#f92672">+</span> Debug) -&gt; <span style="color:#66d9ef">bool</span> { <span style="color:#75715e">// impl 作为参数类型
+</span><span style="color:#75715e"></span>    s.fly()
+}
+
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">can_fly</span>(s: <span style="color:#a6e22e">impl</span> Fly <span style="color:#f92672">+</span> Debug) -&gt; <span style="color:#a6e22e">impl</span> Fly { <span style="color:#75715e">// impl trait 作为返回值类型
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> s.fly() {
+        println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{:?} can fly.&#34;</span>, s);
+    } <span style="color:#66d9ef">else</span> {
+        println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{:?} can&#39;t fly.&#34;</span>, s);
+    }
+    s
+}
+
+<span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">test</span>() {
+    <span style="color:#66d9ef">let</span> pig <span style="color:#f92672">=</span> Pig;
+    <span style="color:#66d9ef">let</span> duck <span style="color:#f92672">=</span> Duck;
+
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}.&#34;</span>, fly_static(pig));
+    println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{}.&#34;</span>, fly_static(Duck));
+
+    <span style="color:#66d9ef">let</span> pig <span style="color:#f92672">=</span> Pig;
+    <span style="color:#66d9ef">let</span> duck <span style="color:#f92672">=</span> duck;
+    <span style="color:#66d9ef">let</span> _ <span style="color:#f92672">=</span> can_fly(pig);
+    <span style="color:#66d9ef">let</span> _ <span style="color:#f92672">=</span> can_fly(duck);
+}
 </code></pre></div>
 <br>
 <footer>
