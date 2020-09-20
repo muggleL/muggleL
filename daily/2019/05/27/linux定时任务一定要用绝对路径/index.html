@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>windows 终端的傻逼逻辑 - Muggle L</title>
-    <meta property="og:title" content="windows 终端的傻逼逻辑 - Muggle L">
+    <title>Linux 定时任务一定要用绝对路径 - Muggle L</title>
+    <meta property="og:title" content="Linux 定时任务一定要用绝对路径 - Muggle L">
     
     <meta name="twitter:card" content="summary">
 
@@ -16,18 +16,19 @@
 
     
       
-      <meta property="description" content="　windows 的终端程序有一个逻辑我始终搞不懂。那就是假如你不小心用鼠标点到了他的界面，在终端运行中的程序就会停下来。而你必须点一下键盘它才会继续。。。
-
-　我觉得大部分人 点击界面并不是想要暂停。也许是误操作，更多的情况应该是和我一样只是为了认真读一读输出的调试信息。读完之后，整个程序就暂停了。好多次我以为是程序bug。我觉得 Linux 下的大部分终端才是正常的逻辑，点击并不会触发什么行 &amp;hellip;">
-      <meta property="og:description" content="　windows 的终端程序有一个逻辑我始终搞不懂。那就是假如你不小心用鼠标点到了他的界面，在终端运行中的程序就会停下来。而你必须点一下键盘它才会继续。。。
-
-　我觉得大部分人 点击界面并不是想要暂停。也许是误操作，更多的情况应该是和我一样只是为了认真读一读输出的调试信息。读完之后，整个程序就暂停了。好多次我以为是程序bug。我觉得 Linux 下的大部分终端才是正常的逻辑，点击并不会触发什么行 &amp;hellip;">
+      <meta property="description" content="Linux 用 crontab 定时任务一定要用绝对路径。
+Linux 用 crontab 定时任务一定要用绝对路径。
+Linux 用 crontab 定时任务一定要用绝对路径。
+[&amp;hellip;] 　crontab 执行命令时，默认用户是 root，默认文件夹是 /root。脚本一定要用绝对路径，默认~ 路径是 /root。这个问题坑了我一个礼拜。
+[&amp;hellip;] 2019-8-10 更 &amp;hellip;">
+      <meta property="og:description" content="Linux 用 crontab 定时任务一定要用绝对路径。
+Linux 用 crontab 定时任务一定要用绝对路径。
+Linux 用 crontab 定时任务一定要用绝对路径。
+[&amp;hellip;] 　crontab 执行命令时，默认用户是 root，默认文件夹是 /root。脚本一定要用绝对路径，默认~ 路径是 /root。这个问题坑了我一个礼拜。
+[&amp;hellip;] 2019-8-10 更 &amp;hellip;">
       
     
 
-    
-    
-    <meta name="twitter:image" content="https://i.loli.net/2019/05/22/5ce51dce85bd310778.gif">
     
     
 
@@ -43,7 +44,7 @@
   </head>
 
   
-  <body class="https://blog.mygoooosh.com/daily/2019/05/22/shabi-win10/">
+  <body class="https://blog.mygoooosh.com/daily/2019/05/27/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%80%E5%AE%9A%E8%A6%81%E7%94%A8%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/">
     <header class="masthead">
       <h1><a href="/">Muggle L</a></h1>
 
@@ -84,10 +85,10 @@
       
 
 
-<h1>windows 终端的傻逼逻辑</h1>
+<h1>Linux 定时任务一定要用绝对路径</h1>
 
 <h3>DG
-  /  2019-05-22</h3>
+  /  2019-05-27</h3>
 <hr>
 
 
@@ -99,16 +100,25 @@
 
 
 
-<p>　　windows 的终端程序有一个逻辑我始终搞不懂。那就是假如你不小心用鼠标点到了他的界面，在终端运行中的程序就会停下来。而你必须点一下键盘它才会继续。。。</p>
-<p><a href="https://i.loli.net/2019/05/22/5ce51dce85bd310778.gif"><img src="https://i.loli.net/2019/05/22/5ce51dce85bd310778.gif" alt="test.gif"></a></p>
-<p>　　我觉得大部分人 点击界面并不是想要暂停。也许是误操作，更多的情况应该是和我一样只是为了认真读一读输出的调试信息。读完之后，整个程序就暂停了。好多次我以为是程序bug。我觉得 Linux 下的大部分终端才是正常的逻辑，点击并不会触发什么行为； 选中之后暂停滚动，但是程序还在向下执行；ctrl + s 之后，程序暂停。不知道微软新的 <a href="https://devblogs.microsoft.com/commandline/introducing-windows-terminal/">windows termainl</a> 怎么样， 否则我就真的滚回 <a href="https://manjaro.org/">Manjaro</a> 去了。</p>
+<h3 id="重要的事情说三遍">重要的事情说三遍</h3>
+<p>Linux 用 <code>crontab</code> 定时任务一定要用绝对路径。</p>
+<p>Linux 用 <code>crontab</code> 定时任务一定要用绝对路径。</p>
+<p>Linux 用 <code>crontab</code> 定时任务一定要用绝对路径。</p>
+<blockquote>
+<p>　<code>crontab</code> 执行命令时，默认用户是 <code>root</code>，默认文件夹是 <code>/root</code>。脚本一定要用绝对路径，默认<code>~</code> 路径是 <code>/root</code>。这个问题坑了我一个礼拜。</p>
+</blockquote>
+<hr>
+<p><small><font color="red">2019-8-10 更新</font></small></p>
+<blockquote>
+<p><code>crontab -u user</code> 如果不指定 <code>user</code> , 则默认为当前用户。上文中我使用了 <code>sudo</code> 启动才会出现默认用户是 <code>root</code> 的情况。</p>
+</blockquote>
 
 <br>
 <footer>
     
 <nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/daily/2017/06/13/a-quick-note/">A Quick Note on Two Beautiful Websites</a></span>
-  <span class="nav-next"><a href="/daily/2019/05/23/5-23-xiaomi/">今天终于进小米内测组了</a> &rarr;</span>
+  <span class="nav-prev">&larr; <a href="/daily/2019/05/23/%E4%BB%8A%E5%A4%A9%E7%BB%88%E4%BA%8E%E8%BF%9B%E5%B0%8F%E7%B1%B3%E5%86%85%E6%B5%8B%E7%BB%84%E4%BA%86/">今天终于进小米内测组了</a></span>
+  <span class="nav-next"><a href="/daily/2019/08/26/%E5%B0%8F%E7%B1%B39sepe%E8%B7%B3%E8%BF%87%E8%B0%B7%E6%AD%8C%E9%AA%8C%E8%AF%81/">小米 9se PE rom 跳过谷歌验证</a> &rarr;</span>
 </nav>
 
 
@@ -160,7 +170,7 @@ code.has-jax {
 
    
    <br>
-   <span id="/daily/2019/05/22/shabi-win10/" class="leancloud_visitors" data-flag-title="windows 终端的傻逼逻辑">
+   <span id="/daily/2019/05/27/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%80%E5%AE%9A%E8%A6%81%E7%94%A8%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/" class="leancloud_visitors" data-flag-title="Linux 定时任务一定要用绝对路径">
      
      <p></p>
    </span>

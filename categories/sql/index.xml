@@ -13,10 +13,10 @@
     
     <item>
       <title>SQL 拾遗</title>
-      <link>https://blog.mygoooosh.com/post/2020/sql-tutor/</link>
+      <link>https://blog.mygoooosh.com/post/2020/sql-tutorial/</link>
       <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/post/2020/sql-tutor/</guid>
+      <guid>https://blog.mygoooosh.com/post/2020/sql-tutorial/</guid>
       <description>大纲
  MySQL 创建数据库 MySQL 用户管理 MySQL CURD MySQL 事务 MySQL 引擎 其他与补充   Docker 创建数据库
 docker run -d --name=mysql5.7 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=liu12134 mysql:5.7  #mysql 创建数据库 //TODO

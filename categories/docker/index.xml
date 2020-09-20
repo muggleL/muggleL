@@ -37,19 +37,19 @@ version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:
     
     <item>
       <title>树莓派 mongodb-for-docker 配置</title>
-      <link>https://blog.mygoooosh.com/post/2019/mongo-for-respi/</link>
+      <link>https://blog.mygoooosh.com/post/2019/mongodb-docker-for-respi/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/post/2019/mongo-for-respi/</guid>
+      <guid>https://blog.mygoooosh.com/post/2019/mongodb-docker-for-respi/</guid>
       <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth 创建数据库管理员 docker exec -it rmongo mongo admin db.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]}) 创建数据库与数据库用户 use images db.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] }) 重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;)  验证 image  use images db.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;) 数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank  恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
     </item>
     
     <item>
       <title>Manjaro Docker 用法</title>
-      <link>https://blog.mygoooosh.com/note/2019/08/23/manjaro-docker/</link>
+      <link>https://blog.mygoooosh.com/note/2019/08/23/tutorial-of-manjaro-docker/</link>
       <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/note/2019/08/23/manjaro-docker/</guid>
+      <guid>https://blog.mygoooosh.com/note/2019/08/23/tutorial-of-manjaro-docker/</guid>
       <description>不同发行版的指令，文件位置略有不同，本文仅以 arch 及其衍生系统为准。
 目录  安装 设置镜像仓库 设置代理 基础命令 Dockerfile Dockerfile 多段构建 容器的操作 数据管理 网络  安装 sudo pacman -Syy sudo pacman -S docker # 启动 sudo systemctl start docker # 用户加入 docker 用户组（可以不用 sudo 启动docker) sudo usermod -aG docker $USER # 注销重新登录 设置镜像仓库 echo &amp;#39;{ &amp;#34;registry-mirrors&amp;#34;: [ &amp;#34;https://dockerhub.azk8s.cn&amp;#34;, # 国内镜像仓库1 &amp;#34;https://reg-mirror.qiniu.com&amp;#34; # 仓库2 ] }&amp;#39; | sudo tee -a /etc/docker/daemon.json &amp;gt; /dev/null # 重启服务 sudo systemctl daemon-reload sudo systemctl restart docker  通过 docker info 可以看到仓库设置情况。</description>
     </item>

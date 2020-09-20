@@ -25,10 +25,10 @@ use std::ops::Add; #[derive(Debug)] struct Point { x: i32, y: i32, } impl Add fo
     
     <item>
       <title>SQL 拾遗</title>
-      <link>https://blog.mygoooosh.com/post/2020/sql-tutor/</link>
+      <link>https://blog.mygoooosh.com/post/2020/sql-tutorial/</link>
       <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/post/2020/sql-tutor/</guid>
+      <guid>https://blog.mygoooosh.com/post/2020/sql-tutorial/</guid>
       <description>大纲
  MySQL 创建数据库 MySQL 用户管理 MySQL CURD MySQL 事务 MySQL 引擎 其他与补充   Docker 创建数据库
 docker run -d --name=mysql5.7 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=liu12134 mysql:5.7  #mysql 创建数据库 //TODO
@@ -39,10 +39,10 @@ mysql&amp;gt; show variables like &amp;#39;%char%&amp;#39;; +-------------------
     
     <item>
       <title>VMware 虚拟机克隆</title>
-      <link>https://blog.mygoooosh.com/post/2020/clone_vm/</link>
+      <link>https://blog.mygoooosh.com/post/2020/clone-vm/</link>
       <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/post/2020/clone_vm/</guid>
+      <guid>https://blog.mygoooosh.com/post/2020/clone-vm/</guid>
       <description>具体步骤为
   复制虚拟机
   设置静态 IP
@@ -64,10 +64,10 @@ ss@manager131:~$ ip a 1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdis
     
     <item>
       <title>Manjaro Docker 用法</title>
-      <link>https://blog.mygoooosh.com/note/2019/08/23/manjaro-docker/</link>
+      <link>https://blog.mygoooosh.com/note/2019/08/23/tutorial-of-manjaro-docker/</link>
       <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/note/2019/08/23/manjaro-docker/</guid>
+      <guid>https://blog.mygoooosh.com/note/2019/08/23/tutorial-of-manjaro-docker/</guid>
       <description>不同发行版的指令，文件位置略有不同，本文仅以 arch 及其衍生系统为准。
 目录  安装 设置镜像仓库 设置代理 基础命令 Dockerfile Dockerfile 多段构建 容器的操作 数据管理 网络  安装 sudo pacman -Syy sudo pacman -S docker # 启动 sudo systemctl start docker # 用户加入 docker 用户组（可以不用 sudo 启动docker) sudo usermod -aG docker $USER # 注销重新登录 设置镜像仓库 echo &amp;#39;{ &amp;#34;registry-mirrors&amp;#34;: [ &amp;#34;https://dockerhub.azk8s.cn&amp;#34;, # 国内镜像仓库1 &amp;#34;https://reg-mirror.qiniu.com&amp;#34; # 仓库2 ] }&amp;#39; | sudo tee -a /etc/docker/daemon.json &amp;gt; /dev/null # 重启服务 sudo systemctl daemon-reload sudo systemctl restart docker  通过 docker info 可以看到仓库设置情况。</description>
     </item>

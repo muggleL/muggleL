@@ -25,10 +25,10 @@ use std::ops::Add; #[derive(Debug)] struct Point { x: i32, y: i32, } impl Add fo
     
     <item>
       <title>SQL 拾遗</title>
-      <link>https://blog.mygoooosh.com/post/2020/sql-tutor/</link>
+      <link>https://blog.mygoooosh.com/post/2020/sql-tutorial/</link>
       <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/post/2020/sql-tutor/</guid>
+      <guid>https://blog.mygoooosh.com/post/2020/sql-tutorial/</guid>
       <description>大纲
  MySQL 创建数据库 MySQL 用户管理 MySQL CURD MySQL 事务 MySQL 引擎 其他与补充   Docker 创建数据库
 docker run -d --name=mysql5.7 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=liu12134 mysql:5.7  #mysql 创建数据库 //TODO
@@ -39,10 +39,10 @@ mysql&amp;gt; show variables like &amp;#39;%char%&amp;#39;; +-------------------
     
     <item>
       <title>VMware 虚拟机克隆</title>
-      <link>https://blog.mygoooosh.com/post/2020/clone_vm/</link>
+      <link>https://blog.mygoooosh.com/post/2020/clone-vm/</link>
       <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/post/2020/clone_vm/</guid>
+      <guid>https://blog.mygoooosh.com/post/2020/clone-vm/</guid>
       <description>具体步骤为
   复制虚拟机
   设置静态 IP
@@ -114,19 +114,19 @@ version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:
     
     <item>
       <title>树莓派 mongodb-for-docker 配置</title>
-      <link>https://blog.mygoooosh.com/post/2019/mongo-for-respi/</link>
+      <link>https://blog.mygoooosh.com/post/2019/mongodb-docker-for-respi/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/post/2019/mongo-for-respi/</guid>
+      <guid>https://blog.mygoooosh.com/post/2019/mongodb-docker-for-respi/</guid>
       <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth 创建数据库管理员 docker exec -it rmongo mongo admin db.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]}) 创建数据库与数据库用户 use images db.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] }) 重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;)  验证 image  use images db.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;) 数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank  恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
     </item>
     
     <item>
       <title>五月跑步记录</title>
-      <link>https://blog.mygoooosh.com/post/2019/mrf-sng-dtzhsf/</link>
+      <link>https://blog.mygoooosh.com/post/2019/%E4%BA%94%E6%9C%88%E8%B7%91%E6%AD%A5%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/post/2019/mrf-sng-dtzhsf/</guid>
+      <guid>https://blog.mygoooosh.com/post/2019/%E4%BA%94%E6%9C%88%E8%B7%91%E6%AD%A5%E8%AE%B0%E5%BD%95/</guid>
       <description>五月，初夏，正是适合跑步的季节。但是五月的南昌天气颇为不佳。在加之自去年入冬以来，大概有半年没有跑过步了。所有月初计划本月跑满 50 公里。至今日五十公里已经完成任务，记录如下：
    日期 距离 平均配速 平均心率 气温     5-10 5.02 4&#39;46&amp;rdquo; 142 23   5-14 5.02 5&#39;03&amp;rsquo;&amp;rsquo; 165 24   5-17 7.03 5&#39;12&amp;rsquo;&amp;rsquo; 147 25   5-18 5.00 5&#39;29&amp;rsquo;&amp;rsquo; - 27   5-20 5.21 4&#39;59&amp;rsquo;&amp;rsquo; 152 -   5-22 5.13 5&#39;00&amp;rsquo; 142 23   5-24 7.19 5&#39;09&amp;rsquo;&amp;rsquo; 143 27   5-26 6.58 5&#39;06&amp;rsquo;&amp;rsquo; 193 26   5-28 8.</description>
     </item>
@@ -242,10 +242,10 @@ get与getline 如此看来，貌似getline使用起来比get更加方便，那�
     
     <item>
       <title>亚美尼亚大屠杀</title>
-      <link>https://blog.mygoooosh.com/post/2017/ymny/</link>
+      <link>https://blog.mygoooosh.com/post/2017/%E4%BA%9A%E7%BE%8E%E5%B0%BC%E4%BA%9A%E5%A4%A7%E5%B1%A0%E6%9D%80/</link>
       <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/post/2017/ymny/</guid>
+      <guid>https://blog.mygoooosh.com/post/2017/%E4%BA%9A%E7%BE%8E%E5%B0%BC%E4%BA%9A%E5%A4%A7%E5%B1%A0%E6%9D%80/</guid>
       <description>时间： 1915～1917 年间 地点： 奥斯曼土耳其帝国 事件定义 针对亚美尼亚人的种族灭绝事件
  百科词条 亚美尼亚大屠杀指的是土耳其对其辖境内亚美尼亚人基督徒进行的种族屠杀。其受害者数量达到150万之众。 土耳其政府至今拒绝承认这是一起官方发起的有预谋的屠杀行为，但亚美尼亚、俄罗斯和多数西方国家皆认为这是一起可以和犹太人大屠杀相提并论的由一国政府蓄意进行的种族灭绝行为，一些土耳其学者（如奥尔汉·帕穆克等）也持有相同观点。目前共有阿根廷、比利时、加拿大、法国、希腊、意大利、黎巴嫩、荷兰、俄罗斯、瑞典等二十多个国家官方承认这是一场种族屠杀。欧洲议会也承认“亚美尼亚大屠杀”事件，称这宗屠杀为“违反人性的罪行”。联合国防止歧视和保护少数小组委员会也将事件定性为“种族灭绝”&amp;lt;/h2百科词条&amp;lt;&amp;gt;
  经过： 在奥斯曼土耳其境内，生活着一群信奉基督教的亚美尼亚人，他们在伊斯兰教的奇米制度下，享有这有限的自由。但他们只是帝国的“二等公民”，在各种地方饱受伊斯兰教徒的歧视。
@@ -273,10 +273,10 @@ get与getline 如此看来，貌似getline使用起来比get更加方便，那�
     
     <item>
       <title>美人赋三篇</title>
-      <link>https://blog.mygoooosh.com/post/2017/mrf-sng-dtzhsf/</link>
+      <link>https://blog.mygoooosh.com/post/2017/%E7%BE%8E%E4%BA%BA%E8%B5%8B%E4%B8%89%E7%AF%87/</link>
       <pubDate>Sun, 12 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/post/2017/mrf-sng-dtzhsf/</guid>
+      <guid>https://blog.mygoooosh.com/post/2017/%E7%BE%8E%E4%BA%BA%E8%B5%8B%E4%B8%89%E7%AF%87/</guid>
       <description>美人赋 司马相如
 　司马相如，美丽闲都，游于梁王，梁王悦之。邹阳谮之于王曰：“相如美则美矣，然服色容冶，妖丽不忠，将欲媚辞取悦，游王后宫，王不察之乎？” 王问相如曰：“子好色乎？”相如曰：“臣不好色也。”王曰：“子不好色，何若孔墨乎？”相如曰：“古之避色，孔墨之徒，闻齐馈女而遐逝，望朝歌而回车，譬犹防火水中，避溺山隅，此乃未见其可欲，何以明不好色乎？若臣者，少长西土，鳏处独居，室宇辽廓，莫与为娱。臣之东邻，有一女子，云发丰艳，蛾眉皓齿，颜盛色茂，景曜光起。恒翘翘而西顾，欲留臣而共止。登垣而望臣，三年于兹矣，臣弃而不许。
 　“窃慕大王之高义，命驾东来，途出郑卫，道由桑中。朝发溱洧，暮宿上宫。上宫闲馆，寂寞云虚，门阁昼掩，暧若神居。臣排其户而造其室，芳香芬烈，黼帐高张。有女独处，婉然在床。奇葩逸丽，淑质艳光。睹臣迁延，微笑而言曰：‘上客何国之公子！所从来无乃远乎？’遂设旨酒，进鸣琴。臣遂抚琴，为幽兰白雪之曲。女乃歌曰：‘独处室兮廓无依，思佳人兮情伤悲！有美人兮来何迟，日既暮兮华色衰，敢托身兮长自思。’玉钗挂臣冠，罗袖拂臣衣。时日西夕，玄阴晦冥，流风惨冽，素雪飘零，闲房寂谧，不闻人声。于是寝具既陈，服玩珍奇，金鉔薰香，黼帐低垂，裀褥重陈，角枕横施。女乃驰其上服，表其亵衣。皓体呈露，弱骨丰肌。时来亲臣，柔滑如脂。臣乃脉定于内，心正于怀，信誓旦旦，秉志不回。翻然高举，与彼长辞。”
@@ -345,10 +345,10 @@ $ yaourt -R feeluown  现在依赖问题解决了，何不回到开始用pip试�
     
     <item>
       <title>洛神赋</title>
-      <link>https://blog.mygoooosh.com/post/2017/lsf/</link>
+      <link>https://blog.mygoooosh.com/post/2017/%E6%B4%9B%E7%A5%9E%E8%B5%8B/</link>
       <pubDate>Sun, 13 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/post/2017/lsf/</guid>
+      <guid>https://blog.mygoooosh.com/post/2017/%E6%B4%9B%E7%A5%9E%E8%B5%8B/</guid>
       <description>魏晋/曹植
 　黄初三年，余朝京师，还济洛川。古人有言，斯水之神，名曰宓妃。感宋玉对楚王神女之事，遂作斯赋。其辞曰：
 　余从京域，言归东藩。背伊阙，越轘辕，经通谷，陵景山。日既西倾，车殆马烦。尔乃税驾乎蘅皋，秣驷乎芝田，容与乎阳林，流眄乎洛川。于是精移神骇，忽焉思散。俯则末察，仰以殊观，睹一丽人，于岩之畔。乃援御者而告之曰：“尔有觌于彼者乎？彼何人斯？若此之艳也！”御者对曰：“臣闻河洛之神，名曰宓妃。然则君王所见，无乃日乎？其状若何？臣愿闻之。”
