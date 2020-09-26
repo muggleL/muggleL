@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Rust Trait - Muggle L</title>
-    <meta property="og:title" content="Rust Trait - Muggle L">
+    <title>🏹Rust Trait - Muggle L</title>
+    <meta property="og:title" content="🏹Rust Trait - Muggle L">
     
     <meta name="twitter:card" content="summary">
 
@@ -89,7 +89,7 @@
       
 
 
-<h1>Rust Trait</h1>
+<h1>🏹Rust Trait</h1>
 
 <h3>DG
   /  2020-09-13</h3>
@@ -225,7 +225,7 @@ trait 对象实例：</p>
 </span><span style="color:#75715e"></span>    t.baz();
 }
 
-<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">dynamic_dispatch</span>(t: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">dyn</span> Bar) { <span style="color:#75715e">// Bar 被当成了一个类型。
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">dynamic_dispatch</span>(t: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">dyn</span> Bar) { <span style="color:#75715e">// Bar 被当成了一个类型。（动态分发，trait 2018 添加 dyn 关键词跟impl trait 的静态分发以示区别。
 </span><span style="color:#75715e"></span>    t.baz();
 }
 
@@ -236,6 +236,7 @@ trait 对象实例：</p>
     
 }
 </code></pre></div><h3 id="impl-trait">Impl Trait</h3>
+<p>Impl Trait 目前只能在入参和返回值两个地方使用。Impl Trait 抽象限定使用的是静态分发，能够在调用时根据上下文信息推导出具体类型。</p>
 <p>实例：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">use</span> std::fmt::Debug;
 
@@ -265,7 +266,7 @@ trait 对象实例：</p>
 </span><span style="color:#75715e"></span>    s.fly()
 }
 
-<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">can_fly</span>(s: <span style="color:#a6e22e">impl</span> Fly <span style="color:#f92672">+</span> Debug) -&gt; <span style="color:#a6e22e">impl</span> Fly { <span style="color:#75715e">// impl trait 作为返回值类型
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">can_fly</span>(s: <span style="color:#a6e22e">impl</span> Fly <span style="color:#f92672">+</span> Debug) -&gt; <span style="color:#a6e22e">impl</span> Fly { <span style="color:#75715e">// impl trait 作为返回值类型 给返回值添加限定范围
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> s.fly() {
         println<span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;{:?} can fly.&#34;</span>, s);
     } <span style="color:#66d9ef">else</span> {
@@ -286,15 +287,37 @@ trait 对象实例：</p>
     <span style="color:#66d9ef">let</span> _ <span style="color:#f92672">=</span> can_fly(pig);
     <span style="color:#66d9ef">let</span> _ <span style="color:#f92672">=</span> can_fly(duck);
 }
-</code></pre></div><blockquote>
-<p>未完待续&hellip;</p>
+</code></pre></div><h2 id="标签-trait">标签 Trait</h2>
+<p>标签 trait 是对类型的约束，当开发者使用这些带有约束标签的类型时，编译器会进行严格检查，确保这些类型是‘合格’的。
+Rust 提供了5个重要的标签trait，都被定义在 <code>std::marker</code> 中，他们分别是:</p>
+<ul>
+<li>Sized trait</li>
+<li>Unsize trait</li>
+<li>Copy trait</li>
+<li>Send trait</li>
+<li>Sync trait</li>
+</ul>
+<h3 id="sized-trait-与-unsize-trait">Sized trait 与 Unsize trait</h3>
+<p>Sized 标签用来功编译器识别可以在编译器确定大小的类型，Unsize则与之相反。
+Sized 是纯粹的标签，该trait 的实现如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">#[lang = </span><span style="color:#e6db74">&#34;sized&#34;</span><span style="color:#75715e">]</span> <span style="color:#75715e">// 表示Sized 的声明为 sized
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">trait</span> Sized {
+    <span style="color:#75715e">// 实现为空
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Rust 中大部分类型都是默认 Sized，如泛型 <code>struct Foo&lt;T&gt;(T)</code> 等价于 <code>struct Foo&lt;T: Sized&gt;(T)</code>。
+Rust 中有只有两种动态大小的类型 <code>trait</code> 和 <code>[T]</code>。 <code>[T]</code> 表示一定数量的 T 在内存中排列，但是不知道具体的数量，所以他带下是不确定的。用 <code>Unsize</code> 来标记。
+<code>?sized</code> 包含了两种标记类型所以 <code>Bar&lt;T: ?sized&gt;(T)</code> 支持编译其可确定大小的类型和不可确定大小的类型。</p>
+<h3 id="copy-trait">Copy trait</h3>
+<h3 id="sync-trait-与-send-trait">Sync trait 与 Send trait</h3>
+<blockquote>
+<p>未完待续 &hellip;</p>
 </blockquote>
 
 <br>
 <footer>
     
 <nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/2020/sql-tutorial/">SQL 拾遗</a></span>
+  <span class="nav-prev">&larr; <a href="/post/2020/sql-tutorial/">🥊SQL 拾遗</a></span>
   <span class="nav-next"></span>
 </nav>
 
@@ -364,7 +387,7 @@ code.has-jax {
 
    
    <br>
-   <span id="/post/2020/rust-trait/" class="leancloud_visitors" data-flag-title="Rust Trait">
+   <span id="/post/2020/rust-trait/" class="leancloud_visitors" data-flag-title="🏹Rust Trait">
      
      <p></p>
    </span>

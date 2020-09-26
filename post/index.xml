@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Rust Trait</title>
+      <title>🏹Rust Trait</title>
       <link>https://blog.mygoooosh.com/post/2020/rust-trait/</link>
       <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
       
@@ -24,7 +24,7 @@ use std::ops::Add; #[derive(Debug)] struct Point { x: i32, y: i32, } impl Add fo
     </item>
     
     <item>
-      <title>SQL 拾遗</title>
+      <title>🥊SQL 拾遗</title>
       <link>https://blog.mygoooosh.com/post/2020/sql-tutorial/</link>
       <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
       
@@ -38,7 +38,7 @@ mysql&amp;gt; show variables like &amp;#39;%char%&amp;#39;; +-------------------
     </item>
     
     <item>
-      <title>VMware 虚拟机克隆</title>
+      <title>🖥️VMware 虚拟机克隆</title>
       <link>https://blog.mygoooosh.com/post/2020/clone-vm/</link>
       <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
       
@@ -54,7 +54,7 @@ ss@manager131:~$ ip a 1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdis
     </item>
     
     <item>
-      <title>Docker Swarm</title>
+      <title>⚓️🐛Docker Swarm</title>
       <link>https://blog.mygoooosh.com/post/2020/docker-swarm/</link>
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
       
@@ -65,7 +65,7 @@ docker node ls # 查看所有的节点 添加节点 登录 work 服务器</descr
     </item>
     
     <item>
-      <title>从 Ghost 入门 docker-compose</title>
+      <title>⚓👹从 Ghost 入门 docker-compose</title>
       <link>https://blog.mygoooosh.com/post/2020/the-docker-compose-beginner/</link>
       <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
       
@@ -78,7 +78,7 @@ version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:
     </item>
     
     <item>
-      <title>Wsl2 Ubuntu20.04 配置 docker</title>
+      <title>🐜Wsl2 Ubuntu20.04 配置 docker</title>
       <link>https://blog.mygoooosh.com/post/2020/wsl2-ubuntu20.04-install-docker/</link>
       <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
       
@@ -87,7 +87,7 @@ version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:
     </item>
     
     <item>
-      <title>MathJax 测试</title>
+      <title>⛏MathJax 测试</title>
       <link>https://blog.mygoooosh.com/post/2020/mathjax_test/</link>
       <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
       
@@ -104,7 +104,7 @@ version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:
     </item>
     
     <item>
-      <title>SMM 框架整合</title>
+      <title>🦉SMM 框架整合</title>
       <link>https://blog.mygoooosh.com/post/2019/ssm-framework/</link>
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
       
@@ -113,7 +113,7 @@ version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:
     </item>
     
     <item>
-      <title>树莓派 mongodb-for-docker 配置</title>
+      <title>🍓树莓派 mongodb-for-docker 配置</title>
       <link>https://blog.mygoooosh.com/post/2019/mongodb-docker-for-respi/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
@@ -122,7 +122,7 @@ version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:
     </item>
     
     <item>
-      <title>五月跑步记录</title>
+      <title>🏃五月跑步记录</title>
       <link>https://blog.mygoooosh.com/post/2019/%E4%BA%94%E6%9C%88%E8%B7%91%E6%AD%A5%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -132,7 +132,7 @@ version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:
     </item>
     
     <item>
-      <title>windows 创建软/硬链接</title>
+      <title>🖥️windows 创建软/硬链接</title>
       <link>https://blog.mygoooosh.com/post/2019/windows-mklink/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
@@ -145,7 +145,7 @@ fsutil hardlink create NewFileName ExistingFileName MKLINK 这是 cmd 自带命�
     </item>
     
     <item>
-      <title>哀江南赋</title>
+      <title>📚哀江南赋</title>
       <link>https://blog.mygoooosh.com/post/2019/%E5%93%80%E6%B1%9F%E5%8D%97%E8%B5%8B/</link>
       <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
       
@@ -180,7 +180,7 @@ fsutil hardlink create NewFileName ExistingFileName MKLINK 这是 cmd 自带命�
     </item>
     
     <item>
-      <title>JavaScript 对象</title>
+      <title>🧍‍♀️JavaScript 对象</title>
       <link>https://blog.mygoooosh.com/post/2019/js-object/</link>
       <pubDate>Sun, 24 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -195,7 +195,7 @@ let fruit = prompt(&amp;#34;whitch fruit to buy?</description>
     </item>
     
     <item>
-      <title>JavaScript 基础</title>
+      <title>🚌JavaScript 基础</title>
       <link>https://blog.mygoooosh.com/post/2019/js-foundation/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -204,7 +204,7 @@ let fruit = prompt(&amp;#34;whitch fruit to buy?</description>
     </item>
     
     <item>
-      <title>git的使用方法记录。</title>
+      <title>🍎git的使用方法记录。</title>
       <link>https://blog.mygoooosh.com/post/2018/how-to-use-git/</link>
       <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       
@@ -218,7 +218,7 @@ $ git status On branch master Changes not staged for commit: (use &amp;#34;git a
     </item>
     
     <item>
-      <title>c&#43;&#43;中的get与getline</title>
+      <title>✏️c&#43;&#43;中的get与getline</title>
       <link>https://blog.mygoooosh.com/post/2018/cpp-get-getline/</link>
       <pubDate>Tue, 30 Jan 2018 00:00:00 +0000</pubDate>
       
@@ -241,7 +241,7 @@ get与getline 如此看来，貌似getline使用起来比get更加方便，那�
     </item>
     
     <item>
-      <title>亚美尼亚大屠杀</title>
+      <title>📚亚美尼亚大屠杀</title>
       <link>https://blog.mygoooosh.com/post/2017/%E4%BA%9A%E7%BE%8E%E5%B0%BC%E4%BA%9A%E5%A4%A7%E5%B1%A0%E6%9D%80/</link>
       <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
       
@@ -272,7 +272,7 @@ get与getline 如此看来，貌似getline使用起来比get更加方便，那�
     </item>
     
     <item>
-      <title>美人赋三篇</title>
+      <title>📚美人赋三篇</title>
       <link>https://blog.mygoooosh.com/post/2017/%E7%BE%8E%E4%BA%BA%E8%B5%8B%E4%B8%89%E7%AF%87/</link>
       <pubDate>Sun, 12 Nov 2017 00:00:00 +0000</pubDate>
       
@@ -288,7 +288,7 @@ get与getline 如此看来，貌似getline使用起来比get更加方便，那�
     </item>
     
     <item>
-      <title>linux 开机出现grub rescue的恢复方法</title>
+      <title>💻linux 开机出现grub rescue的恢复方法</title>
       <link>https://blog.mygoooosh.com/post/2017/linux-grub-rescue/</link>
       <pubDate>Thu, 19 Oct 2017 00:00:00 +0000</pubDate>
       
@@ -306,7 +306,7 @@ sudo update-grubsudo grub-install /dev/sdasudo reboot还有一种思路，启
     </item>
     
     <item>
-      <title>linux连接校园网的暂时解决方法</title>
+      <title>🔗linux连接校园网的暂时解决方法</title>
       <link>https://blog.mygoooosh.com/post/2017/2017-10-17-linux-network/</link>
       <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
       
@@ -321,7 +321,7 @@ sudo update-grubsudo grub-install /dev/sdasudo reboot还有一种思路，启
     </item>
     
     <item>
-      <title>manjaro 下第三方网易云音乐feeluown安装</title>
+      <title>🎶manjaro 下第三方网易云音乐feeluown安装</title>
       <link>https://blog.mygoooosh.com/post/2017/manjaro-feeluown/</link>
       <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate>
       
@@ -344,7 +344,7 @@ $ yaourt -R feeluown  现在依赖问题解决了，何不回到开始用pip试�
     </item>
     
     <item>
-      <title>洛神赋</title>
+      <title>📚洛神赋</title>
       <link>https://blog.mygoooosh.com/post/2017/%E6%B4%9B%E7%A5%9E%E8%B5%8B/</link>
       <pubDate>Sun, 13 Aug 2017 00:00:00 +0000</pubDate>
       

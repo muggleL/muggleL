@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>树莓派 mongodb-for-docker 配置</title>
+      <title>🍓树莓派 mongodb-for-docker 配置</title>
       <link>https://blog.mygoooosh.com/post/2019/mongodb-docker-for-respi/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
@@ -21,7 +21,7 @@
     </item>
     
     <item>
-      <title>windows 创建软/硬链接</title>
+      <title>🖥️windows 创建软/硬链接</title>
       <link>https://blog.mygoooosh.com/post/2019/windows-mklink/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
@@ -34,7 +34,7 @@ fsutil hardlink create NewFileName ExistingFileName MKLINK 这是 cmd 自带命�
     </item>
     
     <item>
-      <title>linux 开机出现grub rescue的恢复方法</title>
+      <title>💻linux 开机出现grub rescue的恢复方法</title>
       <link>https://blog.mygoooosh.com/post/2017/linux-grub-rescue/</link>
       <pubDate>Thu, 19 Oct 2017 00:00:00 +0000</pubDate>
       
@@ -52,7 +52,7 @@ sudo update-grubsudo grub-install /dev/sdasudo reboot还有一种思路，启
     </item>
     
     <item>
-      <title>linux连接校园网的暂时解决方法</title>
+      <title>🔗linux连接校园网的暂时解决方法</title>
       <link>https://blog.mygoooosh.com/post/2017/2017-10-17-linux-network/</link>
       <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
       
@@ -67,7 +67,7 @@ sudo update-grubsudo grub-install /dev/sdasudo reboot还有一种思路，启
     </item>
     
     <item>
-      <title>manjaro 下第三方网易云音乐feeluown安装</title>
+      <title>🎶manjaro 下第三方网易云音乐feeluown安装</title>
       <link>https://blog.mygoooosh.com/post/2017/manjaro-feeluown/</link>
       <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate>
       

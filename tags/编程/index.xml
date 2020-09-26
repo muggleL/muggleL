@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Rust Trait</title>
+      <title>🏹Rust Trait</title>
       <link>https://blog.mygoooosh.com/post/2020/rust-trait/</link>
       <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
       
@@ -24,7 +24,7 @@ use std::ops::Add; #[derive(Debug)] struct Point { x: i32, y: i32, } impl Add fo
     </item>
     
     <item>
-      <title>SQL 拾遗</title>
+      <title>🥊SQL 拾遗</title>
       <link>https://blog.mygoooosh.com/post/2020/sql-tutorial/</link>
       <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
       
@@ -38,7 +38,7 @@ mysql&amp;gt; show variables like &amp;#39;%char%&amp;#39;; +-------------------
     </item>
     
     <item>
-      <title>VMware 虚拟机克隆</title>
+      <title>🖥️VMware 虚拟机克隆</title>
       <link>https://blog.mygoooosh.com/post/2020/clone-vm/</link>
       <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
       
@@ -54,7 +54,7 @@ ss@manager131:~$ ip a 1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdis
     </item>
     
     <item>
-      <title>SMM 框架整合</title>
+      <title>🦉SMM 框架整合</title>
       <link>https://blog.mygoooosh.com/post/2019/ssm-framework/</link>
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
       
@@ -63,7 +63,7 @@ ss@manager131:~$ ip a 1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdis
     </item>
     
     <item>
-      <title>Manjaro Docker 用法</title>
+      <title>📦⚓️Manjaro Docker 用法</title>
       <link>https://blog.mygoooosh.com/note/2019/08/23/tutorial-of-manjaro-docker/</link>
       <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
       
@@ -73,7 +73,7 @@ ss@manager131:~$ ip a 1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdis
     </item>
     
     <item>
-      <title>数据库连接的图表展示</title>
+      <title>📈数据库连接的图表展示</title>
       <link>https://blog.mygoooosh.com/note/2019/06/18/sql-join-illustrates/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
       
@@ -86,7 +86,7 @@ cross join summary </description>
     </item>
     
     <item>
-      <title>golang 使用 socks5 代理</title>
+      <title>🐬golang 使用 socks5 代理</title>
       <link>https://blog.mygoooosh.com/note/2019/05/21/golang-use-socks5-proxy/</link>
       <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
       
@@ -95,7 +95,7 @@ cross join summary </description>
     </item>
     
     <item>
-      <title>JavaScript 对象</title>
+      <title>🧍‍♀️JavaScript 对象</title>
       <link>https://blog.mygoooosh.com/post/2019/js-object/</link>
       <pubDate>Sun, 24 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -110,7 +110,7 @@ let fruit = prompt(&amp;#34;whitch fruit to buy?</description>
     </item>
     
     <item>
-      <title>JavaScript 基础</title>
+      <title>🚌JavaScript 基础</title>
       <link>https://blog.mygoooosh.com/post/2019/js-foundation/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -119,7 +119,7 @@ let fruit = prompt(&amp;#34;whitch fruit to buy?</description>
     </item>
     
     <item>
-      <title>由反射引起的 Java 常量名与变量名的思考</title>
+      <title>☕️由反射引起的 Java 常量名与变量名的思考</title>
       <link>https://blog.mygoooosh.com/note/2019/02/26/java-reflect/</link>
       <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -130,7 +130,7 @@ WTF?? b 是 10 没错 a 怎么变成 10 了。</description>
     </item>
     
     <item>
-      <title>c&#43;&#43;中的get与getline</title>
+      <title>✏️c&#43;&#43;中的get与getline</title>
       <link>https://blog.mygoooosh.com/post/2018/cpp-get-getline/</link>
       <pubDate>Tue, 30 Jan 2018 00:00:00 +0000</pubDate>
       

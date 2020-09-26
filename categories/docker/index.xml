@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Docker Swarm</title>
+      <title>⚓️🐛Docker Swarm</title>
       <link>https://blog.mygoooosh.com/post/2020/docker-swarm/</link>
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
       
@@ -23,7 +23,7 @@ docker node ls # 查看所有的节点 添加节点 登录 work 服务器</descr
     </item>
     
     <item>
-      <title>从 Ghost 入门 docker-compose</title>
+      <title>⚓👹从 Ghost 入门 docker-compose</title>
       <link>https://blog.mygoooosh.com/post/2020/the-docker-compose-beginner/</link>
       <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
       
@@ -36,7 +36,7 @@ version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:
     </item>
     
     <item>
-      <title>树莓派 mongodb-for-docker 配置</title>
+      <title>🍓树莓派 mongodb-for-docker 配置</title>
       <link>https://blog.mygoooosh.com/post/2019/mongodb-docker-for-respi/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
@@ -45,7 +45,7 @@ version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:
     </item>
     
     <item>
-      <title>Manjaro Docker 用法</title>
+      <title>📦⚓️Manjaro Docker 用法</title>
       <link>https://blog.mygoooosh.com/note/2019/08/23/tutorial-of-manjaro-docker/</link>
       <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
       

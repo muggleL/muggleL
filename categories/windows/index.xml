@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>windows 创建软/硬链接</title>
+      <title>🖥️windows 创建软/硬链接</title>
       <link>https://blog.mygoooosh.com/post/2019/windows-mklink/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
@@ -25,7 +25,7 @@ fsutil hardlink create NewFileName ExistingFileName MKLINK 这是 cmd 自带命�
     </item>
     
     <item>
-      <title>windows 终端的傻逼逻辑</title>
+      <title>✏️🖥️windows 终端的傻逼逻辑</title>
       <link>https://blog.mygoooosh.com/daily/2019/05/22/windows%E7%BB%88%E7%AB%AF%E7%9A%84%E5%82%BB%E9%80%BC%E9%80%BB%E8%BE%91/</link>
       <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
       
