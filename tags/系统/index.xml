@@ -6,11 +6,7 @@
     <description>Recent content in 系统 on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 19 Oct 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.mygoooosh.com/tags/%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 19 Oct 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mygoooosh.com/tags/%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>💻linux 开机出现grub rescue的恢复方法</title>
       <link>https://blog.mygoooosh.com/post/2017/linux-grub-rescue/</link>

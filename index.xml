@@ -6,11 +6,7 @@
     <description>Recent content in Home on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 13 Sep 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.mygoooosh.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 13 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mygoooosh.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🏹Rust Trait</title>
       <link>https://blog.mygoooosh.com/post/2020/rust-trait/</link>
@@ -198,7 +194,7 @@ cross join summary </description>
       
       <guid>https://blog.mygoooosh.com/post/2019/%E4%BA%94%E6%9C%88%E8%B7%91%E6%AD%A5%E8%AE%B0%E5%BD%95/</guid>
       <description>五月，初夏，正是适合跑步的季节。但是五月的南昌天气颇为不佳。在加之自去年入冬以来，大概有半年没有跑过步了。所有月初计划本月跑满 50 公里。至今日五十公里已经完成任务，记录如下：
-   日期 距离 平均配速 平均心率 气温     5-10 5.02 4&#39;46&amp;rdquo; 142 23   5-14 5.02 5&#39;03&amp;rsquo;&amp;rsquo; 165 24   5-17 7.03 5&#39;12&amp;rsquo;&amp;rsquo; 147 25   5-18 5.00 5&#39;29&amp;rsquo;&amp;rsquo; - 27   5-20 5.21 4&#39;59&amp;rsquo;&amp;rsquo; 152 -   5-22 5.13 5&#39;00&amp;rsquo; 142 23   5-24 7.19 5&#39;09&amp;rsquo;&amp;rsquo; 143 27   5-26 6.58 5&#39;06&amp;rsquo;&amp;rsquo; 193 26   5-28 8.</description>
+   日期 距离 平均配速 平均心率 气温     5-10 5.02 4&#39;46&amp;quot; 142 23   5-14 5.02 5&#39;03&#39;&#39; 165 24   5-17 7.03 5&#39;12&#39;&#39; 147 25   5-18 5.00 5&#39;29&#39;&#39; - 27   5-20 5.21 4&#39;59&#39;&#39; 152 -   5-22 5.13 5&#39;00&#39; 142 23   5-24 7.19 5&#39;09&#39;&#39; 143 27   5-26 6.58 5&#39;06&#39;&#39; 193 26   5-28 8.</description>
     </item>
     
     <item>
@@ -227,6 +223,15 @@ fsutil 硬链接 这个只适用于 NTFS 文件系统
 fsutil hardlink create NewFileName ExistingFileName MKLINK 这是 cmd 自带命令， 一定要切换到 cmd 下
 为目录创建软链接 MKLINK /D NewFolder ExistingFolder 文件硬链接 MKLINK /H NewFile ExistingFile  硬链接只针对文件，不针对文件夹
  </description>
+    </item>
+    
+    <item>
+      <title>📓Draft Test</title>
+      <link>https://blog.mygoooosh.com/draft/draft-test/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.mygoooosh.com/draft/draft-test/</guid>
+      <description>通过我的不屑努力（水经验）终于进了 miui 的内测组。我的 小米9se 提前用上了 dc调光。目前观感上来讲，除了屏幕变黄了一点，没有什么大的区别。</description>
     </item>
     
     <item>
@@ -493,7 +498,7 @@ $ sudo pacman -S netease-cloud-music 很不幸的是，事情远没有那么简�
 通过某度发现了基于Python3的第三方网易云音乐feeluown。
 根据作者提供的信息，通过pip运行（我的pip是Python3的pip）。
 $ sudo pip install felluown 按照作者的说的方法解决依赖。
-$ feeluown-install-dev 但因为作者用的的系统是debian系，用的是&amp;quot;apt-get&amp;rdquo;。所以返回的是&amp;quot;apt-get notfound&amp;rdquo;。
+$ feeluown-install-dev 但因为作者用的的系统是debian系，用的是&amp;quot;apt-get&amp;quot;。所以返回的是&amp;quot;apt-get notfound&amp;quot;。
 在作者的 issues 中，得知在arch的软件仓库中有feeluown（不得不感叹AUR的强大)。
 于是
 $ yaourt -S feeluown 但不幸的是 有一个依赖 &amp;ldquo;python-quamash&amp;quot;总是安装失败，导致编译失败。 我尝试着用pip安装这个python包

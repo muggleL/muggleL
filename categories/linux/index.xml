@@ -6,11 +6,7 @@
     <description>Recent content in Linux on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 27 May 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.mygoooosh.com/categories/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 27 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mygoooosh.com/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>✏️Linux 定时任务一定要用绝对路径</title>
       <link>https://blog.mygoooosh.com/daily/2019/05/27/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%80%E5%AE%9A%E8%A6%81%E7%94%A8%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/</link>
@@ -71,7 +67,7 @@ $ sudo pacman -S netease-cloud-music 很不幸的是，事情远没有那么简�
 通过某度发现了基于Python3的第三方网易云音乐feeluown。
 根据作者提供的信息，通过pip运行（我的pip是Python3的pip）。
 $ sudo pip install felluown 按照作者的说的方法解决依赖。
-$ feeluown-install-dev 但因为作者用的的系统是debian系，用的是&amp;quot;apt-get&amp;rdquo;。所以返回的是&amp;quot;apt-get notfound&amp;rdquo;。
+$ feeluown-install-dev 但因为作者用的的系统是debian系，用的是&amp;quot;apt-get&amp;quot;。所以返回的是&amp;quot;apt-get notfound&amp;quot;。
 在作者的 issues 中，得知在arch的软件仓库中有feeluown（不得不感叹AUR的强大)。
 于是
 $ yaourt -S feeluown 但不幸的是 有一个依赖 &amp;ldquo;python-quamash&amp;quot;总是安装失败，导致编译失败。 我尝试着用pip安装这个python包
