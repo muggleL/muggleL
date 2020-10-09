@@ -83,6 +83,15 @@ version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:
     </item>
     
     <item>
+      <title>DO NOT EAT THOSE</title>
+      <link>https://blog.mygoooosh.com/do-not-eat-those/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.mygoooosh.com/do-not-eat-those/</guid>
+      <description>#什么是麸质 #什么是麸质不耐受/小麦过敏/乳糜泻 #不能吃什么 小麦制品 隐藏的小麦制品 我踩过的坑 </description>
+    </item>
+    
+    <item>
       <title>PDFS</title>
       <link>https://blog.mygoooosh.com/pdfs/</link>
       <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
@@ -223,15 +232,6 @@ fsutil 硬链接 这个只适用于 NTFS 文件系统
 fsutil hardlink create NewFileName ExistingFileName MKLINK 这是 cmd 自带命令， 一定要切换到 cmd 下
 为目录创建软链接 MKLINK /D NewFolder ExistingFolder 文件硬链接 MKLINK /H NewFile ExistingFile  硬链接只针对文件，不针对文件夹
  </description>
-    </item>
-    
-    <item>
-      <title>📓Draft Test</title>
-      <link>https://blog.mygoooosh.com/draft/draft-test/</link>
-      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.mygoooosh.com/draft/draft-test/</guid>
-      <description>通过我的不屑努力（水经验）终于进了 miui 的内测组。我的 小米9se 提前用上了 dc调光。目前观感上来讲，除了屏幕变黄了一点，没有什么大的区别。</description>
     </item>
     
     <item>
