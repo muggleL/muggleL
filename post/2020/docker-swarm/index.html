@@ -16,8 +16,8 @@
 
     
       
-      <meta property="description" content="sudo hostnamectl set-hostname manager131ubuntu 静态 IP  编辑 /etc/netplan/ 下的 yaml 文件  # vim /etc/netplan/00-installer-config.yaml # This is the network config written by &amp;#39;subiquity&amp;#39; network: &amp;hellip;">
-      <meta property="og:description" content="sudo hostnamectl set-hostname manager131ubuntu 静态 IP  编辑 /etc/netplan/ 下的 yaml 文件  # vim /etc/netplan/00-installer-config.yaml # This is the network config written by &amp;#39;subiquity&amp;#39; network: &amp;hellip;">
+      <meta property="description" content="sudo hostnamectl set-hostname manager131 ubuntu 静态 IP  编辑 /etc/netplan/ 下的 yaml 文件  # vim /etc/netplan/00-installer-config.yaml  # This is the network config written by &amp;#39;subiquity&amp;#39;  network: &amp;hellip;">
+      <meta property="og:description" content="sudo hostnamectl set-hostname manager131 ubuntu 静态 IP  编辑 /etc/netplan/ 下的 yaml 文件  # vim /etc/netplan/00-installer-config.yaml  # This is the network config written by &amp;#39;subiquity&amp;#39;  network: &amp;hellip;">
       
     
 
@@ -70,8 +70,6 @@
   
   <li><a href="/slice/">Slice</a></li>
   
-  <li><a href="/do-not-eat-those/">DO NOT EAT THOSE</a></li>
-  
   <li><a href="https://git.mygoooosh.com/explore/repos">MyGoooosh Git</a></li>
   
   
@@ -100,7 +98,7 @@
 
 
 
-<h1 id="前戏">前戏</h1>
+<h1 id="0x00">0x00</h1>
 <h2 id="修改主机名称">修改主机名称</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo hostnamectl set-hostname manager131
 </code></pre></div><h2 id="ubuntu-静态-ip">ubuntu 静态 IP</h2>
@@ -134,10 +132,10 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker node ls  <span style="color:#75715e"># 查看所有的节点</span>
 </code></pre></div><h2 id="添加节点">添加节点</h2>
 <p>登录 work 服务器</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker swarm join <span style="color:#ae81ff">\</span>
-   --token SWMTKN-1-3ww97u875p605ce3hqbecf51lgelh8x4ju0k8lmpehlxpn22b5-33bp9x5d92onlh7gio3h4m2pd 192.168.174.131:2377
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker swarm join <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>   --token SWMTKN-1-3ww97u875p605ce3hqbecf51lgelh8x4ju0k8lmpehlxpn22b5-33bp9x5d92onlh7gio3h4m2pd 192.168.174.131:2377
 </code></pre></div><p>此时在 <code>manage</code> 服务器中运行 <code>docker service ls</code> 可以看见 <code>worker</code> 节点了</p>
-<h1 id="进行">进行</h1>
+<h1 id="0x01">0x01</h1>
 <h2 id="运行一个服务">运行一个服务</h2>
 <p>在 <code>manager</code> 中运行：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service create --replicas <span style="color:#ae81ff">1</span> --name helloworld alpine ping baidu.com
@@ -151,19 +149,19 @@ v3wcxtzv8ybo        helloworld          replicated          1/1                 
 ID:             v3wcxtzv8ybo9gr4b6cxn76u6
 Name:           helloworld
 Service Mode:   Replicated
- Replicas:      1
+ Replicas:      <span style="color:#ae81ff">1</span>
 Placement:
 UpdateConfig:
- Parallelism:   1
+ Parallelism:   <span style="color:#ae81ff">1</span>
  On failure:    pause
  Monitoring Period: 5s
- Max failure ratio: 0
+ Max failure ratio: <span style="color:#ae81ff">0</span>
  Update order:      stop-first
 RollbackConfig:
- Parallelism:   1
+ Parallelism:   <span style="color:#ae81ff">1</span>
  On failure:    pause
  Monitoring Period: 5s
- Max failure ratio: 0
+ Max failure ratio: <span style="color:#ae81ff">0</span>
  Rollback order:    stop-first
 ContainerSpec:
  Image:         alpine:latest@sha256:185518070891758909c9f839cf4ca393ee977ac378609f700f60a771a2dfe321
@@ -183,10 +181,10 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 7060cc23a6e1        alpine:latest       <span style="color:#e6db74">&#34;ping baidu.com&#34;</span>    <span style="color:#ae81ff">6</span> minutes ago       Up <span style="color:#ae81ff">6</span> minutes                            helloworld.1.pb49uksjxqd8jm8pdz9dwwqhz
 </code></pre></div><h2 id="change-scale">Change Scale</h2>
 <p>修改任务（task）个数</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service scale helloworld<span style="color:#f92672">=</span>5
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service scale helloworld<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
 </code></pre></div><p>结果:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker service scale helloworld<span style="color:#f92672">=</span>5
-helloworld scaled to 5
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ss@manager131:~$ docker service scale helloworld<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+helloworld scaled to <span style="color:#ae81ff">5</span>
 overall progress: <span style="color:#ae81ff">2</span> out of <span style="color:#ae81ff">5</span> tasks
 1/5: running   <span style="color:#f92672">[==================================================</span>&gt;<span style="color:#f92672">]</span>
 2/5: preparing <span style="color:#f92672">[=================================</span>&gt;                 <span style="color:#f92672">]</span>
@@ -217,20 +215,20 @@ cq9go8er8w45  helloworld.5  alpine:latest   node132    Running     Running about
 ID:             xx6qkoxg0zwx33eiru0o0kfdf
 Name:           redis
 Service Mode:   Replicated
- Replicas:      3
+ Replicas:      <span style="color:#ae81ff">3</span>
 Placement:
 UpdateConfig:
- Parallelism:   1
+ Parallelism:   <span style="color:#ae81ff">1</span>
  Delay:         10s
  On failure:    pause
  Monitoring Period: 5s
- Max failure ratio: 0
+ Max failure ratio: <span style="color:#ae81ff">0</span>
  Update order:      stop-first
 RollbackConfig:
- Parallelism:   1
+ Parallelism:   <span style="color:#ae81ff">1</span>
  On failure:    pause
  Monitoring Period: 5s
- Max failure ratio: 0
+ Max failure ratio: <span style="color:#ae81ff">0</span>
  Rollback order:    stop-first
 ContainerSpec:
  Image:         redis:3.0.6@sha256:6a692a76c2081888b589e26e6ec835743119fe453d67ecf03df7de5b73d69842
@@ -310,7 +308,7 @@ node133
 </code></pre></div><p>也可以简写成</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker service create --name my-web -p 8080:80 --replicas <span style="color:#ae81ff">2</span> nginx
 </code></pre></div><p><code>swarm</code> 会将访问 <code>nginx</code> 的负载均衡到两个服务器上，但是四个服务器在同一个网络中，任意访问一个服务器的 <code>8080</code> 端口都能访问到 <code>nginx</code></p>
-<h1 id="深入">深入</h1>
+<h1 id="0x02">0x02</h1>
 <h2 id="docker-swarm-与-docker-compose-的结合">docker swarm 与 docker compose 的结合</h2>
 <p>待续</p>
 

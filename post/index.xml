@@ -6,11 +6,7 @@
     <description>Recent content in Posts on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 13 Sep 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.mygoooosh.com/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 13 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mygoooosh.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🏹Rust Trait</title>
       <link>https://blog.mygoooosh.com/post/2020/rust-trait/</link>
@@ -31,10 +27,10 @@ use std::ops::Add; #[derive(Debug)] struct Point { x: i32, y: i32, } impl Add fo
       <guid>https://blog.mygoooosh.com/post/2020/sql-tutorial/</guid>
       <description>大纲
  MySQL 创建数据库 MySQL 用户管理 MySQL CURD MySQL 事务 MySQL 引擎 其他与补充   Docker 创建数据库
-docker run -d --name=mysql5.7 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=liu12134 mysql:5.7 #mysql 创建数据库 //TODO
+docker run -d --name=mysql5.7 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=liu12134 mysql:5.7  #mysql 创建数据库 //TODO
  MYSQL 默认编码与UTF8、UTF8MB4的区别   MySQL 默认编码
 在 MYSQL 8.0 以上 默认编码为 UTF8MB4
-mysql&amp;gt; show variables like &amp;#39;%char%&amp;#39;;+--------------------------+--------------------------------+| Variable_name | Value |+--------------------------+--------------------------------+| character_set_client | latin1 || character_set_connection | latin1 || character_set_database | utf8mb4 || character_set_filesystem | binary || character_set_results | latin1 || character_set_server | utf8mb4 || character_set_system | utf8 || character_sets_dir | /usr/share/mysql-8.</description>
+mysql&amp;gt; show variables like &amp;#39;%char%&amp;#39;; +--------------------------+--------------------------------+ | Variable_name | Value | +--------------------------+--------------------------------+ | character_set_client | latin1 | | character_set_connection | latin1 | | character_set_database | utf8mb4 | | character_set_filesystem | binary | | character_set_results | latin1 | | character_set_server | utf8mb4 | | character_set_system | utf8 | | character_sets_dir | /usr/share/mysql-8.</description>
     </item>
     
     <item>
@@ -59,9 +55,9 @@ ss@manager131:~$ ip a 1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdis
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://blog.mygoooosh.com/post/2020/docker-swarm/</guid>
-      <description>前戏 修改主机名称 sudo hostnamectl set-hostname manager131ubuntu 静态 IP  编辑 /etc/netplan/ 下的 yaml 文件  # vim /etc/netplan/00-installer-config.yaml # This is the network config written by &amp;#39;subiquity&amp;#39; network:ethernets:ens33:dhcp4: falseaddresses:- 192.168.174.131/24gateway4: 192.168.174.2nameservers:addresses:- 8.8.8.8version: 2  注意网关地址不要填错了，否则可能上不了网
- 提交更改  sudo netplan apply启动 docker swarm docker swarm init --advertise-addr 192.168.174.131记录输出的 token信息
-docker node ls # 查看所有的节点添加节点 登录 work 服务器</description>
+      <description>0x00 修改主机名称 sudo hostnamectl set-hostname manager131 ubuntu 静态 IP  编辑 /etc/netplan/ 下的 yaml 文件  # vim /etc/netplan/00-installer-config.yaml  # This is the network config written by &amp;#39;subiquity&amp;#39;  network: ethernets: ens33: dhcp4: false addresses: - 192.168.174.131/24 gateway4: 192.168.174.2 nameservers: addresses: - 8.8.8.8 version: 2  注意网关地址不要填错了，否则可能上不了网
+ 提交更改  sudo netplan apply 启动 docker swarm docker swarm init --advertise-addr 192.168.174.131 记录输出的 token信息
+docker node ls # 查看所有的节点 添加节点 登录 work 服务器</description>
     </item>
     
     <item>
@@ -71,10 +67,10 @@ docker node ls # 查看所有的节点添加节点 登录 work 服务器</descr
       
       <guid>https://blog.mygoooosh.com/post/2020/the-docker-compose-beginner/</guid>
       <description>如果按照平常的方法通过 docker 启动 ghost，需要运行如下一串超长的命令：
-docker run -d --name myghost -p 80:2368 -v /var/ghost/blog:/var/lib/ghost/content ghost这种方法比较复杂，可配置空间小。
+docker run -d --name myghost -p 80:2368 -v /var/ghost/blog:/var/lib/ghost/content ghost 这种方法比较复杂，可配置空间小。
  关于 docker-compose docker-compose 是 docker 官方的开源项目，使用 python 编写，实现上调用了 Docker 服务的 API 进行容器管理。其官方定义为为 「定义和运行多个 Docker 容器的应用（Defining and running multi-container Docker applications）。
- 安装Docker-compose pip3 install -i https://pypi.douban.com/simple docker-compose使用  创建一个项目文件夹  mkdir ghost-docker创建 docker-compose.yml  cd ghost-docker &amp;amp;&amp;amp; touch docker-compose.yml写入以下内容
-version: &amp;#39;3&amp;#39;services:ghost:image: ghost:latestports:- 9030:2368volumes:- ./data:/var/lib/ghost/contentenviroment:- url=http://o0o0o0.</description>
+ 安装Docker-compose pip3 install -i https://pypi.douban.com/simple docker-compose 使用  创建一个项目文件夹  mkdir ghost-docker 创建 docker-compose.yml  cd ghost-docker &amp;amp;&amp;amp; touch docker-compose.yml 写入以下内容
+version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:2368 volumes: - ./data:/var/lib/ghost/content enviroment: - url=http://o0o0o0.</description>
     </item>
     
     <item>
@@ -118,7 +114,7 @@ version: &amp;#39;3&amp;#39;services:ghost:image: ghost:latestports:- 9030:
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.mygoooosh.com/post/2019/mongodb-docker-for-respi/</guid>
-      <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth创建数据库管理员 docker exec -it rmongo mongo admindb.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]})创建数据库与数据库用户 use imagesdb.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] })重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;) 验证 image  use imagesdb.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;)数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank 恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
+      <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth 创建数据库管理员 docker exec -it rmongo mongo admin db.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]}) 创建数据库与数据库用户 use images db.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] }) 重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;)  验证 image  use images db.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;) 数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank  恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
     </item>
     
     <item>
@@ -128,7 +124,7 @@ version: &amp;#39;3&amp;#39;services:ghost:image: ghost:latestports:- 9030:
       
       <guid>https://blog.mygoooosh.com/post/2019/%E4%BA%94%E6%9C%88%E8%B7%91%E6%AD%A5%E8%AE%B0%E5%BD%95/</guid>
       <description>五月，初夏，正是适合跑步的季节。但是五月的南昌天气颇为不佳。在加之自去年入冬以来，大概有半年没有跑过步了。所有月初计划本月跑满 50 公里。至今日五十公里已经完成任务，记录如下：
-   日期 距离 平均配速 平均心率 气温     5-10 5.02 4&amp;rsquo;46&amp;rdquo; 142 23   5-14 5.02 5&amp;rsquo;03&amp;rsquo;&amp;rsquo; 165 24   5-17 7.03 5&amp;rsquo;12&amp;rsquo;&amp;rsquo; 147 25   5-18 5.00 5&amp;rsquo;29&amp;rsquo;&amp;rsquo; - 27   5-20 5.21 4&amp;rsquo;59&amp;rsquo;&amp;rsquo; 152 -   5-22 5.13 5&amp;rsquo;00&amp;rsquo; 142 23   5-24 7.19 5&amp;rsquo;09&amp;rsquo;&amp;rsquo; 143 27   5-26 6.58 5&amp;rsquo;06&amp;rsquo;&amp;rsquo; 193 26   5-28 8.</description>
+   日期 距离 平均配速 平均心率 气温     5-10 5.02 4&#39;46&amp;quot; 142 23   5-14 5.02 5&#39;03&#39;&#39; 165 24   5-17 7.03 5&#39;12&#39;&#39; 147 25   5-18 5.00 5&#39;29&#39;&#39; - 27   5-20 5.21 4&#39;59&#39;&#39; 152 -   5-22 5.13 5&#39;00&#39; 142 23   5-24 7.19 5&#39;09&#39;&#39; 143 27   5-26 6.58 5&#39;06&#39;&#39; 193 26   5-28 8.</description>
     </item>
     
     <item>
@@ -139,8 +135,8 @@ version: &amp;#39;3&amp;#39;services:ghost:image: ghost:latestports:- 9030:
       <guid>https://blog.mygoooosh.com/post/2019/windows-mklink/</guid>
       <description>　Linux 可以通过 ln 来创建硬链接和软链接，Windows 也可以右键创建快捷方式。但是 Windows 的 shortcut 只能通过鼠标点击访问，和软/硬链接差别还是挺大的。在这我记录一下 Windows 创建软/硬链接的方式。
 fsutil 硬链接 这个只适用于 NTFS 文件系统
-fsutil hardlink create NewFileName ExistingFileNameMKLINK 这是 cmd 自带命令， 一定要切换到 cmd 下
-为目录创建软链接 MKLINK /D NewFolder ExistingFolder文件硬链接 MKLINK /H NewFile ExistingFile 硬链接只针对文件，不针对文件夹
+fsutil hardlink create NewFileName ExistingFileName MKLINK 这是 cmd 自带命令， 一定要切换到 cmd 下
+为目录创建软链接 MKLINK /D NewFolder ExistingFolder 文件硬链接 MKLINK /H NewFile ExistingFile  硬链接只针对文件，不针对文件夹
  </description>
     </item>
     
@@ -187,10 +183,10 @@ fsutil hardlink create NewFileName ExistingFileNameMKLINK 这是 cmd 自带命�
       <guid>https://blog.mygoooosh.com/post/2019/js-object/</guid>
       <description>本文记录了 JavaScript 面对对象的一些基础方法，如对象的属性，对象的遍历，对象的复制与合并等。
 多词属性 可以用多字词语来作为属性名
-let person = {name: &amp;#39;John&amp;#39;,age: 20,&amp;#39;likes birds&amp;#39;: true //必须加引号};多词属性不适用于点操作，但可以用方括号
-person.likes birds; //错误person[&amp;#39;likes birds&amp;#39;]; //truelet key = &amp;#39;likes birds&amp;#39;;person[key] //truedelete 删除属性 delete + 属性 可以删除属性
-delete person.age //age 被删除delete person[&amp;#39;like birds&amp;#39;] //删除多词属性计算属性 在方括号中的属性
-let fruit = prompt(&amp;#34;whitch fruit to buy?&amp;#34;);let bag = {[fruit]: 5,};//假如输入 applebag.apple //值为 5它的本质其实是：
+let person = { name: &amp;#39;John&amp;#39;, age: 20, &amp;#39;likes birds&amp;#39;: true //必须加引号 }; 多词属性不适用于点操作，但可以用方括号
+person.likes birds; //错误 person[&amp;#39;likes birds&amp;#39;]; //true  let key = &amp;#39;likes birds&amp;#39;; person[key] //true delete 删除属性 delete + 属性 可以删除属性
+delete person.age //age 被删除 delete person[&amp;#39;like birds&amp;#39;] //删除多词属性 计算属性 在方括号中的属性
+let fruit = prompt(&amp;#34;whitch fruit to buy?&amp;#34;); let bag = { [fruit]: 5, }; //假如输入 apple bag.apple //值为 5 它的本质其实是：
 let fruit = prompt(&amp;#34;whitch fruit to buy?</description>
     </item>
     
@@ -209,12 +205,12 @@ let fruit = prompt(&amp;#34;whitch fruit to buy?</description>
       <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://blog.mygoooosh.com/post/2018/how-to-use-git/</guid>
-      <description>安装（Linux） $ sudo pacman -S git安装完之后设置用户和邮箱
-$ git config --global user.name &amp;#34;Your Name&amp;#34;$ git config --global user.email &amp;#34;email@example.com&amp;#34;以上的 --global指定了, 本系统所有的仓库都会使用这个配置。
-新建一个版本库 $ mkdir mygit$ cd mygit$ git init添加文件 假如你在本目录下添加了一个叫readme.txt的文件
-$ git add readme.txt$ git commit -m &amp;#34;add readme.txt&amp;#34;commit -m后面的参数为此次修改的提交说明.
+      <description>安装（Linux） $ sudo pacman -S git 安装完之后设置用户和邮箱
+$ git config --global user.name &amp;#34;Your Name&amp;#34; $ git config --global user.email &amp;#34;email@example.com&amp;#34; 以上的 --global指定了, 本系统所有的仓库都会使用这个配置。
+新建一个版本库 $ mkdir mygit $ cd mygit $ git init 添加文件 假如你在本目录下添加了一个叫readme.txt的文件
+$ git add readme.txt $ git commit -m &amp;#34;add readme.txt&amp;#34; commit -m后面的参数为此次修改的提交说明.
 提交修改后的文件 查看状态 如果你修改了redme.txt运行git status
-$ git statusOn branch masterChanges not staged for commit:(use &amp;#34;git add &amp;amp;lt;file&amp;amp;gt;...&amp;#34; to update what will be committed)(use &amp;#34;git checkout -- &amp;amp;lt;file&amp;amp;gt;.</description>
+$ git status On branch master Changes not staged for commit: (use &amp;#34;git add &amp;amp;lt;file&amp;amp;gt;...&amp;#34; to update what will be committed) (use &amp;#34;git checkout -- &amp;amp;lt;file&amp;amp;gt;.</description>
     </item>
     
     <item>
@@ -224,19 +220,19 @@ $ git statusOn branch masterChanges not staged for commit:(use &amp;#34;git a
       
       <guid>https://blog.mygoooosh.com/post/2018/cpp-get-getline/</guid>
       <description>c++ 中的cin c++中的cin以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。
-char name1[20];char name2[20];cin&amp;gt;&amp;gt;name1&amp;gt;&amp;gt;name2;cout&amp;lt;&amp;lt;name1&amp;lt;&amp;lt;endl&amp;lt;&amp;lt;name2&amp;lt;&amp;lt;endl;如果输入barack obama，再按回车。程序直接输出
-barackobama在此次输入中，把barack赋值给了name1，把obama赋值给了name2；（此时最后输入的回车符任保存在缓存中）。
+char name1[20]; char name2[20]; cin&amp;gt;&amp;gt;name1&amp;gt;&amp;gt;name2; cout&amp;lt;&amp;lt;name1&amp;lt;&amp;lt;endl&amp;lt;&amp;lt;name2&amp;lt;&amp;lt;endl; 如果输入barack obama，再按回车。程序直接输出
+barack obama 在此次输入中，把barack赋值给了name1，把obama赋值给了name2；（此时最后输入的回车符任保存在缓存中）。
 cin.getline 好在c++给了一个解决这个问题的方法。在cin的成员函数中，有一个以回车为分隔符的函数getline()。
 getline()因为是cin的成员函数。所以使用方法为cin.getline()。他有（一般）两个参数，第一个为接收这行字符串的数组的名称，第二个为读取的字符数。
 getline()读取某行字符时，会接收最后的回车符，然后把回车符丢弃换成空字符串&#39;\0&#39;，所以如果getline的第二个参数为20，他最多能接收19个字符。
-char name1[20];char name2[20];cin.getline(name1,20);cin.getline(name2,20);cin.get 与此同时，c++也给出了get()，与getline()不同的是，get不会接收最后的回车符（参数与getline一样）。
-char name1[20];char name2[20];cin.get(name1,20);cin.get(name2,20);cout&amp;lt;&amp;lt;name1&amp;lt;&amp;lt;name2;输入barack obama，回车。输出的将是：
-barack obama因为第一个get函数完成后，&#39;\n&#39;被留在了缓存中，当执行第二个get时，程序从缓存中读到了一个\n，所以第二个get没有接收到任何参数就结束了。
+char name1[20]; char name2[20]; cin.getline(name1,20); cin.getline(name2,20); cin.get 与此同时，c++也给出了get()，与getline()不同的是，get不会接收最后的回车符（参数与getline一样）。
+char name1[20]; char name2[20]; cin.get(name1,20); cin.get(name2,20); cout&amp;lt;&amp;lt;name1&amp;lt;&amp;lt;name2; 输入barack obama，回车。输出的将是：
+barack obama 因为第一个get函数完成后，&#39;\n&#39;被留在了缓存中，当执行第二个get时，程序从缓存中读到了一个\n，所以第二个get没有接收到任何参数就结束了。
 为了解决这个问题，get还有一个不带参数的形式，这时只能接收一个字符，所以可以通过下面这种方式，把最后的回车用get丢弃。
-char name1[20];char name2[20];cin.get(name1,20).get();cin.get(name2,20).get();如果你想保存那个字符，你可以 char a = cin.get();。或者使用get的第三种形式char a; cin.get(a);。
+char name1[20]; char name2[20]; cin.get(name1,20).get(); cin.get(name2,20).get(); 如果你想保存那个字符，你可以 char a = cin.get();。或者使用get的第三种形式char a; cin.get(a);。
 在第一节中说到。cin以回车为输入结束，输入结束后，回车依然留在缓存中。如果你在cin后面紧接着来一个cin.get(string&amp;amp;amp;,int)，你的get可能接收不到任何参数。
 所以像上面一样，在cin完之后，应该用一个不带参数的get把回车接收并丢弃掉。
-char name1[20],name2[20],a[20];cin&amp;gt;&amp;gt;a; //or (cin&amp;gt;&amp;gt;a).get();从而不要下面那句。 cin.get() //or char ch; cin.get(ch);上面之所以能够cin.get(string&amp;amp;amp;,int).get()或(cin&amp;amp;gt;&amp;amp;gt;a).get()，是因为cin在有参数的情况下，返回的是一个cin对象（cin.get()在没有参数的情况下，返回的是接收的字符）。
+char name1[20],name2[20],a[20]; cin&amp;gt;&amp;gt;a; //or (cin&amp;gt;&amp;gt;a).get();从而不要下面那句。  cin.get() //or char ch; cin.get(ch); 上面之所以能够cin.get(string&amp;amp;amp;,int).get()或(cin&amp;amp;gt;&amp;amp;gt;a).get()，是因为cin在有参数的情况下，返回的是一个cin对象（cin.get()在没有参数的情况下，返回的是接收的字符）。
 get与getline 如此看来，貌似getline使用起来比get更加方便，那么get存在的意义是什么？</description>
     </item>
     
@@ -294,7 +290,7 @@ get与getline 如此看来，貌似getline使用起来比get更加方便，那�
       
       <guid>https://blog.mygoooosh.com/post/2017/linux-grub-rescue/</guid>
       <description>昨天，微软推送了win10的秋季大更新，我也及时接收了。但在更新重启时，正常的grub引导界面进不去了。屏幕上只出现
-grub rescue &amp;gt;根据百度的方法
+grub rescue &amp;gt; 根据百度的方法
 grub rescue &amp;gt; lsgrub rescue &amp;gt; (hd0),(hd0,gpt5),(hd0,gpt4),(hd0,gpt3),(hd0,gpt2),(hd0,gpt1),(hd1)(....) 我明明记得第一个硬盘只有四个分区（efi，windows保留分区，win10系统分区，manjaro系统分区），这会儿怎么出现五个，应该是微软搞的鬼。接下来弄清楚grub到底在那个分区。
 执行
 grub rescue &amp;gt; ls (hd0,gpt5)/boot/grubgrub rescue &amp;gt; .....如果系统在gtp5的话，它会列出对应的文件，如果不在就会报错。一个一个试。
@@ -328,19 +324,19 @@ sudo update-grubsudo grub-install /dev/sdasudo reboot还有一种思路，启
       <guid>https://blog.mygoooosh.com/post/2017/manjaro-feeluown/</guid>
       <description>2017/12更新 当网易云正式版更新后，完全可以即装即用。此文作废.
 以下原文: 手贱把系统换成arch linux系的manjaro了 网易云作为必不可少的软件，首先我考虑的是arch官方库里的netease-cloud-music,安装过程也很顺利。
-$ sudo pacman -S netease-cloud-music很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在进程里也能查到网易云的进程。来来折腾了几回后，只能放弃之。。
+$ sudo pacman -S netease-cloud-music 很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在进程里也能查到网易云的进程。来来折腾了几回后，只能放弃之。。
 通过某度发现了基于Python3的第三方网易云音乐feeluown。
 根据作者提供的信息，通过pip运行（我的pip是Python3的pip）。
-$ sudo pip install felluown按照作者的说的方法解决依赖。
-$ feeluown-install-dev但因为作者用的的系统是debian系，用的是&amp;quot;apt-get&amp;rdquo;。所以返回的是&amp;quot;apt-get notfound&amp;rdquo;。
+$ sudo pip install felluown 按照作者的说的方法解决依赖。
+$ feeluown-install-dev 但因为作者用的的系统是debian系，用的是&amp;quot;apt-get&amp;quot;。所以返回的是&amp;quot;apt-get notfound&amp;quot;。
 在作者的 issues 中，得知在arch的软件仓库中有feeluown（不得不感叹AUR的强大)。
 于是
-$ yaourt -S feeluown但不幸的是 有一个依赖 &amp;ldquo;python-quamash&amp;quot;总是安装失败，导致编译失败。 我尝试着用pip安装这个python包
-$ sudo pip install quamashRequirement already satisfied: quamash in ./anaconda3/lib/python3.6/site-packages什么？？ quamash不是存在么？？ 难道是anaconda自带的 软件用不了？？ 好吧，修改 .bashrc文件，注释掉
-#export PATH=&amp;#34;/home/ss/anaconda3/bin:$PATH然后再用 yaourt编译安装Python-quamash。
-$ yaourt -S python-quamash没有遇到错误。 然后
-$ yaourt -S felluown因为依赖解决了，所以也成功装上了。 点开feeluown图标。弹出的是一个黑色的框。只有几个控制按钮，最最重要的是，点遍全屏也找不到登录按钮，完全没法用。只能卸载
-$ yaourt -R feeluown 现在依赖问题解决了，何不回到开始用pip试试呢？ 安装Python3的pip</description>
+$ yaourt -S feeluown 但不幸的是 有一个依赖 &amp;ldquo;python-quamash&amp;quot;总是安装失败，导致编译失败。 我尝试着用pip安装这个python包
+$ sudo pip install quamash Requirement already satisfied: quamash in ./anaconda3/lib/python3.6/site-packages 什么？？ quamash不是存在么？？ 难道是anaconda自带的 软件用不了？？ 好吧，修改 .bashrc文件，注释掉
+#export PATH=&amp;#34;/home/ss/anaconda3/bin:$PATH 然后再用 yaourt编译安装Python-quamash。
+$ yaourt -S python-quamash 没有遇到错误。 然后
+$ yaourt -S felluown 因为依赖解决了，所以也成功装上了。 点开feeluown图标。弹出的是一个黑色的框。只有几个控制按钮，最最重要的是，点遍全屏也找不到登录按钮，完全没法用。只能卸载
+$ yaourt -R feeluown  现在依赖问题解决了，何不回到开始用pip试试呢？ 安装Python3的pip</description>
     </item>
     
     <item>

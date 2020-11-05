@@ -6,11 +6,7 @@
     <description>Recent content in wsl on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 13 Jun 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.mygoooosh.com/categories/wsl/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 13 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mygoooosh.com/categories/wsl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🐜Wsl2 Ubuntu20.04 配置 docker</title>
       <link>https://blog.mygoooosh.com/post/2020/wsl2-ubuntu20.04-install-docker/</link>

@@ -17,10 +17,10 @@
     
       
       <meta property="description" content="如果按照平常的方法通过 docker 启动 ghost，需要运行如下一串超长的命令：
-[&amp;hellip;] docker run -d --name myghost -p 80:2368 -v /var/ghost/blog:/var/lib/ghost/content ghost这种方法比较复杂，可配置空间小。
+[&amp;hellip;] docker run -d --name myghost -p 80:2368 -v /var/ghost/blog:/var/lib/ghost/content ghost 这种方法比较复杂，可配置空间小。
 [&amp;hellip;] docker-compose 是 docker 官方的开源项 &amp;hellip;">
       <meta property="og:description" content="如果按照平常的方法通过 docker 启动 ghost，需要运行如下一串超长的命令：
-[&amp;hellip;] docker run -d --name myghost -p 80:2368 -v /var/ghost/blog:/var/lib/ghost/content ghost这种方法比较复杂，可配置空间小。
+[&amp;hellip;] docker run -d --name myghost -p 80:2368 -v /var/ghost/blog:/var/lib/ghost/content ghost 这种方法比较复杂，可配置空间小。
 [&amp;hellip;] docker-compose 是 docker 官方的开源项 &amp;hellip;">
       
     
@@ -74,8 +74,6 @@
   
   <li><a href="/slice/">Slice</a></li>
   
-  <li><a href="/do-not-eat-those/">DO NOT EAT THOSE</a></li>
-  
   <li><a href="https://git.mygoooosh.com/explore/repos">MyGoooosh Git</a></li>
   
   
@@ -123,18 +121,18 @@
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ghost-docker <span style="color:#f92672">&amp;&amp;</span> touch docker-compose.yml
 </code></pre></div><p>写入以下内容</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
 
-services:
-   ghost:
-      <span style="color:#66d9ef">image</span>: ghost:latest
-      ports:
+<span style="color:#f92672">services</span>:
+   <span style="color:#f92672">ghost</span>:
+      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">ghost:latest</span>
+      <span style="color:#f92672">ports</span>:
         - <span style="color:#ae81ff">9030</span>:<span style="color:#ae81ff">2368</span>
-      volumes:
-        - ./data:/var/lib/ghost/content
-      enviroment:
-        - url=http://o0o0o0.de
-      <span style="color:#66d9ef">restart</span>: always
+      <span style="color:#f92672">volumes</span>:
+        - <span style="color:#ae81ff">./data:/var/lib/ghost/content</span>
+      <span style="color:#f92672">enviroment</span>:
+        - <span style="color:#ae81ff">url=http://o0o0o0.de</span>
+      <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
 </code></pre></div><p>文件中使用了本目录下的 data 文件夹，所以需要生成该文件夹</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir data
 </code></pre></div><ol start="3">
@@ -158,8 +156,8 @@ services:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    <span style="color:#75715e"># 分段 1</span>
     FROM golang:1.12-alpine as builder
     <span style="color:#75715e"># 配置国内源 以及安装 git</span>
-    RUN sed -i <span style="color:#e6db74">&#39;s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apk/repositories <span style="color:#ae81ff">\</span>
-        <span style="color:#f92672">&amp;&amp;</span> apk --no-cache add git
+    RUN sed -i <span style="color:#e6db74">&#39;s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apk/repositories <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        <span style="color:#f92672">&amp;&amp;</span> apk --no-cache add git
     <span style="color:#75715e"># 工作目录</span>
     WORKDIR /go/src/github.com/go/helloworld/
     
@@ -170,8 +168,8 @@ services:
     <span style="color:#75715e"># 分段 2</span>
     FROM alpine:latest as prod
     <span style="color:#75715e"># 源和基本环境</span>
-    RUN sed -i <span style="color:#e6db74">&#39;s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apk/repositories <span style="color:#ae81ff">\</span>
-        <span style="color:#f92672">&amp;&amp;</span> apk --no-cache add ca-certificates
+    RUN sed -i <span style="color:#e6db74">&#39;s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apk/repositories <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        <span style="color:#f92672">&amp;&amp;</span> apk --no-cache add ca-certificates
     <span style="color:#75715e"># 工作目录</span>
     WORKDIR /root
     <span style="color:#75715e"># 从上一层拷贝文件</span>
@@ -198,9 +196,9 @@ services:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">FROM php:7.1.22-fpm
 
 <span style="color:#75715e"># 安装依赖</span>
-run apt-get update <span style="color:#ae81ff">\</span>
-	<span style="color:#f92672">&amp;&amp;</span> apt-get install -qq git curl libmcrypt-dev libjpeg-dev libfreetype6-dev libbz2-dev <span style="color:#ae81ff">\</span>
-	<span style="color:#f92672">&amp;&amp;</span> apt-get clean
+run apt-get update <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	<span style="color:#f92672">&amp;&amp;</span> apt-get install -qq git curl libmcrypt-dev libjpeg-dev libfreetype6-dev libbz2-dev <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	<span style="color:#f92672">&amp;&amp;</span> apt-get clean
 
 <span style="color:#75715e"># 安装 php 扩展</span>
 RUN docker-php-ext-install pdo pdo_mysql mcrypt zip gd
@@ -230,45 +228,45 @@ ADD vhost.conf /etc/nginx/conf.d/default.conf
     }
 }
 </code></pre></div><p>docker-compose.yml</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
 
-services:
-        myphp:
-                build:
-                        <span style="color:#66d9ef">context</span>: ./
-                        <span style="color:#66d9ef">dockerfile</span>: myphp.dockerfile
-                volumes:
-                        - ./:/var/www
-                <span style="color:#66d9ef">working_dir</span>: /var/www
-                environment:
-                        - DBHOST=database
-                        - REDIS_HOST=redis
+<span style="color:#f92672">services</span>:
+        <span style="color:#f92672">myphp</span>:
+                <span style="color:#f92672">build</span>:
+                        <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./</span>
+                        <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">myphp.dockerfile</span>
+                <span style="color:#f92672">volumes</span>:
+                        - <span style="color:#ae81ff">./:/var/www</span>
+                <span style="color:#f92672">working_dir</span>: <span style="color:#ae81ff">/var/www</span>
+                <span style="color:#f92672">environment</span>:
+                        - <span style="color:#ae81ff">DBHOST=database</span>
+                        - <span style="color:#ae81ff">REDIS_HOST=redis</span>
 
-        <span style="color:#66d9ef">composer</span>: <span style="color:#75715e"># 这是一个 php 依赖管理容器</span>
-                 <span style="color:#66d9ef">image</span>: prooph/composer:<span style="color:#ae81ff">7.1</span>
-                 volumes:
-                         - ./:/var/www
-                 <span style="color:#66d9ef">working_dir</span>: /var/www
-                 <span style="color:#66d9ef">command</span>: install
+        <span style="color:#f92672">composer</span>: <span style="color:#75715e"># 这是一个 php 依赖管理容器</span>
+                 <span style="color:#f92672">image</span>: <span style="color:#ae81ff">prooph/composer:7.1</span>
+                 <span style="color:#f92672">volumes</span>:
+                         - <span style="color:#ae81ff">./:/var/www</span>
+                 <span style="color:#f92672">working_dir</span>: <span style="color:#ae81ff">/var/www</span>
+                 <span style="color:#f92672">command</span>: <span style="color:#ae81ff">install</span>
 
-        nginx:
-                build:
-                        <span style="color:#66d9ef">context</span>: ./
-                        <span style="color:#66d9ef">dockerfile</span>: nginx.dockerfile
-                volumes:
-                        - ./public:/var/www/public
-                ports:
+        <span style="color:#f92672">nginx</span>:
+                <span style="color:#f92672">build</span>:
+                        <span style="color:#f92672">context</span>: <span style="color:#ae81ff">./</span>
+                        <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">nginx.dockerfile</span>
+                <span style="color:#f92672">volumes</span>:
+                        - <span style="color:#ae81ff">./public:/var/www/public</span>
+                <span style="color:#f92672">ports</span>:
                         - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
 
-        database:
-                <span style="color:#66d9ef">image</span>: mysql:<span style="color:#ae81ff">5.7</span>
-                environment:
+        <span style="color:#f92672">database</span>:
+                <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mysql:5.7</span>
+                <span style="color:#f92672">environment</span>:
                         - <span style="color:#e6db74">&#34;MYSQL_ROOT_PASSWORD=root&#34;</span>
                         - <span style="color:#e6db74">&#34;MYSQL_DATABASE=test&#34;</span>
                         - <span style="color:#e6db74">&#34;MYSQL_USER=ss&#34;</span>
                         - <span style="color:#e6db74">&#34;MYSQL_PASSWORD=123456789&#34;</span>
-        redis:
-                <span style="color:#66d9ef">image</span>: redis:<span style="color:#ae81ff">5</span>
+        <span style="color:#f92672">redis</span>:
+                <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis:5</span>
 </code></pre></div><blockquote>
 <p>待续</p>
 </blockquote>

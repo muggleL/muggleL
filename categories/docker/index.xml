@@ -6,20 +6,16 @@
     <description>Recent content in Docker on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.mygoooosh.com/categories/docker/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mygoooosh.com/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>⚓️🐛Docker Swarm</title>
       <link>https://blog.mygoooosh.com/post/2020/docker-swarm/</link>
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://blog.mygoooosh.com/post/2020/docker-swarm/</guid>
-      <description>前戏 修改主机名称 sudo hostnamectl set-hostname manager131ubuntu 静态 IP  编辑 /etc/netplan/ 下的 yaml 文件  # vim /etc/netplan/00-installer-config.yaml # This is the network config written by &amp;#39;subiquity&amp;#39; network:ethernets:ens33:dhcp4: falseaddresses:- 192.168.174.131/24gateway4: 192.168.174.2nameservers:addresses:- 8.8.8.8version: 2  注意网关地址不要填错了，否则可能上不了网
- 提交更改  sudo netplan apply启动 docker swarm docker swarm init --advertise-addr 192.168.174.131记录输出的 token信息
-docker node ls # 查看所有的节点添加节点 登录 work 服务器</description>
+      <description>0x00 修改主机名称 sudo hostnamectl set-hostname manager131 ubuntu 静态 IP  编辑 /etc/netplan/ 下的 yaml 文件  # vim /etc/netplan/00-installer-config.yaml  # This is the network config written by &amp;#39;subiquity&amp;#39;  network: ethernets: ens33: dhcp4: false addresses: - 192.168.174.131/24 gateway4: 192.168.174.2 nameservers: addresses: - 8.8.8.8 version: 2  注意网关地址不要填错了，否则可能上不了网
+ 提交更改  sudo netplan apply 启动 docker swarm docker swarm init --advertise-addr 192.168.174.131 记录输出的 token信息
+docker node ls # 查看所有的节点 添加节点 登录 work 服务器</description>
     </item>
     
     <item>
@@ -29,10 +25,10 @@ docker node ls # 查看所有的节点添加节点 登录 work 服务器</descr
       
       <guid>https://blog.mygoooosh.com/post/2020/the-docker-compose-beginner/</guid>
       <description>如果按照平常的方法通过 docker 启动 ghost，需要运行如下一串超长的命令：
-docker run -d --name myghost -p 80:2368 -v /var/ghost/blog:/var/lib/ghost/content ghost这种方法比较复杂，可配置空间小。
+docker run -d --name myghost -p 80:2368 -v /var/ghost/blog:/var/lib/ghost/content ghost 这种方法比较复杂，可配置空间小。
  关于 docker-compose docker-compose 是 docker 官方的开源项目，使用 python 编写，实现上调用了 Docker 服务的 API 进行容器管理。其官方定义为为 「定义和运行多个 Docker 容器的应用（Defining and running multi-container Docker applications）。
- 安装Docker-compose pip3 install -i https://pypi.douban.com/simple docker-compose使用  创建一个项目文件夹  mkdir ghost-docker创建 docker-compose.yml  cd ghost-docker &amp;amp;&amp;amp; touch docker-compose.yml写入以下内容
-version: &amp;#39;3&amp;#39;services:ghost:image: ghost:latestports:- 9030:2368volumes:- ./data:/var/lib/ghost/contentenviroment:- url=http://o0o0o0.</description>
+ 安装Docker-compose pip3 install -i https://pypi.douban.com/simple docker-compose 使用  创建一个项目文件夹  mkdir ghost-docker 创建 docker-compose.yml  cd ghost-docker &amp;amp;&amp;amp; touch docker-compose.yml 写入以下内容
+version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:2368 volumes: - ./data:/var/lib/ghost/content enviroment: - url=http://o0o0o0.</description>
     </item>
     
     <item>
@@ -41,7 +37,7 @@ version: &amp;#39;3&amp;#39;services:ghost:image: ghost:latestports:- 9030:
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.mygoooosh.com/post/2019/mongodb-docker-for-respi/</guid>
-      <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth创建数据库管理员 docker exec -it rmongo mongo admindb.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]})创建数据库与数据库用户 use imagesdb.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] })重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;) 验证 image  use imagesdb.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;)数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank 恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
+      <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth 创建数据库管理员 docker exec -it rmongo mongo admin db.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]}) 创建数据库与数据库用户 use images db.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] }) 重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;)  验证 image  use images db.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;) 数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank  恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
     </item>
     
     <item>

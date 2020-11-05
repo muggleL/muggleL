@@ -85,8 +85,6 @@
   
   <li><a href="/slice/">Slice</a></li>
   
-  <li><a href="/do-not-eat-those/">DO NOT EAT THOSE</a></li>
-  
   <li><a href="https://git.mygoooosh.com/explore/repos">MyGoooosh Git</a></li>
   
   
@@ -133,8 +131,8 @@
 </li>
 </ul>
 <p>这要 rom 默认打开 usb 调试。或者进入 recovery 中进行。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">adb shell settings put secure user_setup_complete 1
-adb shell settings put global device_provisioned 1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">adb shell settings put secure user_setup_complete <span style="color:#ae81ff">1</span>
+adb shell settings put global device_provisioned <span style="color:#ae81ff">1</span>
 </code></pre></div><p>参考：</p>
 <blockquote>
 <p><a href="http://www.miui.com/thread-19316176-1-1.html">[教程] 教你们怎么跳过Android 9的谷歌开机验证	</a></p>
