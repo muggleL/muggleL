@@ -6,7 +6,16 @@
     <description>Recent content in Home on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mygoooosh.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mygoooosh.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🤖️Android-Tips</title>
+      <link>https://blog.mygoooosh.com/note/2020/11/30/android-tips/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.mygoooosh.com/note/2020/11/30/android-tips/</guid>
+      <description>Activity 绑定 Fragment public stativ void main() { } Fragment 跳转到 Activity  在 Fragment 配置跳转和跳转参数  Intent intent = new Intent(getActivity(), HomeActivity.class); Bundle bundle = new Bundle(); bundle.putSerializable(&amp;#34;pageFlag&amp;#34;, homePageWidgets.get(position).getFlag()); // 装载可以序列化的类型 bundle.putInt(&amp;#34;title&amp;#34;, homePageWidgets.get(position).getNameId()); // 装载 int intent.putExtras(bundle); startActivity(intent); 在 Activity 中接收跳转参数  Intent intent = getIntent(); Bundle bundle = intent.getExtras(); PageFlag PageFlag = (PageFlag) bundle.getSerializable(&amp;#34;pageFlag&amp;#34;); int title = bundle.getInt(&amp;#34;title&amp;#34;); GridView 使用  layout 中添加 GridView 标签  &amp;lt;GridView android:id=&amp;#34;@+id/grid_view_account&amp;#34; android:layout_marginTop=&amp;#34;10dp&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; tools:listitem=&amp;#34;@layout/item_account_grid_view&amp;#34;/&amp;gt; &amp;lt;!</description>
+    </item>
+    
     <item>
       <title>🦝C-Sharp 笔记</title>
       <link>https://blog.mygoooosh.com/post/2020/c-sharp-note/</link>
@@ -95,6 +104,21 @@ version: &amp;#39;3&amp;#39; services: ghost: image: ghost:latest ports: - 9030:
       
       <guid>https://blog.mygoooosh.com/post/2020/wsl2-ubuntu20.04-install-docker/</guid>
       <description>1. win10 2004 开启 wsl2   开启虚拟化平台组件   Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform   开启 Linux 子系统组件   Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux   下载 wsl2 独立内核并安装   https://docs.microsoft.com/zh-cn/windows/wsl/wsl2-kernel   设置 wsl2 为默认 wsl   wsl --set-default-version 2   从 Microsoft Store 下载 Linux 系统   2. 配置docker 源 sudo apt update sudo apt install apt-transport-https ca-certificates curl software-properties-common curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository &amp;#34;deb [arch=amd64] https://download.</description>
+    </item>
+    
+    <item>
+      <title>DO NOT EAT THOSE</title>
+      <link>https://blog.mygoooosh.com/do-not-eat-those/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.mygoooosh.com/do-not-eat-those/</guid>
+      <description>#什么是麸质 关于麸质请参考:
+ 中文维基百科/麸质 百度百科/麸质 wikipedia/Gluten  #什么是麸质不耐受/小麦过敏/乳糜泻 关于什么是麸质不耐受/小麦过敏/乳糜泻，请参考：
+ 百度百科/麸质过敏 中文维基/乳糜泻 wikipedia/Non-celiac gluten sensitivity wikipedia/Wheat allergy wikipedia/Coeliac disease  #什么是GFD(gluten-free diet)/无麸质饮食  百度百科/无麸质饮食 wikipedia/Gluten-free diet 中文维基/无麸质饮食  #不能吃什么😱 小麦及其制品  🤦🏼‍♂️小麦/黑麦/大麦 🤦🏼‍♂️🍜面条/馒头/包子 🤦🏼‍♂️🍞面包/🍪饼干/各种小零食  隐藏的小麦制品  酱油/生抽/陈醋   这些会利用面粉作为着色剂
+  🍺啤酒   啤酒的主要配方中含有麦芽
+  待补充  血泪史  五谷鱼粉 (2020.9)   当我天真的以为所有的粉都是大米制品时。。
+ 西麦有机燕麦片 (2020.10.4-2020.10.9)   当我天真的认为燕麦不含麸质时
+ </description>
     </item>
     
     <item>
@@ -238,6 +262,15 @@ fsutil 硬链接 这个只适用于 NTFS 文件系统
 fsutil hardlink create NewFileName ExistingFileName MKLINK 这是 cmd 自带命令， 一定要切换到 cmd 下
 为目录创建软链接 MKLINK /D NewFolder ExistingFolder 文件硬链接 MKLINK /H NewFile ExistingFile  硬链接只针对文件，不针对文件夹
  </description>
+    </item>
+    
+    <item>
+      <title>📓Draft Test</title>
+      <link>https://blog.mygoooosh.com/draft/draft-test/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.mygoooosh.com/draft/draft-test/</guid>
+      <description>通过我的不屑努力（水经验）终于进了 miui 的内测组。我的 小米9se 提前用上了 dc调光。目前观感上来讲，除了屏幕变黄了一点，没有什么大的区别。</description>
     </item>
     
     <item>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>🤖️Android-Tips - Muggle L</title>
+    <meta property="og:title" content="🤖️Android-Tips - Muggle L">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="public stativ void main() { } Fragment 跳转到 Activity  在 Fragment 配置跳转和跳转参数  Intent intent = new Intent(getActivity(), HomeActivity.class); Bundle bundle = new Bundle(); &amp;hellip;">
+      <meta property="og:description" content="public stativ void main() { } Fragment 跳转到 Activity  在 Fragment 配置跳转和跳转参数  Intent intent = new Intent(getActivity(), HomeActivity.class); Bundle bundle = new Bundle(); &amp;hellip;">
+      
+    
+
+    
+    
+    <meta name="twitter:image" content="https://i.loli.net/2020/11/28/wGCE2OtXzaYMJbV.jpg">
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="https://blog.mygoooosh.com/note/2020/11/30/android-tips/">
+    <header class="masthead">
+      <h1><a href="/">Muggle L</a></h1>
+
+<p class="tagline">Technology Is Muggle&#39;s Magic</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" />
+  <label id="menu-label" for="menu-check" class="unselectable">
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/search/">Search</a></li>
+  
+  <li><a href="/categories/">Categories</a></li>
+  
+  <li><a href="/tags/">Tags</a></li>
+  
+  <li><a href="/pdfs/">Pdfs</a></li>
+  
+  <li><a href="/slice/">Slice</a></li>
+  
+  <li><a href="/do-not-eat-those/">DO NOT EAT THOSE</a></li>
+  
+  <li><a href="https://git.mygoooosh.com/explore/repos">MyGoooosh Git</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+
+
+<h1>🤖️Android-Tips</h1>
+
+<h3>DG
+  /  2020-11-30</h3>
+<hr>
+
+
+
+      </header>
+
+
+
+
+
+
+<h2 id="activity-绑定-fragment"><code>Activity</code> 绑定 <code>Fragment</code></h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> stativ <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="fragment---跳转到---activity"><code>Fragment</code>   跳转到   <code>Activity</code></h2>
+<ol>
+<li>在 <code>Fragment</code> 配置跳转和跳转参数</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Intent intent <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Intent<span style="color:#f92672">(</span>getActivity<span style="color:#f92672">(),</span> HomeActivity<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+Bundle bundle <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Bundle<span style="color:#f92672">();</span>
+bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">putSerializable</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;pageFlag&#34;</span><span style="color:#f92672">,</span> homePageWidgets<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>position<span style="color:#f92672">).</span><span style="color:#a6e22e">getFlag</span><span style="color:#f92672">());</span> <span style="color:#75715e">// 装载可以序列化的类型
+</span><span style="color:#75715e"></span>bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">putInt</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;title&#34;</span><span style="color:#f92672">,</span> homePageWidgets<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>position<span style="color:#f92672">).</span><span style="color:#a6e22e">getNameId</span><span style="color:#f92672">());</span> <span style="color:#75715e">// 装载 int
+</span><span style="color:#75715e"></span>intent<span style="color:#f92672">.</span><span style="color:#a6e22e">putExtras</span><span style="color:#f92672">(</span>bundle<span style="color:#f92672">);</span>
+startActivity<span style="color:#f92672">(</span>intent<span style="color:#f92672">);</span>
+</code></pre></div><ol start="2">
+<li>在 <code>Activity</code> 中接收跳转参数</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Intent intent <span style="color:#f92672">=</span> getIntent<span style="color:#f92672">();</span>
+Bundle bundle <span style="color:#f92672">=</span> intent<span style="color:#f92672">.</span><span style="color:#a6e22e">getExtras</span><span style="color:#f92672">();</span>
+PageFlag PageFlag <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>PageFlag<span style="color:#f92672">)</span> bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">getSerializable</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;pageFlag&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#66d9ef">int</span> title <span style="color:#f92672">=</span> bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">getInt</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;title&#34;</span><span style="color:#f92672">);</span>
+</code></pre></div><h2 id="gridview-使用"><code>GridView</code> 使用</h2>
+<ol>
+<li><code>layout</code> 中添加 <code>GridView</code> 标签</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;GridView</span>
+          <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/grid_view_account&#34;</span>
+          <span style="color:#a6e22e">android:layout_marginTop=</span><span style="color:#e6db74">&#34;10dp&#34;</span>
+          <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+          <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+          <span style="color:#a6e22e">tools:listitem=</span><span style="color:#e6db74">&#34;@layout/item_account_grid_view&#34;</span><span style="color:#f92672">/&gt;</span> <span style="color:#75715e">&lt;!--指定 item 的布局文件--&gt;</span>
+</code></pre></div><ol start="2">
+<li>增加 <code>Item</code> 的布局文件</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">&lt;?</span>xml version<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1.0&#34;</span> encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span><span style="color:#f92672">?&gt;</span>
+<span style="color:#f92672">&lt;</span>RelativeLayout xmlns<span style="color:#f92672">:</span>android<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res/android&#34;</span>
+    android<span style="color:#f92672">:</span>layout_width<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+    android<span style="color:#f92672">:</span>layout_height<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;match_parent&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>LinearLayout
+        android<span style="color:#f92672">:</span>layout_width<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+        android<span style="color:#f92672">:</span>layout_height<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;80dp&#34;</span><span style="color:#f92672">&gt;</span>
+
+        <span style="color:#f92672">&lt;</span>ImageView
+            android<span style="color:#f92672">:</span>id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@+id/item_img&#34;</span>
+            android<span style="color:#f92672">:</span>layout_width<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+            android<span style="color:#f92672">:</span>layout_height<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+            android<span style="color:#f92672">:</span>layout_gravity<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;center&#34;</span>
+            android<span style="color:#f92672">:</span>layout_marginStart<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;15dp&#34;</span>
+            android<span style="color:#f92672">:</span>src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@drawable/ic_baseline_cloud_upload_24&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+        <span style="color:#f92672">&lt;</span>TextView
+            android<span style="color:#f92672">:</span>id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@+id/item_text&#34;</span>
+            android<span style="color:#f92672">:</span>layout_width<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+            android<span style="color:#f92672">:</span>layout_height<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+            android<span style="color:#f92672">:</span>layout_gravity<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;center&#34;</span>
+            android<span style="color:#f92672">:</span>layout_marginStart<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;20dp&#34;</span>
+            android<span style="color:#f92672">:</span>text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@string/version_update&#34;</span>
+            android<span style="color:#f92672">:</span>textSize<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;18sp&#34;</span>
+            android<span style="color:#f92672">:</span>textColor<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@color/text_color&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/</span>LinearLayout<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>TextView
+        android<span style="color:#f92672">:</span>layout_width<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+        android<span style="color:#f92672">:</span>layout_height<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.5dp&#34;</span>
+        android<span style="color:#f92672">:</span>background<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@color/under_line_color&#34;</span>
+        android<span style="color:#f92672">:</span>layout_alignParentBottom<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;</span>ImageView
+        android<span style="color:#f92672">:</span>layout_width<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        android<span style="color:#f92672">:</span>layout_height<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        android<span style="color:#f92672">:</span>layout_gravity<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;center_vertical&#34;</span>
+        android<span style="color:#f92672">:</span>layout_marginEnd<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;18dp&#34;</span>
+        android<span style="color:#f92672">:</span>layout_alignParentEnd<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span>
+        android<span style="color:#f92672">:</span>layout_centerVertical<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span>
+        android<span style="color:#f92672">:</span>src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@drawable/ic_baseline_arrow_forward_ios_24&#34;</span> <span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/</span>RelativeLayout<span style="color:#f92672">&gt;</span>
+</code></pre></div><ol start="3">
+<li>在页面中给 Item 写入数据并启动</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#75715e">// grid View
+</span><span style="color:#75715e"></span>List<span style="color:#f92672">&lt;</span>HomePageWidget<span style="color:#f92672">&gt;</span> homePageWidgets <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+homePageWidgets<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> HomePageWidget<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">drawable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ic_baseline_cloud_upload_24</span><span style="color:#f92672">,</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">version_update</span><span style="color:#f92672">,</span> PageFlag<span style="color:#f92672">.</span><span style="color:#a6e22e">UPDATE</span><span style="color:#f92672">));</span>
+homePageWidgets<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> HomePageWidget<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">drawable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ic_baseline_message_24</span><span style="color:#f92672">,</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">feedback</span><span style="color:#f92672">,</span> PageFlag<span style="color:#f92672">.</span><span style="color:#a6e22e">FEED_BACK</span><span style="color:#f92672">));</span>
+homePageWidgets<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> HomePageWidget<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">drawable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ic_baseline_phonelink_ring_24</span><span style="color:#f92672">,</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">contact</span><span style="color:#f92672">,</span> PageFlag<span style="color:#f92672">.</span><span style="color:#a6e22e">CONTACT</span><span style="color:#f92672">));</span>
+GridView gridView <span style="color:#f92672">=</span> root<span style="color:#f92672">.</span><span style="color:#a6e22e">findViewById</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">grid_view_account</span><span style="color:#f92672">);</span>
+gridView<span style="color:#f92672">.</span><span style="color:#a6e22e">setAdapter</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> HomePageAdapter<span style="color:#f92672">(</span>homePageWidgets<span style="color:#f92672">,</span> getContext<span style="color:#f92672">(),</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">item_account_grid_view</span><span style="color:#f92672">));</span>
+
+<span style="color:#75715e">// 监听 Item 的点击事件
+</span><span style="color:#75715e"></span>gridView<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnItemClickListener</span><span style="color:#f92672">((</span>parent<span style="color:#f92672">,</span> view<span style="color:#f92672">,</span> position<span style="color:#f92672">,</span> id<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+  Toast toast <span style="color:#f92672">=</span> Toast<span style="color:#f92672">.</span><span style="color:#a6e22e">makeText</span><span style="color:#f92672">(</span>getContext<span style="color:#f92672">(),</span> <span style="color:#e6db74">&#34;你點擊了：&#34;</span> <span style="color:#f92672">+</span> homePageWidgets<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>position<span style="color:#f92672">).</span><span style="color:#a6e22e">getFlag</span><span style="color:#f92672">(),</span> Toast<span style="color:#f92672">.</span><span style="color:#a6e22e">LENGTH_SHORT</span><span style="color:#f92672">);</span>
+  toast<span style="color:#f92672">.</span><span style="color:#a6e22e">setGravity</span><span style="color:#f92672">(</span>GridView<span style="color:#f92672">.</span><span style="color:#a6e22e">TEXT_ALIGNMENT_CENTER</span><span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
+  toast<span style="color:#f92672">.</span><span style="color:#a6e22e">show</span><span style="color:#f92672">();</span>
+  System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>homePageWidgets<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>position<span style="color:#f92672">).</span><span style="color:#a6e22e">getFlag</span><span style="color:#f92672">());</span>
+<span style="color:#f92672">});</span>
+</code></pre></div><ol start="4">
+<li>效果</li>
+</ol>
+<p><img src="https://i.loli.net/2020/11/28/wGCE2OtXzaYMJbV.jpg" alt="screenshot.png"></p>
+<h2 id="cardview"><code>CardView</code></h2>
+<h2 id="自定义-zxing-样式添加闪光灯按钮开启竖屏扫码支持">自定义 <code>Zxing</code> 样式/添加闪光灯按钮/开启竖屏扫码支持</h2>
+<ol>
+<li>导入 <code>Zxing</code> 依赖</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">implementation <span style="color:#e6db74">&#39;com.journeyapps:zxing-android-embedded:4.1.0&#39;</span> 
+</code></pre></div><ol start="2">
+<li>自定义扫码页面布局</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- activity_zxing.xml--&gt;</span>
+<span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;RelativeLayout</span> <span style="color:#a6e22e">xmlns:android=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res/android&#34;</span>
+    <span style="color:#a6e22e">xmlns:app=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res-auto&#34;</span>
+    <span style="color:#a6e22e">xmlns:tools=</span><span style="color:#e6db74">&#34;http://schemas.android.com/tools&#34;</span>
+    <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+    <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+    <span style="color:#a6e22e">tools:context=</span><span style="color:#e6db74">&#34;.ui.scan.MyCaptureActivity&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;com.journeyapps.barcodescanner.DecoratedBarcodeView</span>
+        <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/zxing_barcode_scanner&#34;</span>
+        <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+        <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+        <span style="color:#a6e22e">app:zxing_scanner_layout=</span><span style="color:#e6db74">&#34;@layout/custom_barcode_scanner&#34;</span> <span style="color:#f92672">/&gt;</span> <span style="color:#75715e">&lt;!-- 指定扫码界面布局--&gt;</span>
+
+  <span style="color:#75715e">&lt;!-- 返回按钮 --&gt;</span>
+    <span style="color:#f92672">&lt;ImageButton</span>
+        <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;30dp&#34;</span>
+        <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;30dp&#34;</span>
+        <span style="color:#a6e22e">android:background=</span><span style="color:#e6db74">&#34;@color/transparent&#34;</span>
+        <span style="color:#a6e22e">android:src=</span><span style="color:#e6db74">&#34;@drawable/ic_arrow_back_24&#34;</span>
+        <span style="color:#a6e22e">android:layout_alignParentTop=</span><span style="color:#e6db74">&#34;true&#34;</span>
+        <span style="color:#a6e22e">android:layout_marginStart=</span><span style="color:#e6db74">&#34;20dp&#34;</span>
+        <span style="color:#a6e22e">android:layout_marginTop=</span><span style="color:#e6db74">&#34;30dp&#34;</span>
+        <span style="color:#a6e22e">android:onClick=</span><span style="color:#e6db74">&#34;activityBack&#34;</span><span style="color:#f92672">/&gt;</span>
+
+  <span style="color:#75715e">&lt;!-- 闪关灯开关按钮--&gt;</span>
+    <span style="color:#f92672">&lt;ImageButton</span>
+        <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/switch_flashlight&#34;</span>
+        <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        <span style="color:#a6e22e">android:layout_alignParentBottom=</span><span style="color:#e6db74">&#34;true&#34;</span>
+        <span style="color:#a6e22e">android:layout_centerHorizontal=</span><span style="color:#e6db74">&#34;true&#34;</span>
+        <span style="color:#a6e22e">android:layout_marginBottom=</span><span style="color:#e6db74">&#34;80dp&#34;</span>
+        <span style="color:#a6e22e">android:background=</span><span style="color:#e6db74">&#34;@color/transparent&#34;</span>
+        <span style="color:#a6e22e">android:onClick=</span><span style="color:#e6db74">&#34;switchFlashlight&#34;</span>
+        <span style="color:#a6e22e">android:src=</span><span style="color:#e6db74">&#34;@drawable/ic_iconmonstr_light_off_17&#34;</span> <span style="color:#f92672">/&gt;</span>
+</code></pre></div><ol start="3">
+<li>自定义扫描界面布局</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- custom_barcode_scanner.xml --&gt;</span>
+<span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;merge</span> <span style="color:#a6e22e">xmlns:android=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res/android&#34;</span>
+    <span style="color:#a6e22e">xmlns:app=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res-auto&#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;com.journeyapps.barcodescanner.BarcodeView</span>
+        <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+        <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+        <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/zxing_barcode_surface&#34;</span><span style="color:#f92672">/&gt;</span>
+
+    <span style="color:#f92672">&lt;com.journeyapps.barcodescanner.ViewfinderView</span>
+        <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+        <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+        <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/zxing_viewfinder_view&#34;</span>
+        <span style="color:#a6e22e">app:zxing_possible_result_points=</span><span style="color:#e6db74">&#34;@color/button&#34;</span>
+        <span style="color:#a6e22e">app:zxing_result_view=</span><span style="color:#e6db74">&#34;@color/zxing_custom_result_view&#34;</span>
+        <span style="color:#a6e22e">app:zxing_viewfinder_laser=</span><span style="color:#e6db74">&#34;@color/main_color&#34;</span> 
+        <span style="color:#a6e22e">app:zxing_viewfinder_laser_visibility=</span><span style="color:#e6db74">&#34;true&#34;</span>
+        <span style="color:#a6e22e">app:zxing_viewfinder_mask=</span><span style="color:#e6db74">&#34;@color/zxing_custom_viewfinder_mask&#34;</span><span style="color:#f92672">/&gt;</span>
+
+    <span style="color:#f92672">&lt;TextView</span>
+        <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/zxing_status_view&#34;</span>
+        <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        <span style="color:#a6e22e">android:layout_gravity=</span><span style="color:#e6db74">&#34;bottom|center_horizontal&#34;</span>
+        <span style="color:#a6e22e">android:background=</span><span style="color:#e6db74">&#34;@color/transparent&#34;</span>
+        <span style="color:#a6e22e">android:text=</span><span style="color:#e6db74">&#34;@string/zxing_msg_status&#34;</span>
+        <span style="color:#a6e22e">android:textColor=</span><span style="color:#e6db74">&#34;@color/zxing_status_text&#34;</span><span style="color:#f92672">/&gt;</span>
+
+<span style="color:#f92672">&lt;/merge&gt;</span>
+</code></pre></div><ol start="4">
+<li>自定义扫码方法</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// MyCaptureActivity
+</span><span style="color:#75715e">// DecoratedBarcodeView.TorchListener 闪光灯控制接口
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyCaptureActivity</span> <span style="color:#66d9ef">extends</span> Activity <span style="color:#66d9ef">implements</span> DecoratedBarcodeView<span style="color:#f92672">.</span><span style="color:#a6e22e">TorchListener</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> CaptureManager capture<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> DecoratedBarcodeView barcodeScannerView<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> ImageButton switchFlashlightButton<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> ViewfinderView viewfinderView<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span>Bundle savedInstanceState<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span>savedInstanceState<span style="color:#f92672">);</span>
+
+        setContentView<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">activity_zxing</span><span style="color:#f92672">);</span> <span style="color:#75715e">// 指定扫码界面布局
+</span><span style="color:#75715e"></span>        barcodeScannerView <span style="color:#f92672">=</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">zxing_barcode_scanner</span><span style="color:#f92672">);</span>
+        barcodeScannerView<span style="color:#f92672">.</span><span style="color:#a6e22e">setTorchListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>
+        switchFlashlightButton <span style="color:#f92672">=</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">switch_flashlight</span><span style="color:#f92672">);</span>
+        switchFlashlightButton<span style="color:#f92672">.</span><span style="color:#a6e22e">setTag</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">tag_off</span><span style="color:#f92672">);</span> <span style="color:#75715e">//给按钮设置 Tag 判断闪光灯的开关状态 默认为 off
+</span><span style="color:#75715e"></span>        viewfinderView <span style="color:#f92672">=</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">zxing_viewfinder_view</span><span style="color:#f92672">);</span>
+        viewfinderView<span style="color:#f92672">.</span><span style="color:#a6e22e">setLaserVisibility</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">// remove button when devices have no flashlight
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>hasFlash<span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            switchFlashlightButton<span style="color:#f92672">.</span><span style="color:#a6e22e">setVisibility</span><span style="color:#f92672">(</span>View<span style="color:#f92672">.</span><span style="color:#a6e22e">GONE</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+
+        capture <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CaptureManager<span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> barcodeScannerView<span style="color:#f92672">);</span>
+        capture<span style="color:#f92672">.</span><span style="color:#a6e22e">initializeFromIntent</span><span style="color:#f92672">(</span>getIntent<span style="color:#f92672">(),</span> savedInstanceState<span style="color:#f92672">);</span>
+        capture<span style="color:#f92672">.</span><span style="color:#a6e22e">setShowMissingCameraPermissionDialog</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+        capture<span style="color:#f92672">.</span><span style="color:#a6e22e">decode</span><span style="color:#f92672">();</span>
+
+<span style="color:#75715e">//        viewfinderView.setMaskColor(Color.argb(100, 15, 194, 76));
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+  
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onResume</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onResume</span><span style="color:#f92672">();</span>
+        capture<span style="color:#f92672">.</span><span style="color:#a6e22e">onResume</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onPause</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onPause</span><span style="color:#f92672">();</span>
+        capture<span style="color:#f92672">.</span><span style="color:#a6e22e">onPause</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onDestroy</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onDestroy</span><span style="color:#f92672">();</span>
+        capture<span style="color:#f92672">.</span><span style="color:#a6e22e">onDestroy</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onSaveInstanceState</span><span style="color:#f92672">(</span>Bundle outState<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onSaveInstanceState</span><span style="color:#f92672">(</span>outState<span style="color:#f92672">);</span>
+        capture<span style="color:#f92672">.</span><span style="color:#a6e22e">onSaveInstanceState</span><span style="color:#f92672">(</span>outState<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onRequestPermissionsResult</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> requestCode<span style="color:#f92672">,</span> <span style="color:#a6e22e">@NonNull</span> String permissions<span style="color:#f92672">[],</span> <span style="color:#a6e22e">@NonNull</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> grantResults<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        capture<span style="color:#f92672">.</span><span style="color:#a6e22e">onRequestPermissionsResult</span><span style="color:#f92672">(</span>requestCode<span style="color:#f92672">,</span> permissions<span style="color:#f92672">,</span> grantResults<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">onKeyDown</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> keyCode<span style="color:#f92672">,</span> KeyEvent event<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> barcodeScannerView<span style="color:#f92672">.</span><span style="color:#a6e22e">onKeyDown</span><span style="color:#f92672">(</span>keyCode<span style="color:#f92672">,</span> event<span style="color:#f92672">)</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onKeyDown</span><span style="color:#f92672">(</span>keyCode<span style="color:#f92672">,</span> event<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onTorchOn</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        switchFlashlightButton<span style="color:#f92672">.</span><span style="color:#a6e22e">setImageResource</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">drawable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ic_iconmonstr_light_on_17</span><span style="color:#f92672">);</span>
+        switchFlashlightButton<span style="color:#f92672">.</span><span style="color:#a6e22e">setTag</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">tag_on</span><span style="color:#f92672">);</span> <span style="color:#75715e">// 闪光灯开 修改 tag 状态
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onTorchOff</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        switchFlashlightButton<span style="color:#f92672">.</span><span style="color:#a6e22e">setImageResource</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">drawable</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ic_iconmonstr_light_off_17</span><span style="color:#f92672">);</span>
+        switchFlashlightButton<span style="color:#f92672">.</span><span style="color:#a6e22e">setTag</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">tag_off</span><span style="color:#f92672">);</span><span style="color:#75715e">// 闪光灯关 修改 tag 状态
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 判斷是否有閃光燈
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">hasFlash</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> getApplicationContext<span style="color:#f92672">().</span><span style="color:#a6e22e">getPackageManager</span><span style="color:#f92672">().</span><span style="color:#a6e22e">hasSystemFeature</span><span style="color:#f92672">(</span>PackageManager<span style="color:#f92672">.</span><span style="color:#a6e22e">FEATURE_CAMERA_FLASH</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 閃光燈控制
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">switchFlashlight</span><span style="color:#f92672">(</span>View view<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#75715e">// 根据tag 判断闪光灯开关状态
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">((</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span>switchFlashlightButton<span style="color:#f92672">.</span><span style="color:#a6e22e">getTag</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">tag_off</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            barcodeScannerView<span style="color:#f92672">.</span><span style="color:#a6e22e">setTorchOn</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            barcodeScannerView<span style="color:#f92672">.</span><span style="color:#a6e22e">setTorchOff</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 返回
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">activityBack</span><span style="color:#f92672">(</span>View view<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">finish</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><ol start="5">
+<li>使用自定义 <code>activity</code></li>
+</ol>
+<ul>
+<li>在 <code>Activity</code> 中</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ScanActivity</span> <span style="color:#66d9ef">extends</span> AppCompatActivity <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> TextView textView<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@Nullable</span> Bundle savedInstanceState<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      
+        <span style="color:#f92672">...</span>
+
+        IntentIntegrator intentIntegrator <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IntentIntegrator<span style="color:#f92672">((</span><span style="color:#66d9ef">this</span><span style="color:#f92672">));</span>
+        intentIntegrator<span style="color:#f92672">.</span><span style="color:#a6e22e">setCaptureActivity</span><span style="color:#f92672">(</span>MyCaptureActivity<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+        intentIntegrator<span style="color:#f92672">.</span><span style="color:#a6e22e">setOrientationLocked</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span> <span style="color:#75715e">// 开启竖屏扫码支持
+</span><span style="color:#75715e"></span>        intentIntegrator<span style="color:#f92672">.</span><span style="color:#a6e22e">initiateScan</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 重写方法接收结果
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onActivityResult</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> requestCode<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> resultCode<span style="color:#f92672">,</span> <span style="color:#a6e22e">@Nullable</span> Intent data<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        IntentResult result <span style="color:#f92672">=</span> IntentIntegrator<span style="color:#f92672">.</span><span style="color:#a6e22e">parseActivityResult</span><span style="color:#f92672">(</span>requestCode<span style="color:#f92672">,</span> resultCode<span style="color:#f92672">,</span> data<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>result <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>result<span style="color:#f92672">.</span><span style="color:#a6e22e">getContents</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                textView<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">.</span><span style="color:#a6e22e">scan_error</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                textView<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span>result<span style="color:#f92672">.</span><span style="color:#a6e22e">getContents</span><span style="color:#f92672">());</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>result<span style="color:#f92672">.</span><span style="color:#a6e22e">getContents</span><span style="color:#f92672">());</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onActivityResult</span><span style="color:#f92672">(</span>requestCode<span style="color:#f92672">,</span> resultCode<span style="color:#f92672">,</span> data<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>在 <code>Fragment</code> 中</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">IntentIntegrator intentIntegrator <span style="color:#f92672">=</span> IntentIntegrator<span style="color:#f92672">.</span><span style="color:#a6e22e">forSupportFragment</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>
+intentIntegrator<span style="color:#f92672">.</span><span style="color:#a6e22e">setCaptureActivity</span><span style="color:#f92672">(</span>MyCaptureActivity<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+intentIntegrator<span style="color:#f92672">.</span><span style="color:#a6e22e">setOrientationLocked</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+intentIntegrator<span style="color:#f92672">.</span><span style="color:#a6e22e">initiateScan</span><span style="color:#f92672">();</span>
+
+<span style="color:#75715e">// 然后重写 onActivityResult 方法接受参数
+</span></code></pre></div><ol start="6">
+<li>效果</li>
+</ol>
+<p><img src="https://i.loli.net/2020/11/28/Jn8iyz1SEd47vkN.jpg" alt="screenshot.png"></p>
+<h2 id="绝对布局与线性布局">绝对布局与线性布局</h2>
+<h2 id="圆角与阴影">圆角与阴影</h2>
+<h2 id="自定义-actionbar">自定义 <code>ActionBar</code></h2>
+<ol>
+<li>页面布局</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;RelativeLayout</span> <span style="color:#a6e22e">xmlns:android=</span><span style="color:#e6db74">&#34;http://schemas.android.com/apk/res/android&#34;</span>
+    <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;match_parent&#34;</span>
+    <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;?attr/actionBarSize&#34;</span><span style="color:#f92672">&gt;</span>
+
+
+    <span style="color:#f92672">&lt;ImageButton</span>
+        <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/icon_back&#34;</span>
+        <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        <span style="color:#a6e22e">android:layout_alignParentStart=</span><span style="color:#e6db74">&#34;true&#34;</span>
+        <span style="color:#a6e22e">android:layout_centerVertical=</span><span style="color:#e6db74">&#34;true&#34;</span>
+        <span style="color:#a6e22e">android:src=</span><span style="color:#e6db74">&#34;@drawable/ic_arrow_back_24&#34;</span>
+        <span style="color:#a6e22e">android:background=</span><span style="color:#e6db74">&#34;@color/transparent&#34;</span>
+        <span style="color:#a6e22e">android:onClick=</span><span style="color:#e6db74">&#34;activityBack&#34;</span><span style="color:#f92672">/&gt;</span>
+
+    <span style="color:#f92672">&lt;TextView</span>
+        <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/action_bar_ti&#34;</span>
+        <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        <span style="color:#a6e22e">android:layout_centerInParent=</span><span style="color:#e6db74">&#34;true&#34;</span>
+        <span style="color:#a6e22e">android:text=</span><span style="color:#e6db74">&#34;@string/title_home&#34;</span>
+        <span style="color:#a6e22e">android:textColor=</span><span style="color:#e6db74">&#34;@color/white&#34;</span>
+        <span style="color:#a6e22e">android:textSize=</span><span style="color:#e6db74">&#34;18sp&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+    <span style="color:#f92672">&lt;ImageButton</span>
+        <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/icon_qr&#34;</span>
+        <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+        <span style="color:#a6e22e">android:layout_alignParentEnd=</span><span style="color:#e6db74">&#34;true&#34;</span>
+        <span style="color:#a6e22e">android:layout_centerVertical=</span><span style="color:#e6db74">&#34;true&#34;</span>
+        <span style="color:#a6e22e">android:background=</span><span style="color:#e6db74">&#34;@color/transparent&#34;</span>
+        <span style="color:#a6e22e">android:src=</span><span style="color:#e6db74">&#34;@drawable/ic_baseline_qr_code_24&#34;</span>
+        <span style="color:#a6e22e">android:onClick=</span><span style="color:#e6db74">&#34;qrScan&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/RelativeLayout&gt;</span>
+</code></pre></div><ol start="2">
+<li>在 <code>Activity</code> 中开启自定义支持，并指定布局</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Objects<span style="color:#f92672">.</span><span style="color:#a6e22e">requireNonNull</span><span style="color:#f92672">(</span>getSupportActionBar<span style="color:#f92672">()).</span><span style="color:#a6e22e">setDisplayOptions</span><span style="color:#f92672">(</span>ActionBar<span style="color:#f92672">.</span><span style="color:#a6e22e">DISPLAY_SHOW_CUSTOM</span><span style="color:#f92672">);</span>
+getSupportActionBar<span style="color:#f92672">().</span><span style="color:#a6e22e">setCustomView</span><span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">style_action_bar_page</span><span style="color:#f92672">);</span>
+TextView view <span style="color:#f92672">=</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">action_bar_ti</span><span style="color:#f92672">);</span>
+view<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span>title<span style="color:#f92672">)</span>
+</code></pre></div><ol start="3">
+<li>效果</li>
+</ol>
+<p><img src="https://i.loli.net/2020/11/28/7VoCYB3vDQUPqZp.jpg" alt="2.png"></p>
+<h2 id="okhttp3-与-retrofit"><code>Okhttp3</code> 与 <code>Retrofit</code></h2>
+<pre><code>
+</code></pre>
+<br>
+<footer>
+    
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/note/2019/08/23/tutorial-of-manjaro-docker/">📦⚓️Manjaro Docker 用法</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="/js/math-code.js"></script>
+
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+     
+    color: #EE7700;
+}
+</style>
+<script async src="/js/center-img.js"></script>
+
+    
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/tex.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/go.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/powershell.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/bash.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/rust.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/c#.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/java.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/c.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/cpp.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+   
+   <br>
+   <span id="/note/2020/11/30/android-tips/" class="leancloud_visitors" data-flag-title="🤖️Android-Tips">
+     
+     <p></p>
+   </span>
+   <div id="vcomments"></div>
+   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+   <script type="text/javascript">
+     new Valine({
+         el: '#vcomments' ,
+         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
+         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
+         notify:  false , 
+         verify:  false , 
+         avatar:'monsterid', 
+         placeholder: '说点什么呗~',
+         visitor:  false 
+     });
+   </script>
+
+
+
+  <hr>
+  <div class="copyright">© <a href="https://blog.mygoooosh.com">DG</a> Since 2016 | <a href="https://github.com/muggleL">Github</a> | <a href="https://twitter.com/Modu_Chanyu6">Twitter</a> | Theme By <a href="https://yihui.name">Yihui Xie</a> | <a href="/index.xml">RSS</a> Feed</div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
+   

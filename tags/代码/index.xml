@@ -6,7 +6,16 @@
     <description>Recent content in 代码 on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mygoooosh.com/tags/%E4%BB%A3%E7%A0%81/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mygoooosh.com/tags/%E4%BB%A3%E7%A0%81/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🤖️Android-Tips</title>
+      <link>https://blog.mygoooosh.com/note/2020/11/30/android-tips/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.mygoooosh.com/note/2020/11/30/android-tips/</guid>
+      <description>Activity 绑定 Fragment public stativ void main() { } Fragment 跳转到 Activity  在 Fragment 配置跳转和跳转参数  Intent intent = new Intent(getActivity(), HomeActivity.class); Bundle bundle = new Bundle(); bundle.putSerializable(&amp;#34;pageFlag&amp;#34;, homePageWidgets.get(position).getFlag()); // 装载可以序列化的类型 bundle.putInt(&amp;#34;title&amp;#34;, homePageWidgets.get(position).getNameId()); // 装载 int intent.putExtras(bundle); startActivity(intent); 在 Activity 中接收跳转参数  Intent intent = getIntent(); Bundle bundle = intent.getExtras(); PageFlag PageFlag = (PageFlag) bundle.getSerializable(&amp;#34;pageFlag&amp;#34;); int title = bundle.getInt(&amp;#34;title&amp;#34;); GridView 使用  layout 中添加 GridView 标签  &amp;lt;GridView android:id=&amp;#34;@+id/grid_view_account&amp;#34; android:layout_marginTop=&amp;#34;10dp&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; tools:listitem=&amp;#34;@layout/item_account_grid_view&amp;#34;/&amp;gt; &amp;lt;!</description>
+    </item>
+    
     <item>
       <title>🦝C-Sharp 笔记</title>
       <link>https://blog.mygoooosh.com/post/2020/c-sharp-note/</link>
