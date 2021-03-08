@@ -6,14 +6,18 @@
     <description>Recent content in 折腾 on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mygoooosh.com/tags/%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.mygoooosh.com/tags/%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>🍓树莓派 mongodb-for-docker 配置</title>
       <link>https://blog.mygoooosh.com/post/2019/mongodb-docker-for-respi/</link>
       <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://blog.mygoooosh.com/post/2019/mongodb-docker-for-respi/</guid>
-      <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth 创建数据库管理员 docker exec -it rmongo mongo admin db.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]}) 创建数据库与数据库用户 use images db.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] }) 重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;)  验证 image  use images db.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;) 数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank  恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
+      <description>数据库基础配置 启动 docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth创建数据库管理员 docker exec -it rmongo mongo admindb.createUser({user: &amp;#34;admin&amp;#34;, pwd: &amp;#34;password&amp;#34;, roles: [{role: &amp;#34;userAdminAnyDatabase&amp;#34;, db: &amp;#34;admin&amp;#34;}]})创建数据库与数据库用户 use imagesdb.createUser({ user: &amp;#34;image&amp;#34;, pwd: &amp;#34;yourpassword&amp;#34;, roles: [{ role: &amp;#34;dbOwner&amp;#34;, db: &amp;#34;images&amp;#34; }] })重启容器 验证用户  验证 admin  db.auth(&amp;#34;admin&amp;#34;, &amp;#34;password&amp;#34;) 验证 image  use imagesdb.auth(&amp;#34;image&amp;#34;, &amp;#34;password&amp;#34;)数据库备份与恢复  备份  docker exec rmongo mongodump --username image --password 12134 --authenticationDatabase images -d images -h localhost -o /bank 恢复  docker exec rmongo mongorestore --username image --password 12134 --authenticationDatabase images /bank </description>
     </item>
     
     <item>
@@ -24,8 +28,8 @@
       <guid>https://blog.mygoooosh.com/post/2019/windows-mklink/</guid>
       <description>　Linux 可以通过 ln 来创建硬链接和软链接，Windows 也可以右键创建快捷方式。但是 Windows 的 shortcut 只能通过鼠标点击访问，和软/硬链接差别还是挺大的。在这我记录一下 Windows 创建软/硬链接的方式。
 fsutil 硬链接 这个只适用于 NTFS 文件系统
-fsutil hardlink create NewFileName ExistingFileName MKLINK 这是 cmd 自带命令， 一定要切换到 cmd 下
-为目录创建软链接 MKLINK /D NewFolder ExistingFolder 文件硬链接 MKLINK /H NewFile ExistingFile  硬链接只针对文件，不针对文件夹
+fsutil hardlink create NewFileName ExistingFileNameMKLINK 这是 cmd 自带命令， 一定要切换到 cmd 下
+为目录创建软链接 MKLINK /D NewFolder ExistingFolder文件硬链接 MKLINK /H NewFile ExistingFile 硬链接只针对文件，不针对文件夹
  </description>
     </item>
     
@@ -36,7 +40,7 @@ fsutil hardlink create NewFileName ExistingFileName MKLINK 这是 cmd 自带命�
       
       <guid>https://blog.mygoooosh.com/post/2017/linux-grub-rescue/</guid>
       <description>昨天，微软推送了win10的秋季大更新，我也及时接收了。但在更新重启时，正常的grub引导界面进不去了。屏幕上只出现
-grub rescue &amp;gt; 根据百度的方法
+grub rescue &amp;gt;根据百度的方法
 grub rescue &amp;gt; lsgrub rescue &amp;gt; (hd0),(hd0,gpt5),(hd0,gpt4),(hd0,gpt3),(hd0,gpt2),(hd0,gpt1),(hd1)(....) 我明明记得第一个硬盘只有四个分区（efi，windows保留分区，win10系统分区，manjaro系统分区），这会儿怎么出现五个，应该是微软搞的鬼。接下来弄清楚grub到底在那个分区。
 执行
 grub rescue &amp;gt; ls (hd0,gpt5)/boot/grubgrub rescue &amp;gt; .....如果系统在gtp5的话，它会列出对应的文件，如果不在就会报错。一个一个试。
@@ -70,19 +74,19 @@ sudo update-grubsudo grub-install /dev/sdasudo reboot还有一种思路，启
       <guid>https://blog.mygoooosh.com/post/2017/manjaro-feeluown/</guid>
       <description>2017/12更新 当网易云正式版更新后，完全可以即装即用。此文作废.
 以下原文: 手贱把系统换成arch linux系的manjaro了 网易云作为必不可少的软件，首先我考虑的是arch官方库里的netease-cloud-music,安装过程也很顺利。
-$ sudo pacman -S netease-cloud-music 很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在进程里也能查到网易云的进程。来来折腾了几回后，只能放弃之。。
+$ sudo pacman -S netease-cloud-music很不幸的是，事情远没有那么简单。安装好了却怎么都打不开，在进程里也能查到网易云的进程。来来折腾了几回后，只能放弃之。。
 通过某度发现了基于Python3的第三方网易云音乐feeluown。
 根据作者提供的信息，通过pip运行（我的pip是Python3的pip）。
-$ sudo pip install felluown 按照作者的说的方法解决依赖。
-$ feeluown-install-dev 但因为作者用的的系统是debian系，用的是&amp;quot;apt-get&amp;quot;。所以返回的是&amp;quot;apt-get notfound&amp;quot;。
+$ sudo pip install felluown按照作者的说的方法解决依赖。
+$ feeluown-install-dev但因为作者用的的系统是debian系，用的是&amp;quot;apt-get&amp;rdquo;。所以返回的是&amp;quot;apt-get notfound&amp;rdquo;。
 在作者的 issues 中，得知在arch的软件仓库中有feeluown（不得不感叹AUR的强大)。
 于是
-$ yaourt -S feeluown 但不幸的是 有一个依赖 &amp;ldquo;python-quamash&amp;quot;总是安装失败，导致编译失败。 我尝试着用pip安装这个python包
-$ sudo pip install quamash Requirement already satisfied: quamash in ./anaconda3/lib/python3.6/site-packages 什么？？ quamash不是存在么？？ 难道是anaconda自带的 软件用不了？？ 好吧，修改 .bashrc文件，注释掉
-#export PATH=&amp;#34;/home/ss/anaconda3/bin:$PATH 然后再用 yaourt编译安装Python-quamash。
-$ yaourt -S python-quamash 没有遇到错误。 然后
-$ yaourt -S felluown 因为依赖解决了，所以也成功装上了。 点开feeluown图标。弹出的是一个黑色的框。只有几个控制按钮，最最重要的是，点遍全屏也找不到登录按钮，完全没法用。只能卸载
-$ yaourt -R feeluown  现在依赖问题解决了，何不回到开始用pip试试呢？ 安装Python3的pip</description>
+$ yaourt -S feeluown但不幸的是 有一个依赖 &amp;ldquo;python-quamash&amp;quot;总是安装失败，导致编译失败。 我尝试着用pip安装这个python包
+$ sudo pip install quamashRequirement already satisfied: quamash in ./anaconda3/lib/python3.6/site-packages什么？？ quamash不是存在么？？ 难道是anaconda自带的 软件用不了？？ 好吧，修改 .bashrc文件，注释掉
+#export PATH=&amp;#34;/home/ss/anaconda3/bin:$PATH然后再用 yaourt编译安装Python-quamash。
+$ yaourt -S python-quamash没有遇到错误。 然后
+$ yaourt -S felluown因为依赖解决了，所以也成功装上了。 点开feeluown图标。弹出的是一个黑色的框。只有几个控制按钮，最最重要的是，点遍全屏也找不到登录按钮，完全没法用。只能卸载
+$ yaourt -R feeluown 现在依赖问题解决了，何不回到开始用pip试试呢？ 安装Python3的pip</description>
     </item>
     
   </channel>

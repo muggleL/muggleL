@@ -6,7 +6,11 @@
     <description>Recent content in Drafts on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 23 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.mygoooosh.com/draft/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.mygoooosh.com/draft/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>📓Draft Test</title>
       <link>https://blog.mygoooosh.com/draft/draft-test/</link>
