@@ -494,3 +494,8 @@ thead, tfoot, tr:nth-child(even) {
   }
 
 }
+
+/*theme switcher*/
+#change-theme {
+  margin-left: 1em;
+}

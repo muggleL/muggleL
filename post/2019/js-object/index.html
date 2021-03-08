@@ -119,11 +119,12 @@
       
         if (window.localStorage.getItem("dark") === "true") {
           dark.checked = true;
+        } else {
+          light_b.checked = true;
         }
       
         dark.addEventListener("click", e => {
           let dar = window.localStorage.getItem("dark");
-          console.log(dar)
           if (dar == "false") {
             window.localStorage["dark"] = true;
             light.href = "/css/style-dark.css";
@@ -132,7 +133,6 @@
       
         light_b.addEventListener("click", e => {
           let dar = window.localStorage.getItem("dark");
-          console.log(dar)
           if (dar == "true") {
             window.localStorage["dark"] = false;
             light.href = "/css/style.css";
