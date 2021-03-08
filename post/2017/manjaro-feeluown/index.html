@@ -43,9 +43,22 @@
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
 
+    <script>
+      let da = window.localStorage.getItem("dark");
+      let light = document.getElementById("themes");
+
+    if(da == null) {
+        window.localStorage.setItem("dark", false);
+        da = "false";
+
+    }
+    if(da == "true") {
+        light.href = "/css/style-dark.css"; 
+    }
+    </script>
   </head>
-  <input type="radio" name="theme" id="dark"> <label>暗色</label>
-  <input type="radio" name="theme" id="light"> <label>亮色</label>
+  <input type="radio" name="theme" id="dark"> <label>暗色主题</label>
+  <input type="radio" name="theme" id="light"> <label>亮色主题</label>
   
   <body class="https://blog.mygoooosh.com/post/2017/manjaro-feeluown/">
     <header class="masthead">
@@ -98,6 +111,33 @@
 
 
 
+      <script>
+        let dark = document.getElementById("dark")
+        let light_b = document.getElementById("light")
+      
+        if (window.localStorage.getItem("dark") === "true") {
+          dark.checked = true;
+        }
+      
+        dark.addEventListener("click", e => {
+          let dar = window.localStorage.getItem("dark");
+          console.log(dar)
+          if (dar == "false") {
+            window.localStorage["dark"] = true;
+            light.href = "/css/style-dark.css";
+          }
+        })
+      
+        light_b.addEventListener("click", e => {
+          let dar = window.localStorage.getItem("dark");
+          console.log(dar)
+          if (dar == "true") {
+            window.localStorage["dark"] = false;
+            light.href = "/css/style-dark.css";
+      
+          }
+        })
+      </script>
       </header>
 
 
