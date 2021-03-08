@@ -439,7 +439,7 @@ thead, tfoot, tr:nth-child(even) {
       text-align: left;
     }
 #local-search-input {
-  font-weight: bold;
+  font-weight: normal;
   font-size: 18px;
   margin-left: 15%;
   background-color: #202b38;
