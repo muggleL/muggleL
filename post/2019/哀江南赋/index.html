@@ -136,6 +136,9 @@
         
         
         let switcher = document.getElementsByClassName("switch")[0]
+        if (da == "false") {
+          switcher.checked = true;
+        }
         switcher.addEventListener("change", e => {
           if (switcher.checked == true) {
             light.href = "/css/style.css";

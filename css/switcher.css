@@ -5,20 +5,13 @@
     -moz-appearance: none;
     position: relative;
     width: 40px;
-    height: 20px;
-    background: #ccc;
-    border-radius: 10px;
+    height: auto;
     transition: border-color .3s, background-color .3s;
 }
 
 input[type='checkbox'].switch::after {
     content: '🌓';
     display: inline-block;
-    width: 1rem;
-    height:1rem;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0, 0, 2px, #999;
     transition:.4s;
     top: 2px;
     position: absolute;
@@ -34,3 +27,4 @@ input[type='checkbox'].switch:checked::after {
     left: 55%;
     top: 2px;
 }
+

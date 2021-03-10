@@ -140,6 +140,9 @@ Linux 用 crontab 定时任务一定要用绝对路径。
         
         
         let switcher = document.getElementsByClassName("switch")[0]
+        if (da == "false") {
+          switcher.checked = true;
+        }
         switcher.addEventListener("change", e => {
           if (switcher.checked == true) {
             light.href = "/css/style.css";
