@@ -1,0 +1,1 @@
+/home/ss/Git/blog_file/themes/hugo-ivy/static/css/style.css

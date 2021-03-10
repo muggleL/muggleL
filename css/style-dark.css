@@ -5,7 +5,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   box-sizing: border-box;
-    color:#dbdbdb;
+  color:#dbdbdb;
 }
 
 *, *:before, *:after {
@@ -79,7 +79,7 @@ text-indent: 0;
 }
 pre code {
   display: block;
-  border: 1px solid#202b38
+  border: 1px solid#202b38;
   box-shadow: 5px 5px 5px #202b38;
   padding: 1em;
   overflow-x: auto;
