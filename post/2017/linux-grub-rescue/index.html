@@ -42,6 +42,7 @@ grub rescue &amp;gt; lsgrub rescue &amp;gt; &amp;hellip;">
     <link rel="stylesheet" href="/css/style-dark.css" />
     <link rel="stylesheet" id="themes" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/switcher.css" />
     <link rel="stylesheet" href="/css/custom.css" />
 
     <script>
@@ -59,8 +60,8 @@ grub rescue &amp;gt; lsgrub rescue &amp;gt; &amp;hellip;">
     </script>
   </head>
 <div id="change-theme">
-  <input type="radio" name="theme" id="dark"> <label>🌓</label>
-  <input type="radio" name="theme" id="light"> <label>☀️</label>
+
+   <input type="checkbox" class="switch"/>
 </div>
   
   <body class="https://blog.mygoooosh.com/post/2017/linux-grub-rescue/">
@@ -115,29 +116,40 @@ grub rescue &amp;gt; lsgrub rescue &amp;gt; &amp;hellip;">
 
 
       <script>
-        let dark = document.getElementById("dark")
-        let light_b = document.getElementById("light")
+        
+        
       
-        if (window.localStorage.getItem("dark") === "true") {
-          dark.checked = true;
-        } else {
-          light_b.checked = true;
-        }
+        
+        
+        
+        
+        
       
-        dark.addEventListener("click", e => {
-          let dar = window.localStorage.getItem("dark");
-          if (dar == "false") {
-            window.localStorage["dark"] = true;
-            light.href = "/css/style-dark.css";
-          }
-        })
+        
+        
+        
+        
+        
+        
+        
       
-        light_b.addEventListener("click", e => {
-          let dar = window.localStorage.getItem("dark");
-          if (dar == "true") {
-            window.localStorage["dark"] = false;
+        
+        
+        
+        
+        
+      
+        
+        
+        let switcher = document.getElementsByClassName("switch")[0]
+        switcher.addEventListener("change", e => {
+          if (switcher.checked == true) {
             light.href = "/css/style.css";
-      
+            window.localStorage["dark"] = false;
+
+          } else {
+            light.href = "/css/style-dark.css";
+            window.localStorage["dark"] = true;
           }
         })
       </script>
