@@ -182,8 +182,8 @@ $ git commit -m <span style="color:#e6db74">&#34;add readme.txt&#34;</span>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git status
 On branch master
 Changes not staged <span style="color:#66d9ef">for</span> commit:
-<span style="color:#f92672">(</span>use <span style="color:#e6db74">&#34;git add &amp;lt;file&amp;gt;...&#34;</span> to update what will be committed<span style="color:#f92672">)</span>
-<span style="color:#f92672">(</span>use <span style="color:#e6db74">&#34;git checkout -- &amp;lt;file&amp;gt;...&#34;</span> to discard changes in working directory<span style="color:#f92672">)</span>
+<span style="color:#f92672">(</span>use <span style="color:#e6db74">&#34;git add file...&#34;</span> to update what will be committed<span style="color:#f92672">)</span>
+<span style="color:#f92672">(</span>use <span style="color:#e6db74">&#34;git checkout -- file...&#34;</span> to discard changes in working directory<span style="color:#f92672">)</span>
 
 modified:   readme.txt
 
@@ -254,7 +254,23 @@ Date:   Wed Jan <span style="color:#ae81ff">31</span> 19:25:17 <span style="colo
 </blockquote>
 <h2 id="分支">分支</h2>
 <h3 id="创建分支">创建分支</h3>
-<p>待续&hellip;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git branch branch-name
+$ git switch -c branch-name <span style="color:#75715e">#switch -c 如果分支不存在则创建分支</span>
+$ git checkout -c branch-name
+</code></pre></div><h3 id="切换分支">切换分支</h3>
+<pre><code>$ git switch branch-name
+$ git checkout branch-name
+</code></pre><h3 id="分支合并">分支合并</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git merge dev <span style="color:#75715e">#当前分支是 master 将dev分支合并到 master 上</span>
+</code></pre></div><h3 id="删除分支">删除分支</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git branch -d dev
+</code></pre></div><h3 id="查看分支">查看分支</h3>
+<pre><code class="language-git" data-lang="git">$ git branch
+* dev
+  master
+</code></pre><blockquote>
+<p><a href="https://blog.mygoooosh.com/post/2021/git-diffrent-remote-for-each-branch/">不同分支提交到不同服务器</a></p>
+</blockquote>
 
 <br>
 <footer>

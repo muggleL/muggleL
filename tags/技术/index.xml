@@ -22,7 +22,7 @@ $ git config --global user.name &amp;#34;Your Name&amp;#34;$ git config --globa
 新建一个版本库 $ mkdir mygit$ cd mygit$ git init添加文件 假如你在本目录下添加了一个叫readme.txt的文件
 $ git add readme.txt$ git commit -m &amp;#34;add readme.txt&amp;#34;commit -m后面的参数为此次修改的提交说明.
 提交修改后的文件 查看状态 如果你修改了redme.txt运行git status
-$ git statusOn branch masterChanges not staged for commit:(use &amp;#34;git add &amp;amp;lt;file&amp;amp;gt;...&amp;#34; to update what will be committed)(use &amp;#34;git checkout -- &amp;amp;lt;file&amp;amp;gt;.</description>
+$ git statusOn branch masterChanges not staged for commit:(use &amp;#34;git add file...&amp;#34; to update what will be committed)(use &amp;#34;git checkout -- file.</description>
     </item>
     
   </channel>

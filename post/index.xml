@@ -18,23 +18,8 @@
       
       <guid>https://blog.mygoooosh.com/post/2021/git-diffrent-remote-for-each-branch/</guid>
       <description>参考 Git - Different Remote for each Branch
- 创建不通分支 git branch -c dev 给不同分支绑定不同远程仓库 git remote add origin https://git.mygoooosh.com/MyGoooosh/just4test.git git remote add dev https://github.com/muggleL/just4test.git 此时的 .git/config 文件：
+ 创建不同分支 git branch -c dev 给不同分支绑定不同远程仓库 git remote add origin https://git.mygoooosh.com/MyGoooosh/just4test.git git remote add dev https://github.com/muggleL/just4test.git 此时的 .git/config 文件：
 [core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true [remote &amp;quot;origin&amp;quot;] url = https://git.mygoooosh.com/MyGoooosh/just4test.git fetch = +refs/heads/*:refs/remotes/origin/* [remote &amp;quot;dev&amp;quot;] url = https://github.com/muggleL/just4test.git fetch = +refs/heads/*:refs/remotes/dev/* 提交 master 分支 git switch master git push origin master #将 origin 添加到 mygoooosh.</description>
-    </item>
-    
-    <item>
-      <title>🦝C-Sharp 笔记</title>
-      <link>https://blog.mygoooosh.com/post/2020/c-sharp-note/</link>
-      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.mygoooosh.com/post/2020/c-sharp-note/</guid>
-      <description>C# 笔记 第一章 C# 的基本数据类型 C# 代码示例 use system namespace Testtttttt { class ForTest { public static void main() { Console.WriteLine(&amp;#34;Hello world!&amp;#34;); } } } C#的特点   第一条
-  第二点
-  第三点
-  比如
-  比如
-  比如
-    C# 与 Java 的比较    Feature Java C#     继承 👍 👍   封装 👍 👎   多态 👎 👎     参考文献</description>
     </item>
     
     <item>
@@ -240,7 +225,7 @@ $ git config --global user.name &amp;#34;Your Name&amp;#34;$ git config --globa
 新建一个版本库 $ mkdir mygit$ cd mygit$ git init添加文件 假如你在本目录下添加了一个叫readme.txt的文件
 $ git add readme.txt$ git commit -m &amp;#34;add readme.txt&amp;#34;commit -m后面的参数为此次修改的提交说明.
 提交修改后的文件 查看状态 如果你修改了redme.txt运行git status
-$ git statusOn branch masterChanges not staged for commit:(use &amp;#34;git add &amp;amp;lt;file&amp;amp;gt;...&amp;#34; to update what will be committed)(use &amp;#34;git checkout -- &amp;amp;lt;file&amp;amp;gt;.</description>
+$ git statusOn branch masterChanges not staged for commit:(use &amp;#34;git add file...&amp;#34; to update what will be committed)(use &amp;#34;git checkout -- file.</description>
     </item>
     
     <item>
