@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>🦝C-Sharp 笔记 - Muggle L</title>
-    <meta property="og:title" content="🦝C-Sharp 笔记 - Muggle L">
+    <title>👩🏻‍🏫git 不同分支代提交到不同服务器 - Muggle L</title>
+    <meta property="og:title" content="👩🏻‍🏫git 不同分支代提交到不同服务器 - Muggle L">
     
     <meta name="twitter:card" content="summary">
 
@@ -16,16 +16,10 @@
 
     
       
-      <meta property="description" content="use system namespace Testtttttt { class ForTest { public static void main() { Console.WriteLine(&amp;#34;Hello world!&amp;#34;); } } } C#的特点   第一条
-[&amp;hellip;] 第二点
-[&amp;hellip;] 第三点
-[&amp;hellip;] 比如
-[&amp;hellip;] &amp;hellip;">
-      <meta property="og:description" content="use system namespace Testtttttt { class ForTest { public static void main() { Console.WriteLine(&amp;#34;Hello world!&amp;#34;); } } } C#的特点   第一条
-[&amp;hellip;] 第二点
-[&amp;hellip;] 第三点
-[&amp;hellip;] 比如
-[&amp;hellip;] &amp;hellip;">
+      <meta property="description" content="参考 Git - Different Remote for each Branch
+[&amp;hellip;] git branch -c dev 给不同分支绑定不同远程仓库 git remote add origin https://git.mygoooosh.com/MyGoooosh/just4test.git git remote add dev &amp;hellip;">
+      <meta property="og:description" content="参考 Git - Different Remote for each Branch
+[&amp;hellip;] git branch -c dev 给不同分支绑定不同远程仓库 git remote add origin https://git.mygoooosh.com/MyGoooosh/just4test.git git remote add dev &amp;hellip;">
       
     
 
@@ -68,7 +62,7 @@
    <input type="checkbox" class="switch"/>
 </div>
   
-  <body class="https://blog.mygoooosh.com/post/2020/c-sharp-note/">
+  <body class="https://blog.mygoooosh.com/post/2021/git-diffrent-remote-for-each-branch/">
     <header class="masthead">
       <h1><a href="/">Muggle L</a></h1>
 
@@ -111,10 +105,10 @@
       
 
 
-<h1>🦝C-Sharp 笔记</h1>
+<h1>👩🏻‍🏫git 不同分支代提交到不同服务器</h1>
 
 <h3>DG
-  /  2020-11-05</h3>
+  /  2021-04-05</h3>
 <hr>
 
 
@@ -167,77 +161,40 @@
 
 
 
-<h1 id="c-笔记">C# 笔记</h1>
-<h2 id="第一章-c-的基本数据类型">第一章 C# 的基本数据类型</h2>
-<h3 id="c-代码示例">C# 代码示例</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">use system
-<span style="color:#66d9ef">namespace</span> Testtttttt {
-    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ForTest</span> {
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> main() {
-            Console.WriteLine(<span style="color:#e6db74">&#34;Hello world!&#34;</span>);
-        }
-    }
-}
-</code></pre></div><h3 id="c的特点">C#的特点</h3>
-<ol>
-<li>
-<p>第一条</p>
-</li>
-<li>
-<p>第二点</p>
-</li>
-<li>
-<p>第三点</p>
-<ul>
-<li>
-<p>比如</p>
-</li>
-<li>
-<p>比如</p>
-</li>
-<li>
-<p>比如</p>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="c-与-java-的比较">C# 与 Java 的比较</h3>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Java</th>
-<th>C#</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>继承</td>
-<td>👍</td>
-<td>👍</td>
-</tr>
-<tr>
-<td>封装</td>
-<td>👍</td>
-<td>👎</td>
-</tr>
-<tr>
-<td>多态</td>
-<td>👎</td>
-<td>👎</td>
-</tr>
-</tbody>
-</table>
 <blockquote>
-<p>参考文献</p>
+<p>参考
+<a href="https://stackoverflow.com/questions/15775183/git-different-remote-for-each-branch">Git - Different Remote for each Branch</a></p>
 </blockquote>
-
+<h2 id="创建不通分支">创建不通分支</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git branch -c dev
+</code></pre></div><h2 id="给不同分支绑定不同远程仓库">给不同分支绑定不同远程仓库</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git remote add origin https://git.mygoooosh.com/MyGoooosh/just4test.git
+git remote add dev https://github.com/muggleL/just4test.git
+</code></pre></div><p>此时的 .git/config 文件：</p>
+<pre><code>[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote &quot;origin&quot;]
+	url = https://git.mygoooosh.com/MyGoooosh/just4test.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote &quot;dev&quot;]
+	url = https://github.com/muggleL/just4test.git
+	fetch = +refs/heads/*:refs/remotes/dev/*
+</code></pre><h2 id="提交-master-分支">提交 master 分支</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git switch master
+git push origin master <span style="color:#75715e">#将 origin 添加到 mygoooosh.com 的 master 分支</span>
+</code></pre></div><h2 id="提交-dev-分支">提交 dev 分支</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git switch dev
+git push dev master <span style="color:#75715e">#将 dev 提交到 githuib.com 的 master 分支</span>
+</code></pre></div>
 <br>
 <footer>
     
 <nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/2020/rust-trait/">🏹Rust Trait</a></span>
-  <span class="nav-next"><a href="/post/2021/git-diffrent-remote-for-each-branch/">👩🏻‍🏫git 不同分支代提交到不同服务器</a> &rarr;</span>
+  <span class="nav-prev">&larr; <a href="/post/2020/c-sharp-note/">🦝C-Sharp 笔记</a></span>
+  <span class="nav-next"></span>
 </nav>
 
 
@@ -309,7 +266,7 @@ code.has-jax {
 
    
    <br>
-   <span id="/post/2020/c-sharp-note/" class="leancloud_visitors" data-flag-title="🦝C-Sharp 笔记">
+   <span id="/post/2021/git-diffrent-remote-for-each-branch/" class="leancloud_visitors" data-flag-title="👩🏻‍🏫git 不同分支代提交到不同服务器">
      
      <p></p>
    </span>

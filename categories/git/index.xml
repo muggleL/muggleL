@@ -6,10 +6,21 @@
     <description>Recent content in Git on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 31 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.mygoooosh.com/categories/git/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>👩🏻‍🏫git 不同分支代提交到不同服务器</title>
+      <link>https://blog.mygoooosh.com/post/2021/git-diffrent-remote-for-each-branch/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.mygoooosh.com/post/2021/git-diffrent-remote-for-each-branch/</guid>
+      <description>参考 Git - Different Remote for each Branch
+ 创建不通分支 git branch -c dev 给不同分支绑定不同远程仓库 git remote add origin https://git.mygoooosh.com/MyGoooosh/just4test.git git remote add dev https://github.com/muggleL/just4test.git 此时的 .git/config 文件：
+[core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true [remote &amp;quot;origin&amp;quot;] url = https://git.mygoooosh.com/MyGoooosh/just4test.git fetch = +refs/heads/*:refs/remotes/origin/* [remote &amp;quot;dev&amp;quot;] url = https://github.com/muggleL/just4test.git fetch = +refs/heads/*:refs/remotes/dev/* 提交 master 分支 git switch master git push origin master #将 origin 添加到 mygoooosh.</description>
+    </item>
     
     <item>
       <title>🍎git的使用方法记录。</title>

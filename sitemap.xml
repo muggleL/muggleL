@@ -3,12 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.mygoooosh.com/categories/android/</loc>
-    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
+    <loc>https://blog.mygoooosh.com/categories/</loc>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.mygoooosh.com/categories/</loc>
+    <loc>https://blog.mygoooosh.com/categories/git/</loc>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.mygoooosh.com/post/</loc>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.mygoooosh.com/post/2021/git-diffrent-remote-for-each-branch/</loc>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.mygoooosh.com/categories/android/</loc>
     <lastmod>2020-11-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -39,11 +54,6 @@
   
   <url>
     <loc>https://blog.mygoooosh.com/categories/c#/</loc>
-    <lastmod>2020-11-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.mygoooosh.com/post/</loc>
     <lastmod>2020-11-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -325,11 +335,6 @@
   <url>
     <loc>https://blog.mygoooosh.com/note/2019/02/26/java-reflect/</loc>
     <lastmod>2019-02-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.mygoooosh.com/categories/git/</loc>
-    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
