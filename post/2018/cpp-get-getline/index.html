@@ -17,9 +17,9 @@
     
       
       <meta property="description" content="c&#43;&#43;中的cin以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。
-[&amp;hellip;] char name1[20];char name2[20];cin&amp;gt;&amp;gt;name1&amp;gt;&amp;gt;name2; &amp;hellip;">
+[&amp;hellip;] char name1[20]; char name2[20]; cin&amp;gt;&amp;gt;name1&amp;gt;&amp;gt;name2; &amp;hellip;">
       <meta property="og:description" content="c&#43;&#43;中的cin以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。
-[&amp;hellip;] char name1[20];char name2[20];cin&amp;gt;&amp;gt;name1&amp;gt;&amp;gt;name2; &amp;hellip;">
+[&amp;hellip;] char name1[20]; char name2[20]; cin&amp;gt;&amp;gt;name1&amp;gt;&amp;gt;name2; &amp;hellip;">
       
     
 
@@ -32,37 +32,19 @@
     
 
 
-<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
 
 
 
 
-    <link rel="stylesheet" href="/css/style-dark.css" />
-    <link rel="stylesheet" id="themes" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/switcher.css" />
     <link rel="stylesheet" href="/css/custom.css" />
 
-    <script>
-      let da = window.localStorage.getItem("dark");
-      let light = document.getElementById("themes");
-
-    if(da == null) {
-        window.localStorage.setItem("dark", true);
-        da = "false";
-
-    }
-    if(da == "true") {
-        light.href = "/css/style-dark.css"; 
-    }
-    </script>
   </head>
-<div id="change-theme">
 
-   <input type="checkbox" class="switch"/>
-</div>
   
-  <body class="https://blog.mygoooosh.com/post/2018/cpp-get-getline/">
+  <body class="post">
     <header class="masthead">
       <h1><a href="/">Muggle L</a></h1>
 
@@ -113,47 +95,6 @@
 
 
 
-      <script>
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        let switcher = document.getElementsByClassName("switch")[0]
-        if (da == "false") {
-          switcher.checked = true;
-        }
-        switcher.addEventListener("change", e => {
-          if (switcher.checked == true) {
-            light.href = "/css/style.css";
-            window.localStorage["dark"] = false;
-
-          } else {
-            light.href = "/css/style-dark.css";
-            window.localStorage["dark"] = true;
-          }
-        })
-      </script>
       </header>
 
 
@@ -163,67 +104,67 @@
 
 <h2 id="c-中的cin">c++ 中的cin</h2>
 <p>c++中的<code>cin</code>以空白符（空格 回车 制表）作为分隔符，以回车作为输入结束符。在平时使用中除了输入数字，否则很难避免输入的内容包含空格等特殊字符的情况。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">20</span>];
-    <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">20</span>];
-    cin<span style="color:#f92672">&gt;&gt;</span>name1<span style="color:#f92672">&gt;&gt;</span>name2;
-    cout<span style="color:#f92672">&lt;&lt;</span>name1<span style="color:#f92672">&lt;&lt;</span>endl<span style="color:#f92672">&lt;&lt;</span>name2<span style="color:#f92672">&lt;&lt;</span>endl;
-</code></pre></div><p>如果输入<code>barack obama</code>，再按回车。程序直接输出</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    barack
-    obama
-</code></pre></div><p>在此次输入中，把<code>barack</code>赋值给了<code>name1</code>，把<code>obama</code>赋值给了<code>name2</code>；（此时最后输入的回车符任保存在缓存中）。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">20</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">20</span>];
+</span></span><span style="display:flex;"><span>    cin<span style="color:#f92672">&gt;&gt;</span>name1<span style="color:#f92672">&gt;&gt;</span>name2;
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span>name1<span style="color:#f92672">&lt;&lt;</span>endl<span style="color:#f92672">&lt;&lt;</span>name2<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span></code></pre></div><p>如果输入<code>barack obama</code>，再按回车。程序直接输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    barack
+</span></span><span style="display:flex;"><span>    obama
+</span></span></code></pre></div><p>在此次输入中，把<code>barack</code>赋值给了<code>name1</code>，把<code>obama</code>赋值给了<code>name2</code>；（此时最后输入的回车符任保存在缓存中）。</p>
 <h2 id="cingetline">cin.getline</h2>
 <p>好在c++给了一个解决这个问题的方法。在<code>cin</code>的成员函数中，有一个以回车为分隔符的函数<code>getline()</code>。</p>
 <p><code>getline()</code>因为是<code>cin</code>的成员函数。所以使用方法为<code>cin.getline()</code>。他有（一般）两个参数，第一个为接收这行字符串的数组的名称，第二个为读取的字符数。</p>
 <p><code>getline()</code>读取某行字符时，会接收最后的回车符，然后把回车符丢弃换成空字符串<code>'\0'</code>，所以如果<code>getline</code>的第二个参数为20，他最多能接收19个字符。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">20</span>];
-    <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">20</span>];
-    cin.getline(name1,<span style="color:#ae81ff">20</span>);
-    cin.getline(name2,<span style="color:#ae81ff">20</span>);
-</code></pre></div><h2 id="cinget">cin.get</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">20</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">20</span>];
+</span></span><span style="display:flex;"><span>    cin.getline(name1,<span style="color:#ae81ff">20</span>);
+</span></span><span style="display:flex;"><span>    cin.getline(name2,<span style="color:#ae81ff">20</span>);
+</span></span></code></pre></div><h2 id="cinget">cin.get</h2>
 <p>与此同时，c++也给出了<code>get()</code>，与<code>getline()</code>不同的是，<code>get</code>不会接收最后的回车符（参数与<code>getline</code>一样）。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">20</span>];
-    <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">20</span>];
-    cin.get(name1,<span style="color:#ae81ff">20</span>);
-    cin.get(name2,<span style="color:#ae81ff">20</span>);
-    cout<span style="color:#f92672">&lt;&lt;</span>name1<span style="color:#f92672">&lt;&lt;</span>name2;
-</code></pre></div><p>输入<code>barack obama</code>，回车。输出的将是：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">barack obama
-</code></pre></div><p>因为第一个<code>get</code>函数完成后，<code>'\n'</code>被留在了缓存中，当执行第二个<code>get</code>时，程序从缓存中读到了一个<code>\n</code>，所以第二个<code>get</code>没有接收到任何参数就结束了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">20</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">20</span>];
+</span></span><span style="display:flex;"><span>    cin.get(name1,<span style="color:#ae81ff">20</span>);
+</span></span><span style="display:flex;"><span>    cin.get(name2,<span style="color:#ae81ff">20</span>);
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span>name1<span style="color:#f92672">&lt;&lt;</span>name2;
+</span></span></code></pre></div><p>输入<code>barack obama</code>，回车。输出的将是：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>barack obama
+</span></span></code></pre></div><p>因为第一个<code>get</code>函数完成后，<code>'\n'</code>被留在了缓存中，当执行第二个<code>get</code>时，程序从缓存中读到了一个<code>\n</code>，所以第二个<code>get</code>没有接收到任何参数就结束了。</p>
 <p>为了解决这个问题，<code>get</code>还有一个不带参数的形式，这时只能接收一个字符，所以可以通过下面这种方式，把最后的回车用<code>get</code>丢弃。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">20</span>];
-    <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">20</span>];
-    cin.get(name1,<span style="color:#ae81ff">20</span>).get();
-    cin.get(name2,<span style="color:#ae81ff">20</span>).get();
-</code></pre></div><p>如果你想保存那个字符，你可以 <code>char a = cin.get();</code>。或者使用<code>get</code>的第三种形式<code>char a; cin.get(a);</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">20</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">20</span>];
+</span></span><span style="display:flex;"><span>    cin.get(name1,<span style="color:#ae81ff">20</span>).get();
+</span></span><span style="display:flex;"><span>    cin.get(name2,<span style="color:#ae81ff">20</span>).get();
+</span></span></code></pre></div><p>如果你想保存那个字符，你可以 <code>char a = cin.get();</code>。或者使用<code>get</code>的第三种形式<code>char a; cin.get(a);</code>。</p>
 <p>在第一节中说到。<code>cin</code>以回车为输入结束，输入结束后，回车依然留在缓存中。如果你在<code>cin</code>后面紧接着来一个<code>cin.get(string&amp;amp;,int)</code>，你的<code>get</code>可能接收不到任何参数。</p>
 <p>所以像上面一样，在<code>cin</code>完之后，应该用一个不带参数的<code>get</code>把回车接收并丢弃掉。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">20</span>],name2[<span style="color:#ae81ff">20</span>],a[<span style="color:#ae81ff">20</span>];
-    cin<span style="color:#f92672">&gt;&gt;</span>a;   <span style="color:#75715e">//or (cin&gt;&gt;a).get();从而不要下面那句。
-</span><span style="color:#75715e"></span>    cin.get() <span style="color:#75715e">//or char ch; cin.get(ch);
-</span></code></pre></div><p>上面之所以能够<code>cin.get(string&amp;amp;,int).get()</code>或<code>(cin&amp;gt;&amp;gt;a).get()</code>，是因为<code>cin</code>在有参数的情况下，返回的是一个<code>cin</code>对象（<code>cin.get()</code>在没有参数的情况下，返回的是接收的字符）。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">20</span>],name2[<span style="color:#ae81ff">20</span>],a[<span style="color:#ae81ff">20</span>];
+</span></span><span style="display:flex;"><span>    cin<span style="color:#f92672">&gt;&gt;</span>a;   <span style="color:#75715e">//or (cin&gt;&gt;a).get();从而不要下面那句。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cin.get() <span style="color:#75715e">//or char ch; cin.get(ch);
+</span></span></span></code></pre></div><p>上面之所以能够<code>cin.get(string&amp;amp;,int).get()</code>或<code>(cin&amp;gt;&amp;gt;a).get()</code>，是因为<code>cin</code>在有参数的情况下，返回的是一个<code>cin</code>对象（<code>cin.get()</code>在没有参数的情况下，返回的是接收的字符）。</p>
 <h2 id="get与getline">get与getline</h2>
 <p>如此看来，貌似<code>getline</code>使用起来比<code>get</code>更加方便，那么<code>get</code>存在的意义是什么？</p>
 <p>在<code>getline</code>中，当输入的字符超过限制时，<code>getline</code>会读取她所需要的字符，并阻断接下来的输入。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">5</span>];
-    <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">5</span>];
-    cin.getline(name1,<span style="color:#ae81ff">5</span>).getline(name2,<span style="color:#ae81ff">5</span>);
-    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;name1: &#34;</span><span style="color:#f92672">&lt;&lt;</span>name<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">name2: &#34;</span><span style="color:#f92672">&lt;&lt;</span>name2;
-</code></pre></div><p>输入<code>obama\n</code>，输出的是：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">name1: obam
-</code></pre></div><p><code>get</code>不会阻断输入，他只会接收自己需要的字符，其余的将留在缓存中：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">5</span>];
-    <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">5</span>];
-    cin.get(name1,<span style="color:#ae81ff">5</span>).get(name2,<span style="color:#ae81ff">5</span>);
-    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;name1: &#34;</span><span style="color:#f92672">&lt;&lt;</span>name1<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">name2: &#34;</span><span style="color:#f92672">&lt;&lt;</span>name2;
-</code></pre></div><p>输入<code>obama\n</code>,输出：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">    char1: obam     char2: a
-</code></pre></div><p>所以当我们不知道该输入是因为<code>\n</code>而结束，还是因为字符超出而结束时，只要使用<code>get</code>，然后用一个<code>char ch;cin.get(ch)</code>或者<code>char ch = cin.get()</code>接收缓存中的第一个字符，如果是回车符，说明正常结束，如果是一个字符，说明输入超过字符限制。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">5</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">5</span>];
+</span></span><span style="display:flex;"><span>    cin.getline(name1,<span style="color:#ae81ff">5</span>).getline(name2,<span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;name1: &#34;</span><span style="color:#f92672">&lt;&lt;</span>name<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">name2: &#34;</span><span style="color:#f92672">&lt;&lt;</span>name2;
+</span></span></code></pre></div><p>输入<code>obama\n</code>，输出的是：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>name1: obam
+</span></span></code></pre></div><p><code>get</code>不会阻断输入，他只会接收自己需要的字符，其余的将留在缓存中：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name1[<span style="color:#ae81ff">5</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">5</span>];
+</span></span><span style="display:flex;"><span>    cin.get(name1,<span style="color:#ae81ff">5</span>).get(name2,<span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;name1: &#34;</span><span style="color:#f92672">&lt;&lt;</span>name1<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">name2: &#34;</span><span style="color:#f92672">&lt;&lt;</span>name2;
+</span></span></code></pre></div><p>输入<code>obama\n</code>,输出：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    char1: obam     char2: a
+</span></span></code></pre></div><p>所以当我们不知道该输入是因为<code>\n</code>而结束，还是因为字符超出而结束时，只要使用<code>get</code>，然后用一个<code>char ch;cin.get(ch)</code>或者<code>char ch = cin.get()</code>接收缓存中的第一个字符，如果是回车符，说明正常结束，如果是一个字符，说明输入超过字符限制。</p>
 <h2 id="string与cinget">string与cin.get</h2>
 <p>因为引入string类型之前，<code>cin</code>就有了<code>get</code>与<code>getline</code>方法。所以<code>cin.get</code>与<code>cin.getline</code>并不能处理<code>string</code>类。</p>
 <p>所以处理string类的<code>getline</code>方法为：<code>getline(cin,str)</code>,<code>cin</code>作为参数传入函数<code>string</code>为可扩展类型，所以不需要后面的边界参数，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">    string name;
-    getline(cin,name);
-</code></pre></div><p><strong>没有对应string的get方法</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    string name;
+</span></span><span style="display:flex;"><span>    getline(cin,name);
+</span></span></code></pre></div><p><strong>没有对应string的get方法</strong></p>
 
 <br>
 <footer>
@@ -282,20 +223,21 @@ code.has-jax {
 
 
 
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/highlight.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
 
 
 
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/yaml.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/go.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/powershell.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/sql.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/bash.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/rust.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/csp.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/java.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/c.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/cpp.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/tex.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/go.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/powershell.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/bash.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/rust.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/c#.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/java.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/c.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/cpp.min.js"></script>
 <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
 
 
@@ -303,7 +245,8 @@ code.has-jax {
    
    <br>
    <span id="/post/2018/cpp-get-getline/" class="leancloud_visitors" data-flag-title="✏️c&#43;&#43;中的get与getline">
-     
+     <span class="post-meta-item-text">文章阅读量 </span>
+     <span class="leancloud-visitors-count">1000000</span>
      <p></p>
    </span>
    <div id="vcomments"></div>
@@ -312,13 +255,13 @@ code.has-jax {
    <script type="text/javascript">
      new Valine({
          el: '#vcomments' ,
-         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
-         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
-         notify:  false , 
-         verify:  false , 
+         appId: 'YZhudDsaS0U0MLyTIBcLUhOB-MdYXbMMI',
+         appKey: 'XcZSyPuwhHeRsRs0hzAGbPM4',
+         notify: 'false', 
+         verify: 'false', 
          avatar:'monsterid', 
          placeholder: '说点什么呗~',
-         visitor:  false 
+         visitor: 'true'
      });
    </script>
 

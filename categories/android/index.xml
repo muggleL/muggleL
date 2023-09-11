@@ -2,22 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Android on Muggle L</title>
-    <link>https://blog.mygoooosh.com/categories/android/</link>
+    <link>/categories/android/</link>
     <description>Recent content in Android on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.mygoooosh.com/categories/android/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🤖️Android-Tips</title>
-      <link>https://blog.mygoooosh.com/note/2020/11/30/android-tips/</link>
+      <link>/note/2020/11/30/android-tips/</link>
       <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/note/2020/11/30/android-tips/</guid>
-      <description>Activity 绑定 Fragment public stativ void main() { } Fragment 跳转到 Activity  在 Fragment 配置跳转和跳转参数  Intent intent = new Intent(getActivity(), HomeActivity.class); Bundle bundle = new Bundle(); bundle.putSerializable(&amp;#34;pageFlag&amp;#34;, homePageWidgets.get(position).getFlag()); // 装载可以序列化的类型 bundle.putInt(&amp;#34;title&amp;#34;, homePageWidgets.get(position).getNameId()); // 装载 int intent.putExtras(bundle); startActivity(intent); 在 Activity 中接收跳转参数  Intent intent = getIntent(); Bundle bundle = intent.getExtras(); PageFlag PageFlag = (PageFlag) bundle.getSerializable(&amp;#34;pageFlag&amp;#34;); int title = bundle.getInt(&amp;#34;title&amp;#34;); GridView 使用  layout 中添加 GridView 标签  &amp;lt;GridView android:id=&amp;#34;@+id/grid_view_account&amp;#34; android:layout_marginTop=&amp;#34;10dp&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; tools:listitem=&amp;#34;@layout/item_account_grid_view&amp;#34;/&amp;gt; &amp;lt;!</description>
+      <guid>/note/2020/11/30/android-tips/</guid>
+      <description>Activity 绑定 Fragment public stativ void main() { } Fragment 跳转到 Activity 在 Fragment 配置跳转和跳转参数 Intent intent = new Intent(getActivity(), HomeActivity.class); Bundle bundle = new Bundle(); bundle.putSerializable(&amp;#34;pageFlag&amp;#34;, homePageWidgets.get(position).getFlag()); // 装载可以序列化的类型 bundle.putInt(&amp;#34;title&amp;#34;, homePageWidgets.get(position).getNameId()); // 装载 int intent.putExtras(bundle); startActivity(intent); 在 Activity 中接收跳转参数 Intent intent = getIntent(); Bundle bundle = intent.getExtras(); PageFlag PageFlag = (PageFlag) bundle.getSerializable(&amp;#34;pageFlag&amp;#34;); int title = bundle.getInt(&amp;#34;title&amp;#34;); GridView 使用 layout 中添加 GridView 标签 &amp;lt;GridView android:id=&amp;#34;@+id/grid_view_account&amp;#34; android:layout_marginTop=&amp;#34;10dp&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; tools:listitem=&amp;#34;@layout/item_account_grid_view&amp;#34;/&amp;gt; &amp;lt;!--指定 item 的布局文件--&amp;gt; 增加 Item 的布局文件 &amp;lt;?</description>
     </item>
     
   </channel>

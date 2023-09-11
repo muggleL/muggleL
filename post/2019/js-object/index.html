@@ -18,10 +18,10 @@
       
       <meta property="description" content="本文记录了 JavaScript 面对对象的一些基础方法，如对象的属性，对象的遍历，对象的复制与合并等。
 [&amp;hellip;] 可以用多字词语来作为属性名
-[&amp;hellip;] let person = {name: &amp;#39;John&amp;#39;,age: 20,&amp;#39;likes birds&amp;#39;: true //必须加引号};多词属性不适用于点操作， &amp;hellip;">
+[&amp;hellip;] let person = { name: &amp;#39;John&amp;#39;, age: 20, &amp;#39;likes birds&amp;#39;: true //必须加引号 }; 多词属性不适用于点操作， &amp;hellip;">
       <meta property="og:description" content="本文记录了 JavaScript 面对对象的一些基础方法，如对象的属性，对象的遍历，对象的复制与合并等。
 [&amp;hellip;] 可以用多字词语来作为属性名
-[&amp;hellip;] let person = {name: &amp;#39;John&amp;#39;,age: 20,&amp;#39;likes birds&amp;#39;: true //必须加引号};多词属性不适用于点操作， &amp;hellip;">
+[&amp;hellip;] let person = { name: &amp;#39;John&amp;#39;, age: 20, &amp;#39;likes birds&amp;#39;: true //必须加引号 }; 多词属性不适用于点操作， &amp;hellip;">
       
     
 
@@ -34,37 +34,19 @@
     
 
 
-<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
 
 
 
 
-    <link rel="stylesheet" href="/css/style-dark.css" />
-    <link rel="stylesheet" id="themes" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/switcher.css" />
     <link rel="stylesheet" href="/css/custom.css" />
 
-    <script>
-      let da = window.localStorage.getItem("dark");
-      let light = document.getElementById("themes");
-
-    if(da == null) {
-        window.localStorage.setItem("dark", true);
-        da = "false";
-
-    }
-    if(da == "true") {
-        light.href = "/css/style-dark.css"; 
-    }
-    </script>
   </head>
-<div id="change-theme">
 
-   <input type="checkbox" class="switch"/>
-</div>
   
-  <body class="https://blog.mygoooosh.com/post/2019/js-object/">
+  <body class="post">
     <header class="masthead">
       <h1><a href="/">Muggle L</a></h1>
 
@@ -115,47 +97,6 @@
 
 
 
-      <script>
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        let switcher = document.getElementsByClassName("switch")[0]
-        if (da == "false") {
-          switcher.checked = true;
-        }
-        switcher.addEventListener("change", e => {
-          if (switcher.checked == true) {
-            light.href = "/css/style.css";
-            window.localStorage["dark"] = false;
-
-          } else {
-            light.href = "/css/style-dark.css";
-            window.localStorage["dark"] = true;
-          }
-        })
-      </script>
       </header>
 
 
@@ -166,72 +107,72 @@
 <p>本文记录了 JavaScript 面对对象的一些基础方法，如对象的属性，对象的遍历，对象的复制与合并等。</p>
 <h2 id="多词属性">多词属性</h2>
 <p>可以用多字词语来作为属性名</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">person</span> <span style="color:#f92672">=</span> {
-<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;John&#39;</span>,
-<span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span>,
-<span style="color:#e6db74">&#39;likes birds&#39;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> <span style="color:#75715e">//必须加引号
-</span><span style="color:#75715e"></span>};
-</code></pre></div><p>多词属性不适用于点操作，但可以用方括号</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">likes</span> <span style="color:#a6e22e">birds</span>; <span style="color:#75715e">//错误
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">person</span>[<span style="color:#e6db74">&#39;likes birds&#39;</span>]; <span style="color:#75715e">//true
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;likes birds&#39;</span>;
-<span style="color:#a6e22e">person</span>[<span style="color:#a6e22e">key</span>] <span style="color:#75715e">//true
-</span></code></pre></div><h2 id="delete-删除属性">delete 删除属性</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">person</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;John&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;likes birds&#39;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> <span style="color:#75715e">//必须加引号
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};
+</span></span></code></pre></div><p>多词属性不适用于点操作，但可以用方括号</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">likes</span> <span style="color:#a6e22e">birds</span>; <span style="color:#75715e">//错误
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">person</span>[<span style="color:#e6db74">&#39;likes birds&#39;</span>]; <span style="color:#75715e">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;likes birds&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">person</span>[<span style="color:#a6e22e">key</span>] <span style="color:#75715e">//true
+</span></span></span></code></pre></div><h2 id="delete-删除属性">delete 删除属性</h2>
 <p>delete + 属性 可以删除属性</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">age</span> <span style="color:#75715e">//age 被删除
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">person</span>[<span style="color:#e6db74">&#39;like birds&#39;</span>] <span style="color:#75715e">//删除多词属性
-</span></code></pre></div><h2 id="计算属性">计算属性</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">age</span> <span style="color:#75715e">//age 被删除
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">person</span>[<span style="color:#e6db74">&#39;like birds&#39;</span>] <span style="color:#75715e">//删除多词属性
+</span></span></span></code></pre></div><h2 id="计算属性">计算属性</h2>
 <p>在方括号中的属性</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fruit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">prompt</span>(<span style="color:#e6db74">&#34;whitch fruit to buy?&#34;</span>);
-
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">bag</span> <span style="color:#f92672">=</span> {
-  [<span style="color:#a6e22e">fruit</span>]<span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span>,
-};
-<span style="color:#75715e">//假如输入 apple
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">bag</span>.<span style="color:#a6e22e">apple</span> <span style="color:#75715e">//值为 5
-</span></code></pre></div><p>它的本质其实是：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fruit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">prompt</span>(<span style="color:#e6db74">&#34;whitch fruit to buy?&#34;</span>);
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">bag</span> <span style="color:#f92672">=</span> {};
-
-<span style="color:#a6e22e">bag</span>[<span style="color:#a6e22e">fruit</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
-</code></pre></div><p>方括号里面可以写一些复杂的表达式</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fruit</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;apple&#34;</span>;
-
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">bag</span> <span style="color:#f92672">=</span> {
-  [<span style="color:#a6e22e">fruit</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;Computer&#34;</span>]<span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span>,
-};
-
-<span style="color:#a6e22e">bag</span>.<span style="color:#a6e22e">appleComputer</span> <span style="color:#75715e">//5
-</span></code></pre></div><h2 id="属性值简写">属性值简写</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fruit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">prompt</span>(<span style="color:#e6db74">&#34;whitch fruit to buy?&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">bag</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">fruit</span>]<span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//假如输入 apple
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">bag</span>.<span style="color:#a6e22e">apple</span> <span style="color:#75715e">//值为 5
+</span></span></span></code></pre></div><p>它的本质其实是：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fruit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">prompt</span>(<span style="color:#e6db74">&#34;whitch fruit to buy?&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">bag</span> <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bag</span>[<span style="color:#a6e22e">fruit</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span></code></pre></div><p>方括号里面可以写一些复杂的表达式</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fruit</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;apple&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">bag</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">fruit</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;Computer&#34;</span>]<span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bag</span>.<span style="color:#a6e22e">appleComputer</span> <span style="color:#75715e">//5
+</span></span></span></code></pre></div><h2 id="属性值简写">属性值简写</h2>
 <p>当属性名与变量名一致时，属性名可以简写。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">makeUser</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span>) {
-  <span style="color:#a6e22e">name</span>,  <span style="color:#75715e">//与 name: name 相同
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">age</span>    <span style="color:#75715e">// 与 age: age  相同
-</span><span style="color:#75715e"></span>}
-</code></pre></div><p>也可以混用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">make30YearsOldUser</span>(<span style="color:#a6e22e">name</span>) {
-  <span style="color:#a6e22e">name</span>,
-  <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>
-}
-</code></pre></div><h2 id="forin-遍历对象"><code>for...in</code> 遍历对象</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
-  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;zhangsan&#34;</span>,
-  <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">23</span>,
-  <span style="color:#a6e22e">isAdmin</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
-};
-
-<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">user</span>) {
-  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">key</span>); <span style="color:#75715e">// name, age, isAdmin
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">user</span>[<span style="color:#a6e22e">key</span>]); <span style="color:#75715e">//zhangsan, 23, false
-</span><span style="color:#75715e"></span>}
-</code></pre></div><p><strong>对象里面的 <font color="chocolate">整数属性</font><sup>1</sup> 会按照整数顺序排列，其他属性按照创建顺序排列.</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">code</span> <span style="color:#f92672">=</span> {
-  <span style="color:#e6db74">&#34;49&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Germany&#34;</span>,
-  <span style="color:#e6db74">&#34;41&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Switzerland&#34;</span>,
-  <span style="color:#e6db74">&#34;44&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Great Britain&#34;</span>
-};
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">makeUser</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>,  <span style="color:#75715e">//与 name: name 相同
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">age</span>    <span style="color:#75715e">// 与 age: age  相同
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>也可以混用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">make30YearsOldUser</span>(<span style="color:#a6e22e">name</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="forin-遍历对象"><code>for...in</code> 遍历对象</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;zhangsan&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">23</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">isAdmin</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">user</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">key</span>); <span style="color:#75715e">// name, age, isAdmin
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">user</span>[<span style="color:#a6e22e">key</span>]); <span style="color:#75715e">//zhangsan, 23, false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p><strong>对象里面的 <font color="chocolate">整数属性</font><sup>1</sup> 会按照整数顺序排列，其他属性按照创建顺序排列.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">code</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;49&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Germany&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;41&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Switzerland&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;44&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Great Britain&#34;</span>
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><blockquote>
 <ol>
 <li><strong>整数属性</strong>是指一个字符串，里面包含一个纯整数。如 <code>&quot;43&quot;</code> <code>'51'</code> 是整数属性，<code>&quot;+32&quot;</code> <code>&quot;1.3&quot;</code> 就不是整数属性。所以有时我们不需要自动排序时，只要把整数属性转换成非整数属性就行。</li>
 </ol>
@@ -239,20 +180,20 @@
 <h2 id="常量对象">常量对象</h2>
 <p>在对象面前加 <code>const</code> 使该变量只能指向当前对象。</p>
 <h2 id="objectassign-对象复制与合并">Object.assign 对象复制与合并</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">Object.<span style="color:#a6e22e">assign</span>(<span style="color:#a6e22e">dest</span>[, <span style="color:#a6e22e">src1</span>, <span style="color:#a6e22e">src2</span>, <span style="color:#a6e22e">src3</span>...])
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>Object.<span style="color:#a6e22e">assign</span>(<span style="color:#a6e22e">dest</span>[, <span style="color:#a6e22e">src1</span>, <span style="color:#a6e22e">src2</span>, <span style="color:#a6e22e">src3</span>...])
+</span></span></code></pre></div><ul>
 <li>参数 <code>dest</code> 和 <code>src1, src2, src3.....</code> 是对象。</li>
 <li>这个方法把 <code>src1, src2, src3.....</code> 的属性复制到 <code>dest</code>, 然后再返回 <code>dest</code>。</li>
 <li>如果复制过程中碰到了相同的属性，后面的会覆盖前面的属性。</li>
 </ul>
 <p>因此，可以很方便地用它来复制和合并对象。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
-  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;zhangsan&#34;</span>,
-  <span style="color:#a6e22e">age</span> <span style="color:#ae81ff">23</span>
-};
-
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">clone</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">assign</span>({}, <span style="color:#a6e22e">user</span>);
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;zhangsan&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age</span> <span style="color:#ae81ff">23</span>
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">clone</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">assign</span>({}, <span style="color:#a6e22e">user</span>);
+</span></span></code></pre></div><blockquote>
 <p><font color='red'>注</font>: assign 只能进行浅层拷贝。如果属性里面包含一个对象，所有的拷贝结果将会共享该对象。也就是说只要一旦某个拷贝结果（或原值）修改了该对象的，所有的拷贝结果都会受到影响。目前，为了解决这种方法，用的比较多的是 JS 实现库 <a href="https://lodash.com/">lodash</a> 的 <a href="https://lodash.com/docs#cloneDeep">_.cloneDeep(obj)</a> 方法。</p>
 </blockquote>
 <hr>
@@ -321,20 +262,21 @@ code.has-jax {
 
 
 
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/highlight.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
 
 
 
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/yaml.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/go.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/powershell.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/sql.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/bash.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/rust.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/csp.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/java.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/c.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/cpp.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/tex.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/go.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/powershell.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/bash.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/rust.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/c#.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/java.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/c.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/cpp.min.js"></script>
 <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
 
 
@@ -342,7 +284,8 @@ code.has-jax {
    
    <br>
    <span id="/post/2019/js-object/" class="leancloud_visitors" data-flag-title="🧍‍♀️JavaScript 对象">
-     
+     <span class="post-meta-item-text">文章阅读量 </span>
+     <span class="leancloud-visitors-count">1000000</span>
      <p></p>
    </span>
    <div id="vcomments"></div>
@@ -351,13 +294,13 @@ code.has-jax {
    <script type="text/javascript">
      new Valine({
          el: '#vcomments' ,
-         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
-         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
-         notify:  false , 
-         verify:  false , 
+         appId: 'YZhudDsaS0U0MLyTIBcLUhOB-MdYXbMMI',
+         appKey: 'XcZSyPuwhHeRsRs0hzAGbPM4',
+         notify: 'false', 
+         verify: 'false', 
          avatar:'monsterid', 
          placeholder: '说点什么呗~',
-         visitor:  false 
+         visitor: 'true'
      });
    </script>
 

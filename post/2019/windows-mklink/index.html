@@ -37,37 +37,19 @@
     
 
 
-<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
 
 
 
 
-    <link rel="stylesheet" href="/css/style-dark.css" />
-    <link rel="stylesheet" id="themes" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/switcher.css" />
     <link rel="stylesheet" href="/css/custom.css" />
 
-    <script>
-      let da = window.localStorage.getItem("dark");
-      let light = document.getElementById("themes");
-
-    if(da == null) {
-        window.localStorage.setItem("dark", true);
-        da = "false";
-
-    }
-    if(da == "true") {
-        light.href = "/css/style-dark.css"; 
-    }
-    </script>
   </head>
-<div id="change-theme">
 
-   <input type="checkbox" class="switch"/>
-</div>
   
-  <body class="https://blog.mygoooosh.com/post/2019/windows-mklink/">
+  <body class="post">
     <header class="masthead">
       <h1><a href="/">Muggle L</a></h1>
 
@@ -118,47 +100,6 @@
 
 
 
-      <script>
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        let switcher = document.getElementsByClassName("switch")[0]
-        if (da == "false") {
-          switcher.checked = true;
-        }
-        switcher.addEventListener("change", e => {
-          if (switcher.checked == true) {
-            light.href = "/css/style.css";
-            window.localStorage["dark"] = false;
-
-          } else {
-            light.href = "/css/style-dark.css";
-            window.localStorage["dark"] = true;
-          }
-        })
-      </script>
       </header>
 
 
@@ -170,15 +111,15 @@
 <h2 id="fsutil-硬链接">fsutil 硬链接</h2>
 <p><img src="https://i.loli.net/2019/05/27/5cebcde3d985f29272.png" alt="批注 2019-05-27 194506.png"></p>
 <p>这个只适用于 <code>NTFS</code> 文件系统</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">fsutil hardlink create NewFileName ExistingFileName
-</code></pre></div><h2 id="mklink">MKLINK</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>fsutil hardlink create NewFileName ExistingFileName
+</span></span></code></pre></div><h2 id="mklink">MKLINK</h2>
 <p><img src="https://i.loli.net/2019/05/27/5cebcd0467e6222620.png" alt="批注 2019-05-27 191018.png"></p>
 <p><strong>这是 cmd 自带命令， 一定要切换到 cmd 下</strong></p>
 <h3 id="为目录创建软链接">为目录创建软链接</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">MKLINK /D NewFolder ExistingFolder
-</code></pre></div><h3 id="文件硬链接">文件硬链接</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">MKLINK /H NewFile ExistingFile
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>MKLINK /D NewFolder ExistingFolder
+</span></span></code></pre></div><h3 id="文件硬链接">文件硬链接</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>MKLINK /H NewFile ExistingFile
+</span></span></code></pre></div><blockquote>
 <p>硬链接只针对文件，不针对文件夹</p>
 </blockquote>
 
@@ -239,20 +180,21 @@ code.has-jax {
 
 
 
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/highlight.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
 
 
 
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/yaml.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/go.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/powershell.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/sql.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/bash.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/rust.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/csp.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/java.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/c.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/cpp.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/tex.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/go.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/powershell.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/bash.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/rust.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/c#.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/java.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/c.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/cpp.min.js"></script>
 <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
 
 
@@ -260,7 +202,8 @@ code.has-jax {
    
    <br>
    <span id="/post/2019/windows-mklink/" class="leancloud_visitors" data-flag-title="🖥️windows 创建软/硬链接">
-     
+     <span class="post-meta-item-text">文章阅读量 </span>
+     <span class="leancloud-visitors-count">1000000</span>
      <p></p>
    </span>
    <div id="vcomments"></div>
@@ -269,13 +212,13 @@ code.has-jax {
    <script type="text/javascript">
      new Valine({
          el: '#vcomments' ,
-         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
-         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
-         notify:  false , 
-         verify:  false , 
+         appId: 'YZhudDsaS0U0MLyTIBcLUhOB-MdYXbMMI',
+         appKey: 'XcZSyPuwhHeRsRs0hzAGbPM4',
+         notify: 'false', 
+         verify: 'false', 
          avatar:'monsterid', 
          placeholder: '说点什么呗~',
-         visitor:  false 
+         visitor: 'true'
      });
    </script>
 

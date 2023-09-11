@@ -5,7 +5,6 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   box-sizing: border-box;
-  color: black;
 }
 
 *, *:before, *:after {
@@ -15,7 +14,6 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: white;
 }
 
 button, input, select, textarea, label {
@@ -442,7 +440,6 @@ thead, tfoot, tr:nth-child(even) {
   font-weight: bold;
   font-size: 18px;
   margin-left: 15%;
-  background-color: white;
       width: 70%;
       height: 50px;
       outline: none;
@@ -496,9 +493,4 @@ thead, tfoot, tr:nth-child(even) {
     padding-top: 0;
   }
 
-}
-
-/*theme switcher*/
-#change-theme {
-  margin-left: 1em;
 }

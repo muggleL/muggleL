@@ -34,28 +34,14 @@
     
     
 
-    <link rel="stylesheet" id="themes" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
 
-    <script>
-      let da = window.localStorage.getItem("dark");
-      let light = document.getElementById("themes");
-
-    if(da == null) {
-        window.localStorage.setItem("dark", false);
-        da = "false";
-
-    }
-    if(da == "true") {
-        light.href = "/css/style-dark.css"; 
-    }
-    </script>
   </head>
-  <input type="radio" name="theme" id="dark"> <label>暗色主题</label>
-  <input type="radio" name="theme" id="light"> <label>亮色主题</label>
+
   
-  <body class="https://blog.mygoooosh.com/draft/draft-test/">
+  <body class="draft">
     <header class="masthead">
       <h1><a href="/">Muggle L</a></h1>
 
@@ -106,33 +92,6 @@
 
 
 
-      <script>
-        let dark = document.getElementById("dark")
-        let light_b = document.getElementById("light")
-      
-        if (window.localStorage.getItem("dark") === "true") {
-          dark.checked = true;
-        }
-      
-        dark.addEventListener("click", e => {
-          let dar = window.localStorage.getItem("dark");
-          console.log(dar)
-          if (dar == "false") {
-            window.localStorage["dark"] = true;
-            light.href = "/css/style-dark.css";
-          }
-        })
-      
-        light_b.addEventListener("click", e => {
-          let dar = window.localStorage.getItem("dark");
-          console.log(dar)
-          if (dar == "true") {
-            window.localStorage["dark"] = false;
-            light.href = "/css/style-dark.css";
-      
-          }
-        })
-      </script>
       </header>
 
 
@@ -202,7 +161,8 @@ code.has-jax {
    
    <br>
    <span id="/draft/draft-test/" class="leancloud_visitors" data-flag-title="📓Draft Test">
-     
+     <span class="post-meta-item-text">文章阅读量 </span>
+     <span class="leancloud-visitors-count">1000000</span>
      <p></p>
    </span>
    <div id="vcomments"></div>
@@ -211,13 +171,13 @@ code.has-jax {
    <script type="text/javascript">
      new Valine({
          el: '#vcomments' ,
-         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
-         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
-         notify:  false , 
-         verify:  false , 
+         appId: 'YZhudDsaS0U0MLyTIBcLUhOB-MdYXbMMI',
+         appKey: 'XcZSyPuwhHeRsRs0hzAGbPM4',
+         notify: 'false', 
+         verify: 'false', 
          avatar:'monsterid', 
          placeholder: '说点什么呗~',
-         visitor:  false 
+         visitor: 'true'
      });
    </script>
 

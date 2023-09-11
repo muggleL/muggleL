@@ -26,32 +26,14 @@
     
     
 
-    <link rel="stylesheet" href="/css/style-dark.css" />
-    <link rel="stylesheet" id="themes" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/switcher.css" />
     <link rel="stylesheet" href="/css/custom.css" />
 
-    <script>
-      let da = window.localStorage.getItem("dark");
-      let light = document.getElementById("themes");
-
-    if(da == null) {
-        window.localStorage.setItem("dark", true);
-        da = "false";
-
-    }
-    if(da == "true") {
-        light.href = "/css/style-dark.css"; 
-    }
-    </script>
   </head>
-<div id="change-theme">
 
-   <input type="checkbox" class="switch"/>
-</div>
   
-  <body class="https://blog.mygoooosh.com/pdfs/">
+  <body class="pdfs">
     <header class="masthead">
       <h1><a href="/">Muggle L</a></h1>
 
@@ -75,7 +57,7 @@
   
   <li><a href="/tags/">Tags</a></li>
   
-  <li class="active"><a href="/pdfs/">Pdfs</a></li>
+  <li><a href="/pdfs/">Pdfs</a></li>
   
   <li><a href="/slice/">Slice</a></li>
   
@@ -102,47 +84,6 @@
 
 
 
-      <script>
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        let switcher = document.getElementsByClassName("switch")[0]
-        if (da == "false") {
-          switcher.checked = true;
-        }
-        switcher.addEventListener("change", e => {
-          if (switcher.checked == true) {
-            light.href = "/css/style.css";
-            window.localStorage["dark"] = false;
-
-          } else {
-            light.href = "/css/style-dark.css";
-            window.localStorage["dark"] = true;
-          }
-        })
-      </script>
       </header>
 
 
@@ -213,7 +154,8 @@ code.has-jax {
    
    <br>
    <span id="/pdfs/" class="leancloud_visitors" data-flag-title="PDFS">
-     
+     <span class="post-meta-item-text">文章阅读量 </span>
+     <span class="leancloud-visitors-count">1000000</span>
      <p></p>
    </span>
    <div id="vcomments"></div>
@@ -222,13 +164,13 @@ code.has-jax {
    <script type="text/javascript">
      new Valine({
          el: '#vcomments' ,
-         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
-         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
-         notify:  false , 
-         verify:  false , 
+         appId: 'YZhudDsaS0U0MLyTIBcLUhOB-MdYXbMMI',
+         appKey: 'XcZSyPuwhHeRsRs0hzAGbPM4',
+         notify: 'false', 
+         verify: 'false', 
          avatar:'monsterid', 
          placeholder: '说点什么呗~',
-         visitor:  false 
+         visitor: 'true'
      });
    </script>
 

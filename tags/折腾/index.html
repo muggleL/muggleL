@@ -28,32 +28,14 @@
     
     
 
-    <link rel="stylesheet" href="/css/style-dark.css" />
-    <link rel="stylesheet" id="themes" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/switcher.css" />
     <link rel="stylesheet" href="/css/custom.css" />
 
-    <script>
-      let da = window.localStorage.getItem("dark");
-      let light = document.getElementById("themes");
-
-    if(da == null) {
-        window.localStorage.setItem("dark", true);
-        da = "false";
-
-    }
-    if(da == "true") {
-        light.href = "/css/style-dark.css"; 
-    }
-    </script>
   </head>
-<div id="change-theme">
 
-   <input type="checkbox" class="switch"/>
-</div>
   
-  <body class="https://blog.mygoooosh.com/tags/%E6%8A%98%E8%85%BE/">
+  <body class="tags">
     <header class="masthead">
       <h1><a href="/">Muggle L</a></h1>
 
@@ -104,47 +86,6 @@
 
 
 
-      <script>
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        let switcher = document.getElementsByClassName("switch")[0]
-        if (da == "false") {
-          switcher.checked = true;
-        }
-        switcher.addEventListener("change", e => {
-          if (switcher.checked == true) {
-            light.href = "/css/style.css";
-            window.localStorage["dark"] = false;
-
-          } else {
-            light.href = "/css/style-dark.css";
-            window.localStorage["dark"] = true;
-          }
-        })
-      </script>
       </header>
 
 

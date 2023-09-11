@@ -2,40 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notes on Muggle L</title>
-    <link>https://blog.mygoooosh.com/note/</link>
+    <link>/note/</link>
     <description>Recent content in Notes on Muggle L</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.mygoooosh.com/note/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/note/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🤖️Android-Tips</title>
-      <link>https://blog.mygoooosh.com/note/2020/11/30/android-tips/</link>
+      <link>/note/2020/11/30/android-tips/</link>
       <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/note/2020/11/30/android-tips/</guid>
-      <description>Activity 绑定 Fragment public stativ void main() { } Fragment 跳转到 Activity  在 Fragment 配置跳转和跳转参数  Intent intent = new Intent(getActivity(), HomeActivity.class); Bundle bundle = new Bundle(); bundle.putSerializable(&amp;#34;pageFlag&amp;#34;, homePageWidgets.get(position).getFlag()); // 装载可以序列化的类型 bundle.putInt(&amp;#34;title&amp;#34;, homePageWidgets.get(position).getNameId()); // 装载 int intent.putExtras(bundle); startActivity(intent); 在 Activity 中接收跳转参数  Intent intent = getIntent(); Bundle bundle = intent.getExtras(); PageFlag PageFlag = (PageFlag) bundle.getSerializable(&amp;#34;pageFlag&amp;#34;); int title = bundle.getInt(&amp;#34;title&amp;#34;); GridView 使用  layout 中添加 GridView 标签  &amp;lt;GridView android:id=&amp;#34;@+id/grid_view_account&amp;#34; android:layout_marginTop=&amp;#34;10dp&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; tools:listitem=&amp;#34;@layout/item_account_grid_view&amp;#34;/&amp;gt; &amp;lt;!</description>
+      <guid>/note/2020/11/30/android-tips/</guid>
+      <description>Activity 绑定 Fragment public stativ void main() { } Fragment 跳转到 Activity 在 Fragment 配置跳转和跳转参数 Intent intent = new Intent(getActivity(), HomeActivity.class); Bundle bundle = new Bundle(); bundle.putSerializable(&amp;#34;pageFlag&amp;#34;, homePageWidgets.get(position).getFlag()); // 装载可以序列化的类型 bundle.putInt(&amp;#34;title&amp;#34;, homePageWidgets.get(position).getNameId()); // 装载 int intent.putExtras(bundle); startActivity(intent); 在 Activity 中接收跳转参数 Intent intent = getIntent(); Bundle bundle = intent.getExtras(); PageFlag PageFlag = (PageFlag) bundle.getSerializable(&amp;#34;pageFlag&amp;#34;); int title = bundle.getInt(&amp;#34;title&amp;#34;); GridView 使用 layout 中添加 GridView 标签 &amp;lt;GridView android:id=&amp;#34;@+id/grid_view_account&amp;#34; android:layout_marginTop=&amp;#34;10dp&amp;#34; android:layout_width=&amp;#34;wrap_content&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; tools:listitem=&amp;#34;@layout/item_account_grid_view&amp;#34;/&amp;gt; &amp;lt;!--指定 item 的布局文件--&amp;gt; 增加 Item 的布局文件 &amp;lt;?</description>
     </item>
     
     <item>
       <title>📦⚓️Manjaro Docker 用法</title>
-      <link>https://blog.mygoooosh.com/note/2019/08/23/tutorial-of-manjaro-docker/</link>
+      <link>/note/2019/08/23/tutorial-of-manjaro-docker/</link>
       <pubDate>Fri, 23 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/note/2019/08/23/tutorial-of-manjaro-docker/</guid>
+      <guid>/note/2019/08/23/tutorial-of-manjaro-docker/</guid>
       <description>不同发行版的指令，文件位置略有不同，本文仅以 arch 及其衍生系统为准。
-目录  安装 设置镜像仓库 设置代理 基础命令 Dockerfile Dockerfile 多段构建 容器的操作 数据管理 网络  安装 sudo pacman -Syy sudo pacman -S docker # 启动 sudo systemctl start docker # 用户加入 docker 用户组（可以不用 sudo 启动docker) sudo usermod -aG docker $USER # 注销重新登录 设置镜像仓库 echo &amp;#39;{ &amp;#34;registry-mirrors&amp;#34;: [ &amp;#34;https://dockerhub.azk8s.cn&amp;#34;, # 国内镜像仓库1 &amp;#34;https://reg-mirror.qiniu.com&amp;#34; # 仓库2 ] }&amp;#39; | sudo tee -a /etc/docker/daemon.json &amp;gt; /dev/null # 重启服务 sudo systemctl daemon-reload sudo systemctl restart docker  通过 docker info 可以看到仓库设置情况。</description>
+目录 安装 设置镜像仓库 设置代理 基础命令 Dockerfile Dockerfile 多段构建 容器的操作 数据管理 网络 安装 sudo pacman -Syy sudo pacman -S docker # 启动 sudo systemctl start docker # 用户加入 docker 用户组（可以不用 sudo 启动docker) sudo usermod -aG docker $USER # 注销重新登录 设置镜像仓库 echo &amp;#39;{ &amp;#34;registry-mirrors&amp;#34;: [ &amp;#34;https://dockerhub.azk8s.cn&amp;#34;, # 国内镜像仓库1 &amp;#34;https://reg-mirror.qiniu.com&amp;#34; # 仓库2 ] }&amp;#39; | sudo tee -a /etc/docker/daemon.json &amp;gt; /dev/null # 重启服务 sudo systemctl daemon-reload sudo systemctl restart docker 通过 docker info 可以看到仓库设置情况。</description>
     </item>
     
     <item>
       <title>📈数据库连接的图表展示</title>
-      <link>https://blog.mygoooosh.com/note/2019/06/18/sql-join-illustrates/</link>
+      <link>/note/2019/06/18/sql-join-illustrates/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/note/2019/06/18/sql-join-illustrates/</guid>
+      <guid>/note/2019/06/18/sql-join-illustrates/</guid>
       <description>图片来源 http://www.postgresqltutorial.com
 inner join left join where left is null
 right join right is null
@@ -45,19 +41,19 @@ cross join summary </description>
     
     <item>
       <title>🐬golang 使用 socks5 代理</title>
-      <link>https://blog.mygoooosh.com/note/2019/05/21/golang-use-socks5-proxy/</link>
+      <link>/note/2019/05/21/golang-use-socks5-proxy/</link>
       <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/note/2019/05/21/golang-use-socks5-proxy/</guid>
-      <description>package mainimport (&amp;#34;fmt&amp;#34;&amp;#34;io/ioutil&amp;#34;&amp;#34;log&amp;#34;&amp;#34;net/http&amp;#34;&amp;#34;os&amp;#34;&amp;#34;golang.org/x/net/proxy&amp;#34;)func main() {// create a socks5 dialer dialer, err := proxy.SOCKS5(&amp;#34;tcp&amp;#34;, &amp;#34;127.0.0.1:1080&amp;#34;, nil, proxy.Direct)if err != nil {_, _ = fmt.Fprintln(os.Stderr, &amp;#34;can&amp;#39;t connect to the proxy:&amp;#34;, err)os.Exit(1)}// setup a http client httpTransport := &amp;amp;http.Transport{}httpClient := &amp;amp;http.Client{Transport: httpTransport}// set our socks5 as the dialer httpTransport.Dial = dialer.Dialif resp, err := httpClient.</description>
+      <guid>/note/2019/05/21/golang-use-socks5-proxy/</guid>
+      <description>package main import ( &amp;#34;fmt&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;os&amp;#34; &amp;#34;golang.org/x/net/proxy&amp;#34; ) func main() { // create a socks5 dialer dialer, err := proxy.SOCKS5(&amp;#34;tcp&amp;#34;, &amp;#34;127.0.0.1:1080&amp;#34;, nil, proxy.Direct) if err != nil { _, _ = fmt.Fprintln(os.Stderr, &amp;#34;can&amp;#39;t connect to the proxy:&amp;#34;, err) os.Exit(1) } // setup a http client httpTransport := &amp;amp;http.Transport{} httpClient := &amp;amp;http.Client{Transport: httpTransport} // set our socks5 as the dialer httpTransport.Dial = dialer.Dial if resp, err := httpClient.Get(&amp;#34;https://www.baidu.com&amp;#34;); err !</description>
     </item>
     
     <item>
       <title>🔬&amp;✝️科学与宗教</title>
-      <link>https://blog.mygoooosh.com/note/2019/03/30/science-and-religion/</link>
+      <link>/note/2019/03/30/science-and-religion/</link>
       <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/note/2019/03/30/science-and-religion/</guid>
+      <guid>/note/2019/03/30/science-and-religion/</guid>
       <description>按照我们当代共产主义无神论者的思想，宗教是愚昧无知的代表，而科学却代表着先进、现代化。但不妨换一条思路，分析一下科学和宗教的区别是什么？
 宗教与科学的共同点 宗教和科学都是思想的产物 宗教是看不见的，没有人能够指出宗教是什么，也没有人能够具体地指出科学是什么。两者都是建立在想像上的产物，然后被大多数人接受。不同的是宗教是个别少数人（比如耶稣，佛陀）的想象，科学是所有科学家的想象。有人可能会说，科学是可以看见的，比如我们现在用的手机，电脑等等，这些高科技都代表这科学。但是在我看来，这些和佛教的佛像，基督教的教堂本质上是一致的。我们通过科学生产出了手机，为人们解决社交问题。佛教徒通过佛的指示，请了一尊佛回教，或者去庙里烧香，为自己解决病痛，或者祈求得到好运。所以这些实体都是上述两种想象为人类服务的工具（并不去考虑这工具有没有实际效果，有很多所谓的高科技都是没有用处的）。只不过科学的法器种类更加繁多，显灵的几率更是高了好几个数量级。
 宗教和科学都宣扬自己是真理 我们相信科学，认为科学能够解释世界的本质。如果有些东西科学不能解释，那不是科学本身的问题，而是你自身知识不够。并且坚信着这只是暂时的，随着时间的发展，总有一天科学会给出合理的解释。每个宗教都有自己的世界观，而上帝能够解释说有的一切。如果有一些东西，上帝没有告诉你，那是因为你不够虔诚。并且坚信随着时间的发展，总有一天上帝会看到你的虔诚，并给你合理的解释。(或者上帝认为，这事对人类发展无益，你不必去了解)
@@ -67,33 +63,31 @@ cross join summary </description>
 科学承认自己无知 宗教宣扬上帝从一开始就是万能的，科学相信现阶段的科学是有限的，有些东西科学不能解释。但不必担心，科学的广度可以通过科学家的知识来扩展。只要有足够的时间，总有一天科学能够解释先前不能解释的东西。
 科学希望所有人都学知识 宗教和上帝沟通的权利总是被少数人垄断。科学则是号召全部人都加入科学，科学认为自己的力量来自于民众的知识水平。
 科学更加包容 如今在全球，无论什么国家，什么宗教，什么种族，都能看见科学的身影。而翻开历史你会发现，古代西方的战争史都是宗教战争史，伊斯兰教与基督教打，基督教里的天主教与东正教打、天主教与新教打，伊斯兰教里的苏菲派和逊尼派的老死不相往来。直至现在这个全球化趋势不可挡的时代的马来西亚，允许佛教、基督教、印度教、但却不允许伊斯兰教的苏菲派（马来人是伊斯兰教逊尼派）。
- 参考  《人类简史：从动物到上帝》
- </description>
+参考 《人类简史：从动物到上帝》</description>
     </item>
     
     <item>
       <title>🐛精神寄生虫</title>
-      <link>https://blog.mygoooosh.com/note/2019/03/19/%E7%B2%BE%E7%A5%9E%E5%AF%84%E7%94%9F%E8%99%AB/</link>
+      <link>/note/2019/03/19/%E7%B2%BE%E7%A5%9E%E5%AF%84%E7%94%9F%E8%99%AB/</link>
       <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/note/2019/03/19/%E7%B2%BE%E7%A5%9E%E5%AF%84%E7%94%9F%E8%99%AB/</guid>
+      <guid>/note/2019/03/19/%E7%B2%BE%E7%A5%9E%E5%AF%84%E7%94%9F%E8%99%AB/</guid>
       <description>是我们创造了文化，还是文化利用了我们？或许文化就是一条寄生虫，毫不关心宿主的死活。
 0x00 文化将人类从野蛮中带出来，并且将大批具有相同文化的人凝结成一个整体。如今地球上生活着的人们，我们都可以通过某些方式将他们归类于某种文化。历史上也出现过许多多的文化，大多数因竞争失败而消亡。能够存活至今的文化毋庸置疑是“文化家族”中的佼佼者，但是这些“最优秀的文化”是对人类“最有利”的吗？我看未必，没有任何证据表明，对人类有利的文化会扩张，对人类无情的文化就会消亡。没有证据显示，印度教会给予印度人比佛教更多的幸福，或者证明阿拉伯帝国比波斯帝国对人类更有利。
 0x01 文化就像能够感染精神的寄生虫，而人类就是毫不知情的宿主。寄生虫就这样寄生在宿主体内，繁殖、传播、从一个宿主到另一个宿主，夺取养分，让宿主衰落，有时甚至丧命。只要宿主能够活着让寄生虫继续繁衍，寄生虫就很少关系宿主的情形。而寄生虫都有强烈的繁衍倾向，甚至为此操控宿主的行为（如铁线虫与螳螂）。寄生在人类心中的文化不也是这样吗？成吉思汗的子孙进入汉文化之后，不到一百年就变得孱弱不堪；而清王朝充分汉化之后，“满万不可战”的神话已经不复存在。从时间这个维度看，汉民族创建的王朝无论是战斗力还是影响力都在不断下降。文化这个寄生虫不断侵蚀宿主，让宿主越来越弱。
 0x02 为了自身繁殖，铁线虫会引导受感染的螳螂走向水源。为了传播上帝的福音，无数的传教士跨越千难万险深入不毛之地；为了进行所谓的圣战，本拉登放弃自己的富豪生活，甘愿躲进丛林。于是，螳螂死了，铁线虫在水里产下了自己的卵感染了更多的螳螂；传教士死了，基督徒遍布世界的没一个角落；本拉登死了，伊斯兰世界动荡不堪。
 0x03 一个个体感染寄生虫之后，它的邻居往往都不可幸免。一个文明出现之后，周围的文明或多或少都会受到他的影响。就像“阿拉伯之春”从突尼斯蔓延到整个伊斯兰世界。可悲的是受控制的螳螂走向水塘并不会认为自己这么做有什么错；极端组织也认为自己的行为对整个世界是有利的。但整体看来这种行为最后只会对铁线虫和安拉有利。从整体来看，两国军备竞赛并不会影响两国的军事力量的平衡，并且对两国其他方面也没有任何益处，有好处的只有“军备竞赛”本身。但无论双方哪国，只要一脚踏进军备发展，整个军备竞赛便难以抗拒，直至某个国家被拖垮，就像螳螂义无反顾地走向水塘一样。
 0x04 当我们对自己博大精深的中华文化产生莫大的自豪感时，是不是思想的寄生虫在作怪？我们的文化会不会带领我们高高兴兴地走向灭亡的水塘；又或者经过两千多年的磨合，我们和我们的文化能够安然无恙地相处，并一起走向繁荣。
- 二〇一九年三月十九日 阴
-参考  《人类简史：从动物到上帝》
- </description>
+二〇一九年三月十九日 阴
+参考 《人类简史：从动物到上帝》</description>
     </item>
     
     <item>
       <title>☕️由反射引起的 Java 常量名与变量名的思考</title>
-      <link>https://blog.mygoooosh.com/note/2019/02/26/java-reflect/</link>
+      <link>/note/2019/02/26/java-reflect/</link>
       <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.mygoooosh.com/note/2019/02/26/java-reflect/</guid>
+      <guid>/note/2019/02/26/java-reflect/</guid>
       <description>0x00 前几天，一个同学问我关于反射的问题。我对 Java 反射了解并不多，照着他给的例子做实验的时候发现了一个让我摸不着头脑的问题。代码如下：
 public class demo { public static void change(Integer a, Integer b) throws NoSuchFieldException, IllegalAccessException { Field field = Integer.class.getDeclaredField(&amp;#34;value&amp;#34;); field.setAccessible(true); field.set(b, 10); field.set(a, 1); } public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException { Integer a = 10, b = 1; change(a, b); System.out.println(&amp;#34;a = &amp;#34; + a + &amp;#34; b = &amp;#34; + b); } } 这本来就是很平常的改变两个变量的值，但是结果如下
 WTF?? b 是 10 没错 a 怎么变成 10 了。</description>

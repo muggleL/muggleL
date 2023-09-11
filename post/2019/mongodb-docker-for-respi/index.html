@@ -27,37 +27,19 @@
     
 
 
-<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
 
 
 
 
-    <link rel="stylesheet" href="/css/style-dark.css" />
-    <link rel="stylesheet" id="themes" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/switcher.css" />
     <link rel="stylesheet" href="/css/custom.css" />
 
-    <script>
-      let da = window.localStorage.getItem("dark");
-      let light = document.getElementById("themes");
-
-    if(da == null) {
-        window.localStorage.setItem("dark", true);
-        da = "false";
-
-    }
-    if(da == "true") {
-        light.href = "/css/style-dark.css"; 
-    }
-    </script>
   </head>
-<div id="change-theme">
 
-   <input type="checkbox" class="switch"/>
-</div>
   
-  <body class="https://blog.mygoooosh.com/post/2019/mongodb-docker-for-respi/">
+  <body class="post">
     <header class="masthead">
       <h1><a href="/">Muggle L</a></h1>
 
@@ -108,47 +90,6 @@
 
 
 
-      <script>
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        let switcher = document.getElementsByClassName("switch")[0]
-        if (da == "false") {
-          switcher.checked = true;
-        }
-        switcher.addEventListener("change", e => {
-          if (switcher.checked == true) {
-            light.href = "/css/style.css";
-            window.localStorage["dark"] = false;
-
-          } else {
-            light.href = "/css/style-dark.css";
-            window.localStorage["dark"] = true;
-          }
-        })
-      </script>
       </header>
 
 
@@ -158,33 +99,33 @@
 
 <h2 id="数据库基础配置">数据库基础配置</h2>
 <h3 id="启动">启动</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth
-</code></pre></div><h3 id="创建数据库管理员">创建数据库管理员</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec -it rmongo mongo admin
-db.createUser<span style="color:#f92672">({</span>user: <span style="color:#e6db74">&#34;admin&#34;</span>, pwd: <span style="color:#e6db74">&#34;password&#34;</span>, roles: <span style="color:#f92672">[{</span>role: <span style="color:#e6db74">&#34;userAdminAnyDatabase&#34;</span>, db: <span style="color:#e6db74">&#34;admin&#34;</span><span style="color:#f92672">}]})</span>
-</code></pre></div><h3 id="创建数据库与数据库用户">创建数据库与数据库用户</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">use images
-db.createUser<span style="color:#f92672">({</span> user: <span style="color:#e6db74">&#34;image&#34;</span>, pwd: <span style="color:#e6db74">&#34;yourpassword&#34;</span>, roles: <span style="color:#f92672">[{</span> role: <span style="color:#e6db74">&#34;dbOwner&#34;</span>, db: <span style="color:#e6db74">&#34;images&#34;</span> <span style="color:#f92672">}]</span> <span style="color:#f92672">})</span>
-</code></pre></div><h3 id="重启容器-验证用户">重启容器 验证用户</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d --name rmongo --restart unless-stopped -v /data/db:/data/db -v /data/configdb:/data/congifdb -v /mnt/samba/mongoBank:/bank -p 27017:27017 -p 28017:28017 mongo mongod --auth
+</span></span></code></pre></div><h3 id="创建数据库管理员">创建数据库管理员</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec -it rmongo mongo admin
+</span></span><span style="display:flex;"><span>db.createUser<span style="color:#f92672">({</span>user: <span style="color:#e6db74">&#34;admin&#34;</span>, pwd: <span style="color:#e6db74">&#34;password&#34;</span>, roles: <span style="color:#f92672">[{</span>role: <span style="color:#e6db74">&#34;userAdminAnyDatabase&#34;</span>, db: <span style="color:#e6db74">&#34;admin&#34;</span><span style="color:#f92672">}]})</span>
+</span></span></code></pre></div><h3 id="创建数据库与数据库用户">创建数据库与数据库用户</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>use images
+</span></span><span style="display:flex;"><span>db.createUser<span style="color:#f92672">({</span> user: <span style="color:#e6db74">&#34;image&#34;</span>, pwd: <span style="color:#e6db74">&#34;yourpassword&#34;</span>, roles: <span style="color:#f92672">[{</span> role: <span style="color:#e6db74">&#34;dbOwner&#34;</span>, db: <span style="color:#e6db74">&#34;images&#34;</span> <span style="color:#f92672">}]</span> <span style="color:#f92672">})</span>
+</span></span></code></pre></div><h3 id="重启容器-验证用户">重启容器 验证用户</h3>
 <ul>
 <li>验证 admin</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">db.auth<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;admin&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">)</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>db.auth<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;admin&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><ul>
 <li>验证 image</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">use images
-db.auth<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;image&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">)</span>
-</code></pre></div><h2 id="数据库备份与恢复">数据库备份与恢复</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>use images
+</span></span><span style="display:flex;"><span>db.auth<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;image&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><h2 id="数据库备份与恢复">数据库备份与恢复</h2>
 <ul>
 <li>备份</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec rmongo mongodump --username image --password <span style="color:#ae81ff">12134</span> --authenticationDatabase images -d images -h localhost -o /bank
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec rmongo mongodump --username image --password <span style="color:#ae81ff">12134</span> --authenticationDatabase images -d images -h localhost -o /bank
+</span></span></code></pre></div><ul>
 <li>恢复</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec rmongo mongorestore --username image --password <span style="color:#ae81ff">12134</span> --authenticationDatabase images /bank 
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec rmongo mongorestore --username image --password <span style="color:#ae81ff">12134</span> --authenticationDatabase images /bank 
+</span></span></code></pre></div>
 <br>
 <footer>
     
@@ -242,20 +183,21 @@ code.has-jax {
 
 
 
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/highlight.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
 
 
 
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/yaml.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/go.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/powershell.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/sql.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/bash.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/rust.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/csp.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/java.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/c.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/cpp.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/tex.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/go.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/powershell.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/bash.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/rust.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/c#.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/java.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/c.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/cpp.min.js"></script>
 <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
 
 
@@ -263,7 +205,8 @@ code.has-jax {
    
    <br>
    <span id="/post/2019/mongodb-docker-for-respi/" class="leancloud_visitors" data-flag-title="🍓树莓派 mongodb-for-docker 配置">
-     
+     <span class="post-meta-item-text">文章阅读量 </span>
+     <span class="leancloud-visitors-count">1000000</span>
      <p></p>
    </span>
    <div id="vcomments"></div>
@@ -272,13 +215,13 @@ code.has-jax {
    <script type="text/javascript">
      new Valine({
          el: '#vcomments' ,
-         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
-         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
-         notify:  false , 
-         verify:  false , 
+         appId: 'YZhudDsaS0U0MLyTIBcLUhOB-MdYXbMMI',
+         appKey: 'XcZSyPuwhHeRsRs0hzAGbPM4',
+         notify: 'false', 
+         verify: 'false', 
          avatar:'monsterid', 
          placeholder: '说点什么呗~',
-         visitor:  false 
+         visitor: 'true'
      });
    </script>
 

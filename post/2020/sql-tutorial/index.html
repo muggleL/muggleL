@@ -18,12 +18,12 @@
       
       <meta property="description" content="大纲
 [&amp;hellip;] Docker 创建数据库
-[&amp;hellip;] docker run -d --name=mysql5.7 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=liu12134 mysql:5.7 #mysql 创建数据库 //TODO
+[&amp;hellip;] docker run -d --name=mysql5.7 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=liu12134 mysql:5.7 #mysql 创建数据库 //TODO
 [&amp;hellip;] MySQL 默认编码
 在 MYSQL 8.0 以上 默认编码为 UTF8MB4 &amp;hellip;">
       <meta property="og:description" content="大纲
 [&amp;hellip;] Docker 创建数据库
-[&amp;hellip;] docker run -d --name=mysql5.7 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=liu12134 mysql:5.7 #mysql 创建数据库 //TODO
+[&amp;hellip;] docker run -d --name=mysql5.7 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=liu12134 mysql:5.7 #mysql 创建数据库 //TODO
 [&amp;hellip;] MySQL 默认编码
 在 MYSQL 8.0 以上 默认编码为 UTF8MB4 &amp;hellip;">
       
@@ -38,37 +38,19 @@
     
 
 
-<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
+<link href='//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/agate.min.css' rel='stylesheet' type='text/css' />
 
 
 
 
-    <link rel="stylesheet" href="/css/style-dark.css" />
-    <link rel="stylesheet" id="themes" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/switcher.css" />
     <link rel="stylesheet" href="/css/custom.css" />
 
-    <script>
-      let da = window.localStorage.getItem("dark");
-      let light = document.getElementById("themes");
-
-    if(da == null) {
-        window.localStorage.setItem("dark", true);
-        da = "false";
-
-    }
-    if(da == "true") {
-        light.href = "/css/style-dark.css"; 
-    }
-    </script>
   </head>
-<div id="change-theme">
 
-   <input type="checkbox" class="switch"/>
-</div>
   
-  <body class="https://blog.mygoooosh.com/post/2020/sql-tutorial/">
+  <body class="post">
     <header class="masthead">
       <h1><a href="/">Muggle L</a></h1>
 
@@ -119,47 +101,6 @@
 
 
 
-      <script>
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-      
-        
-        
-        let switcher = document.getElementsByClassName("switch")[0]
-        if (da == "false") {
-          switcher.checked = true;
-        }
-        switcher.addEventListener("change", e => {
-          if (switcher.checked == true) {
-            light.href = "/css/style.css";
-            window.localStorage["dark"] = false;
-
-          } else {
-            light.href = "/css/style-dark.css";
-            window.localStorage["dark"] = true;
-          }
-        })
-      </script>
       </header>
 
 
@@ -178,8 +119,8 @@
 </ol>
 <blockquote>
 <p>Docker 创建数据库</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -d --name<span style="color:#f92672">=</span>mysql5.7 -p 3307:3306 -e MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span>liu12134 mysql:5.7
-</code></pre></div></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d --name<span style="color:#f92672">=</span>mysql5.7 -p 3307:3306 -e MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span>liu12134 mysql:5.7
+</span></span></code></pre></div></blockquote>
 <h2 id="mysql-创建数据库">#mysql 创建数据库</h2>
 <p style="color:green">//TODO</p>
 <blockquote>
@@ -188,36 +129,36 @@
 <li>
 <p>MySQL 默认编码</p>
 <p>在 MYSQL 8.0 以上 默认编码为 UTF8MB4</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql&gt; show  variables like <span style="color:#e6db74">&#39;%char%&#39;</span>;
-+--------------------------+--------------------------------+
-| Variable_name            | Value                          |
-+--------------------------+--------------------------------+
-| character_set_client     | latin1                         |
-| character_set_connection | latin1                         |
-| character_set_database   | utf8mb4                        |
-| character_set_filesystem | binary                         |
-| character_set_results    | latin1                         |
-| character_set_server     | utf8mb4                        |
-| character_set_system     | utf8                           |
-| character_sets_dir       | /usr/share/mysql-8.0/charsets/ |
-+--------------------------+--------------------------------+
-<span style="color:#ae81ff">8</span> rows in set <span style="color:#f92672">(</span>0.00 sec<span style="color:#f92672">)</span>
-</code></pre></div><p>在MySQL 8.0以下， 默认便为 latin1</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql&gt; show variables like <span style="color:#e6db74">&#39;%char%&#39;</span>;
-+--------------------------+----------------------------+
-| Variable_name            | Value                      |
-+--------------------------+----------------------------+
-| character_set_client     | latin1                     |
-| character_set_connection | latin1                     |
-| character_set_database   | latin1                     |
-| character_set_filesystem | binary                     |
-| character_set_results    | latin1                     |
-| character_set_server     | latin1                     |
-| character_set_system     | utf8                       |
-| character_sets_dir       | /usr/share/mysql/charsets/ |
-+--------------------------+----------------------------+
-<span style="color:#ae81ff">8</span> rows in set <span style="color:#f92672">(</span>0.00 sec<span style="color:#f92672">)</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mysql&gt; show  variables like <span style="color:#e6db74">&#39;%char%&#39;</span>;
+</span></span><span style="display:flex;"><span>+--------------------------+--------------------------------+
+</span></span><span style="display:flex;"><span>| Variable_name            | Value                          |
+</span></span><span style="display:flex;"><span>+--------------------------+--------------------------------+
+</span></span><span style="display:flex;"><span>| character_set_client     | latin1                         |
+</span></span><span style="display:flex;"><span>| character_set_connection | latin1                         |
+</span></span><span style="display:flex;"><span>| character_set_database   | utf8mb4                        |
+</span></span><span style="display:flex;"><span>| character_set_filesystem | binary                         |
+</span></span><span style="display:flex;"><span>| character_set_results    | latin1                         |
+</span></span><span style="display:flex;"><span>| character_set_server     | utf8mb4                        |
+</span></span><span style="display:flex;"><span>| character_set_system     | utf8                           |
+</span></span><span style="display:flex;"><span>| character_sets_dir       | /usr/share/mysql-8.0/charsets/ |
+</span></span><span style="display:flex;"><span>+--------------------------+--------------------------------+
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span> rows in set <span style="color:#f92672">(</span>0.00 sec<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>在MySQL 8.0以下， 默认便为 latin1</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mysql&gt; show variables like <span style="color:#e6db74">&#39;%char%&#39;</span>;
+</span></span><span style="display:flex;"><span>+--------------------------+----------------------------+
+</span></span><span style="display:flex;"><span>| Variable_name            | Value                      |
+</span></span><span style="display:flex;"><span>+--------------------------+----------------------------+
+</span></span><span style="display:flex;"><span>| character_set_client     | latin1                     |
+</span></span><span style="display:flex;"><span>| character_set_connection | latin1                     |
+</span></span><span style="display:flex;"><span>| character_set_database   | latin1                     |
+</span></span><span style="display:flex;"><span>| character_set_filesystem | binary                     |
+</span></span><span style="display:flex;"><span>| character_set_results    | latin1                     |
+</span></span><span style="display:flex;"><span>| character_set_server     | latin1                     |
+</span></span><span style="display:flex;"><span>| character_set_system     | utf8                       |
+</span></span><span style="display:flex;"><span>| character_sets_dir       | /usr/share/mysql/charsets/ |
+</span></span><span style="display:flex;"><span>+--------------------------+----------------------------+
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span> rows in set <span style="color:#f92672">(</span>0.00 sec<span style="color:#f92672">)</span>
+</span></span></code></pre></div></li>
 <li>
 <p>MySQL 的 UTF8</p>
 </li>
@@ -227,10 +168,10 @@
 </ul>
 </blockquote>
 <h3 id="创建默认字符集的数据库">##创建默认字符集的数据库</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">database</span> test1 
-</code></pre></div><h3 id="创建-utf8mb4-数据库">##创建 UTF8MB4 数据库</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">database</span> test2 <span style="color:#66d9ef">default</span> character <span style="color:#66d9ef">set</span> utf8mb4 <span style="color:#66d9ef">collate</span> utf8mb4_general_ci
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">database</span> test1 
+</span></span></code></pre></div><h3 id="创建-utf8mb4-数据库">##创建 UTF8MB4 数据库</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">database</span> test2 <span style="color:#66d9ef">default</span> character <span style="color:#66d9ef">set</span> utf8mb4 <span style="color:#66d9ef">collate</span> utf8mb4_general_ci
+</span></span></code></pre></div><blockquote>
 <ol>
 <li>
 <p>数据库名称不需要添加单引号</p>
@@ -244,86 +185,86 @@
 </ol>
 </blockquote>
 <h3 id="查看数据库字符集">##查看数据库字符集</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">select</span> schema_name, default_character_set_name, default_collation_name <span style="color:#66d9ef">from</span> information_schema.schemata <span style="color:#66d9ef">where</span> schema_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;test1&#39;</span>;
-</code></pre></div><p>得到的结果是：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql&gt; <span style="color:#66d9ef">select</span> schema_name, default_character_set_name, default_collation_name from information_schema.schemata where schema_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;test1&#39;</span>;
-+-------------+----------------------------+------------------------+
-| SCHEMA_NAME | DEFAULT_CHARACTER_SET_NAME | DEFAULT_COLLATION_NAME |
-+-------------+----------------------------+------------------------+
-| test1       | utf8                       | utf8_general_ci        |
-+-------------+----------------------------+------------------------+
-<span style="color:#ae81ff">1</span> row in set <span style="color:#f92672">(</span>0.00 sec<span style="color:#f92672">)</span>
-</code></pre></div><h3 id="修改数据库字符集">##修改数据库字符集</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">alter</span> <span style="color:#66d9ef">database</span> test1 <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">character</span> <span style="color:#66d9ef">set</span> utf8 <span style="color:#66d9ef">collate</span> <span style="color:#66d9ef">set</span> utf8_general_ci;
-</code></pre></div><h3 id="删除数据库">##删除数据库</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">drop</span> <span style="color:#66d9ef">database</span> test1;
-</code></pre></div><h2 id="数据库用户管理">#数据库用户管理</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> schema_name, default_character_set_name, default_collation_name <span style="color:#66d9ef">from</span> information_schema.schemata <span style="color:#66d9ef">where</span> schema_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;test1&#39;</span>;
+</span></span></code></pre></div><p>得到的结果是：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mysql&gt; <span style="color:#66d9ef">select</span> schema_name, default_character_set_name, default_collation_name from information_schema.schemata where schema_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;test1&#39;</span>;
+</span></span><span style="display:flex;"><span>+-------------+----------------------------+------------------------+
+</span></span><span style="display:flex;"><span>| SCHEMA_NAME | DEFAULT_CHARACTER_SET_NAME | DEFAULT_COLLATION_NAME |
+</span></span><span style="display:flex;"><span>+-------------+----------------------------+------------------------+
+</span></span><span style="display:flex;"><span>| test1       | utf8                       | utf8_general_ci        |
+</span></span><span style="display:flex;"><span>+-------------+----------------------------+------------------------+
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> row in set <span style="color:#f92672">(</span>0.00 sec<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h3 id="修改数据库字符集">##修改数据库字符集</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">alter</span> <span style="color:#66d9ef">database</span> test1 <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">character</span> <span style="color:#66d9ef">set</span> utf8 <span style="color:#66d9ef">collate</span> <span style="color:#66d9ef">set</span> utf8_general_ci;
+</span></span></code></pre></div><h3 id="删除数据库">##删除数据库</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">drop</span> <span style="color:#66d9ef">database</span> test1;
+</span></span></code></pre></div><h2 id="数据库用户管理">#数据库用户管理</h2>
 <h3 id="用户创建">##用户创建</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">create user <span style="color:#e6db74">&#39;test&#39;</span>@<span style="color:#e6db74">&#39;%&#39;</span> identified by <span style="color:#e6db74">&#39;123456&#39;</span>; <span style="color:#75715e"># 此用户只有登录权限</span>
-</code></pre></div><h3 id="用户权限控制">##用户权限控制</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>create user <span style="color:#e6db74">&#39;test&#39;</span>@<span style="color:#e6db74">&#39;%&#39;</span> identified by <span style="color:#e6db74">&#39;123456&#39;</span>; <span style="color:#75715e"># 此用户只有登录权限</span>
+</span></span></code></pre></div><h3 id="用户权限控制">##用户权限控制</h3>
 <h4 id="修改密码">修改密码</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#75715e"># 修改自身密码
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">set</span> password <span style="color:#f92672">=</span> <span style="color:#a6e22e">password</span>(<span style="color:#e6db74">&#39;123456789&#39;</span>);
-<span style="color:#75715e"># 修改他人密码 本用户必须有管理权限
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">set</span> password <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">password</span>(<span style="color:#e6db74">&#39;123456789&#39;</span>);
-</code></pre></div><h4 id="赋予权限">赋予权限</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">select</span>, <span style="color:#66d9ef">delete</span>, <span style="color:#66d9ef">create</span> <span style="color:#66d9ef">on</span> test4.test <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>; <span style="color:#75715e">#直接给 test用户赋予权限
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">select</span>, <span style="color:#66d9ef">delete</span>, <span style="color:#66d9ef">create</span> <span style="color:#66d9ef">on</span> test4.test <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span> <span style="color:#66d9ef">identified</span> <span style="color:#66d9ef">by</span> <span style="color:#e6db74">&#39;123456&#39;</span>; <span style="color:#75715e">#直接给 test 用赋予权限并修改密码，如果用户不存在则创建用户并赋予权限。
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">privileges</span> <span style="color:#66d9ef">on</span> test4.test <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>, <span style="color:#75715e"># 赋予test用户 test4.test 的全部权限，其中 privileges 可省去。 ??TODO
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">on</span> test4.<span style="color:#f92672">*</span> <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>; <span style="color:#75715e">#将test4 中所有对象的所有权限赋予test用户。
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">on</span> test4.<span style="color:#f92672">*</span> <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span> <span style="color:#66d9ef">with</span> <span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">option</span> ; <span style="color:#75715e">#将test4 中所有对象的所有权限赋予test用户，并该权限可以传播。
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">on</span> <span style="color:#f92672">*</span>.<span style="color:#f92672">*</span> <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>; <span style="color:#75715e">#将所有表的所有权限赋予test用户。
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">flush</span> <span style="color:#66d9ef">privileges</span>; <span style="color:#75715e"># 刷新用户权限。
-</span></code></pre></div><h4 id="查看权限">查看权限</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">show</span> grants <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>;
-</code></pre></div><h4 id="回收权限">回收权限</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">revoke</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">on</span> test4.<span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>;
-<span style="color:#66d9ef">revoke</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">on</span> <span style="color:#f92672">*</span>.<span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>;
-</code></pre></div><h4 id="用户删除">用户删除</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">drop</span> <span style="color:#66d9ef">user</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>;
-</code></pre></div><h4 id="用户修改">用户修改</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">rename</span> <span style="color:#66d9ef">user</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span> <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test1&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>; <span style="color:#75715e"># 用户修改
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">update</span>
-</code></pre></div><h4 id="查看所有用户">查看所有用户</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#75715e"># 在 mysql 数据库下
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> <span style="color:#66d9ef">user</span>, host <span style="color:#66d9ef">from</span> <span style="color:#66d9ef">user</span>;
-</code></pre></div><h2 id="数据库-curd">数据库 CURD</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#75715e"># 修改自身密码
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">set</span> password <span style="color:#f92672">=</span> <span style="color:#a6e22e">password</span>(<span style="color:#e6db74">&#39;123456789&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 修改他人密码 本用户必须有管理权限
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">set</span> password <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">password</span>(<span style="color:#e6db74">&#39;123456789&#39;</span>);
+</span></span></code></pre></div><h4 id="赋予权限">赋予权限</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">select</span>, <span style="color:#66d9ef">delete</span>, <span style="color:#66d9ef">create</span> <span style="color:#66d9ef">on</span> test4.test <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>; <span style="color:#75715e">#直接给 test用户赋予权限
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">select</span>, <span style="color:#66d9ef">delete</span>, <span style="color:#66d9ef">create</span> <span style="color:#66d9ef">on</span> test4.test <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span> <span style="color:#66d9ef">identified</span> <span style="color:#66d9ef">by</span> <span style="color:#e6db74">&#39;123456&#39;</span>; <span style="color:#75715e">#直接给 test 用赋予权限并修改密码，如果用户不存在则创建用户并赋予权限。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">privileges</span> <span style="color:#66d9ef">on</span> test4.test <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>, <span style="color:#75715e"># 赋予test用户 test4.test 的全部权限，其中 privileges 可省去。 ??TODO
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">on</span> test4.<span style="color:#f92672">*</span> <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>; <span style="color:#75715e">#将test4 中所有对象的所有权限赋予test用户。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">on</span> test4.<span style="color:#f92672">*</span> <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span> <span style="color:#66d9ef">with</span> <span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">option</span> ; <span style="color:#75715e">#将test4 中所有对象的所有权限赋予test用户，并该权限可以传播。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">on</span> <span style="color:#f92672">*</span>.<span style="color:#f92672">*</span> <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>; <span style="color:#75715e">#将所有表的所有权限赋予test用户。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">flush</span> <span style="color:#66d9ef">privileges</span>; <span style="color:#75715e"># 刷新用户权限。
+</span></span></span></code></pre></div><h4 id="查看权限">查看权限</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">show</span> grants <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>;
+</span></span></code></pre></div><h4 id="回收权限">回收权限</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">revoke</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">on</span> test4.<span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">revoke</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">on</span> <span style="color:#f92672">*</span>.<span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>;
+</span></span></code></pre></div><h4 id="用户删除">用户删除</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">drop</span> <span style="color:#66d9ef">user</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>;
+</span></span></code></pre></div><h4 id="用户修改">用户修改</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">rename</span> <span style="color:#66d9ef">user</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span> <span style="color:#66d9ef">to</span> <span style="color:#e6db74">&#39;test1&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;%&#39;</span>; <span style="color:#75715e"># 用户修改
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">update</span>
+</span></span></code></pre></div><h4 id="查看所有用户">查看所有用户</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#75715e"># 在 mysql 数据库下
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> <span style="color:#66d9ef">user</span>, host <span style="color:#66d9ef">from</span> <span style="color:#66d9ef">user</span>;
+</span></span></code></pre></div><h2 id="数据库-curd">数据库 CURD</h2>
 <h3 id="sql-导入外部-txt-文件">##SQL 导入外部 txt 文件</h3>
 <ol>
 <li>
 <p>创建目标表</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> <span style="color:#a6e22e">pet</span> (
-    name <span style="color:#66d9ef">VARCHAR</span>(<span style="color:#ae81ff">20</span>),
-    owner <span style="color:#66d9ef">VARCHAR</span>(<span style="color:#ae81ff">20</span>),
-    species <span style="color:#66d9ef">VARCHAR</span>(<span style="color:#ae81ff">20</span>),
-    sex <span style="color:#66d9ef">CHAR</span>(<span style="color:#ae81ff">1</span>),
-    birth <span style="color:#66d9ef">DATE</span>,
-    death <span style="color:#66d9ef">DATE</span>
-);
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> <span style="color:#a6e22e">pet</span> (
+</span></span><span style="display:flex;"><span>    name <span style="color:#66d9ef">VARCHAR</span>(<span style="color:#ae81ff">20</span>),
+</span></span><span style="display:flex;"><span>    owner <span style="color:#66d9ef">VARCHAR</span>(<span style="color:#ae81ff">20</span>),
+</span></span><span style="display:flex;"><span>    species <span style="color:#66d9ef">VARCHAR</span>(<span style="color:#ae81ff">20</span>),
+</span></span><span style="display:flex;"><span>    sex <span style="color:#66d9ef">CHAR</span>(<span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    birth <span style="color:#66d9ef">DATE</span>,
+</span></span><span style="display:flex;"><span>    death <span style="color:#66d9ef">DATE</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div></li>
 <li>
 <p>创建 txt 文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Fluffy  Harold  cat     f       1993-02-04      \N
-Claws   Gwen    cat     m       1994-03-17      \N
-Buffy   Harold  dog     f       1989-05-13      \N
-Fang    Benny   dog     m       1990-08-27      \N
-Bowser  Diane   dog     m       1979-08-31      1995-07-29
-Chirpy  Gwen    bird    f       1998-09-11      \N
-Whistler        Gwen    bird    \N      1997-12-09      \N
-Slim    Benny   snake   m       1996-04-29      \N      
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>Fluffy  Harold  cat     f       1993-02-04      \N
+</span></span><span style="display:flex;"><span>Claws   Gwen    cat     m       1994-03-17      \N
+</span></span><span style="display:flex;"><span>Buffy   Harold  dog     f       1989-05-13      \N
+</span></span><span style="display:flex;"><span>Fang    Benny   dog     m       1990-08-27      \N
+</span></span><span style="display:flex;"><span>Bowser  Diane   dog     m       1979-08-31      1995-07-29
+</span></span><span style="display:flex;"><span>Chirpy  Gwen    bird    f       1998-09-11      \N
+</span></span><span style="display:flex;"><span>Whistler        Gwen    bird    \N      1997-12-09      \N
+</span></span><span style="display:flex;"><span>Slim    Benny   snake   m       1996-04-29      \N      
+</span></span></code></pre></div><blockquote>
 <p>不同数据之前千万要用制表符(Tab) 分隔，否则导入数据会出问题。</p>
 </blockquote>
 </li>
 <li>
 <p>导入</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">load</span> data local <span style="color:#66d9ef">infile</span> <span style="color:#e6db74">&#39;/data/pet.txt&#39;</span> <span style="color:#66d9ef">into</span> <span style="color:#66d9ef">table</span> pet;
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">load</span> data local <span style="color:#66d9ef">infile</span> <span style="color:#e6db74">&#39;/data/pet.txt&#39;</span> <span style="color:#66d9ef">into</span> <span style="color:#66d9ef">table</span> pet;
+</span></span></code></pre></div></li>
 </ol>
 <h3 id="update">##UPDATE</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">update</span> pet <span style="color:#66d9ef">set</span> birth<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1989-08-31&#39;</span> <span style="color:#66d9ef">where</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Bowser&#39;</span>;
-</code></pre></div><p><strong>待续&hellip;</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">update</span> pet <span style="color:#66d9ef">set</span> birth<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1989-08-31&#39;</span> <span style="color:#66d9ef">where</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Bowser&#39;</span>;
+</span></span></code></pre></div><p><strong>待续&hellip;</strong></p>
 
 <br>
 <footer>
@@ -382,20 +323,21 @@ code.has-jax {
 
 
 
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/highlight.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
 
 
 
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/yaml.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/go.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/powershell.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/sql.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/bash.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/rust.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/csp.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/java.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/c.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.6.0/build/languages/cpp.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/tex.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/go.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/powershell.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/bash.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/rust.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/c#.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/java.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/c.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/languages/cpp.min.js"></script>
 <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
 
 
@@ -403,7 +345,8 @@ code.has-jax {
    
    <br>
    <span id="/post/2020/sql-tutorial/" class="leancloud_visitors" data-flag-title="🥊SQL 拾遗">
-     
+     <span class="post-meta-item-text">文章阅读量 </span>
+     <span class="leancloud-visitors-count">1000000</span>
      <p></p>
    </span>
    <div id="vcomments"></div>
@@ -412,13 +355,13 @@ code.has-jax {
    <script type="text/javascript">
      new Valine({
          el: '#vcomments' ,
-         appId: 'ipR0UGBwhzhpRfzhlNwHl4rR-MdYXbMMI',
-         appKey: 'inbruR2BGaSxMmHIeFO4S0Rv',
-         notify:  false , 
-         verify:  false , 
+         appId: 'YZhudDsaS0U0MLyTIBcLUhOB-MdYXbMMI',
+         appKey: 'XcZSyPuwhHeRsRs0hzAGbPM4',
+         notify: 'false', 
+         verify: 'false', 
          avatar:'monsterid', 
          placeholder: '说点什么呗~',
-         visitor:  false 
+         visitor: 'true'
      });
    </script>
 
